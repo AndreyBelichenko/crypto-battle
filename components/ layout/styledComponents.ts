@@ -14,7 +14,7 @@ export const LayoutHeader = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-`
+`;
 
 export const LayoutContentWrapper = styled.div`
     width: 100%;
