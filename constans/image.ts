@@ -1,5 +1,5 @@
 export default [
-    {
-        logo: 'url(\./assets/logo.svg\')',
-    }
+  {
+    logo: 'url(\./assets/logo.svg\')',
+  },
 ];

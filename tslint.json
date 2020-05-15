@@ -4,9 +4,10 @@
     "import-name": false,
     "align": false,
     "react-hooks-nesting": true,
-    "singleQuote": true,
+    "singleQuote": false,
     "arrow-parens": false,
     "requireForBlockBody": true,
+    "no-console": true,
     "function-name": [
       true,
       {

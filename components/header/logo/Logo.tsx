@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {LogoWrapper, ImageWrapper, LabelWrapper} from './styledComponents';
-import {Image} from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
+
 import logo from '../../../constans/image';
 
+import { LogoWrapper, ImageWrapper, LabelWrapper } from './styledComponents';
+
 const Logo: React.FC = () => {
-    return(
+  return(
         <LogoWrapper>
             <ImageWrapper>
             <Image src={logo}/>
@@ -13,7 +15,7 @@ const Logo: React.FC = () => {
                 Crypto battle
             </LabelWrapper>
         </LogoWrapper>
-    )
+  );
 };
 
 export default Logo;

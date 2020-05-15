@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {NavBarWrapper, ItemWrapper} from './styledComponents';
+
+import { NavBarWrapper, ItemWrapper } from './styledComponents';
 
 const NavBar: React.FC = () => {
-    return(
+  return(
         <NavBarWrapper>
             <ItemWrapper>
                 Request
@@ -14,7 +15,7 @@ const NavBar: React.FC = () => {
                 Story
             </ItemWrapper>
         </NavBarWrapper>
-    )
+  );
 };
 
 export default NavBar;

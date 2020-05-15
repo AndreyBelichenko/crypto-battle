@@ -1,9 +1,11 @@
 import * as React from 'react';
-import{LayoutWrapper, LayoutHeader, LayoutContentWrapper} from './styledComponents';
+
 import Header from '../header/Header';
 
+import{ LayoutWrapper, LayoutHeader, LayoutContentWrapper } from './styledComponents';
+
 const Layout: React.FC = () => {
-    return(
+  return(
         <LayoutWrapper>
             <LayoutHeader>
                 <Header/>
@@ -12,7 +14,7 @@ const Layout: React.FC = () => {
                 I am layout
             </LayoutContentWrapper>
         </LayoutWrapper>
-    )
+  );
 };
 
 export default Layout;
