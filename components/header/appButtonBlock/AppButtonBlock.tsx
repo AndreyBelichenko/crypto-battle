@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 
 import { AppButtonBlockWrapper, ButtonWrapper } from './styledComponents';
 import ModalWindow from '../../modalWindow/modalWindow';
-import * as actions from '../../../redux/actionCreators/actionCreators';
+import * as actions from '../../../store/redux/actionCreators/actionCreators';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();

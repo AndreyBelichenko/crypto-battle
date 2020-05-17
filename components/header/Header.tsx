@@ -7,7 +7,7 @@ import AuthBlock from './authBlock/AuthBlock';
 import AppButtonBlock from './appButtonBlock/AppButtonBlock';
 
 import { BlockHeader } from './styledComponents';
-import { UserDataType } from '../../redux/reducers/userReducer';
+import { UserDataType } from '../../store/redux/reducers/userReducer';
 
 interface RootState {
   user: {
