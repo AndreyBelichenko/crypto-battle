@@ -2,8 +2,13 @@ import { put } from 'redux-saga/effects';
 
 import * as action from '../../redux/actionCreators/actionCreators';
 
-export function* authUserData(payload:object) {
-  yield put(action.setAuthStoreUserData(payload));
+interface payloadInterface {
+  type: string;
+  payload: object
+}
+
+export function* authUserData(payload: payloadInterface) {
+  yield put(action.setAuthStoreUserData(payload.payload));
 }
 
 export function* logOut() {
