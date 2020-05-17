@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { AppButtonBlockWrapper, ButtonWrapper } from './styledComponents';
-import ModalWindow from "../../modalWindow/modalWindow";
+import ModalWindow from '../../modalWindow/modalWindow';
 
 const AppButtonBlock: React.FC = () => {
   return(

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Grid } from 'semantic-ui-react';
 
-export const LayoutWrapper = styled.div`
+export const BattlesWrapper = styled.div`
     width: 100%;
     height: 100vh;
     display:flex;
@@ -9,7 +9,7 @@ export const LayoutWrapper = styled.div`
     justify-content: space-between;
 `;
 
-export const LayoutHeader = styled.div`
+export const BattlesHeader = styled.div`
   height: 7%;
   width: 100%;
   display: flex;
@@ -17,7 +17,7 @@ export const LayoutHeader = styled.div`
   justify-content: flex-end;
 `;
 
-export const LayoutContentWrapper = styled.div`
+export const BattlesContentWrapper = styled.div`
     width: 20%;
     height: 100%;
     display:flex;
@@ -26,13 +26,13 @@ export const LayoutContentWrapper = styled.div`
     align-items: center;
   `;
 
-export const LayoutSidebar = styled(Grid)({
+export const BattlesSidebar = styled(Grid)({
   margin: '0!important',
   height: '100%',
   width: '100%',
 });
 
-export const LayoutMainContent = styled.div`
+export const BattlesMainContent = styled.div`
     width: 60%;
     height: 100%;
     display:flex;

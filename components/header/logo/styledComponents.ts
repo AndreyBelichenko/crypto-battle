@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import colorMatrix from '../../../constans/colorMatrix';
+
+const color = colorMatrix;
+
 export const LogoWrapper = styled.div`
     display:flex;
     flex-direction: row;
@@ -17,5 +21,5 @@ export const LabelWrapper = styled.div`
     font-weight: bold;
     font-size: 36px;
     line-height: 48px;
-    color: #FFFFFF;
+    color: ${color.white};
     `;

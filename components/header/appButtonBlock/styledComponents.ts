@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import colorMatrix from '../../../constans/colorMatrix';
+
+const color = colorMatrix;
+
 export const AppButtonBlockWrapper = styled.div`
     display:flex;
     flex-direction: row;
@@ -13,7 +17,7 @@ export const ButtonWrapper = styled.div`
     `;
 
 export const Btn = styled.button`
-    background: #F05016;
-    color: #FFFFFF;
+    background: ${color.pomegranate};
+    color: ${color.white};
     border: none;
     `;

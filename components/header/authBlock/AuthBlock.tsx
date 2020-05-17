@@ -20,16 +20,16 @@ const AuthBlock: React.FC = () => {
       Cookies.set('userData', dataToSend);
       dispatch(setAuthUserData(dataToSend));
     }
-  }
+  };
 
   const responseGoogle = (response:any) => {
-      if (response.accessToken) {
-        const dataToSend = {
-          name: response.profileObj.name,
-          avatar: response.profileObj.imageUrl,
-        };
-        Cookies.set('userData', dataToSend);
-        dispatch(setAuthUserData(dataToSend));
+    if (response.accessToken) {
+      const dataToSend = {
+        name: response.profileObj.name,
+        avatar: response.profileObj.imageUrl,
+      };
+      Cookies.set('userData', dataToSend);
+      dispatch(setAuthUserData(dataToSend));
     }
   };
 
@@ -51,7 +51,7 @@ const AuthBlock: React.FC = () => {
             buttonText=""
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
-            cookiePolicy='single_host_origin'
+            cookiePolicy="single_host_origin"
             onAutoLoadFinished={() => {}}/>
         </BtnWrapper>
         </AuthWrapper>

@@ -4,12 +4,6 @@ import colorMatrix from '../../../constans/colorMatrix';
 
 const color = colorMatrix;
 
-export const NavBarWrapper = styled.div`
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    `;
-
 export const Item = styled.a`
     margin: 30px;
     font-family: PT Serif;
@@ -21,6 +15,7 @@ export const Item = styled.a`
     color: ${color.white};
     &:hover {
     color: ${color.pomegranate};
+    border-bottom: 3px solid ${color.pomegranate};
     }
     &:active {
     color: ${color.pomegranate};

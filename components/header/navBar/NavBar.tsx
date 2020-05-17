@@ -1,19 +1,16 @@
 import * as React from 'react';
 
-import { NavBarWrapper, ItemWrapper } from './styledComponents';
+import headerItem from '../../../constans/config/headerItem';
+import Link from '../link/Link';
+
+import { NavBarWrapper } from './styledComponents';
 
 const NavBar: React.FC = () => {
   return(
-        <NavBarWrapper>
-            <ItemWrapper>
-                Request
-            </ItemWrapper>
-            <ItemWrapper>
-                Battles
-            </ItemWrapper>
-            <ItemWrapper>
-                Story
-            </ItemWrapper>
+     <NavBarWrapper>
+       {headerItem.map(item => (
+         <Link key={item.idItem} name={item.name} path={item.path}/>
+            ))}
         </NavBarWrapper>
   );
 };
