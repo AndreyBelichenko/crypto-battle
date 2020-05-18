@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import colorMatrix from '../../../constans/colorMatrix';
-
-const color = colorMatrix;
+import color from '../../../constans/colorMatrix';
+import fonts from '../../../constans/fonts';
 
 export const NavBarWrapper = styled.div`
     display:flex;
@@ -12,7 +11,7 @@ export const NavBarWrapper = styled.div`
     `;
 
 export const Item = styled.a`
-    font-family: PT Serif;
+    font-family: ${fonts.header};
     font-style: normal;
     font-weight: normal;
     font-size: 36px;

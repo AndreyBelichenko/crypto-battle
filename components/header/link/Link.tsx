@@ -4,7 +4,6 @@ import { Item } from './styledComponent';
 
 interface IProps {
   name: string;
-
   path: any;
 }
 

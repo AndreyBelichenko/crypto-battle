@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import headerItem from '../../../constans/config/headerItem';
+import headerItem from '../../../constans/headerItem';
 import Link from '../link/Link';
 
 import { NavBarWrapper } from './styledComponents';

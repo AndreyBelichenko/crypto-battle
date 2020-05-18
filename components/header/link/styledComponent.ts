@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import colorMatrix from '../../../constans/colorMatrix';
-
-const color = colorMatrix;
+import color from '../../../constans/colorMatrix';
 
 export const Item = styled.a`
   margin: 30px;

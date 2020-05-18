@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import colorMatrix from '../../../constans/colorMatrix';
-
-const color = colorMatrix;
+import color from '../../../constans/colorMatrix';
+import fonts from '../../../constans/fonts';
 
 export const LogoWrapper = styled.div`
   display:flex;
@@ -16,7 +15,7 @@ export const ImageWrapper = styled.div`
   `;
 
 export const LabelWrapper = styled.div`
-  font-family: PT Serif;
+  font-family: ${fonts.header};
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
