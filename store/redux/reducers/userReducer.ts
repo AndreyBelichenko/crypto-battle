@@ -29,6 +29,5 @@ export default function userReducer(
     case actionTypes.LOG_OUT_STORE: return initialState;
     default:
       return state;
-
   }
 }
