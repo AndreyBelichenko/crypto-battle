@@ -7,6 +7,7 @@ const color = colorMatrix;
 export const AppButtonBlockWrapper = styled.div`
     display:flex;
     flex-direction: row;
+    justify-content: 'space-between';
     `;
 
 export const ButtonWrapper = styled.div`

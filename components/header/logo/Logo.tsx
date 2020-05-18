@@ -9,7 +9,9 @@ const Logo: React.FC = () => {
   return(
         <LogoWrapper>
             <ImageWrapper>
-            <Image src={logo}/>
+              {logo.map((item, index) => (
+                <Image key={index} src={item.img}/>
+              ))}
             </ImageWrapper>
             <LabelWrapper>
                 Crypto battle
