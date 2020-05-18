@@ -6,7 +6,6 @@ const userDataCookie = Cookies.get('userData');
 export type UserDataType = {
   name: string,
   avatar: string,
-  email: string,
 };
 
 export type InitialStateType = {
