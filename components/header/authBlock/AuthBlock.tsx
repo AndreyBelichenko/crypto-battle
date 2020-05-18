@@ -37,22 +37,23 @@ const AuthBlock: React.FC = () => {
     <AuthWrapper>
       <BtnWrapper>
         <FacebookLogin
-            appId="833822150435127"
-            autoLoad={true}
-            fields="name,email,picture"
-            onClick={responseFacebook}
-            callback={responseFacebook}
-            textButton=""
-            icon="fa-facebook"
+          appId="263020944839635"
+          autoLoad={false}
+          fields="name,email,picture"
+          onClick={responseFacebook}
+          callback={responseFacebook}
+          textButton=""
+          icon="fa-facebook"
         />
       </BtnWrapper>
       <BtnWrapper>
         <GoogleLogin
-            clientId="1066411115726-q8irdkbiq5t7kkdk59h1otnia7l3q93j.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
+          clientId="411912187634-09e2pudtp337atlucsnlfaeb13ie4ntj.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          onAutoLoadFinished={() => {}}
         />
       </BtnWrapper>
     </AuthWrapper>
