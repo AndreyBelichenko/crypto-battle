@@ -4,8 +4,9 @@ import { useDispatch } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
+import ModalWindow from '../../modalWindow/modalWindow';
 
-import { AppButtonBlockWrapper, ButtonWrapper, Btn } from './styledComponents';
+import { AppButtonBlockWrapper, ButtonWrapper } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const AppButtonBlock: React.FC = () => {
   return (
     <AppButtonBlockWrapper>
       <ButtonWrapper>
-        <Btn>Create</Btn>
+        <ModalWindow role="create" />
       </ButtonWrapper>
       <Button circular icon="user outline" size="large" color="black" />
       <Button circular icon="sign-in alternate" size="large" color="black" onClick={logOut} />

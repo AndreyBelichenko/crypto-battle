@@ -22,6 +22,7 @@ const ModalWindow = (props: ModalProps) => {
   const toggleModal = () => setIsOpen(!isOpen);
   const title = props.role === 'create' ? 'Request Battle' : 'Connect Battle';
   const buttonName = props.role === 'create' ? 'Create' : 'Connect';
+
   return (
     <div>
       <BtnCreate onClick={toggleModal}>{buttonName}</BtnCreate>
