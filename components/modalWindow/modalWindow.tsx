@@ -10,7 +10,6 @@ import {
   StyledFooterModal,
   StyledDropDown,
   StyledCloseButton,
-  ModalWrapper,
   StyledConnectWrapper,
 } from './styledComponents';
 
@@ -21,17 +20,14 @@ interface ModalProps {
 const ModalWindow = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => setIsOpen(!isOpen);
-
+  const title = props.role === 'create' ? 'Request Battle' : 'Connect Battle';
+  const buttonName = props.role === 'create' ? 'Create' : 'Connect';
   return (
-    <ModalWrapper>
-      {props.role === 'create' ? (
-        <BtnCreate onClick={toggleModal}>Create</BtnCreate>
-      ) : (
-        <BtnCreate onClick={toggleModal}>Connect</BtnCreate>
-      )}
+    <div>
+      <BtnCreate onClick={toggleModal}>{buttonName}</BtnCreate>
       <Modal open={isOpen} onClose={toggleModal} className="customBackground">
         <StyleHeaderTitle className="customBackgroundTransparent" align="center">
-          {props.role === 'create' ? <Container>Request Battle</Container> : <Container>Connect Battle</Container>}
+          <Container>{title}</Container>
           <StyledCloseButton name="close" align="right" onClick={toggleModal} />
         </StyleHeaderTitle>
         <Modal.Content scrolling={true} className="customBackgroundTransparent">
@@ -61,7 +57,7 @@ const ModalWindow = (props: ModalProps) => {
           </StyledFooterModal>
         )}
       </Modal>
-    </ModalWrapper>
+    </div>
   );
 };
 

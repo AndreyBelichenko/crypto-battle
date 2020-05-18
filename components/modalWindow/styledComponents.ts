@@ -3,8 +3,6 @@ import { Modal, Dropdown, Icon, Container } from 'semantic-ui-react';
 
 import colorMatrix from '../../constants/colorMatrix';
 
-export const ModalWrapper = styled.div``;
-
 export const BtnCreate = styled.button`
   background: ${colorMatrix.pomegranate};
   color: ${colorMatrix.white};
