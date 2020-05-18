@@ -6,6 +6,7 @@
     "react-hooks-nesting": true,
     "singleQuote": false,
     "arrow-parens": false,
+    "ter-arrow-parens": [false],
     "requireForBlockBody": true,
     "no-console": true,
     "max-line-length": [
