@@ -8,6 +8,13 @@
     "arrow-parens": false,
     "requireForBlockBody": true,
     "no-console": true,
+    "max-line-length": [
+      true,
+      {
+        "limit": 150,
+        "ignore-pattern": "^import [^,]+ from |^export | implements"
+      }
+    ],
     "function-name": [
       true,
       {
