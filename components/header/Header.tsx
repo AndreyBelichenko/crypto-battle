@@ -7,23 +7,23 @@ import AuthBlock from './authBlock/AuthBlock';
 import AppButtonBlock from './appButtonBlock/AppButtonBlock';
 
 import { BlockHeader } from './styledComponents';
+import { UserDataType } from '../../store/redux/reducers/userReducer';
 
 interface RootState {
-  user: any;
+  user: {
+    userData: UserDataType;
+  };
 }
 
-const isAuth = (state: RootState) => state.user.userData.name;
-
 const Header: React.FC = () => {
+  const isAuth = useSelector((state: RootState) => state.user.userData.name);
 
-  const isOn = useSelector(isAuth);
-
-  return(
-        <BlockHeader>
-            <Logo/>
-            <NavBar/>
-            {isOn ? <AuthBlock/> : <AppButtonBlock/>}
-        </BlockHeader>
+  return (
+    <BlockHeader>
+      <Logo />
+      <NavBar />
+      {isAuth ? <AppButtonBlock /> : <AuthBlock />}
+    </BlockHeader>
   );
 };
 
