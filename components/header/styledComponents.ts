@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Header } from 'semantic-ui-react';
 
-import color from '../../constans/colorMatrix';
+import color from '../../constants/colorMatrix';
 
 export const BlockHeader = styled(Header)`
   margin: 0!important;

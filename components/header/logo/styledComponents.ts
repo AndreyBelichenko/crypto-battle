@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import color from '../../../constans/colorMatrix';
-import fonts from '../../../constans/fonts';
+import color from '../../../constants/colorMatrix';
+import fonts from '../../../constants/fonts';
 
 export const LogoWrapper = styled.div`
   display:flex;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import color from '../../../constans/colorMatrix';
+import color from '../../../constants/colorMatrix';
 
 export const AppButtonBlockWrapper = styled.div`
   display:flex;
