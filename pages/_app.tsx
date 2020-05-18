@@ -2,7 +2,7 @@ import * as React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Provider } from 'react-redux';
 
-import storeConfiguration from './storeConfiguration';
+import storeConfiguration from '../store/storeConfiguration';
 
 const store = storeConfiguration();
 

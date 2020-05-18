@@ -6,7 +6,7 @@ const Layout: React.FC = () => {
   return(
         <LayoutWrapper>
             <LayoutContentWrapper>
-                I am layout
+                I am Layout
             </LayoutContentWrapper>
         </LayoutWrapper>
   );
