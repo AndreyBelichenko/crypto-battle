@@ -1,0 +1,15 @@
+.customBackground{
+    background: rgba(255, 255, 255, 0.7)!important;
+}
+
+.customBackgroundTransparent{
+    background: transparent!important;
+}
+
+.finallyCreate{
+    position: absolute;
+    bottom: 5%;
+    right: 30px;
+    width: 100px!important;
+    height: 35px;
+}
