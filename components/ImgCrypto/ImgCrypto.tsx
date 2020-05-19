@@ -30,11 +30,11 @@ const ImgCrypto = (props: ImgCryptoProps) => {
       <LogoContainer mainColor={props.mainColor}>
         <Image src={props.logo} />
       </LogoContainer>
-      {isSelected ? (
+      {isSelected && (
         <CheckButton>
           <Image src="/static/check.svg" />
         </CheckButton>
-      ) : null}
+      )}
       <Content align="right" mainColor={props.mainColor} borderColor={isSelected ? props.mainColor : false}>
         <TextContainer>{props.name}</TextContainer>
       </Content>

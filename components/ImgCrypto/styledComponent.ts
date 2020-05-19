@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container, Image } from 'semantic-ui-react';
 
 import fonts from '../../constants/fonts';
+import colorMatrix from '../../constants/colorMatrix';
 
 export const MainContainer = styled(Container)`
   height: 350px !important;
@@ -13,7 +14,7 @@ export const MainContainer = styled(Container)`
 export const Content = styled(Container)`
   height: 300px !important;
   width: 300px !important;
-  background: white;
+  background: ${colorMatrix.white};
   position: absolute;
   bottom: 0;
   left: 0;
@@ -21,6 +22,7 @@ export const Content = styled(Container)`
   border: 1px solid ${(props) => props.mainColor};
   box-sizing: border-box;
   box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : 'none')};
+  cursor: pointer;
 `;
 
 export const LogoContainer = styled(Container)`
@@ -42,6 +44,7 @@ export const ContentImage = styled(Container)`
   bottom: 0;
   left: 10px;
   z-index: 2;
+  cursor: pointer;
 `;
 
 export const ImagePerson = styled(Image)`
