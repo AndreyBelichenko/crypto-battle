@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Image, Modal, Grid, Container } from 'semantic-ui-react';
+import { Modal, Grid, Container } from 'semantic-ui-react';
+
+import ImgCrypto from '../ImgCrypto/ImgCrypto';
 
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import hpDropdown from '../../constants/hpDropdown';
@@ -18,10 +20,16 @@ interface ModalProps {
 }
 
 const ModalWindow = (props: ModalProps) => {
+  const [selected, setSelected] = useState(-1);
   const [isOpen, setIsOpen] = useState(false);
-  const toggleModal = () => setIsOpen(!isOpen);
-  const title = props.role === 'create' ? 'Request Battle' : 'Connect Battle';
+  const title = props.role === 'create' ? 'Create request' : 'Connect request';
   const buttonName = props.role === 'create' ? 'Create' : 'Connect';
+
+  const toggleModal = () => {
+    setSelected(-1);
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div>
       <BtnCreate onClick={toggleModal}>{buttonName}</BtnCreate>
@@ -34,7 +42,15 @@ const ModalWindow = (props: ModalProps) => {
           <Grid columns={2}>
             {cryptoData.map((item, index) => (
               <Grid.Column align="center" key={index}>
-                <Image src={item.img} />
+                <ImgCrypto
+                  logo={item.logo}
+                  person={item.person}
+                  name={item.name}
+                  mainColor={item.mainColor}
+                  selected={selected}
+                  callback={setSelected}
+                  index={index}
+                />
               </Grid.Column>
             ))}
           </Grid>
