@@ -1,4 +1,4 @@
-import cryptoColors from './cryptoColors';
+import { cryptoColors } from '../colorMatrix';
 
 export default [
   {

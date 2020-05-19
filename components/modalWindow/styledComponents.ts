@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { Modal, Dropdown, Icon, Container } from 'semantic-ui-react';
 
-import colorMatrix from '../../constants/colorMatrix';
+import { color } from '../../constants/colorMatrix';
 
 export const BtnCreate = styled.button`
-  background: ${colorMatrix.pomegranate};
-  color: ${colorMatrix.white};
+  background: ${color.pomegranate};
+  color: ${color.white};
   border: 0;
   border-radius: 5px;
   min-height: 30px;
@@ -19,7 +19,7 @@ export const BtnCreate = styled.button`
 export const StyleHeaderTitle = styled(Modal.Header)`
   font-size: 24px !important;
   font-weight: bold !important;
-  border-bottom: 2px solid ${colorMatrix.pomegranate}!important;
+  border-bottom: 2px solid ${color.pomegranate}!important;
   margin: 0 10% !important;
 `;
 
@@ -29,18 +29,18 @@ export const StyledHeaderHp = styled(Modal.Header)({
 });
 
 export const StyledFooterModal = styled(Modal.Content)({
-  border: `1px solid ${colorMatrix.pomegranate}!important`,
+  border: `1px solid ${color.pomegranate}!important`,
 });
 
 export const StyledDropDown = styled(Dropdown)`
-  border: 1px solid ${colorMatrix.pomegranate}!important;
+  border: 1px solid ${color.pomegranate}!important;
 
   & > div div {
-    border-bottom: 1px solid ${colorMatrix.pomegranate}!important;
+    border-bottom: 1px solid ${color.pomegranate}!important;
   }
 
   & .menu {
-    border: 1px solid ${colorMatrix.pomegranate}!important;
+    border: 1px solid ${color.pomegranate}!important;
   }
 `;
 

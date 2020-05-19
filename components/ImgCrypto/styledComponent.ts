@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Container, Image } from 'semantic-ui-react';
 
 import fonts from '../../constants/fonts';
-import colorMatrix from '../../constants/colorMatrix';
+import { color } from '../../constants/colorMatrix';
 
 export const MainContainer = styled(Container)`
   height: 350px !important;
@@ -14,7 +14,7 @@ export const MainContainer = styled(Container)`
 export const Content = styled(Container)`
   height: 300px !important;
   width: 300px !important;
-  background: ${colorMatrix.white};
+  background: ${color.white};
   position: absolute;
   bottom: 0;
   left: 0;
