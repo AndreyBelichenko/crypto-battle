@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Layout from '../components/ layout/Layout';
+import Battles from '../components/battles/Battles';
 
-const BattlesPage: React.FC = () => <Layout/>;
+const BattlesPage: React.FC = () => <Battles/>;
 
 export default BattlesPage;
