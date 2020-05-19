@@ -1,16 +1,16 @@
 .navBar{
     height: 60px;
     color: #FFFFFF!important;
-    border-bottom: 2px solid black!important;
+    border-bottom: 3px solid black!important;
     transition: 2s;
 }
 
 .navBar:hover{
     color: #F05016!important;
-    border-bottom: 2px solid #F05016!important;
+    border-bottom: 3px solid #F05016!important;
 }
 
 .navBar:active{
     color: #F05016!important;
-    border-bottom: 2px solid #F05016!important;
+    border-bottom: 3px solid #F05016!important;
 }
