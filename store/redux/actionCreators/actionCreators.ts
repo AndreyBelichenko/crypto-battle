@@ -1,12 +1,5 @@
 import * as action from '../actionTypes/actionTypes';
 
-export function setAuthUserData(payload: object): action.SetAuthUserData {
-  return {
-    payload,
-    type: action.AUTH_USER_DATA,
-  };
-}
-
 export function setAuthStoreUserData(payload: object): action.SetAuthStoreUserData {
   return {
     payload,

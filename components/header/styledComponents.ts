@@ -12,16 +12,6 @@ export const BlockHeader = styled(Header)`
   justify-content: space-between;
   align-items: center;
   background: ${color.black};
+  box-sizing: border-box;
 `;
 
-export const LogoWrapper = styled.div`
-  width: 20%;
-    `;
-
-export const NavBarWrapper = styled.div`
-  width: 60%;
-    `;
-
-export const BtnWrapper = styled.div`
-  width: 20%;
-    `;
