@@ -11,7 +11,7 @@ const Story: React.FC = () => {
         <Header/>
       </StoryHeader>
       <StoryContentWrapper>
-        Story will be here
+        Story will  be here
       </StoryContentWrapper>
     </StoryWrapper>
   );
