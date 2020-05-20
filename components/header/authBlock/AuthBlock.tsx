@@ -14,6 +14,7 @@ const AuthBlock: React.FC = () => {
   const dispatch = useDispatch();
 
   const responseFacebook = (response: any) => {
+    console.log(response);
     if (response.accessToken) {
       const dataToSend = {
         name: response.name,
@@ -25,6 +26,7 @@ const AuthBlock: React.FC = () => {
   };
 
   const responseGoogle = (response: any) => {
+    console.log(response);
     if (response.accessToken) {
       const dataToSend = {
         name: response.profileObj.name,
