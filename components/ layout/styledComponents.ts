@@ -8,14 +8,6 @@ export const LayoutWrapper = styled.div`
     justify-content: space-between;
 `;
 
-export const LayoutHeader = styled.div`
-  height: 7%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-`;
-
 export const LayoutContentWrapper = styled.div`
     width: 100%;
     height: 100%;

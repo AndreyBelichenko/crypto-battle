@@ -1,17 +1,16 @@
 import * as React from 'react';
 
 import headerItem from '../../../constants/headerItem';
-import Link from '../link/Link';
 
-import { NavBarWrapper } from './styledComponents';
+import { NavBarMenu, Link } from './styledComponents';
 
 const NavBar: React.FC = () => {
-  return (
-    <NavBarWrapper>
-      {headerItem.map((item) => (
-        <Link key={item.idItem} name={item.name} path={item.path} />
-      ))}
-    </NavBarWrapper>
+  return(
+     <NavBarMenu className="ui secondary menu">
+       {headerItem.map(item => (
+         <Link key={item.idItem}  className="item navBar">{item.name}</Link>
+            ))}
+        </NavBarMenu>
   );
 };
 

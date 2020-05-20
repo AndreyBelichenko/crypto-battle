@@ -5,23 +5,21 @@ import { Button } from 'semantic-ui-react';
 
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
 
-import { AppButtonBlockWrapper, ButtonWrapper, Btn } from './styledComponents';
+import { AppButtonBlockWrapper, Btn } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
     Cookies.remove('userData');
-    dispatch(actions.logOut());
+    dispatch(actions.logOutStore());
   };
 
   return (
     <AppButtonBlockWrapper>
-      <ButtonWrapper>
-        <Btn>Create</Btn>
-      </ButtonWrapper>
-      <Button circular icon="user outline" size="large" color="black" />
-      <Button circular icon="sign-in alternate" size="large" color="black" onClick={logOut} />
+        <Btn className="ui orange button">Create</Btn>
+      <Button circular icon="user outline" color="black" className="btnSize"/>
+      <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize"/>
     </AppButtonBlockWrapper>
   );
 };
