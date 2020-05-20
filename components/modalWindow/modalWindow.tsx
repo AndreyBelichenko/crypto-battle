@@ -4,9 +4,9 @@ import { Modal, Grid, Container } from 'semantic-ui-react';
 import ImgCrypto from '../ImgCrypto/ImgCrypto';
 
 import cryptoData from '../../constants/cryptoData/cryptoData';
-import hpDropdown from '../../constants/hpDropdown';
+import { hpDropdown } from '../../constants/itemConstants';
 import {
-  BtnCreate,
+  Btn,
   StyledHeaderHp,
   StyleHeaderTitle,
   StyledFooterModal,
@@ -32,7 +32,9 @@ const ModalWindow = (props: ModalProps) => {
 
   return (
     <div>
-      <BtnCreate onClick={toggleModal}>{buttonName}</BtnCreate>
+      <Btn className="ui orange button" onClick={toggleModal}>
+        {buttonName}
+      </Btn>
       <Modal open={isOpen} onClose={toggleModal} className="customBackground">
         <StyleHeaderTitle className="customBackgroundTransparent" align="center">
           <Container>{title}</Container>
@@ -62,13 +64,13 @@ const ModalWindow = (props: ModalProps) => {
               <StyledDropDown align="center" clearable options={hpDropdown} selection />
             </Container>
             <Container align="right" className="finallyCreate">
-              <BtnCreate>Create</BtnCreate>
+              <Btn className="ui orange button">Create</Btn>
             </Container>
           </StyledFooterModal>
         ) : (
           <StyledFooterModal>
             <StyledConnectWrapper align="right">
-              <BtnCreate>Connect</BtnCreate>
+              <Btn className="ui orange button">Connect</Btn>
             </StyledConnectWrapper>
           </StyledFooterModal>
         )}

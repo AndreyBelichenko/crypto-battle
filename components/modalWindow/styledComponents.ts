@@ -1,19 +1,16 @@
 import styled from 'styled-components';
-import { Modal, Dropdown, Icon, Container } from 'semantic-ui-react';
+import { Modal, Dropdown, Icon, Container, Button } from 'semantic-ui-react';
 
 import { color } from '../../constants/colorMatrix';
+import fonts from '../../constants/fonts';
 
-export const BtnCreate = styled.button`
+export const Btn = styled(Button)`
   background: ${color.pomegranate};
-  color: ${color.white};
-  border: 0;
-  border-radius: 5px;
-  min-height: 30px;
-  height: 100%;
-  padding: 0 15px;
-  outline: none;
-  cursor: pointer;
-  width: 100%;
+  color: ${color.pomegranate};
+  font-family: ${fonts.header};
+  border: none;
+  text-align: center;
+  height: 40px;
 `;
 
 export const StyleHeaderTitle = styled(Modal.Header)`

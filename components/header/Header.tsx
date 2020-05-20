@@ -17,7 +17,6 @@ interface RootState {
 
 const Header: React.FC = () => {
   const isAuth = useSelector((state: RootState) => state.user.userData.name);
-
   return (
     <BlockHeader>
       <Logo />
