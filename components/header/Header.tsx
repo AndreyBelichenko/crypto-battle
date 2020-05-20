@@ -7,7 +7,7 @@ import NavBar from './navBar/NavBar';
 import AuthBlock from './authBlock/AuthBlock';
 import AppButtonBlock from './appButtonBlock/AppButtonBlock';
 
-import { BlockHeader, LogoWrapper, NavBarWrapper, BtnWrapper } from './styledComponents';
+import { BlockHeader } from './styledComponents';
 
 interface RootState {
   user: {
@@ -20,15 +20,9 @@ const Header: React.FC = () => {
 
   return (
     <BlockHeader>
-        <LogoWrapper>
       <Logo />
-        </LogoWrapper>
-        <NavBarWrapper>
       <NavBar />
-        </NavBarWrapper>
-        <BtnWrapper>
       {isAuth ? <AppButtonBlock /> : <AuthBlock />}
-        </BtnWrapper>
     </BlockHeader>
   );
 };

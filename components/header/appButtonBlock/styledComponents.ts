@@ -1,25 +1,21 @@
 import styled from 'styled-components';
+import { Button } from 'semantic-ui-react';
 
-import color from '../../../constans/colorMatrix';
+import color from '../../../constants/colorMatrix';
+import fonts from '../../../constants/fonts';
 
 export const AppButtonBlockWrapper = styled.div`
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
-  text-align: center;
   `;
 
-export const ButtonWrapper = styled.div`
-  height: 50%;
-  margin: 10px;
-  font-family: PT Serif;
-  text-align: center;
-  `;
-
-export const Btn = styled.button`
+export const Btn = styled(Button)`
   background: ${color.pomegranate};
-  color: ${color.white};
+  color: ${color.pomegranate};
+  font-family: ${fonts.header};
   border: none;
   text-align: center;
   margin: 10px;
+  height: 40px;
   `;
