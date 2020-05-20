@@ -57,7 +57,6 @@ const AuthBlock: React.FC = () => {
               <Button onClick={renderProps.onClick} circular color="google plus" icon="google plus" size="large" className="btnSize"/>
               )}
         />
-
     </AuthWrapper>
   );
 };

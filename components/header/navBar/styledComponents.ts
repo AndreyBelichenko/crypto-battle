@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Menu } from 'semantic-ui-react';
 
 import color from '../../../constans/colorMatrix';
-import fonts from '../../../constans/fonts';
+import fonts from '../../../constants/fonts';
 
 export const NavBarWrapper = styled(Menu)`
   width: 60%;

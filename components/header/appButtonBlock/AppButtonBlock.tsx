@@ -12,7 +12,7 @@ const AppButtonBlock: React.FC = () => {
 
   const logOut = () => {
     Cookies.remove('userData');
-    dispatch(actions.logOut());
+    dispatch(actions.logOutStore());
   };
 
   return (
