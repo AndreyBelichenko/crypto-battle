@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import color from '../../constants/colorMatrix';
+import { color } from '../../constants/colorMatrix';
 
 export const BlockHeader = styled.header`
   height: 80px;
@@ -12,7 +12,7 @@ export const BlockHeader = styled.header`
   background: ${color.black};
   box-sizing: border-box;
   padding: 20px 45px 10px 80px;
-  @media (max-width: 1070px){
-  padding: 20px 25px 10px 20px;
-   }
+  @media (max-width: 1070px) {
+    padding: 20px 25px 10px 20px;
+  }
 `;

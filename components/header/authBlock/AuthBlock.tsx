@@ -37,26 +37,45 @@ const AuthBlock: React.FC = () => {
 
   return (
     <AuthWrapper>
-        <FacebookLogin
-            appId="833822150435127"
-            autoLoad={true}
-            fields="name,email,picture"
-            onClick={responseFacebook}
-            callback={responseFacebook}
-            render={(renderProps: { onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) => (
-              <Button onClick={renderProps.onClick}  circular color="facebook" icon="facebook" size="large" className="btnSize"/>
-            )}
-        />
-        <GoogleLogin
-            clientId="1066411115726-q8irdkbiq5t7kkdk59h1otnia7l3q93j.apps.googleusercontent.com"
-            buttonText=""
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-            render={(renderProps: { onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined; }) => (
-              <Button onClick={renderProps.onClick} circular color="google plus" icon="google plus" size="large" className="btnSize"/>
-              )}
-        />
+      <FacebookLogin
+        appId="263020944839635"
+        autoLoad={false}
+        fields="name,email,picture"
+        onClick={responseFacebook}
+        callback={responseFacebook}
+        render={(renderProps: {
+          onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
+        }) => (
+          <Button
+            onClick={renderProps.onClick}
+            circular
+            color="facebook"
+            icon="facebook"
+            size="large"
+            className="btnSize"
+          />
+        )}
+      />
+      <GoogleLogin
+        clientId="411912187634-09e2pudtp337atlucsnlfaeb13ie4ntj.apps.googleusercontent.com"
+        buttonText=""
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+        render={(renderProps: {
+          onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
+        }) => (
+          <Button
+            onClick={renderProps.onClick}
+            circular
+            color="google plus"
+            icon="google plus"
+            size="large"
+            className="btnSize"
+          />
+        )}
+        onAutoLoadFinished={() => {}}
+      />
     </AuthWrapper>
   );
 };

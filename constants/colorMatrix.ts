@@ -1,5 +1,18 @@
-export default {
+export const color = {
   pomegranate: '#F05016',
   white: '#FFFFFF',
   black: '#000000',
+  pelorous: '#35B7BA',
+  tree_poppy: '#F7931A',
+  green_haze: '#00A62C',
+  viridian_green: '#669073',
+  cornflower_blue: '#627EEA',
+  tulip_tree: '#ECB244',
+  international_orange: '#FF5000',
+  shark: '#1E1F25',
+  denim: '#1C75BC',
+  blaze_orange: '#FF6600',
+  mine_shaft: '#302C2C',
+  cerulean: '#0096DC',
+  cobalt: '#034DA5',
 };

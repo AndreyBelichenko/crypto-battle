@@ -20,4 +20,4 @@ export const Item = styled.a`
   border-bottom: 3px solid ${color.pomegranate};
   cursor: pointer;
   }
-  `;
+`;
