@@ -4,5 +4,4 @@ export const AuthWrapper = styled.div`
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 20%;
   `;

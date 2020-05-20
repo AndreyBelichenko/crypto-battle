@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import { Header } from 'semantic-ui-react';
 
-import color from '../../constans/colorMatrix';
+import color from '../../constants/colorMatrix';
 
-export const BlockHeader = styled(Header)`
-  margin: 0!important;
-  height: 100%;
+export const BlockHeader = styled.header`
+  height: 80px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -13,5 +11,8 @@ export const BlockHeader = styled(Header)`
   align-items: center;
   background: ${color.black};
   box-sizing: border-box;
+  padding: 20px 45px 10px 80px;
+  @media (max-width: 1070px){
+  padding: 20px 25px 10px 20px;
+   }
 `;
-

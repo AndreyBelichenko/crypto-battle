@@ -1,19 +1,18 @@
 import styled from 'styled-components';
-import { Menu } from 'semantic-ui-react';
 
-import color from '../../../constans/colorMatrix';
+import color from '../../../constants/colorMatrix';
 import fonts from '../../../constants/fonts';
 
-export const NavBarWrapper = styled(Menu)`
-  width: 60%;
+export const NavBarMenu = styled.div`
   display:flex;
   flex-direction: row;
   justify-content: center;
-  text-align: center;
+  margin-right: 256px!important;
+  @media (max-width: 1070px){
+  margin-right: 171px!important;  }
   `;
 
-export const Link = styled(Menu.Item)`
-  display: flex;
+export const Link = styled.a`
   font-family: ${fonts.header};
   font-style: normal;
   font-weight: normal;
@@ -21,4 +20,7 @@ export const Link = styled(Menu.Item)`
   line-height: 48px;
   text-align: center;
   color: ${color.white};
+  @media (max-width: 1070px){
+  font-size: 23px;
+  }
 `;

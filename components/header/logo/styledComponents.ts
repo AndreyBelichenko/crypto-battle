@@ -1,27 +1,31 @@
 import styled from 'styled-components';
 
-import color from '../../../constans/colorMatrix';
+import color from '../../../constants/colorMatrix';
 import fonts from '../../../constants/fonts';
 
 export const LogoWrapper = styled.div`
-  width: 20%;
+  height: 100%;
   display:flex;
   flex-direction: row;
   justify-content: flex-start;
+  padding: 20 px;
+  align-items: center;
   `;
 
-export const ImageWrapper = styled.div`
-  display:flex;
-  margin: 10px;
-  `;
-
-export const LabelWrapper = styled.div`
+export const Label = styled.span`
   display: flex;
   font-family: ${fonts.header};
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   align-items: center;
-  margin: 20px;
   color: ${color.white};
+  @media (max-width: 1070px){
+  font-size: 25px;
+  }
+  `;
+
+export const LogoImage = styled.img`
+  height: auto;
+  width: 100px;
   `;
