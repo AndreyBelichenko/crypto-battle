@@ -1,7 +1,7 @@
 .navBar{
     height: 60px;
-    color: #FFFFFF!important;
-    border-bottom: 3px solid black!important;
+    color: white!important;
+    border-bottom: 3px solid #000000!important;
     transition: 2s;
 }
 
