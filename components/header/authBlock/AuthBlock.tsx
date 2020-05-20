@@ -38,7 +38,7 @@ const AuthBlock: React.FC = () => {
   return (
     <AuthWrapper>
       <FacebookLogin
-        appId="833822150435127"
+        appId="263020944839635"
         autoLoad={false}
         fields="name,email,picture"
         onClick={responseFacebook}
