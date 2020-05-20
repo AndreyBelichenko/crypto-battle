@@ -8,6 +8,7 @@
     "arrow-parens": false,
     "ter-arrow-parens": [false],
     "requireForBlockBody": true,
+    "ter-arrow-parens": [false],
     "no-console": true,
     "max-line-length": [
       true,

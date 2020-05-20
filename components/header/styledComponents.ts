@@ -1,27 +1,18 @@
 import styled from 'styled-components';
-import { Header } from 'semantic-ui-react';
 
-import color from '../../constants/colorMatrix';
+import { color } from '../../constants/colorMatrix';
 
-export const BlockHeader = styled(Header)`
-  margin: 0 !important;
-  height: 100%;
+export const BlockHeader = styled.header`
+  height: 80px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background: ${color.black};
-`;
-
-export const LogoWrapper = styled.div`
-  width: 20%;
-`;
-
-export const NavBarWrapper = styled.div`
-  width: 60%;
-`;
-
-export const BtnWrapper = styled.div`
-  width: 20%;
+  box-sizing: border-box;
+  padding: 20px 45px 10px 80px;
+  @media (max-width: 1070px) {
+    padding: 20px 25px 10px 20px;
+  }
 `;

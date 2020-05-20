@@ -6,23 +6,21 @@ import { Button } from 'semantic-ui-react';
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
 import ModalWindow from '../../modalWindow/modalWindow';
 
-import { AppButtonBlockWrapper, ButtonWrapper } from './styledComponents';
+import { AppButtonBlockWrapper } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
     Cookies.remove('userData');
-    dispatch(actions.logOut());
+    dispatch(actions.logOutStore());
   };
 
   return (
     <AppButtonBlockWrapper>
-      <ButtonWrapper>
-        <ModalWindow role="create" />
-      </ButtonWrapper>
-      <Button circular icon="user outline" size="large" color="black" />
-      <Button circular icon="sign-in alternate" size="large" color="black" onClick={logOut} />
+      <ModalWindow role="create" />
+      <Button circular icon="user outline" color="black" className="btnSize" />
+      <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
     </AppButtonBlockWrapper>
   );
 };

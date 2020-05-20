@@ -1,18 +1,13 @@
 import * as React from 'react';
-import { Image } from 'semantic-ui-react';
 
-import { LogoWrapper, ImageWrapper, LabelWrapper } from './styledComponents';
+import { LogoWrapper, Label, LogoImage } from './styledComponents';
 
-const Logo: React.FC = () => {
-  return(
-        <LogoWrapper>
-            <ImageWrapper>
-                <Image  src="./static/logo.svg"/>
-            </ImageWrapper>
-            <LabelWrapper>
-                Crypto battle
-            </LabelWrapper>
-        </LogoWrapper>
+const Logo: React.FC = (): any => {
+  return (
+    <LogoWrapper>
+      <LogoImage src="./static/logo.svg" />
+      <Label>Crypto battle</Label>
+    </LogoWrapper>
   );
 };
 
