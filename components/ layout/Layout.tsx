@@ -12,13 +12,8 @@ const Layout: React.FC = () => {
 
   React.useEffect(() => {
     const userDataCookie = Cookies.get('userData');
-    let dataToSend;
     if (typeof userDataCookie === 'string') {
-      dataToSend = {
-        name: JSON.parse(userDataCookie).name,
-        avatar: JSON.parse(userDataCookie).avatar,
-      };
-      dispatch(setAuthStoreUserData(dataToSend));
+      dispatch(setAuthStoreUserData(JSON.parse(userDataCookie)));
     }
   });
 
