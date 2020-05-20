@@ -1,4 +1,4 @@
-import { cryptoColors } from '../colorMatrix';
+import { cryptoColors } from '../styledConstants';
 
 export default [
   {
