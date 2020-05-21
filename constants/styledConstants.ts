@@ -18,3 +18,7 @@ export const cryptoColors = {
   eos_black: color.black,
   ltc_cobalt: color.cobalt,
 };
+
+export const colorSidebar = {
+  underlineTitle: color.pomegranate,
+};
