@@ -3,7 +3,7 @@ export const headerItem = [
     idItem: 'requestItem',
     resourcesKey: 'requestItem',
     name: 'Request',
-    path: '/request',
+    path: '/',
   },
   {
     idItem: 'battlesItem',

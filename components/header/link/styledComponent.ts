@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import color from '../../../constans/colorMatrix';
+import color from '../../../constants/colorMatrix';
 import fonts from '../../../constants/fonts';
 
 export const Item = styled.a`

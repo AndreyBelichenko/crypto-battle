@@ -8,8 +8,10 @@ export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 20px;
   align-items: center;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
 `;
 
 export const Label = styled.span`
@@ -27,5 +29,5 @@ export const Label = styled.span`
 
 export const LogoImage = styled.img`
   height: auto;
-  width: 100px;
+  width: 60px;
 `;

@@ -2,9 +2,6 @@ import * as React from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 
-import Header from '../header/Header';
-
-import { LayoutWrapper, LayoutContentWrapper } from './styledComponents';
 import { setAuthStoreUserData } from '../../store/redux/actionCreators/actionCreators';
 
 const Layout: React.FC = () => {
@@ -15,14 +12,9 @@ const Layout: React.FC = () => {
     if (typeof userDataCookie === 'string') {
       dispatch(setAuthStoreUserData(JSON.parse(userDataCookie)));
     }
-  });
+  }, []);
 
-  return (
-    <LayoutWrapper>
-      <Header />
-      <LayoutContentWrapper>I am Layout</LayoutContentWrapper>
-    </LayoutWrapper>
-  );
+  return <div>I am Layout</div>;
 };
 
 export default Layout;
