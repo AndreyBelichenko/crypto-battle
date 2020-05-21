@@ -22,7 +22,7 @@ const Header: React.FC = () => {
       <BlockHeader>
         <Logo />
         <NavBar />
-        <AuthContainer>{!isAuth ? <AppButtonBlock /> : <AuthBlock />}</AuthContainer>
+        <AuthContainer>{isAuth ? <AppButtonBlock /> : <AuthBlock />}</AuthContainer>
       </BlockHeader>
     </HeaderContainer>
   );
