@@ -1,15 +1,20 @@
 import * as React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { headerItem } from '../../../constants/itemConstants';
 
-import { NavBarMenu, Link } from './styledComponents';
+import { NavBarMenu, LinkItem } from './styledComponents';
 
 const NavBar: React.FC = () => {
+  const route = useRouter();
+  const activeLink = (path: string) => path === route.pathname;
+
   return (
-    <NavBarMenu className="ui secondary menu">
+    <NavBarMenu>
       {headerItem.map((item) => (
-        <Link key={item.idItem} className="item navBar">
-          {item.name}
+        <Link href={item.path} key={item.idItem}>
+          <LinkItem theme={{ active: activeLink(item.path) }}>{item.name}</LinkItem>
         </Link>
       ))}
     </NavBarMenu>
