@@ -49,36 +49,6 @@ export const topCrypto = [
     logo: '/static/cryptoList/neo/logo-neo.svg',
     count: 19,
   },
-  {
-    name: 'ZEC',
-    logo: '/static/cryptoList/zec/logo-zec.svg',
-    count: 20,
-  },
-  {
-    name: '0x',
-    logo: '/static/cryptoList/ox/logo-ox.svg',
-    count: 21,
-  },
-  {
-    name: 'WAVES',
-    logo: '/static/cryptoList/waves/logo-waves.svg',
-    count: 22,
-  },
-  {
-    name: 'BAT',
-    logo: '/static/cryptoList/bat/logo-bat.svg',
-    count: 23,
-  },
-  {
-    name: 'XMR',
-    logo: '/static/cryptoList/xmr/logo-xmr.svg',
-    count: 24,
-  },
-  {
-    name: 'XRP',
-    logo: '/static/cryptoList/xrp/logo-xrp.svg',
-    count: 25,
-  },
 ];
 
 
@@ -132,10 +102,5 @@ export const topWarriors = [
     name: 'Kolya',
     logo: "/static/user.svg",
     count: 19,
-  },
-  {
-    name: 'Vova',
-    logo: "/static/user.svg",
-    count: 20,
   },
 ];

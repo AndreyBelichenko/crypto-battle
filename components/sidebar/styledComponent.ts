@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 import { colorSidebar } from '../../constants/styledConstants';
-import { Container, List } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 
-export const SideBarWrapper = styled(Container)`
-  width: 25% !important;
+export const SideBarWrapper = styled.div`
+  min-width: 250px;
+  min-height: 80vh;
+  height: 100%;
   border: 1px solid red;
-  padding: 20px;
-`;
-
-export const SideBar = styled(Container)`
-  border: 1px solid red;
-  min-height: 80%;
-  background: rgba(255, 245, 215, 0.6);
   padding: 20px 40px;
+  background: rgba(255, 245, 215, 0.8);
 `;
 
 export const HeaderWrapper = styled.div`
@@ -22,8 +18,9 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const ImageBlock = styled.div`
-  width: 15%;
-  min-width: 55px;
+  width: 12%;
+  min-width: 40px;
+  max-width: 45px;
   margin-right: 15px;
 `;
 
@@ -43,5 +40,4 @@ export const ItemList = styled(List.Item)`
   display: flex !important;
   align-items: center;
   position: relative;
-  //margin: 0 30px !important;
 `;
