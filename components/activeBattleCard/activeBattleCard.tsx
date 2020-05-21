@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { ParentDiv, MainDiv } from './styledComponent';
+
 import BattleBlock from './battleBlock/battleBLock';
 import LeftGamer from './leftGamer/leftGamer';
 import RightGamer from './rightGamer/rightGamer';
+
+import { ParentDiv, MainDiv } from './styledComponent';
+
 const ActiveBattleCard: React.FC = () => {
   return (
     <ParentDiv>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { BattleWrapper, KnifesBlock, BattleDescriptionBlock, KnifeOne, KnifeTwo } from './styledComponent';
+import { BattleWrapper, KnifesBlock, BattleDescriptionBlock, KnifeOne, KnifeTwo } from './styledActiveBattle';
 
 const BattleBlock: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Progress, Image } from 'semantic-ui-react';
 
-import { CryptoCardPerson, CryptoCardName, ChartTrigger } from './styledComponent';
+import { CryptoCardPerson, CryptoCardName, ChartTrigger } from './styledRightGamer';
 import {
   GamerBlock,
   CryptoCard,
