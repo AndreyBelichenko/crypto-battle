@@ -11,7 +11,8 @@ import 'semantic-ui-css/semantic.min.css';
 import '../components/modalWindow/modalWindow.css';
 import '../components/header/appButtonBlock/appButtonBlock.css';
 import '../components/header/authBlock/authBlock.css';
-import { AppWrapper, MainContent, AppContainer } from './styledApp';
+import '../commonStyles/app.css';
+import { AppWrapper, MainContent, AppContainer } from '../commonStyles/styledApp';
 
 import storeConfiguration from '../store/storeConfiguration';
 
@@ -25,11 +26,11 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
       <AppWrapper>
         <Header />
         <AppContainer>
-          <Grid columns={3} divided stackable={true}>
+          <Grid columns={3} divided>
             <Grid.Column width={4}>
               <Sidebar role="warriors" data={topWarriors} />
             </Grid.Column>
-            <Grid.Column width={8}>
+            <Grid.Column width={8} stretched={true}>
               <MainContent>
                 <Component {...pageProps} />
               </MainContent>

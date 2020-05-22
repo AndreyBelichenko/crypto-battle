@@ -10,7 +10,8 @@ export const AppWrapper = styled.div`
 
 export const MainContent = styled.div`
   height: 100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background: rgba(255, 245, 215, 0.8);
 `;
 
