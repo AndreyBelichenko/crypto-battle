@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Home from './home';
+import Index from './home';
 
-const App:React.FC = () => <Home/>;
+const App:React.FC = () => <Index/>;
 
 export default App;

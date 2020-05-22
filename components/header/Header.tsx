@@ -18,11 +18,15 @@ interface RootState {
 const Header: React.FC = () => {
   const isAuth = useSelector((state: RootState) => state.user.userData.name);
   return (
-    <BlockHeader>
+    <div className="ui inverted vertical masthead center aligned segment">
+        <div className="ui container">
+            <BlockHeader>
       <Logo />
       <NavBar />
       {isAuth ? <AppButtonBlock /> : <AuthBlock />}
-    </BlockHeader>
+            </BlockHeader>
+        </div>
+    </div>
   );
 };
 
