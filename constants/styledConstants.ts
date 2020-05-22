@@ -19,6 +19,7 @@ export const cryptoColors = {
   ltc_cobalt: color.cobalt,
 };
 
-export const colorSidebar = {
+export const activeBattleColor = {
+  battleBorderColor: color.pomegranate,
   underlineTitle: color.pomegranate,
 };
