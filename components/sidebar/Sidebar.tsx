@@ -30,9 +30,9 @@ const Sidebar = (props: SidebarProps) => {
           </ItemList>
         ))}
       </List>
-      <Divider />
       {isCrypto || (
         <>
+          <Divider />
           <Container align="center">
             <Icon disabled name="ellipsis horizontal" size="large" />
           </Container>

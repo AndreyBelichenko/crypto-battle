@@ -4,8 +4,6 @@ import { List } from 'semantic-ui-react';
 
 export const SideBarWrapper = styled.div`
   min-width: 250px;
-  min-height: 80vh;
-  height: 100%;
   border: 1px solid red;
   padding: 20px 40px;
   background: rgba(255, 245, 215, 0.8);
