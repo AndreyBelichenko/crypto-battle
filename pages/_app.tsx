@@ -26,16 +26,16 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
       <AppWrapper>
         <Header />
         <AppContainer>
-          <Grid columns={3} divided>
-            <Grid.Column width={4}>
+          <Grid stackable columns="equal">
+            <Grid.Column tablet={6} computer={4} only="tablet computer">
               <Sidebar role="warriors" data={topWarriors} />
             </Grid.Column>
-            <Grid.Column width={8} stretched={true}>
+            <Grid.Column>
               <MainContent>
                 <Component {...pageProps} />
               </MainContent>
             </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Column width={4} only="computer">
               <Sidebar role="crypto" data={topCrypto} />
             </Grid.Column>
           </Grid>

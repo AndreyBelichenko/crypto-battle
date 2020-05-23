@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Header, List, Image, Icon, Container, Divider } from 'semantic-ui-react';
-import { SideBarWrapper, HeaderWrapper, ImageBlock, ItemList, ImageCountBlock } from './styledComponent';
+import { SideBarWrapper, HeaderWrapper, ImageBlock, ItemList, ImageCountBlock, TitleImage } from './styledComponent';
 
 interface SidebarProps {
   role: string;
@@ -9,6 +9,7 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
+  const imageInTitle = props.role === 'crypto' ? '/static/coins.svg' : '/static/sword.svg';
   const isCrypto = props.role === 'crypto';
   return (
     <SideBarWrapper>
@@ -16,6 +17,9 @@ const Sidebar = (props: SidebarProps) => {
         <Header as="h2" textAlign="center">
           {sidebarTitle}
         </Header>
+        <TitleImage>
+          <Image src={imageInTitle} />
+        </TitleImage>
       </HeaderWrapper>
       <List divided relaxed>
         {props.data.map((item: any, index: number) => (
@@ -30,12 +34,12 @@ const Sidebar = (props: SidebarProps) => {
           </ItemList>
         ))}
       </List>
+      <Divider />
+      <Container align="center" style={{ cursor: 'pointer' }}>
+        <Icon disabled name="ellipsis horizontal" size="big" />
+      </Container>
       {isCrypto || (
         <>
-          <Divider />
-          <Container align="center">
-            <Icon disabled name="ellipsis horizontal" size="large" />
-          </Container>
           <Divider />
           <List>
             <ItemList>
