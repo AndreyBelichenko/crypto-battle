@@ -20,8 +20,15 @@ export interface LogOutStore {
   type: typeof LOG_OUT_STORE;
 }
 
+export const BATTLE_DATA = 'BATTLE_DATA';
+export interface SetBattleData {
+  type: typeof BATTLE_DATA;
+  payload: object;
+}
+
 export type actionType =
     | SetAuthUserData
     | SetAuthStoreUserData
     | LogOut
-    | LogOutStore;
+    | LogOutStore
+    | SetBattleData;

@@ -22,3 +22,7 @@ export const cryptoColors = {
 export const activeBattleColor = {
   battleBorderColor: color.pomegranate,
 };
+
+export const battleColor = {
+  battleBorderColor: color.pomegranate,
+};

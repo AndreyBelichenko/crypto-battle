@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Grid, Container } from 'semantic-ui-react';
+import { useDispatch } from 'react-redux';
+
+import { SetBattleData } from '../../store/redux/actionCreators/actionCreators';
 
 import ImgCrypto from '../ImgCrypto/ImgCrypto';
 
@@ -24,10 +27,15 @@ const ModalWindow = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const title = props.role === 'create' ? 'Create request' : 'Connect request';
   const buttonName = props.role === 'create' ? 'Create' : 'Connect';
+  const dispatch = useDispatch();
 
   const toggleModal = () => {
     setSelected(-1);
     setIsOpen(!isOpen);
+  };
+
+  const secondCard = () => {
+    dispatch(SetBattleData({}));
   };
 
   return (
@@ -70,7 +78,7 @@ const ModalWindow = (props: ModalProps) => {
         ) : (
           <StyledFooterModal>
             <StyledConnectWrapper align="right">
-              <Btn className="ui orange button">Connect</Btn>
+              <Btn className="ui orange button" onClick={secondCard}>Connect</Btn>
             </StyledConnectWrapper>
           </StyledFooterModal>
         )}
