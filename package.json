@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "heroku-postbuild": "npm run build",
     "tslint": "tslint -p . -c tslint.json",
     "tslint-fix": "tslint --fix -p . -c tslint.json",

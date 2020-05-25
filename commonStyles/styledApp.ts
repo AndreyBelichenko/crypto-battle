@@ -29,7 +29,7 @@ export const AppContainer = styled.div`
   padding: 20px 20px;
   background-attachment: fixed;
   background-position: top center;
-  //background-image: url('/static/background.png');
+  background-image: url('/static/background.png');
 `;
 
 export const MenuItem = styled(Menu.Item)`
