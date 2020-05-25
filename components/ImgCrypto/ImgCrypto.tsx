@@ -35,7 +35,7 @@ const ImgCrypto = (props: ImgCryptoProps) => {
           <Image src="/static/check.svg" />
         </CheckButton>
       )}
-      <Content mainColor={props.mainColor} borderColor={Boolean(isSelected) && props.mainColor}>
+      <Content mainColor={props.mainColor} borderColor={isSelected ? props.mainColor : 'none'}>
         <TextContainer>{props.name}</TextContainer>
       </Content>
       <ContentImage>
