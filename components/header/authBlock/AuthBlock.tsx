@@ -69,7 +69,7 @@ const AuthBlock: React.FC = () => {
             onClick={renderProps.onClick}
             circular
             color="google plus"
-            icon="google plus"
+            icon="google"
             size="large"
             className="btnSize"
           />

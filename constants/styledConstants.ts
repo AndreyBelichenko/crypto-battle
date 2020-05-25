@@ -18,3 +18,20 @@ export const cryptoColors = {
   eos_black: color.black,
   ltc_cobalt: color.cobalt,
 };
+
+export const activeBattleColor = {
+  battleBorderColor: color.pomegranate,
+  underlineTitle: color.pomegranate,
+};
+
+export const colorSidebar = {
+  underlineTitle: color.pomegranate,
+  menuItem: color.black,
+  menuItemHoverText: color.white,
+};
+
+export const breakPoints = {
+  large: 1070,
+  medium: 991,
+  small: 460,
+};

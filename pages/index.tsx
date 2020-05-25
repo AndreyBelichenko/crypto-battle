@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Home from './home';
+import Layout from '../components/ layout/Layout';
 
-const App:React.FC = () => <Home/>;
+const App: React.FC = () => <Layout />;
 
 export default App;

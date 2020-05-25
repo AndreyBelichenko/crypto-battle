@@ -3,7 +3,7 @@ export const headerItem = [
     idItem: 'requestItem',
     resourcesKey: 'requestItem',
     name: 'Request',
-    path: '/request',
+    path: '/',
   },
   {
     idItem: 'battlesItem',
@@ -26,4 +26,58 @@ export const hpDropdown = [
   { key: 4, text: '200 HP', value: 200 },
   { key: 5, text: '300 HP', value: 300 },
   { key: 6, text: '500 HP', value: 500 },
+];
+
+export const sidebarItems = [
+  {
+    type: 'link',
+    idItem: 'requestItem',
+    resourcesKey: 'requestItem',
+    image: '/static/sidebarItems/battle.svg',
+    imageHover: '/static/sidebarItems/activePerson.svg',
+    name: 'Request',
+    path: '/',
+  },
+  {
+    type: 'link',
+    idItem: 'battlesItem',
+    resourcesKey: 'battlesItem',
+    image: '/static/sidebarItems/battle.svg',
+    imageHover: '/static/sidebarItems/activeBattle.svg',
+    name: 'Battles',
+    path: '/battles',
+  },
+  {
+    type: 'link',
+    idItem: 'storyItem',
+    resourcesKey: 'storyItem',
+    image: '/static/sidebarItems/story.svg',
+    imageHover: '/static/sidebarItems/storyActive.svg',
+    name: 'Story',
+    path: '/story',
+  },
+  {
+    type: 'modal',
+    idItem: 'warriors',
+    resourcesKey: 'requestItem',
+    image: '/static/sidebarItems/warriors.svg',
+    imageHover: '/static/sidebarItems/activeWarriors.svg',
+    name: 'TOP Warriors',
+  },
+  {
+    type: 'modal',
+    idItem: 'crypto',
+    resourcesKey: 'battlesItem',
+    image: '/static/sidebarItems/crypto.svg',
+    imageHover: '/static/sidebarItems/activeCrypto.svg',
+    name: 'TOP Crypto',
+  },
+  {
+    type: 'logout',
+    idItem: 'logout',
+    resourcesKey: 'battlesItem',
+    image: '/static/sidebarItems/logoutItem.svg',
+    imageHover: '/static/sidebarItems/activeLogout.svg',
+    name: 'Logout',
+  },
 ];
