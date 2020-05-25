@@ -49,8 +49,8 @@ export const GamerBlockOne = styled.div`
 `;
 
 export const CryptoCardMain = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -66,7 +66,7 @@ export const CryptoCardLogo = styled.div`
 
 export const CryptoCardHp = styled.div`
   height: 20px;
-  width: 100px;
+  width: 90px;
   margin-top: 10px;
   border-radius: 5px;
   overflow: hidden;

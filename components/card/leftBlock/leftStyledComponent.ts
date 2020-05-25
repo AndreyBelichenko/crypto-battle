@@ -5,6 +5,9 @@ export const CryptoCard = styled.div`
   width: 33.3%;
   height: 100%;
   flex-direction: column;
+  @media (max-width: 1280px) {
+  margin-right: 12px;
+  }
 `;
 
 export const CryptoCardPerson = styled.div`
@@ -40,15 +43,22 @@ export const UserPhoto = styled.img`
   height:95px;
   width: 95px;
   border-radius: 50%;
+  @media(max-width: 1440px) {
+  height:75px;
+  width: 75px;
+  }
 `;
 
 export const AwardsBlock = styled.div`
   width: 33.3%;
   height: 100%;
   position: relative;
-  padding-left: 6px;
-  @media (max-width: 1680px) {
-  padding-left: 0px;
+  left: 8px;
+  @media(max-width: 1920px){
+  left: -5px;
+  }
+  @media(max-width: 1680px){
+  left: -14px;
   }
 `;
 
@@ -64,16 +74,13 @@ export const AwardsText = styled.div`
   position: absolute;
   line-height: 1;
   top: 60%;
-  left: 33%;
+  left: 39px;
   transform: translate(-50%, -50%);
-  @media (max-width: 1765px) {
-  left: 42%;
-  }
   @media (max-width: 1680px) {
-  left: 48%;
+  left: 41px;
   }
   @media (max-width: 1655px) {
-  left: 44%;
+  left: 44px;
   }
 `;
 
@@ -85,4 +92,7 @@ export const UserBlock = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: -43px;
+  @media (max-width: 1280px) {
+  margin-left: -27px;
+  }
 `;
