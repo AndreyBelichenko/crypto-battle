@@ -15,7 +15,7 @@ import {
   AwardsText,
   AwardsBlock,
   ProgressText,
-} from '../styledComponent';
+} from '../styledActiveBattle';
 
 const RightGamer: React.FC = () => {
   return (

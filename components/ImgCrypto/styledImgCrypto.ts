@@ -21,7 +21,7 @@ export const Content = styled(Container)`
   z-index: 0;
   border: 1px solid ${(props) => props.mainColor};
   box-sizing: border-box;
-  box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : 'none')};
+  box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : `${props.borderColor}`)};
   cursor: pointer;
 `;
 
@@ -62,6 +62,8 @@ export const TextContainer = styled.div`
 
 export const CheckButton = styled(Container)`
   position: absolute;
+  display: flex !important;
+  justify-content: center;
   top: 25px;
   right: 25px;
   z-index: 2;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { color } from '../../../constants/colorMatrix';
+import { breakPoints } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
 
 export const LogoWrapper = styled.div`
@@ -23,6 +24,10 @@ export const Label = styled.span`
   align-items: center;
   color: ${color.white};
   @media (max-width: 1070px) {
+    display: none;
+  }
+
+  @media (max-width: ${breakPoints.small}px) {
     display: none;
   }
 `;
