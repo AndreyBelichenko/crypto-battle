@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from 'next/link';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 
 import Header from '../header/Header';
@@ -9,13 +10,6 @@ import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 import { topWarriors, topCrypto } from '../../mockData/topSidebars';
 import { sidebarItems } from '../../constants/itemConstants';
 
-// import 'semantic-ui-css/semantic.min.css';
-
-// import '../components/modalWindow/modalWindow.css';
-// import '../components/modalWindowSidebars/modalWindowSidebars.css';
-// import '../components/header/appButtonBlock/appButtonBlock.css';
-// import '../components/header/authBlock/authBlock.css';
-// import '../commonStyles/app.css';
 import {
   AppWrapper,
   MainContent,
@@ -27,9 +21,6 @@ import {
   ItemMenuName,
   ItemMenuImageHover,
 } from '../../commonStyles/styledApp';
-
-// import storeConfiguration from '../store/storeConfiguration';
-import Link from 'next/link';
 
 type HocMarkUpProps = { children: any };
 
