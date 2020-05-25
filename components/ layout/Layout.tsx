@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
     }
   }, []);
 
-  return <div>I am Layout</div>;
+  return <div>I'm Layout</div>;
 };
 
 export default Layout;
