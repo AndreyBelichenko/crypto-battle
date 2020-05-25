@@ -30,6 +30,9 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const isAuth = useSelector((state: RootState) => state.user.userData.name);
+  const toggleSidebar = React.useCallback(() => {
+    props.setVisible(!props.visible);
+  }, [props.visible]);
   return (
     <HeaderContainer>
       <BlockHeader>
@@ -40,11 +43,11 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
           <SidebarImage>
             {props.visible ? (
               <CloseContainer>
-                <Image src="/static/close.svg" size={'big'} onClick={() => props.setVisible(!props.visible)} />
+                <Image src="/static/close.svg" size={'big'} onClick={toggleSidebar} />
               </CloseContainer>
             ) : (
               <BurgerContainer>
-                <Image src="/static/burger.svg" size={'tiny'} onClick={() => props.setVisible(!props.visible)} />
+                <Image src="/static/burger.svg" size={'tiny'} onClick={toggleSidebar} />
               </BurgerContainer>
             )}
           </SidebarImage>

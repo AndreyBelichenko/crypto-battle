@@ -46,7 +46,7 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
     switch (item.type) {
       case 'link':
         return (
-          <MenuItem onClick={() => setVisible(false)}>
+          <MenuItem onClick={setVisibleSideBar}>
             <Link href={item.path}>
               <ItemMenuWrapper>
                 <ItemMenuImage>
@@ -62,6 +62,20 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
         );
       case 'modal':
         return <ModalWindowSidebars setVisible={(a: boolean) => setVisible(a)} content={item} role={item.idItem} />;
+      case 'logout':
+        return (
+          <MenuItem>
+            <ItemMenuWrapper>
+              <ItemMenuImage>
+                <Image src={item.image} />
+              </ItemMenuImage>
+              <ItemMenuImageHover>
+                <Image src={item.imageHover} />
+              </ItemMenuImageHover>
+              <ItemMenuName>{item.name}</ItemMenuName>
+            </ItemMenuWrapper>
+          </MenuItem>
+        );
     }
   };
 

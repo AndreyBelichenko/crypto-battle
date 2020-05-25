@@ -78,6 +78,6 @@ export const sidebarItems = [
     resourcesKey: 'battlesItem',
     image: '/static/sidebarItems/logoutItem.svg',
     imageHover: '/static/sidebarItems/activeLogout.svg',
-    name: 'Battles',
+    name: 'Logout',
   },
 ];
