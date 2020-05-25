@@ -27,3 +27,57 @@ export const hpDropdown = [
   { key: 5, text: '300 HP', value: 300 },
   { key: 6, text: '500 HP', value: 500 },
 ];
+
+export const sidebarItems = [
+  {
+    type: 'link',
+    idItem: 'requestItem',
+    resourcesKey: 'requestItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'Request',
+    path: '/',
+  },
+  {
+    type: 'link',
+    idItem: 'battlesItem',
+    resourcesKey: 'battlesItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'Battles',
+    path: '/battles',
+  },
+  {
+    type: 'link',
+    idItem: 'storyItem',
+    resourcesKey: 'storyItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'Story',
+    path: '/story',
+  },
+  {
+    type: 'modal',
+    idItem: 'warriors',
+    resourcesKey: 'requestItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'TOP Warriors',
+  },
+  {
+    type: 'modal',
+    idItem: 'crypto',
+    resourcesKey: 'battlesItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'TOP Crypto',
+  },
+  {
+    type: 'logout',
+    idItem: 'logout',
+    resourcesKey: 'battlesItem',
+    image: '/static/battle.svg',
+    imageHover: '/static/activePerson.svg',
+    name: 'Battles',
+  },
+];

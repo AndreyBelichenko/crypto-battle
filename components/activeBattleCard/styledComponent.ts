@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { activeBattleColor } from '../../constants/styledConstants';
 
 export const ParentDiv = styled.div`
-  width: 45%;
-  height: 35%;
-  padding: 15px;
+  width: 100%;
+  padding: 35px 15px 0;
 `;
 
 export const MainDiv = styled.div`
@@ -17,6 +16,7 @@ export const MainDiv = styled.div`
   border-radius: 5px;
   border: 1px solid ${activeBattleColor.battleBorderColor};
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
+  padding-bottom: 20px;
 `;
 
 export const CardDiv = styled.div`
@@ -46,13 +46,13 @@ export const GamerBlockOne = styled.div`
 
 export const CryptoCard = styled.div`
   width: 45%;
-  height: 100%;
-  margin-top: -20px;
+  //height: 120px;
+  margin-top: -15px;
 `;
 
 export const CryptoCardMain = styled.div`
   width: 100%;
-  height: 80%;
+  height: 65%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -93,10 +93,11 @@ export const GamerBlockTwo = styled.div`
 `;
 
 export const UserBlock = styled.div`
+  height: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 `;
 
 export const UserName = styled.p`

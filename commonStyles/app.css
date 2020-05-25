@@ -1,3 +1,10 @@
-.ui.grid {
-    min-height: 100%;
+.sidebar {
+    background: white!important;
+    width: 300px!important;
+}
+
+@media screen and (max-width: 500px) {
+    .sidebar{
+        width: 70% !important;
+    }
 }

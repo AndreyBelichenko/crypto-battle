@@ -23,3 +23,7 @@ export const activeBattleColor = {
   battleBorderColor: color.pomegranate,
   underlineTitle: color.pomegranate,
 };
+
+export const colorSidebar = {
+  underlineTitle: color.pomegranate,
+};

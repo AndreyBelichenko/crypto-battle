@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { Image, Menu } from 'semantic-ui-react';
 
-import { Grid } from 'semantic-ui-react';
+import { colorSidebar } from '../constants/styledConstants';
+import fonts from '../constants/fonts';
 
 export const AppWrapper = styled.div`
   width: 100%;
@@ -17,7 +19,7 @@ export const MainContent = styled.div`
   border-radius: 5px;
   min-height: calc(100vh - 125px);
   height: 100%;
-  background: rgba(255, 245, 215, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
   margin: auto 5px;
 `;
@@ -30,14 +32,77 @@ export const AppContainer = styled.div`
   background-image: url('/static/background.png');
 `;
 
-export const RightSidebar = styled(Grid.Column)`
-  width: 25%;
+export const MenuItem = styled(Menu.Item)`
+  color: black !important;
 `;
 
-export const LeftSidebar = styled(Grid.Column)`
-  width: 25%;
+export const ItemCreateBattle = styled.div`
+  border-bottom: 1px solid ${colorSidebar.underlineTitle};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin: 0 20px;
 `;
 
-export const CentralFida = styled(Grid.Column)`
-  width: 50%;
+export const ItemMenuImage = styled.div`
+  width: 25%;
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const ItemMenuImageHover = styled.div`
+  width: 25%;
+  margin-left: 10px;
+  display: none;
+  justify-content: flex-end;
+`;
+
+export const ItemMenuName = styled.div`
+  height: 100%;
+  margin-left: 20px;
+  font-size: 20px;
+  font-family: ${fonts.header};
+`;
+
+export const ItemMenuWrapper = styled.div`
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: ${colorSidebar.underlineTitle};
+  }
+
+  &:hover ${ItemMenuImage} {
+    display: none;
+  }
+
+  &:hover ${ItemMenuImageHover} {
+    display: flex;
+  }
+
+  &:hover ${ItemMenuName} {
+    color: white;
+  }
+`;
+
+export const StyledCloseButton = styled(Image)`
+  top: 5px;
+  right: 12px;
+  cursor: pointer;
+  position: absolute !important;
+  width: 10px !important;
+`;
+
+export const StyleModalContent = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  background: transparent;
 `;

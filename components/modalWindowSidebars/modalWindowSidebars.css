@@ -1,0 +1,27 @@
+.customBackgroundSidebars{
+    overflow: visible!important;
+}
+
+.customBackgroundSidebars:first-child{
+    width: 100%!important;
+    margin-top: -10px!important;
+    margin-bottom: 0!important;
+    height: calc(100% - 10px);
+    background: transparent!important;
+}
+
+.customBackgroundTransparent{
+    background: transparent!important;
+}
+
+.finallyCreate{
+    position: absolute;
+    bottom: 5%;
+    right: 30px;
+    width: 100px!important;
+    height: 35px;
+}
+
+.ui.dimmer{
+    background-color: rgba(255,255,255,.7);
+}

@@ -1,12 +1,20 @@
 import styled from 'styled-components';
-import { colorSidebar } from '../../constants/styledConstants';
 import { List } from 'semantic-ui-react';
 
-export const SideBarWrapper = styled.div`
+import { colorSidebar } from '../../constants/styledConstants';
+
+type SideBarWrapperProps = {
+  needHeight: boolean;
+};
+
+export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   min-width: 240px;
+  height: ${(props: any) => (props.needHeight ? '100%' : 'auto')};
+  overflow-y: scroll;
+  overflow-x: auto;
   width: 100%;
   padding: 20px 40px;
-  background: rgba(255, 245, 215, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
 `;
@@ -28,8 +36,8 @@ export const ImageBlock = styled.div`
 export const TitleImage = styled.div`
   width: 40px;
   position: absolute;
-  right: -35px;
-  top: 0;
+  right: -40px;
+  top: 5px;
 `;
 
 export const ImageCountBlock = styled.p`

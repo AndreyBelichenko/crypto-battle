@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { Header, List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+
 import { SideBarWrapper, HeaderWrapper, ImageBlock, ItemList, ImageCountBlock, TitleImage } from './styledComponent';
 
 interface SidebarProps {
   role: string;
   data: any;
+  height: boolean;
 }
 
-const Sidebar = (props: SidebarProps) => {
+const SidebarSelf = (props: SidebarProps) => {
   const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
   const imageInTitle = props.role === 'crypto' ? '/static/coins.svg' : '/static/sword.svg';
   const isCrypto = props.role === 'crypto';
   return (
-    <SideBarWrapper>
+    <SideBarWrapper needHeight={props.height}>
       <HeaderWrapper>
         <Header as="h2" textAlign="center">
           {sidebarTitle}
@@ -58,4 +60,4 @@ const Sidebar = (props: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export default SidebarSelf;

@@ -23,7 +23,6 @@ export const Content = styled(Container)`
   box-sizing: border-box;
   box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : 'none')};
   cursor: pointer;
-  border-radius: 4px;
 `;
 
 export const LogoContainer = styled(Container)`
@@ -31,7 +30,6 @@ export const LogoContainer = styled(Container)`
   width: 150px !important;
   background: white;
   position: absolute;
-  border-radius: 4px;
   top: 0;
   right: 0;
   z-index: 1 !important;
@@ -64,6 +62,8 @@ export const TextContainer = styled.div`
 
 export const CheckButton = styled(Container)`
   position: absolute;
+  display: flex !important;
+  justify-content: center;
   top: 25px;
   right: 25px;
   z-index: 2;
