@@ -2,7 +2,7 @@ import * as React from 'react';
 // @ts-ignore
 import { TradingViewEmbed, widgetType } from 'react-tradingview-embed';
 
-import { ChartWrapper } from './styledComponent';
+import { ChartWrapper } from './styledChart';
 
 type ChartProps = {
   crypto: string;

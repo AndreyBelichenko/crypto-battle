@@ -13,7 +13,7 @@ import {
   StyledDropDown,
   StyledCloseButton,
   StyledConnectWrapper,
-} from './styledComponents';
+} from './styledModalWindow';
 
 interface ModalProps {
   role: string;
@@ -41,9 +41,9 @@ const ModalWindow = (props: ModalProps) => {
           <StyledCloseButton name="close" align="right" onClick={toggleModal} />
         </StyleHeaderTitle>
         <Modal.Content scrolling={true} className="customBackgroundTransparent">
-          <Grid columns={2}>
+          <Grid stackable columns="2">
             {cryptoData.map((item, index) => (
-              <Grid.Column align="center" key={index}>
+              <Grid.Column key={index}>
                 <ImgCrypto
                   logo={item.logo}
                   person={item.person}
