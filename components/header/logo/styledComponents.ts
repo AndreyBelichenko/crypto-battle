@@ -23,7 +23,7 @@ export const Label = styled.span`
   align-items: center;
   color: ${color.white};
   @media (max-width: 1070px) {
-    font-size: none;
+    display: none;
   }
 `;
 
