@@ -4,7 +4,7 @@ import BattleBlock from './battleBlock/battleBLock';
 import LeftGamer from './leftGamer/leftGamer';
 import RightGamer from './rightGamer/rightGamer';
 
-import { ParentDiv, MainDiv } from './styledComponent';
+import { ParentDiv, MainDiv } from './styledActiveBattle';
 
 const ActiveBattleCard: React.FC = () => {
   return (

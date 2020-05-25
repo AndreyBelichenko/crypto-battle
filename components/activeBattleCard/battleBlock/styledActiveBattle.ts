@@ -9,7 +9,6 @@ export const BattleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 40%;
-  height: 100%;
 `;
 
 export const KnifesBlock = styled.div`
