@@ -25,6 +25,10 @@ export const Label = styled.span`
   @media (max-width: 1070px) {
     font-size: 25px;
   }
+
+  @media (max-width: 460px) {
+    display: none;
+  }
 `;
 
 export const LogoImage = styled.img`

@@ -1,7 +1,17 @@
 import * as React from 'react';
 import { Header, List, Image, Icon, Container, Divider } from 'semantic-ui-react';
 
-import { SideBarWrapper, HeaderWrapper, ImageBlock, ItemList, ImageCountBlock, TitleImage } from './styledComponent';
+import {
+  SideBarWrapper,
+  HeaderWrapper,
+  ImageBlock,
+  ItemList,
+  ImageCountBlock,
+  TitleImage,
+  ShowMore,
+  DividerCustomize,
+  ListCustomize,
+} from './styledSidebarSelf';
 
 interface SidebarProps {
   role: string;
@@ -23,7 +33,7 @@ const SidebarSelf = (props: SidebarProps) => {
           <Image src={imageInTitle} />
         </TitleImage>
       </HeaderWrapper>
-      <List divided relaxed>
+      <ListCustomize divided relaxed>
         {props.data.map((item: any, index: number) => (
           <ItemList key={index}>
             <ImageBlock>
@@ -35,10 +45,10 @@ const SidebarSelf = (props: SidebarProps) => {
             <ImageCountBlock>112</ImageCountBlock>
           </ItemList>
         ))}
-      </List>
-      <Divider />
+      </ListCustomize>
+      <DividerCustomize />
       <Container align="center" style={{ cursor: 'pointer' }}>
-        <Icon disabled name="ellipsis horizontal" size="big" />
+        {isCrypto ? <ShowMore>show more</ShowMore> : <Icon disabled name="ellipsis horizontal" size="big" />}
       </Container>
       {isCrypto || (
         <>

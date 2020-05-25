@@ -38,6 +38,9 @@ type MyAppProps = { Component: any; pageProps: any };
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   const [visible, setVisible] = React.useState(false);
+  const setVisibleSideBar = React.useCallback(() => {
+    setVisible(false);
+  }, []);
 
   const showItems = (item: any) => {
     switch (item.type) {
@@ -72,18 +75,20 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
             animation="overlay"
             icon="labeled"
             inverted
-            onHide={() => setVisible(false)}
+            onHide={setVisibleSideBar}
             vertical
             visible={visible}
             direction="right"
             className="sidebar"
           >
-            <MenuItem onClick={() => setVisible(false)}>
+            <MenuItem onClick={setVisibleSideBar}>
               <ItemCreateBattle>
                 <ModalWindow role="create" />
               </ItemCreateBattle>
             </MenuItem>
-            {sidebarItems.map((item) => showItems(item))}
+            {sidebarItems.map((item, index) => (
+              <div key={index}>{showItems(item)}</div>
+            ))}
           </Sidebar>
           <AppContainer>
             <Sidebar.Pusher>

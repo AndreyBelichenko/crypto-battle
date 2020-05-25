@@ -51,56 +51,55 @@ export const topCrypto = [
   },
 ];
 
-
 export const topWarriors = [
   {
     name: 'Vasya',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 10,
   },
   {
     name: 'Andrey',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 11,
   },
   {
     name: 'Danil',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 12,
   },
   {
     name: 'Petya',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 13,
   },
   {
     name: 'Shurik',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 14,
   },
   {
     name: 'Ivan',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 15,
   },
   {
     name: 'Boris',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 16,
   },
   {
     name: 'Egor',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 17,
   },
   {
     name: 'Max',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 18,
   },
   {
     name: 'Kolya',
-    logo: "/static/user.svg",
+    logo: '/static/user.svg',
     count: 19,
   },
 ];

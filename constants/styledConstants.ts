@@ -26,4 +26,5 @@ export const activeBattleColor = {
 
 export const colorSidebar = {
   underlineTitle: color.pomegranate,
+  menuItem: color.black,
 };

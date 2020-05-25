@@ -10,7 +10,7 @@ import {
   ContentImage,
   TextContainer,
   CheckButton,
-} from './styledComponent';
+} from './styledImgCrypto';
 
 interface ImgCryptoProps {
   logo: string;
@@ -35,7 +35,7 @@ const ImgCrypto = (props: ImgCryptoProps) => {
           <Image src="/static/check.svg" />
         </CheckButton>
       )}
-      <Content mainColor={props.mainColor} borderColor={isSelected ? props.mainColor : false}>
+      <Content mainColor={props.mainColor} borderColor={Boolean(isSelected) && props.mainColor}>
         <TextContainer>{props.name}</TextContainer>
       </Content>
       <ContentImage>

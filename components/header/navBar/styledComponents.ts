@@ -8,6 +8,12 @@ export const NavBarMenu = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 0 auto;
+
+  @media (max-width: 991px) {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const LinkItem = styled.a`
@@ -34,15 +40,15 @@ export const LinkItem = styled.a`
 
   @media (max-width: 1070px) {
     font-size: 23px;
-    margin 0 20px;
+    margin: 0 20px;
 
-      &:first-child {
-    margin: 0 20px 0 0;
-  }
+    &:first-child {
+      margin: 0 20px 0 0;
+    }
 
-  &:last-child {
-    margin: 0 0 0 20px;
-  }
+    &:last-child {
+      margin: 0 0 0 20px;
+    }
   }
 
   &:hover {

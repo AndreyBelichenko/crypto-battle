@@ -16,7 +16,7 @@ export const MainContent = styled.div`
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  border-radius: 5px;
+  border-radius: 4px;
   min-height: calc(100vh - 125px);
   height: 100%;
   background: rgba(255, 255, 255, 0.8);
@@ -33,7 +33,7 @@ export const AppContainer = styled.div`
 `;
 
 export const MenuItem = styled(Menu.Item)`
-  color: black !important;
+  color: ${colorSidebar.menuItem} !important;
 `;
 
 export const ItemCreateBattle = styled.div`
@@ -73,6 +73,7 @@ export const ItemMenuWrapper = styled.div`
   margin: 0 20px;
   border-radius: 20px;
   cursor: pointer;
+  transition: 0.2s;
 
   &:hover {
     background: ${colorSidebar.underlineTitle};

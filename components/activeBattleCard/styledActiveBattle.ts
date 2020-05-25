@@ -46,7 +46,6 @@ export const GamerBlockOne = styled.div`
 
 export const CryptoCard = styled.div`
   width: 45%;
-  //height: 120px;
   margin-top: -15px;
 `;
 

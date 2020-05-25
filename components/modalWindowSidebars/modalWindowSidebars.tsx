@@ -22,10 +22,10 @@ interface ModalProps {
 
 const ModalWindowSidebars = (props: ModalProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const toggleModal = () => {
+  const toggleModal = React.useCallback(() => {
     props.setVisible(false);
     setIsOpen(!isOpen);
-  };
+  }, [isOpen]);
   const modalData = props.role === 'crypto' ? topCrypto : topWarriors;
 
   return (

@@ -13,7 +13,7 @@ import {
   StyledDropDown,
   StyledCloseButton,
   StyledConnectWrapper,
-} from './styledComponents';
+} from './styledModalWindow';
 
 interface ModalProps {
   role: string;

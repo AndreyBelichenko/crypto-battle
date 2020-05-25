@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { List } from 'semantic-ui-react';
+import { List, Divider } from 'semantic-ui-react';
 
 import { colorSidebar } from '../../constants/styledConstants';
 
@@ -15,7 +15,7 @@ export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   width: 100%;
   padding: 20px 40px;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
 `;
 
@@ -42,7 +42,7 @@ export const TitleImage = styled.div`
 
 export const ImageCountBlock = styled.p`
   padding: 3px 5px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 16px;
   background: ${colorSidebar.underlineTitle};
   text-align: center;
@@ -56,4 +56,22 @@ export const ItemList = styled(List.Item)`
   display: flex !important;
   align-items: center;
   position: relative;
+`;
+
+export const ShowMore = styled.div`
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const ListCustomize = styled(List)`
+  margin-bottom: 6px !important;
+`;
+
+export const DividerCustomize = styled(Divider)`
+  margin-top: 0 !important;
 `;
