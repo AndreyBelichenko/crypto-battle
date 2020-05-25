@@ -88,7 +88,7 @@ export const ItemMenuWrapper = styled.div`
   }
 
   &:hover ${ItemMenuName} {
-    color: white;
+    color: ${colorSidebar.menuItemHoverText};
   }
 `;
 

@@ -27,4 +27,11 @@ export const activeBattleColor = {
 export const colorSidebar = {
   underlineTitle: color.pomegranate,
   menuItem: color.black,
+  menuItemHoverText: color.white,
+};
+
+export const breakPoints = {
+  large: 1070,
+  medium: 991,
+  small: 460,
 };

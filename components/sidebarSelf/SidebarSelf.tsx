@@ -50,7 +50,7 @@ const SidebarSelf = (props: SidebarProps) => {
       <Container align="center" style={{ cursor: 'pointer' }}>
         {isCrypto ? <ShowMore>show more</ShowMore> : <Icon disabled name="ellipsis horizontal" size="big" />}
       </Container>
-      {isCrypto || (
+      {!isCrypto && (
         <>
           <Divider />
           <List>

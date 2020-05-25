@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { color } from '../../../constants/colorMatrix';
+import { breakPoints } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
 
 export const NavBarMenu = styled.div`
@@ -9,7 +10,7 @@ export const NavBarMenu = styled.div`
   justify-content: center;
   margin: 0 auto;
 
-  @media (max-width: 991px) {
+  @media (max-width: ${breakPoints.medium}px) {
     display: none;
     justify-content: center;
     align-items: center;
@@ -38,7 +39,7 @@ export const LinkItem = styled.a`
     margin: 0 0 0 45px;
   }
 
-  @media (max-width: 1070px) {
+  @media (max-width: ${breakPoints.large}px) {
     font-size: 23px;
     margin: 0 20px;
 
