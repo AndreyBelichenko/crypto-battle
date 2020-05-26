@@ -13,3 +13,17 @@
     width: 100px!important;
     height: 35px;
 }
+
+@media all and (max-width: 500px){
+    .adaptive{
+        width: 80px!important;
+        height: 28px!important;
+    }
+}
+
+@media all and (max-width: 400px){
+    .adaptive{
+        width: 70px!important;
+        height: 28px!important;
+    }
+}

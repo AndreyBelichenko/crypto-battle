@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fonts from '../../../constants/fonts';
 
 export const GamerBlock = styled.div`
   display: flex;
@@ -30,13 +31,31 @@ export const CryptoCard = styled.div`
   padding-left: 12px;
   }
   @media (max-width: 1070px) {
-  padding-left: 5px;
+  padding-left: 3px;
   }
   @media (max-width: 992px) {
-  padding-left: 16px;
+  padding-left: 0px;
   }
-  @media (max-width: 680px) {
-  padding-left: 16px;
+  @media (max-width: 990px) {
+  padding-left: 6px;
+  }
+  @media (max-width: 950px) {
+  padding-left: 9px;
+  }
+  @media (max-width: 800px) {
+  padding-left: 1px;
+  }
+  @media (max-width: 770px) {
+  padding-left: 11px;
+  }
+  @media (max-width: 766px) {
+  padding-left: 15px;
+  }
+  @media (max-width: 600px) {
+  padding-left: 11px;
+  }
+  @media (max-width: 415px) {
+  padding-left: 13px;
   }
   @media (max-width: 376px) {
   padding-left: 13px;
@@ -46,21 +65,39 @@ export const CryptoCard = styled.div`
   }
 `;
 
-export const CryptoCardPerson = styled.div`
-  width: 65%;
-  left: 0;
-  bottom: 0;
-`;
-
 export const ImageCardLogo = styled.img`
   height: 50px;
   width: 50px;
   position: absolute;
   left: 4.39%;
   top: 0.83%;
-  @media(max-width: 415px) {
-  width: 34px;
-  height: 34px;
+  @media (max-width: 1070px) {
+  height: 35px;
+  width: 35px;
+  }
+  @media (max-width: 990px) {
+  height: 50px;
+  width: 50px;
+  }
+  @media (max-width: 850px) {
+  height: 35px;
+  width: 35px;
+  }
+  @media (max-width: 766px) {
+  height: 50px;
+  width: 50px;
+  }
+  @media (max-width: 600px) {
+  height: 35px;
+  width: 35px;
+  }
+  @media (max-width: 500px) {
+  height: 27px;
+  width: 27px;
+  }
+  @media (max-width: 376px) {
+  height: 23px;
+  width: 23px;
   }
 `;
 
@@ -70,14 +107,30 @@ export const ImageCardPerson = styled.img`
   position: absolute;
   left: 26.98%;
   top: 13.61%;
+  @media (max-width: 1070px) {
+  height: 53px;
+  }
+  @media (max-width: 990px) {
+  height: 80px;
+  }
   @media(max-width: 850px){
-  height: 76px;
-  left:21.98%;
-  top: 18.61%;
+  height: 53px;
+  }
+  @media (max-width: 766px) {
+  height: 80px;
+  }
+  @media(max-width: 600px){
+  height: 53px;
+  }
+  @media(max-width: 500px){
+  height: 43px;
   }
   @media(max-width: 415px) {
-  height: 52px;
-  top: 26.61%;
+  top: 15.61%;
+  left: 39.98%;
+  }
+  @media(max-width: 376px){
+  height: 32px;
   }
 `;
 
@@ -85,36 +138,30 @@ export const CryptoCardName = styled.div`
   position: absolute;
   left: 5px;
   bottom: 5px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 20px;
-  @media(max-width: 415px) {
-  font-size: 8px;
+  font-family: ${fonts.header}
+  @media (max-width: 1070px) {
+  font-size: 14px;
   }
-`;
-
-export const UserPhoto = styled.img`
-  height:95px;
-  width: 95px;
-  border-radius: 50%;
-  @media(max-width: 1440px) {
-  height:75px;
-  width: 75px;
+  @media (max-width: 990px) {
+  font-size: 20px;
   }
-  @media(max-width: 1200px) {
-  width: 50px;
-  height: 50px;
+  @media (max-width: 850px) {
+  font-size: 14px;
   }
-  @media(max-width: 850px) {
-  width: 45px;
-  height: 45px;
+  @media (max-width: 766px) {
+  font-size: 20px;
   }
-  @media(max-width: 415px) {
-  width: 40px;
-  height: 40px;
+  @media (max-width: 600px) {
+  font-size: 14px;
   }
-  @media(max-width: 376px) {
-  width: 35px;
-  height: 35px;
+  @media (max-width: 500px) {
+  font-size: 11px;
+  }
+  @media (max-width: 375px) {
+  font-size: 9px;
+  top: 23px;
   }
 `;
 
@@ -122,9 +169,9 @@ export const AwardsBlock = styled.div`
   width: 33.3%;
   height: 100%;
   position: relative;
-  padding-left: 50px;
+  padding-left: 56px;
   @media(max-width: 1680px){
-  padding-left: 43px;
+  padding-left: 37px;
   }
   @media(max-width: 1620px){
   padding-left: 37px;
@@ -133,53 +180,61 @@ export const AwardsBlock = styled.div`
   padding-left: 32px;
   }
   @media(max-width: 1440px){
-  padding-left: 28px;
+  padding-left: 22px;
   }
   @media(max-width: 1366px){
   padding-left: 20px;
   }
-  @media (max-width: 1200px) {
-  padding-left: 13px;
+  @media (max-width: 1280px) {
+  padding-left: 18px;
   }
   @media (max-width: 1070px) {
-  padding-left: 6px;
+  padding-left: 25px;
+  }
+  @media (max-width: 1024px) {
+  padding-left: 20px;
   }
   @media (max-width: 992px) {
-  padding-left: 16px;
+  padding-left: 18px;
+  }
+  @media (max-width: 990px) {
+  padding-left: 22px;
   }
   @media (max-width: 950px) {
-  padding-left: 11px;
+  padding-left: 18px;
+  }
+  @media (max-width: 900px) {
+  padding-left: 13px;
   }
   @media (max-width: 850px) {
-  padding-left: 16px;
+  padding-left: 23px;
+  }
+  @media (max-width: 800px) {
+  padding-left: 21px;
   }
   @media (max-width: 770px) {
-  padding-left: 19px;
+  padding-left: 27px;
+  }
+  @media (max-width: 766px) {
+  padding-left: 41px;
+  }
+  @media (max-width: 700px) {
+  padding-left: 34px;
+  }
+  @media (max-width: 600px) {
+  padding-left: 33px;
+  }
+  @media (max-width: 600px) {
+  padding-left: 23px;
   }
   @media(max-width: 415px){
-  padding-left: 29px;
+  padding-left: 30px;
   }
   @media(max-width: 376px){
-  padding-left: 26px;
+  padding-left: 27px;
+  top: -13px;
   }
 `;
-
-export const AvardsImage = styled.img`
-  width: 79px;
-  height: 100%;
-  @media(max-width: 850px) {
-  width: 65px;
-  }
-  @media(max-width: 415px) {
-  width: 40px;
-  }
-  @media(max-width: 415px) {
-  width: 35px;
-  }
-  @media(max-width: 376px) {
-  width: 35px;
-  }
-  `;
 
 export const AwardsText = styled.div`
   font-weight: bold;
@@ -187,50 +242,85 @@ export const AwardsText = styled.div`
   font-size: 13px;
   position: absolute;
   line-height: 1;
-  top: 60%;
-  left: 86px;
+  top: 52%;
+  left: 79px;
+  font-family: ${fonts.header}
   transform: translate(-50%, -50%);
   @media(max-width: 1680px) {
-  left: 82px;
+  left: 62px;
   }
   @media(max-width: 1560px) {
-  left: 76px;
+  left: 61px;
   }
   @media(max-width: 1440px) {
-  left: 68px;
+  left: 45px;
   }
   @media(max-width: 1366px) {
-  left: 60px;
+  left: 43px;
   }
-  @media(max-width: 1200px) {
-  left: 53px;
+  @media(max-width: 1280px) {
+  left: 41px;
+  top: 42%;
+  font-size: 11px;
   }
   @media(max-width: 1070px) {
-  left: 47px;
-  font-size: 12px;
+  left: 40px;
+  top: 48%;
+  font-size: 9px;
+  }
+  @media(max-width: 1024px) {
+  left: 35px;
   }
   @media(max-width: 992px) {
-  left: 56px;
+  left: 33px;
+  }
+  @media(max-width: 990px) {
+  left: 42px;
+  top: 46%;
+  font-size: 11px;
   }
   @media(max-width: 950px) {
-  left: 51px;
+  left: 39px;
+  }
+  @media(max-width: 900px) {
+  left: 34px;
   }
   @media(max-width: 850px){
-   font-size: 11px;
-   left: 49px;
-   top: 57%;
+   font-size: 9px;
+   left: 39px;
+   top: 50%;
   }
-  @media(max-width: 992px){
-   left: 51px;
+  @media(max-width: 800px) {
+  left: 36px;
+  }
+  @media(max-width: 770px) {
+  left: 42px;
+  }
+  @media(max-width: 766px) {
+  left: 61px;
+  top: 46%;
+  font-size: 11px;
+  }
+  @media(max-width: 700px) {
+  left: 54px;
+  }
+  @media(max-width: 600px){
+   font-size: 9px;
+   left: 49px;
+   top: 50%;
+  }
+  @media(max-width: 500px) {
+  left: 39px;
   }
   @media(max-width: 415px) {
+  left: 36px;
+  top: 34%;
   font-size: 8px;
-  left: 50px;
-  top: 56%;
   }
   @media(max-width: 376px) {
   font-size: 6px;
-  left: 44px;
+  left: 35px;
+  top: 51%;
   }
 `;
 
@@ -241,10 +331,7 @@ export const UserBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: -39px;
-  @media(max-width: 1920px){
-  margin-right: -60px;
-  }
+  margin-right: -84px;
   @media(max-width: 1680px){
   margin-right: -54px;
   }
@@ -257,20 +344,29 @@ export const UserBlock = styled.div`
   @media(max-width: 1360px){
   margin-right: -48px;
   }
-  @media(max-width: 1070px){
-  margin-right: -39px;
-  }
-  @media(max-width: 1280px){
-  margin-right: -46px;
+   @media(max-width: 1280px){
+  margin-right: -44px;
   }
   @media(max-width: 1070px){
-  margin-right: -38px;
+  margin-right: -41px;
   }
   @media(max-width: 992px){
   margin-right: -47px;
   }
   @media(max-width: 770px){
-  margin-right: -54px;
+  margin-right: -56px;
+  }
+  @media(max-width: 770px){
+  margin-right: -72px;
+  }
+  @media(max-width: 700px){
+  margin-right: -86px;
+  }
+  @media(max-width: 600px){
+  margin-right: -60px;
+  }
+  @media(max-width: 500px){
+  margin-right: -58px;
   }
   @media(max-width: 415px){
   margin-right: -60px;

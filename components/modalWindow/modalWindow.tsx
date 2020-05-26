@@ -40,7 +40,7 @@ const ModalWindow = (props: ModalProps) => {
 
   return (
     <div>
-      <Btn className="ui orange button" onClick={toggleModal}>
+      <Btn className="ui orange button adaptive" onClick={toggleModal}>
         {buttonName}
       </Btn>
       <Modal open={isOpen} onClose={toggleModal} className="customBackground">

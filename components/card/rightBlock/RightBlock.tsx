@@ -3,14 +3,17 @@ import { Progress } from 'semantic-ui-react';
 
 import { secondWarrior } from '../mockData';
 
-import {GamerBlock, CryptoCardPerson, CryptoCard, CryptoCardName, ImageCardLogo, ImageCardPerson, UserPhoto, AvardsImage, UserBlock,
+import {GamerBlock, CryptoCard, CryptoCardName, ImageCardLogo, ImageCardPerson, UserBlock,
   AwardsText, AwardsBlock } from './rightStyledComponent';
 import {
+  CryptoCardPerson,
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,
   UserName,
   ProgressText,
+  UserPhoto,
+  AvardsImage,
 } from '../styledComponent';
 
 const RightBlock: React.FC = () => {

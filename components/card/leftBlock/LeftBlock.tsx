@@ -5,21 +5,21 @@ import { warrior } from '../mockData';
 
 import { GamerBlock,
   CryptoCard,
-  CryptoCardPerson,
   CryptoCardName,
   ImageCardPerson,
   ImageCardLogo,
-  UserPhoto,
   AwardsBlock,
-  AvardsImage,
   AwardsText,
   UserBlock } from './leftStyledComponent';
 import {
+  CryptoCardPerson,
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,
   UserName,
+  UserPhoto,
   ProgressText,
+  AvardsImage,
 } from '../styledComponent';
 
 const LeftBlock: React.FC = () => {
