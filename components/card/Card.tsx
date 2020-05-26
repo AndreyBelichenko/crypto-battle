@@ -8,7 +8,7 @@ import BattleBlock from './battleBlock/BattleBlock';
 import BattleLoader from './battleLoader/battleLoader';
 import RightBlockWait from './rightBlockWaiting/RightBlockWaiting';
 
-import { ParentDiv, MainDiv } from './styledComponent';
+import { MainDiv } from './styledComponent';
 
 interface RootState {
   battle: {
@@ -19,13 +19,11 @@ interface RootState {
 const BattleCard: React.FC = () => {
   const isBattle = useSelector((state: RootState) => state.battle.battleData);
   return (
-    <ParentDiv>
       <MainDiv>
         <LeftBlock/>
         {isBattle ? <BattleBlock/> : <BattleLoader/>}
         {isBattle ? <RightBlock/> : <RightBlockWait/>}
       </MainDiv>
-    </ParentDiv>
   );
 };
 

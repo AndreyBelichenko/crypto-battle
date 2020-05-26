@@ -3,7 +3,8 @@ import { Progress } from 'semantic-ui-react';
 
 import { warrior } from '../mockData';
 
-import { CryptoCard,
+import { GamerBlock,
+  CryptoCard,
   CryptoCardPerson,
   CryptoCardName,
   ImageCardPerson,
@@ -14,7 +15,6 @@ import { CryptoCard,
   AwardsText,
   UserBlock } from './leftStyledComponent';
 import {
-  GamerBlock,
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,

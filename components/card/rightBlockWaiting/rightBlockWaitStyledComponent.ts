@@ -6,5 +6,4 @@ export const ButtonBlock = styled.div`
   align-items: center;
   width: 40%;
   height: auto;
-
   `;

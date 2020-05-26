@@ -6,46 +6,34 @@ export const ParentDiv = styled.div`
   width: 45%;
   height: 179px;
   padding: 15px;
+  @media(max-width: 1920px){
+  width: 1920px;
+  height: 1080px;
+  }
+  @media(max-width: 1070px){
+  width: 1070px;
+  height: 1080px;
+  }
 `;
 
 export const MainDiv = styled.div`
   width: 100%;
-  height: 100%;
+  height: 148px;
   background: white;
   display: flex;
   justify-content: row;
   border-radius: 5px;
   border: 1px solid ${battleColor.battleBorderColor};
-  box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
+  box-shadow: 0px 0px 10px  ${battleColor.battleBorderShadow};
   padding: 15px;
-
-`;
-
-export const CardDiv = styled.div`
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: flex;
+  @media(max-width: 1070px){
+  height: 140px;
+  }
 `;
 
 export const BattleBlock = styled.div`
   width: 20%;
   height: 100%;
-`;
-
-export const GamerBlock = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 45%;
-  height: 100%;
-`;
-
-export const GamerBlockOne = styled.div`
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: space-around;
 `;
 
 export const CryptoCardMain = styled.div`
@@ -57,7 +45,21 @@ export const CryptoCardMain = styled.div`
   background: white;
   border: 1px solid red;
   padding: 5px;
-  margin-top: -30px;
+  margin-top: -27px;
+  @media(max-width: 1200px) {
+  width: 75px;
+  }
+  @media(max-width: 850px) {
+  width: 68px;
+  }
+  @media(max-width: 415px) {
+  width: 50px;
+  height: 70px;
+  }
+  @media (max-width: 415px){
+    width: 45px;
+    height: 70px;
+}
 `;
 
 export const CryptoCardLogo = styled.div`
@@ -71,6 +73,19 @@ export const CryptoCardHp = styled.div`
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  @media(max-width: 1200px) {
+  width: 75px;
+  }
+  @media(max-width: 850px) {
+  width: 68px;
+  }
+  @media(max-width: 415px) {
+  width: 50px;
+  height: 15px;
+  }
+  @media(max-width: 415px) {
+  width: 45px;
+  }
 `;
 
 export const ProgressText = styled.div`
@@ -81,9 +96,21 @@ export const ProgressText = styled.div`
   z-index: 2;
   text-align: center;
   font-weight: bold;
+  @media(max-width: 415px) {
+  font-size: 8px;
+  }
 `;
 
 export const UserName = styled.p`
   font-weight: normal;
   font-size: 16px;
+  @media(max-width: 1070px){
+  font-size: 16px;
+  }
+  @media(max-width: 850px){
+  font-size: 13px;
+  }
+  @media(max-width: 415px) {
+  font-size: 8px;
+  }
 `;

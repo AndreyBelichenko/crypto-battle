@@ -4,11 +4,11 @@ export const warrior = [
   {
     idWarrior: 'Alex090',
     warriorName: 'Alex090',
-    name: 'BCH',
-    logo: '/static/cryptoList/bch/logo-bch.svg',
-    person: '/static/cryptoList/bch/person-bch.svg',
-    flag: '/static/cryptoList/bch/flag-bch.svg',
-    mainColor: cryptoColors.bch_tree_poppy,
+    name: 'BTC',
+    logo: '/static/cryptoList/btc/logo-btc.svg',
+    person: '/static/cryptoList/btc/person-btc.svg',
+    flag: '/static/cryptoList/btc/flag-btc.svg',
+    mainColor: cryptoColors.btc_tree_poppy,
   },
 ];
 
@@ -16,10 +16,10 @@ export const secondWarrior = [
   {
     idWarrior: 'Max000',
     warriorName: 'Max000',
-    name: '0x',
-    logo: '/static/cryptoList/ox/logo-ox.svg',
-    person: '/static/cryptoList/ox/person-ox.svg',
-    flag: '/static/cryptoList/ox/flag-ox.svg',
-    mainColor: cryptoColors.ox_mine_shaft,
+    name: 'EOS',
+    logo: '/static/cryptoList/eos/logo-eos.svg',
+    person: '/static/cryptoList/eos/person-eos.svg',
+    flag: '/static/cryptoList/eos/flag-eos.svg',
+    mainColor: cryptoColors.eos_black,
   },
 ];

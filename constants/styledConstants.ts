@@ -38,4 +38,5 @@ export const breakPoints = {
 
 export const battleColor = {
   battleBorderColor: color.pomegranate,
+  battleBorderShadow: color.manatee,
 };

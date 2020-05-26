@@ -3,10 +3,9 @@ import { Progress } from 'semantic-ui-react';
 
 import { secondWarrior } from '../mockData';
 
-import { CryptoCardPerson, CryptoCard, CryptoCardName, ImageCardLogo, ImageCardPerson, UserPhoto, AvardsImage, UserBlock,
+import {GamerBlock, CryptoCardPerson, CryptoCard, CryptoCardName, ImageCardLogo, ImageCardPerson, UserPhoto, AvardsImage, UserBlock,
   AwardsText, AwardsBlock } from './rightStyledComponent';
 import {
-  GamerBlock,
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,

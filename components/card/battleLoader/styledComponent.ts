@@ -10,10 +10,18 @@ export const BattleWrapper = styled.div`
 `;
 
 export const BattleImg = styled.img`
-  width: 50px;
-  height: 50px;
-  @media (max-width: 1400px) {
+  width: 80px;
+  height: 80px;
+  @media (max-width:1536px) {
+  width: 60px;
+  height:60px;
+  }
+  @media(max-width: 1070px){
   width: 40px;
   height: 40px;
+  }
+  @media(max-width: 415px) {
+  width: 35px;
+  height: 35px;
   }
   `;
