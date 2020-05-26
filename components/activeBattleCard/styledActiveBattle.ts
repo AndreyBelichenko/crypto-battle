@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
+
 import { activeBattleColor, breakPointsActiveCard } from '../../constants/styledConstants';
 
 export const ParentDiv = styled.div`
   width: 100%;
   height: 300px;
-  padding: 35px 2px 0 10px;
+  padding: 35px 0 0 10px;
 
   @media (max-width: ${breakPointsActiveCard.huge}px) {
     height: 250px;
@@ -143,8 +144,8 @@ export const ProgressText = styled.div`
   z-index: 2;
   text-align: center;
   font-weight: bold;
-  -webkit-text-stroke: 0.5px black;
-  color: white;
+  -webkit-text-stroke: 0.5px ${activeBattleColor.processBorderTextColor};
+  color: ${activeBattleColor.processTextColor};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 10px;
