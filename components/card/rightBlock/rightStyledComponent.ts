@@ -170,6 +170,7 @@ export const AwardsBlock = styled.div`
   height: 100%;
   position: relative;
   padding-left: 56px;
+  top: -13px;
   @media(max-width: 1680px){
   padding-left: 37px;
   }
@@ -187,6 +188,7 @@ export const AwardsBlock = styled.div`
   }
   @media (max-width: 1280px) {
   padding-left: 18px;
+  top: -11px;
   }
   @media (max-width: 1070px) {
   padding-left: 25px;
@@ -222,16 +224,13 @@ export const AwardsBlock = styled.div`
   padding-left: 34px;
   }
   @media (max-width: 600px) {
-  padding-left: 33px;
-  }
-  @media (max-width: 600px) {
   padding-left: 23px;
   }
   @media(max-width: 415px){
-  padding-left: 30px;
+  padding-left: 28px;
   }
   @media(max-width: 376px){
-  padding-left: 27px;
+  padding-left: 25px;
   top: -13px;
   }
 `;
@@ -319,7 +318,7 @@ export const AwardsText = styled.div`
   }
   @media(max-width: 376px) {
   font-size: 6px;
-  left: 35px;
+  left: 34px;
   top: 51%;
   }
 `;

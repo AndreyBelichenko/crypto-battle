@@ -171,14 +171,18 @@ export const AwardsBlock = styled.div`
   height: 100%;
   position: relative;
   left: -14px;
+  top: -13px;
+  @media(max-width: 1280px){
+  top: -11px;
+  }
   @media(max-width: 1260px){
   left: -16px;
   }
   @media(max-width: 415px){
-  left: -18px;
+  left: -16px;
   }
   @media(max-width: 376px){
-  left: -17px;
+  left: -15px;
   top: -13px;
   }
 `;
@@ -239,7 +243,7 @@ export const AwardsText = styled.div`
   }
   @media(max-width: 376px) {
   font-size: 6px;
-  left: 10px;
+  left: 9px;
   top: 51%;
   }
 `;
