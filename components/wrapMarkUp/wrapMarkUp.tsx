@@ -20,6 +20,7 @@ import {
   ItemMenuImage,
   ItemMenuName,
   ItemMenuImageHover,
+  // StyleCentralFid,
 } from '../../commonStyles/styledApp';
 
 type HocMarkUpProps = { children: any };

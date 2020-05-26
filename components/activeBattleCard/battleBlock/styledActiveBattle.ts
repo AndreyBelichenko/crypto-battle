@@ -16,14 +16,49 @@ export const KnifesBlock = styled.div`
   height: 50px;
   margin-top: -25px;
   position: relative;
+
+  @media (max-width: 1400px) {
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+  }
+  @media (max-width: 1150px) {
+    height: 30px;
+    width: 30px;
+    margin-top: -15px;
+  }
+
+  @media (max-width: 767px) {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+  }
+
+  @media (max-width: 600px) {
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+  }
+
+  @media (max-width: 500px) {
+    height: 30px;
+    width: 30px;
+    margin-top: -15px;
+  }
 `;
 
 export const BattleDescriptionBlock = styled.div`
-  width: 90%;
+  width: 95%;
   height: 80%;
   margin-bottom: 20px;
   border: 1px solid ${activeBattleColor.battleBorderColor};
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
+  min-width: 100px;
+
+  @media (max-width: 840px) {
+    height: 83%;
+    margin-bottom: 10px;
+  }
 `;
 
 export const KnifeOne = styled(Image)`

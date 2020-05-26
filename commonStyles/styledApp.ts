@@ -21,7 +21,10 @@ export const MainContent = styled.div`
   height: 100%;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
-  margin: auto 5px;
+
+  @media (max-width: 767px) {
+    min-height: calc(100vh - 85px);
+  }
 `;
 
 export const AppContainer = styled.div`
@@ -30,6 +33,9 @@ export const AppContainer = styled.div`
   background-attachment: fixed;
   background-position: top center;
   background-image: url('/static/background.png');
+  @media (max-width: 767px) {
+    padding: 14px 0;
+  }
 `;
 
 export const MenuItem = styled(Menu.Item)`

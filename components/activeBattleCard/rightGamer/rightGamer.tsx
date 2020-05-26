@@ -12,9 +12,11 @@ import {
   CryptoCardMain,
   UserBlock,
   UserName,
-  AwardsText,
   AwardsBlock,
+  AwardsText,
   ProgressText,
+  ImageUser,
+  ImageAwards,
 } from '../styledActiveBattle';
 
 const RightGamer: React.FC = () => {
@@ -42,12 +44,12 @@ const RightGamer: React.FC = () => {
             <br /> для
             <br /> наград
           </AwardsText>
-          <Image src="/static/cryptoList/icx/flag-icx.svg" size="small" />
+          <ImageAwards src="/static/cryptoList/icx/flag-icx.svg" />
         </AwardsBlock>
       </GamerBlockOne>
       <GamerBlockTwo>
         <UserBlock>
-          <Image src="/static/user.svg" />
+          <ImageUser src="/static/user.svg" />
           <UserName>alexeygrigurko</UserName>
         </UserBlock>
         <ChartTrigger>
