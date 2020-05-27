@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 
 import Header from '../header/Header';
+import Banner from '../banner/Banner';
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
@@ -93,6 +94,7 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
         </Sidebar>
         <AppContainer>
           <Sidebar.Pusher>
+            <Banner/>
             <Grid stackable columns="equal">
               <Grid.Column tablet={6} computer={4} only="tablet computer">
                 <SidebarSelf role="warriors" data={topWarriors} height={false} />
