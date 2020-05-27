@@ -40,15 +40,15 @@ export const LinkItem = styled.a`
 
   @media (max-width: {breakPointsHeader.big}px) {
     font-size: 23px;
-    margin 0 20px;
+    margin: 0 20px;
 
-      &:first-child {
-    margin: 0 20px 0 0;
-  }
+    &:first-child {
+      margin: 0 20px 0 0;
+    }
 
-  &:last-child {
-    margin: 0 0 0 20px;
-  }
+    &:last-child {
+      margin: 0 0 0 20px;
+    }
   }
 
   &:hover {

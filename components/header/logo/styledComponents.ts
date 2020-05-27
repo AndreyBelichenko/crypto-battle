@@ -26,6 +26,10 @@ export const Label = styled.span`
   @media (max-width: ${breakPointsHeader.big}px) {
     display: none;
   }
+
+  @media (max-width: ${breakPointsHeader.small}px) {
+    display: none;
+  }
 `;
 
 export const LogoImage = styled.img`
