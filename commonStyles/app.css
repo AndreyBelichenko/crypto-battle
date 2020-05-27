@@ -1,6 +1,12 @@
 .sidebar {
-    background: white!important;
-    width: 300px!important;
+    background: #FFFFFF !important;
+    width: 300px !important;
+}
+
+@media only screen and (max-width: 767px){
+    .ui.stackable.grid > .column:not(.row) {
+        padding: 0!important;
+    }
 }
 
 @media screen and (max-width: 500px) {

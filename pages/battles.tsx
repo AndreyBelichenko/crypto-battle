@@ -1,5 +1,7 @@
 import * as React from 'react';
 
-const Battles: React.FC = () => <div>battles</div>;
+import Battle from '../components/battle/Battle';
+
+const Battles: React.FC = () => <Battle />;
 
 export default Battles;
