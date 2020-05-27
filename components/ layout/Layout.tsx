@@ -2,7 +2,7 @@ import * as React from 'react';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 
-import { setAuthStoreUserData } from '../../store/redux/actionCreators/actionCreators';
+import { setAuthUserDataFromCookies } from '../../store/redux/actionCreators/actionCreators';
 
 const Layout: React.FC = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
   React.useEffect(() => {
     const userDataCookie = Cookies.get('userData');
     if (typeof userDataCookie === 'string') {
-      dispatch(setAuthStoreUserData(JSON.parse(userDataCookie)));
+      dispatch(setAuthUserDataFromCookies(JSON.parse(userDataCookie)));
     }
   }, []);
 

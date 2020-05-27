@@ -1,9 +1,7 @@
 import * as React from 'react';
-import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 // @ts-ignore
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import * as Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
@@ -16,44 +14,12 @@ const AuthBlock: React.FC = () => {
 
   const responseFacebook = (responseFacebook: any) => {
     if (responseFacebook.accessToken) {
-      axios
-        .post('http://crypto-battle.pp.ua/api/auth/facebook', {
-          access_token: responseFacebook.accessToken,
-        })
-        .then((response) => {
-          if (response.data.user) {
-            const userToSend = {
-              id: response.data.user._id,
-              name: response.data.user.alias,
-              avatar: response.data.user.avatar,
-              numberOfVictories: response.data.user.numberOfVictories,
-              access_token: responseFacebook.accessToken,
-            };
-            Cookies.set('userData', userToSend);
-            dispatch(setAuthStoreUserData(userToSend));
-          }
-        });
+      dispatch(setAuthStoreUserData('facebook', responseFacebook.accessToken));
     }
   };
 
   const responseGoogle = (responseGoogle: any) => {
-    axios
-      .post('http://crypto-battle.pp.ua/api/auth/google', {
-        access_token: responseGoogle.wc.access_token,
-      })
-      .then((response) => {
-        if (response.data.user) {
-          const userToSend = {
-            id: response.data.user._id,
-            name: response.data.user.alias,
-            avatar: response.data.user.avatar,
-            numberOfVictories: response.data.user.numberOfVictories,
-            access_token: responseGoogle.wc.access_token,
-          };
-          Cookies.set('userData', userToSend);
-          dispatch(setAuthStoreUserData(userToSend));
-        }
-      });
+    dispatch(setAuthStoreUserData('google', responseGoogle.wc.access_token));
   };
 
   return (

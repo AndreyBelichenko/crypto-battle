@@ -1,8 +1,11 @@
 import React from 'react';
+
+import { useSelector } from 'react-redux';
 import { Modal, Image } from 'semantic-ui-react';
 
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 
+import { AppState } from '../../store/rootReducer';
 import { topCrypto } from '../../mockData/topSidebars';
 import {
   ItemMenuImage,
@@ -13,8 +16,6 @@ import {
   StyledCloseButton,
   StyleModalContent,
 } from '../../commonStyles/styledApp';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../store/rootReducer';
 
 interface ModalProps {
   content: any;

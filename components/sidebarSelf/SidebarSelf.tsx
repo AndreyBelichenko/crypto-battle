@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
+
+import cryptoData from '../../constants/cryptoData/cryptoData';
+import { AppState } from '../../store/rootReducer';
 
 import {
   SideBarWrapper,
@@ -15,8 +19,6 @@ import {
   ListContentCustomize,
   ListHeader,
 } from './styledSidebarSelf';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../store/rootReducer';
 
 interface SidebarProps {
   role: string;
@@ -24,12 +26,7 @@ interface SidebarProps {
   height: boolean;
 }
 
-interface PropsOneUser {
-  id: string;
-  alias: string;
-  avatar: string;
-  numberOfVictories: number;
-}
+const getImageOfCrypto = (name: string) => cryptoData.filter((item) => item.name === name)[0].logo;
 
 const SidebarSelf = (props: SidebarProps) => {
   const userData = useSelector((state: AppState) => state.user.userData);
@@ -37,7 +34,22 @@ const SidebarSelf = (props: SidebarProps) => {
   const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
   const imageInClass = props.role === 'crypto' ? 'coinImage' : 'swordImage';
   const isCrypto = props.role === 'crypto';
-  const isUser = !props.data.map((item: PropsOneUser) => item.id).includes(userData.id);
+  const isUser = !props.data.map((item: any) => item._id).includes(userData.id);
+  const dataToShow = props.data.map((item: any) =>
+    isCrypto
+      ? {
+        id: item._id,
+        alias: item.cryptoName,
+        numberOfVictories: item.numberOfVictories,
+        avatar: getImageOfCrypto(item.cryptoName),
+      }
+      : {
+        id: item._id,
+        alias: item.alias,
+        numberOfVictories: item.numberOfVictories,
+        avatar: item.avatar,
+      },
+  );
 
   return (
     <SideBarWrapper needHeight={props.height}>
@@ -48,13 +60,13 @@ const SidebarSelf = (props: SidebarProps) => {
         </TitleImage>
       </HeaderWrapper>
       <ListCustomize divided relaxed>
-        {props.data.map((item: PropsOneUser, index: number) => (
+        {dataToShow.map((item: any, index: number) => (
           <ItemList key={index}>
             <ImageBlock>
               <Image src={item.avatar} verticalAlign="middle" />
             </ImageBlock>
             <ListContentCustomize>
-              <ListHeader as="h3">{item.alias}</ListHeader>
+              <ListHeader>{item.alias}</ListHeader>
               <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>
             </ListContentCustomize>
           </ItemList>
@@ -64,7 +76,7 @@ const SidebarSelf = (props: SidebarProps) => {
       <Container align="center" style={{ cursor: 'pointer' }}>
         {isCrypto ? <ShowMore>show more</ShowMore> : <Icon disabled name="ellipsis horizontal" size="big" />}
       </Container>
-      {!isCrypto && userData.name && isUser && (
+      {!isCrypto && userData && userData.name && isUser && (
         <>
           <Divider />
           <List>

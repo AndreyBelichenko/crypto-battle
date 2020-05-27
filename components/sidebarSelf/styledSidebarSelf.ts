@@ -11,7 +11,7 @@ export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   min-width: 240px;
   height: ${(props: any) => (props.needHeight ? '100%' : 'auto')};
   overflow-y: scroll;
-  overflow-x: auto;
+  overflow-x: hidden;
   width: 100%;
   padding: 20px 40px;
   background: rgba(255, 255, 255, 0.8);
@@ -47,7 +47,7 @@ export const TitleImage = styled.div`
 
 export const ImageCountBlock = styled.p`
   padding: 3px;
-  min-width: 26px;
+  min-width: 30px;
   height: 26px;
   border-radius: 4px;
   font-size: 16px;
@@ -55,6 +55,9 @@ export const ImageCountBlock = styled.p`
   text-align: center;
   color: white;
   font-weight: bold;
+  // margin-left: 5px;
+  position: absolute;
+  right: 0;
 `;
 
 export const ItemList = styled(List.Item)`
@@ -73,12 +76,15 @@ export const ShowMore = styled.div`
   }
 `;
 
-export const ListHeader = styled(List.Header)`
-  margin: 0 !important;
+export const ListHeader = styled.div`
+  margin-right: 80px;
   text-overflow: ellipsis;
-  width: 100% !important;
-  font-size: 16px !important;
-  font-weight: bold !important;
+  overflow: hidden;
+  width: 95%;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: bold;
+  padding-right: 10px;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 14px !important;
@@ -89,7 +95,7 @@ export const ListHeader = styled(List.Header)`
 `;
 
 export const ListContentCustomize = styled(List.Content)`
-  width: 100%;
+  width: 100% !important;
   display: flex !important;
   align-items: center;
   justify-content: space-between !important;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+// import axios from 'axios';
+import { connect } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 
 import Header from '../header/Header';
@@ -9,7 +9,7 @@ import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
-import { topCrypto } from '../../mockData/topSidebars';
+// import { topCrypto } from '../../mockData/topSidebars';
 import { sidebarItems } from '../../constants/itemConstants';
 import * as actions from '../../store/redux/actionCreators/actionCreators';
 import { AppState } from '../../store/rootReducer';
@@ -26,37 +26,23 @@ import {
   ItemMenuImageHover,
 } from '../../commonStyles/styledApp';
 
-type HocMarkUpProps = { children: any };
-type UserInfo = {
-  _id: string;
-  alias: string;
-  avatar: string;
-  numberOfVictories: number;
-};
-
-const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
-  const dispatch = useDispatch();
-  const userData = useSelector((state: AppState) => state.user.userData);
-  const topWarriors = useSelector((state: AppState) => state.sideBar.warriors.users);
+const WrapMarkUp: React.FC<any> = ({
+  children,
+  setSidebarWarriors,
+  userData,
+  topWarriors,
+  topCrypto,
+  setSidebarCrypto,
+}) => {
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
     setVisible(false);
   }, []);
 
   React.useEffect(() => {
-    axios.get('http://crypto-battle.pp.ua/api/top-warriors?skip=0').then((response) => {
-      const dataToSend = {
-        hasMore: response.data.hasMore,
-        users: response.data.warriors.map((item: UserInfo) => ({
-          id: item._id,
-          alias: item.alias,
-          avatar: item.avatar,
-          numberOfVictories: item.numberOfVictories,
-        })),
-      };
-      dispatch(actions.setSidebarWarriors(dataToSend));
-    });
-  });
+    setSidebarWarriors('top-warriors');
+    setSidebarCrypto('crypto-currencies');
+  }, []);
 
   const showItems = (item: any) => {
     switch (item.type) {
@@ -79,7 +65,7 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
       case 'modal':
         return <ModalWindowSidebars setVisible={(a: boolean) => setVisible(a)} content={item} role={item.idItem} />;
       case 'logout':
-        return userData.id ? (
+        return userData && userData.id ? (
           <MenuItem>
             <ItemMenuWrapper>
               <ItemMenuImage>
@@ -123,13 +109,13 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
           <Sidebar.Pusher>
             <Grid stackable columns="equal">
               <Grid.Column tablet={6} computer={4} only="tablet computer" className="customColumnSidebars">
-                <SidebarSelf role="warriors" data={topWarriors} height={false} />
+                <SidebarSelf role="warriors" data={topWarriors.users} height={false} />
               </Grid.Column>
               <Grid.Column>
                 <MainContent>{children}</MainContent>
               </Grid.Column>
               <Grid.Column width={4} only="computer">
-                <SidebarSelf role="crypto" data={topCrypto} height={false} />
+                <SidebarSelf role="crypto" data={topCrypto.crypto} height={false} />
               </Grid.Column>
             </Grid>
           </Sidebar.Pusher>
@@ -139,4 +125,15 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
   );
 };
 
-export default WrapMarkUp;
+const mapStateToProps = (state: AppState) => ({
+  userData: state.user.userData,
+  topWarriors: state.sideBar.warriors,
+  topCrypto: state.sideBar.crypto,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
+  setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrapMarkUp);

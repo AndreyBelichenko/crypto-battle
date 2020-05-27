@@ -44,7 +44,7 @@ export default [
     mainColor: cryptoColors.eth_cornflower_blue,
   },
   {
-    name: 'ICX',
+    name: 'ICON',
     logo: '/static/cryptoList/icx/logo-icx.svg',
     person: '/static/cryptoList/icx/person-icx.svg',
     flag: '/static/cryptoList/bch/flag-icx.svg',
@@ -79,7 +79,7 @@ export default [
     mainColor: cryptoColors.zec_tulip_tree,
   },
   {
-    name: '0x',
+    name: 'ZRX',
     logo: '/static/cryptoList/ox/logo-ox.svg',
     person: '/static/cryptoList/ox/person-ox.svg',
     flag: '/static/cryptoList/bch/flag-ox.svg',
