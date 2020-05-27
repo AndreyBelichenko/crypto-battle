@@ -58,11 +58,6 @@ export const BattleImg = styled.img`
   height: 45px;
   margin-top: 7px;
   }
-  // @media(max-width: ${breakPointsCard.small}px){
-  // width: 45px;
-  // height: 45px;
-  // margin-top: 7px;
-  // }
   @media(max-width: ${breakPointsCard.xsmall}px) {
   width: 30px;
   height: 30px;
