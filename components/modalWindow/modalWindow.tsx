@@ -16,6 +16,9 @@ import {
   StyledDropDown,
   StyledCloseButton,
   StyledConnectWrapper,
+  UnderNameBlock,
+  DropdownWrapper,
+  CreateWrapper,
 } from './styledModalWindow';
 
 interface ModalProps {
@@ -26,7 +29,7 @@ const ModalWindow = (props: ModalProps) => {
   const [selected, setSelected] = useState(-1);
   const [isOpen, setIsOpen] = useState(false);
   const title = props.role === 'create' ? 'Create request' : 'Connect request';
-  const buttonName = props.role === 'create' ? 'Create' : 'Connect';
+  const buttonName = props.role === 'create' ? 'Create Request' : 'Connect';
   const dispatch = useDispatch();
 
   const toggleModal = () => {
@@ -68,12 +71,14 @@ const ModalWindow = (props: ModalProps) => {
         {props.role === 'create' ? (
           <StyledFooterModal>
             <StyledHeaderHp align="center">Choose the number of hp in battle</StyledHeaderHp>
-            <Container align="center">
-              <StyledDropDown align="center" clearable options={hpDropdown} selection />
-            </Container>
-            <Container align="right" className="finallyCreate">
-              <Btn className="ui orange button">Create</Btn>
-            </Container>
+            <UnderNameBlock>
+              <DropdownWrapper>
+                <StyledDropDown align="center" clearable options={hpDropdown} selection />
+              </DropdownWrapper>
+              <CreateWrapper>
+                <Btn className="ui orange button">Create</Btn>
+              </CreateWrapper>
+            </UnderNameBlock>
           </StyledFooterModal>
         ) : (
           <StyledFooterModal>
