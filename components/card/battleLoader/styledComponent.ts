@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPointsCard } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
   display: flex;
@@ -12,27 +13,11 @@ export const BattleWrapper = styled.div`
 export const BattleImg = styled.img`
   width: 80px;
   height: 80px;
-  @media (max-width:1536px) {
-  width: 60px;
-  height:60px;
-  }
-  @media(max-width: 1070px){
+  @media(max-width: ${breakPointsCard.big}px){
   width: 40px;
   height: 40px;
   }
-  @media (max-width:766px) {
-  width: 60px;
-  height:60px;
-  }
-  @media(max-width: 600px){
-  width: 40px;
-  height: 40px;
-  }
-  @media(max-width: 500px){
-  width: 35px;
-  height: 35px;
-  }
-  @media(max-width: 450px){
+  @media(max-width: ${breakPointsCard.xsmall}px){
   width: 30px;
   height: 30px;
   }

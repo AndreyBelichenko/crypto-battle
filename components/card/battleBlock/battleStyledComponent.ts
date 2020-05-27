@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPointsCard } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
   display: flex;
@@ -14,37 +15,12 @@ export const KnifesBlock = styled.div`
   height: 50px;
   margin-top: -38px;
   position: relative;
-  @media(max-width: 1070px){
+  @media(max-width: ${breakPointsCard.big}px){
   width: 35px;
   height: 35px;
   margin-top: -43px;
   }
-  @media(max-width: 990px){
-  width: 45px;
-  height: 45px;
-  margin-top: -59px;
-  }
-  @media(max-width: 850px){
-  width: 35px;
-  height: 35px;
-  margin-top: -43px;
-  }
-  @media(max-width: 766px){
-  width: 45px;
-  height: 45px;
-  margin-top: -59px;
-  }
-  @media(max-width: 600px){
-  width: 35px;
-  height: 35px;
-  margin-top: -43px;
-  }
-  @media(max-width: 500px){
-  width: 30px;
-  height: 30px;
-  margin-top: -49px;
-  }
-  @media(max-width: 376px) {
+  @media(max-width: ${breakPointsCard.xsmall}px) {
   width: 25px;
   height: 25px;
   margin-top: -40px;
@@ -71,36 +47,22 @@ export const KnifeTwo = styled.img`
 export const BattleImg = styled.img`
   width: 80px;
   height: 80px;
-  @media(max-width: 1070px){
+  @media(max-width: ${breakPointsCard.big}px){
   width: 45px;
   height: 45px;
   margin-top: 7px;
   }
-  @media(max-width: 990px){
-  width: 75px;
-  height: 75px;
-  margin-top: 0px;
-  }
-  @media(max-width: 850px){
+  @media(max-width: ${breakPointsCard.medium}px){
   width: 45px;
   height: 45px;
   margin-top: 7px;
   }
-  @media(max-width: 766px){
-  width: 75px;
-  height: 75px;
-  margin-top: 0px;
-  }
-  @media(max-width: 600px){
-  width: 45px;
-  height: 45px;
-  margin-top: 7px;
-  }
-  @media(max-width: 500px){
-  width: 40px;
-  height: 40px;
-  }
-  @media(max-width: 375px) {
+  // @media(max-width: ${breakPointsCard.small}px){
+  // width: 45px;
+  // height: 45px;
+  // margin-top: 7px;
+  // }
+  @media(max-width: ${breakPointsCard.xsmall}px) {
   width: 30px;
   height: 30px;
   }

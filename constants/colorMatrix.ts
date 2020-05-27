@@ -15,5 +15,4 @@ export const color = {
   mine_shaft: '#302C2C',
   cerulean: '#0096DC',
   cobalt: '#034DA5',
-  manatee: '#9799A1',
 };
