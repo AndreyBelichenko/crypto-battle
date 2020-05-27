@@ -35,3 +35,9 @@ export const breakPoints = {
   medium: 991,
   small: 460,
 };
+
+export const breakPointsCardModal = {
+  large: 839,
+  medium: 767,
+  small: 425,
+};

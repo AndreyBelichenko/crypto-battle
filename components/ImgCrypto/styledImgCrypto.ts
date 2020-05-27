@@ -1,33 +1,55 @@
 import styled from 'styled-components';
 
-import { Container, Image } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
 import fonts from '../../constants/fonts';
 import { color } from '../../constants/colorMatrix';
+import { breakPointsCardModal } from '../../constants/styledConstants';
 
-export const MainContainer = styled(Container)`
-  height: 350px !important;
-  width: 350px !important;
+interface PropsStyled {
+  mainColor: string;
+  borderColor?: string;
+}
+
+export const MainContainer = styled.div`
+  height: 350px;
+  width: 350px;
   position: relative;
+  margin: 0 auto;
+
+  @media (max-width: ${breakPointsCardModal.large}px) {
+    height: 300px;
+    width: 300px;
+  }
+  @media (max-width: ${breakPointsCardModal.medium}px) {
+    height: 350px;
+    width: 350px;
+  }
+  @media (max-width: ${breakPointsCardModal.small}px) {
+    height: 300px;
+    width: 300px;
+  }
 `;
 
-export const Content = styled(Container)`
-  height: 300px !important;
-  width: 300px !important;
+export const Content = styled.div<PropsStyled>`
+  height: 85%;
+  width: 85%;
   background: ${color.white};
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 0;
+  border-radius: 4px;
   border: 1px solid ${(props) => props.mainColor};
   box-sizing: border-box;
-  box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : `${props.borderColor}`)};
+  box-shadow: ${(props) =>
+    props.borderColor ? `0 0 25px ${props.borderColor} inset` : `${props.borderColor}`};
   cursor: pointer;
 `;
 
-export const LogoContainer = styled(Container)`
-  height: 150px !important;
-  width: 150px !important;
+export const LogoContainer = styled.div<PropsStyled>`
+  height: 150px;
+  width: 150px;
   background: white;
   position: absolute;
   top: 0;
@@ -35,16 +57,43 @@ export const LogoContainer = styled(Container)`
   z-index: 1 !important;
   border: 1px solid ${(props) => props.mainColor};
   box-sizing: border-box;
+  border-radius: 4px;
+
+  @media (max-width: ${breakPointsCardModal.large}px) {
+    height: 125px;
+    width: 125px;
+  }
+  @media (max-width: ${breakPointsCardModal.medium}px) {
+    height: 150px;
+    width: 150px;
+  }
+  @media (max-width: ${breakPointsCardModal.small}px) {
+    height: 125px;
+    width: 125px;
+  }
 `;
 
-export const ContentImage = styled(Container)`
-  height: 280px !important;
-  width: 250px !important;
+export const ContentImage = styled.div`
+  height: 280px;
+  width: 250px;
   position: absolute;
   bottom: 0;
   left: 10px;
   z-index: 2;
   cursor: pointer;
+
+  @media (max-width: ${breakPointsCardModal.large}px) {
+    height: 230px;
+    width: 200px;
+  }
+  @media (max-width: ${breakPointsCardModal.medium}px) {
+    height: 280px;
+    width: 250px;
+  }
+  @media (max-width: ${breakPointsCardModal.small}px) {
+    height: 230px;
+    width: 200px;
+  }
 `;
 
 export const ImagePerson = styled(Image)`
@@ -60,11 +109,11 @@ export const TextContainer = styled.div`
   font-weight: bold;
 `;
 
-export const CheckButton = styled(Container)`
+export const CheckButton = styled.div`
   position: absolute;
-  display: flex !important;
+  display: flex;
   justify-content: center;
+  width: 85%;
   top: 25px;
-  right: 25px;
   z-index: 2;
 `;
