@@ -11,8 +11,8 @@ export const BattleWrapper = styled.div`
 `;
 
 export const BattleImg = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   @media(max-width: ${breakPointsCard.big}px){
   width: 40px;
   height: 40px;
