@@ -13,7 +13,6 @@ import {
   UserBlock,
   UserName,
   AwardsBlock,
-  AwardsText,
   ProgressText,
   ImageUser,
   ImageAwards,
@@ -39,11 +38,6 @@ const RightGamer: React.FC = () => {
           </CryptoCardHp>
         </CryptoCard>
         <AwardsBlock>
-          <AwardsText>
-            место
-            <br /> для
-            <br /> наград
-          </AwardsText>
           <ImageAwards src="/static/cryptoList/icx/flag-icx.svg" />
         </AwardsBlock>
       </GamerBlockOne>

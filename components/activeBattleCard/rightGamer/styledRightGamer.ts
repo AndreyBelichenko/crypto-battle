@@ -15,12 +15,6 @@ export const CryptoCardName = styled.div`
   font-weight: bold;
   font-size: 20px;
 
-  @media (max-width: ${breakPointsActiveCard.massive}px) {
-    font-size: 19px;
-  }
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
-    font-size: 18px;
-  }
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 15px;
     left: 2px;
@@ -34,12 +28,7 @@ export const CryptoCardName = styled.div`
   @media (max-width: ${breakPointsActiveCard.small}px) {
     font-size: 17px;
   }
-  @media (max-width: ${breakPointsActiveCard.tiny}px) {
-    font-size: 16px;
-    left: 2px;
-    bottom: 0;
-  }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 13px;
     left: 2px;
     bottom: 0;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
-import { activeBattleColor } from '../../../constants/styledConstants';
+import { breakPointsActiveCard, activeBattleColor } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
   display: flex;
@@ -17,30 +17,25 @@ export const KnifesBlock = styled.div`
   margin-top: -25px;
   position: relative;
 
-  @media (max-width: 1400px) {
-    height: 40px;
-    width: 40px;
-    margin-top: -20px;
-  }
-  @media (max-width: 1150px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
     height: 30px;
     width: 30px;
     margin-top: -15px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
     width: 50px;
     height: 50px;
     margin-top: -25px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 40px;
     width: 40px;
     margin-top: -20px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 30px;
     width: 30px;
     margin-top: -15px;

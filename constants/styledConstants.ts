@@ -39,14 +39,8 @@ export const breakPoints = {
 };
 
 export const breakPointsActiveCard = {
-  massive: 1650,
-  huge: 1400,
-  big: 1150,
-  large: 991,
-  medium: 840,
-  small: 767,
-  tiny: 600,
-  mini: 500,
-  customSizeOne: 1040,
-  noLeftSidebar: 991,
+  big: 1200,
+  medium: 998,
+  small: 768,
+  xsmall: 420,
 };

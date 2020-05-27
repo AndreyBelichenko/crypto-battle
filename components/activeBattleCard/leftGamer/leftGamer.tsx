@@ -13,7 +13,6 @@ import {
   UserBlock,
   UserName,
   AwardsBlock,
-  AwardsText,
   ProgressText,
   ImageUser,
   ImageAwards,
@@ -24,11 +23,6 @@ const LeftGamer: React.FC = () => {
     <GamerBlock>
       <GamerBlockOne>
         <AwardsBlock>
-          <AwardsText>
-            место
-            <br /> для
-            <br /> наград
-          </AwardsText>
           <ImageAwards src="/static/cryptoList/icx/flag-icx.svg" />
         </AwardsBlock>
         <CryptoCard>

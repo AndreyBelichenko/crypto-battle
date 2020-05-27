@@ -8,26 +8,17 @@ export const ParentDiv = styled.div`
   height: 300px;
   padding: 35px 0 0 10px;
 
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
-    height: 250px;
-  }
   @media (max-width: ${breakPointsActiveCard.big}px) {
     height: 220px;
-  }
-  @media (max-width: ${breakPointsActiveCard.large}px) {
-    padding: 35px 0 0 7px;
-    height: 200px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 180px;
   }
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 280px;
-  }
-  @media (max-width: ${breakPointsActiveCard.tiny}px) {
     height: 230px;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 180px;
   }
 `;
@@ -75,27 +66,19 @@ export const CryptoCard = styled.div`
   height: 170px;
   margin-top: -15px;
 
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
     width: 70px;
     height: 120px;
-  }
-  @media (max-width: ${breakPointsActiveCard.customSizeOne}px) {
-    width: 60px;
-    height: 100px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     width: 50px;
     height: 90px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    width: 80px;
-    height: 150px;
-  }
-  @media (max-width: ${breakPointsActiveCard.tiny}px) {
     width: 70px;
     height: 120px;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     width: 50px;
     height: 85px;
   }
@@ -130,7 +113,7 @@ export const CryptoCardHp = styled.div`
   @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 20px;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     margin-top: 5px;
     height: 15px;
   }
@@ -155,7 +138,7 @@ export const ProgressText = styled.div`
     font-size: 13px;
     margin-top: 0;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 10px;
     margin-top: -2px;
   }
@@ -177,12 +160,6 @@ export const UserBlock = styled.div`
   flex-direction: column;
   justify-content: space-around;
 
-  @media (max-width: ${breakPointsActiveCard.massive}px) {
-    height: 80px;
-  }
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
-    height: 70px;
-  }
   @media (max-width: ${breakPointsActiveCard.big}px) {
     height: 50px;
   }
@@ -190,12 +167,9 @@ export const UserBlock = styled.div`
     height: 40px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 80px;
-  }
-  @media (max-width: ${breakPointsActiveCard.tiny}px) {
     height: 70px;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 50px;
   }
 `;
@@ -204,12 +178,6 @@ export const UserName = styled.p`
   font-weight: bold;
   font-size: 16px;
 
-  @media (max-width: ${breakPointsActiveCard.massive}px) {
-    font-size: 15px;
-  }
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
-    font-size: 14px;
-  }
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 13px;
     right: 2px;
@@ -223,7 +191,7 @@ export const UserName = styled.p`
   @media (max-width: ${breakPointsActiveCard.small}px) {
     font-size: 15px;
   }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 12px;
     right: 2px;
     bottom: 0;
@@ -247,41 +215,4 @@ export const AwardsBlock = styled.div`
   min-height: 50px;
   margin-top: 2px;
   position: relative;
-`;
-
-export const AwardsText = styled.div`
-  font-weight: bold;
-  text-align: center;
-  font-size: 12px;
-  position: absolute;
-  line-height: 1;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-
-  @media (max-width: ${breakPointsActiveCard.massive}px) {
-    font-size: 11px;
-  }
-  @media (max-width: ${breakPointsActiveCard.huge}px) {
-    font-size: 10px;
-  }
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    font-size: 9px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    font-size: 8px;
-  }
-  @media (max-width: ${breakPointsActiveCard.noLeftSidebar}px) {
-    font-size: 7px;
-  }
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    font-size: 9px;
-  }
-  @media (max-width: ${breakPointsActiveCard.tiny}px) {
-    font-size: 7px;
-  }
-  @media (max-width: ${breakPointsActiveCard.mini}px) {
-    font-size: 6px;
-  }
 `;
