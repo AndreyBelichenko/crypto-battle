@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Header, List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
 
 import {
   SideBarWrapper,
@@ -11,7 +11,12 @@ import {
   ShowMore,
   DividerCustomize,
   ListCustomize,
+  HeaderCustomize,
+  ListContentCustomize,
+  ListHeader,
 } from './styledSidebarSelf';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/rootReducer';
 
 interface SidebarProps {
   role: string;
@@ -19,30 +24,39 @@ interface SidebarProps {
   height: boolean;
 }
 
+interface PropsOneUser {
+  id: string;
+  alias: string;
+  avatar: string;
+  numberOfVictories: number;
+}
+
 const SidebarSelf = (props: SidebarProps) => {
-  const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
+  const userData = useSelector((state: AppState) => state.user.userData);
   const imageInTitle = props.role === 'crypto' ? '/static/coins.svg' : '/static/sword.svg';
+  const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
+  const imageInClass = props.role === 'crypto' ? 'coinImage' : 'swordImage';
   const isCrypto = props.role === 'crypto';
+  const isUser = !props.data.map((item: PropsOneUser) => item.id).includes(userData.id);
+
   return (
     <SideBarWrapper needHeight={props.height}>
       <HeaderWrapper>
-        <Header as="h2" textAlign="center">
-          {sidebarTitle}
-        </Header>
-        <TitleImage>
+        <HeaderCustomize textAlign="center">{sidebarTitle}</HeaderCustomize>
+        <TitleImage className={imageInClass}>
           <Image src={imageInTitle} />
         </TitleImage>
       </HeaderWrapper>
       <ListCustomize divided relaxed>
-        {props.data.map((item: any, index: number) => (
+        {props.data.map((item: PropsOneUser, index: number) => (
           <ItemList key={index}>
             <ImageBlock>
-              <Image src={item.logo} verticalAlign="middle" />
+              <Image src={item.avatar} verticalAlign="middle" />
             </ImageBlock>
-            <List.Content>
-              <List.Header as="h3">{item.name}</List.Header>
-            </List.Content>
-            <ImageCountBlock>112</ImageCountBlock>
+            <ListContentCustomize>
+              <ListHeader as="h3">{item.alias}</ListHeader>
+              <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>
+            </ListContentCustomize>
           </ItemList>
         ))}
       </ListCustomize>
@@ -50,18 +64,18 @@ const SidebarSelf = (props: SidebarProps) => {
       <Container align="center" style={{ cursor: 'pointer' }}>
         {isCrypto ? <ShowMore>show more</ShowMore> : <Icon disabled name="ellipsis horizontal" size="big" />}
       </Container>
-      {!isCrypto && (
+      {!isCrypto && userData.name && isUser && (
         <>
           <Divider />
           <List>
             <ItemList>
               <ImageBlock>
-                <Image src="/static/user.svg" verticalAlign="middle" />
+                <Image src={userData.avatar} verticalAlign="middle" />
               </ImageBlock>
-              <List.Content>
-                <List.Header as="h3">Andrey Belichenko</List.Header>
-              </List.Content>
-              <ImageCountBlock>18</ImageCountBlock>
+              <ListContentCustomize>
+                <ListHeader as="h3">{userData.name}</ListHeader>
+                <ImageCountBlock>{userData.numberOfVictories}</ImageCountBlock>
+              </ListContentCustomize>
             </ItemList>
           </List>
         </>

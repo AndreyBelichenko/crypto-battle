@@ -3,7 +3,7 @@ import { Modal, Image } from 'semantic-ui-react';
 
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 
-import { topCrypto, topWarriors } from '../../mockData/topSidebars';
+import { topCrypto } from '../../mockData/topSidebars';
 import {
   ItemMenuImage,
   ItemMenuImageHover,
@@ -13,6 +13,8 @@ import {
   StyledCloseButton,
   StyleModalContent,
 } from '../../commonStyles/styledApp';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../store/rootReducer';
 
 interface ModalProps {
   content: any;
@@ -21,15 +23,17 @@ interface ModalProps {
 }
 
 const ModalWindowSidebars = (props: ModalProps) => {
+  const topWarriors = useSelector((state: AppState) => state.sideBar.warriors.users);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleModal = React.useCallback(() => {
     props.setVisible(false);
     setIsOpen(!isOpen);
   }, [isOpen]);
   const modalData = props.role === 'crypto' ? topCrypto : topWarriors;
+  const modalClassName = props.role === 'crypto' ? 'cryptoModal' : 'warriorsModal';
 
   return (
-    <div>
+    <div className={modalClassName}>
       <MenuItem onClick={toggleModal}>
         <ItemMenuWrapper>
           <ItemMenuImage>

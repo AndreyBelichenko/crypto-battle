@@ -20,8 +20,14 @@ export interface LogOutStore {
   type: typeof LOG_OUT_STORE;
 }
 
-export type actionType =
-    | SetAuthUserData
-    | SetAuthStoreUserData
-    | LogOut
-    | LogOutStore;
+// userReducer
+
+// sidebarReducer
+
+export const SET_WARRIORS_SIDEBAR = 'SET_WARRIORS_SIDEBAR';
+export interface SetWarriorsSidebar {
+  payload: object;
+  type: typeof SET_WARRIORS_SIDEBAR;
+}
+
+export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | LogOutStore | SetWarriorsSidebar;

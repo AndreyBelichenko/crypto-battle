@@ -9,6 +9,10 @@
     }
 }
 
+.coinImage{
+    right: -10px!important;
+}
+
 @media screen and (max-width: 500px) {
     .sidebar{
         width: 70% !important;
@@ -19,4 +23,8 @@
     .ui.modal > .header {
         padding: 1.25rem 1.5rem!important;
     }
+}
+
+.customColumnSidebars{
+    padding-bottom: 0!important;
 }

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 
 import Header from '../header/Header';
@@ -7,8 +9,10 @@ import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
-import { topWarriors, topCrypto } from '../../mockData/topSidebars';
+import { topCrypto } from '../../mockData/topSidebars';
 import { sidebarItems } from '../../constants/itemConstants';
+import * as actions from '../../store/redux/actionCreators/actionCreators';
+import { AppState } from '../../store/rootReducer';
 
 import {
   AppWrapper,
@@ -23,12 +27,36 @@ import {
 } from '../../commonStyles/styledApp';
 
 type HocMarkUpProps = { children: any };
+type UserInfo = {
+  _id: string;
+  alias: string;
+  avatar: string;
+  numberOfVictories: number;
+};
 
 const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
+  const dispatch = useDispatch();
+  const userData = useSelector((state: AppState) => state.user.userData);
+  const topWarriors = useSelector((state: AppState) => state.sideBar.warriors.users);
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
     setVisible(false);
   }, []);
+
+  React.useEffect(() => {
+    axios.get('http://crypto-battle.pp.ua/api/top-warriors?skip=0').then((response) => {
+      const dataToSend = {
+        hasMore: response.data.hasMore,
+        users: response.data.warriors.map((item: UserInfo) => ({
+          id: item._id,
+          alias: item.alias,
+          avatar: item.avatar,
+          numberOfVictories: item.numberOfVictories,
+        })),
+      };
+      dispatch(actions.setSidebarWarriors(dataToSend));
+    });
+  });
 
   const showItems = (item: any) => {
     switch (item.type) {
@@ -51,7 +79,7 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
       case 'modal':
         return <ModalWindowSidebars setVisible={(a: boolean) => setVisible(a)} content={item} role={item.idItem} />;
       case 'logout':
-        return (
+        return userData.id ? (
           <MenuItem>
             <ItemMenuWrapper>
               <ItemMenuImage>
@@ -63,7 +91,7 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
               <ItemMenuName>{item.name}</ItemMenuName>
             </ItemMenuWrapper>
           </MenuItem>
-        );
+        ) : null;
     }
   };
 
@@ -94,7 +122,7 @@ const WrapMarkUp: React.FC<HocMarkUpProps> = ({ children }) => {
         <AppContainer>
           <Sidebar.Pusher>
             <Grid stackable columns="equal">
-              <Grid.Column tablet={6} computer={4} only="tablet computer">
+              <Grid.Column tablet={6} computer={4} only="tablet computer" className="customColumnSidebars">
                 <SidebarSelf role="warriors" data={topWarriors} height={false} />
               </Grid.Column>
               <Grid.Column>

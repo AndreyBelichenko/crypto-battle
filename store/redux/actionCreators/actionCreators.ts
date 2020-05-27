@@ -18,3 +18,12 @@ export function logOutStore(): action.LogOutStore {
     type: action.LOG_OUT_STORE,
   };
 }
+
+// sidebar reducer
+
+export function setSidebarWarriors(payload: object): action.SetWarriorsSidebar {
+  return {
+    payload,
+    type: action.SET_WARRIORS_SIDEBAR,
+  };
+}
