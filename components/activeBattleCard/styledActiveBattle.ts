@@ -31,8 +31,6 @@ export const MainDiv = styled.div`
   justify-content: space-between;
   border-radius: 5px;
   border: 1px solid ${activeBattleColor.battleBorderColor};
-  -webkit-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
   box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
 `;
 
