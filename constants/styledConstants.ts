@@ -22,3 +22,10 @@ export const cryptoColors = {
 export const activeBattleColor = {
   battleBorderColor: color.pomegranate,
 };
+
+export const breakPointsHeader = {
+  big: 1200,
+  medium: 991,
+  small: 768,
+  xsmall: 400,
+};
