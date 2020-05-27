@@ -20,7 +20,13 @@ const AppButtonBlock: React.FC = () => {
     <AppButtonBlockWrapper>
       <ModalWindow role="create" />
       <Button circular icon="user outline" color="black" className="btnSize" />
-      <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
+      <Button
+        circular
+        icon="sign-in alternate"
+        color="black"
+        onClick={logOut}
+        className="btnSize"
+      />
     </AppButtonBlockWrapper>
   );
 };

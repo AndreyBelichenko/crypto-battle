@@ -3,17 +3,19 @@ import { Modal, Dropdown, Icon, Container, Button } from 'semantic-ui-react';
 
 import { color } from '../../constants/colorMatrix';
 import fonts from '../../constants/fonts';
+import { breakPointsActiveCard } from '../../constants/styledConstants';
 
 export const Btn = styled(Button)`
   background: ${color.pomegranate};
   color: ${color.pomegranate};
   font-family: ${fonts.header};
   border: none;
-  font-size: 18px !important;
+  font-size: 16px !important;
   text-align: center;
-  height: 30px;
-  width: 100px;
-  padding: inherit !important;
+  min-height: 30px !important;
+  width: 100px !important;
+  padding: 6px 0 !important;
+  white-space: pre-line !important;
 `;
 
 export const StyleHeaderTitle = styled(Modal.Header)`
@@ -23,10 +25,14 @@ export const StyleHeaderTitle = styled(Modal.Header)`
   margin: 0 10% !important;
 `;
 
-export const StyledHeaderHp = styled(Modal.Header)({
-  fontSize: '22px',
-  marginBottom: '5px',
-});
+export const StyledHeaderHp = styled(Modal.Header)`
+  font-size: 22px;
+  margin-bottom: 5px;
+
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 18px;
+  }
+`;
 
 export const StyledFooterModal = styled(Modal.Content)({
   border: `1px solid ${color.pomegranate}!important`,
@@ -57,4 +63,25 @@ export const StyledConnectWrapper = styled(Container)`
   bottom: 5px !important;
   width: 100px !important;
   height: 35px;
+`;
+
+export const UnderNameBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    justify-content: center;
+  }
+`;
+
+export const DropdownWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 15%;
+`;
+
+export const CreateWrapper = styled.div`
+  height: 100%;
+  margin: 0 20px;
 `;
