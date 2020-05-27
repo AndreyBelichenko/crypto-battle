@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import fonts from '../../../constants/fonts';
-import { breakPointsCard } from '../../../constants/styledConstants';
+import { breakPointsActiveCard } from '../../../constants/styledConstants';
 
 export const GamerBlock = styled.div`
   display: flex;
@@ -24,19 +24,19 @@ export const ImageCardLogo = styled.img`
   position: absolute;
   left: 4.39%;
   top: 0.83%;
-  @media (max-width: ${breakPointsCard.big}px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
   height: 35px;
   width: 35px;
   }
-  @media (max-width: ${breakPointsCard.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
   height: 40px;
   width: 40px;
   }
-  @media (max-width: ${breakPointsCard.small}px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
   height: 35px;
   width: 35px;
   }
-  @media (max-width: ${breakPointsCard.xsmall}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
   height: 23px;
   width: 23px;
   }
@@ -48,16 +48,16 @@ export const ImageCardPerson = styled.img`
   position: absolute;
   left: 26.98%;
   top: 13.61%;
-  @media (max-width: ${breakPointsCard.big}px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
   height: 53px;
   }
-  @media (max-width: ${breakPointsCard.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
   height: 64px;
   }
-  @media(max-width: ${breakPointsCard.small}px){
+  @media(max-width: ${breakPointsActiveCard.small}px){
   height: 53px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px) {
+  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
   top: 15.61%;
   left: 39.98%;
   height: 32px;
@@ -71,16 +71,16 @@ export const CryptoCardName = styled.div`
   font-weight: normal;
   font-size: 20px;
   font-family: ${fonts.header}
-  @media (max-width: ${breakPointsCard.big}px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
   font-size: 14px;
   }
-  @media (max-width: ${breakPointsCard.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
   font-size: 20px;
   }
-  @media (max-width: ${breakPointsCard.small}px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
   font-size: 14px;
   }
-  @media (max-width: ${breakPointsCard.xsmall}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
   font-size: 9px;
   top: 23px;
     }
@@ -91,17 +91,17 @@ export const AwardsBlock = styled.div`
   position: relative;
   top: -13px;
   left: 16px;
-  @media (max-width: ${breakPointsCard.big}px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
   top: -11px;
   left: 13px;
   }
-  @media (max-width: ${breakPointsCard.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
   left: 15px;
   }
-  @media (max-width: ${breakPointsCard.small}px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
   padding-left: 36px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px){
+  @media(max-width: ${breakPointsActiveCard.xsmall}px){
   padding-left: 28px;
   }
 `;
@@ -115,21 +115,21 @@ export const AwardsText = styled.div`
   top: 52%;
   left: 23px;
   font-family: ${fonts.header}
-  @media(max-width: ${breakPointsCard.big}px) {
+  @media(max-width: ${breakPointsActiveCard.big}px) {
   left: 16px;
   font-size: 9px;
   }
-  @media(max-width: ${breakPointsCard.medium}px) {
+  @media(max-width: ${breakPointsActiveCard.medium}px) {
   left: 16px;
   top: 48%;
   font-size: 9px;
   }
-  @media(max-width: ${breakPointsCard.small}px) {
+  @media(max-width: ${breakPointsActiveCard.small}px) {
   left: 50px;
   top: 48%;
   font-size: 9px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px) {
+  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
   left: 37px;
   top: 49%;
   font-size: 7px;
@@ -143,13 +143,13 @@ export const UserBlock = styled.div`
   justify-content: center;
   align-items: center;
   padding-left: 21px;
-  @media(max-width: ${breakPointsCard.medium}px){
+  @media(max-width: ${breakPointsActiveCard.medium}px){
   margin-right: -18px;
   }
-  @media(max-width: ${breakPointsCard.small}px){
+  @media(max-width: ${breakPointsActiveCard.small}px){
   margin-right: -51px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px){
+  @media(max-width: ${breakPointsActiveCard.xsmall}px){
   padding-left: 0px;
   }
   `;

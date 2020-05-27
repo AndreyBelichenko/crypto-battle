@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakPointsCard } from '../../../constants/styledConstants';
+import { breakPointsActiveCard } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
   display: flex;
@@ -16,12 +16,12 @@ export const KnifesBlock = styled.div`
   height: 50px;
   margin-top: -38px;
   position: relative;
-  @media(max-width: ${breakPointsCard.big}px){
+  @media(max-width: ${breakPointsActiveCard.big}px){
   width: 35px;
   height: 35px;
   margin-top: -43px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px) {
+  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
   width: 25px;
   height: 25px;
   margin-top: -40px;
@@ -48,17 +48,17 @@ export const KnifeTwo = styled.img`
 export const BattleImg = styled.img`
   width: 80px;
   height: 80px;
-  @media(max-width: ${breakPointsCard.big}px){
+  @media(max-width: ${breakPointsActiveCard.big}px){
   width: 45px;
   height: 45px;
   margin-top: 7px;
   }
-  @media(max-width: ${breakPointsCard.medium}px){
+  @media(max-width: ${breakPointsActiveCard.medium}px){
   width: 45px;
   height: 45px;
   margin-top: 7px;
   }
-  @media(max-width: ${breakPointsCard.xsmall}px) {
+  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
   width: 30px;
   height: 30px;
   }

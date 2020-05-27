@@ -48,9 +48,4 @@ export const breakPointsActiveCard = {
 export const battleColor = {
   battleBorderColor: color.pomegranate,
 };
-export const breakPointsCard = {
-  big: 1200,
-  medium: 998,
-  small: 768,
-  xsmall: 420,
-};
+
