@@ -4,7 +4,7 @@ import { Image } from 'semantic-ui-react';
 
 import fonts from '../../constants/fonts';
 import { color } from '../../constants/colorMatrix';
-import { breakPointsCardModal } from '../../constants/styledConstants';
+import { breakPointsActiveCard } from '../../constants/styledConstants';
 
 interface PropsStyled {
   mainColor: string;
@@ -17,17 +17,19 @@ export const MainContainer = styled.div`
   position: relative;
   margin: 0 auto;
 
-  @media (max-width: ${breakPointsCardModal.large}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 300px;
     width: 300px;
   }
-  @media (max-width: ${breakPointsCardModal.medium}px) {
+  @media (max-width: 767px) {
     height: 350px;
     width: 350px;
+    margin: 15px auto;
   }
-  @media (max-width: ${breakPointsCardModal.small}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 300px;
     width: 300px;
+    margin: 15px auto;
   }
 `;
 
@@ -42,8 +44,7 @@ export const Content = styled.div<PropsStyled>`
   border-radius: 4px;
   border: 1px solid ${(props) => props.mainColor};
   box-sizing: border-box;
-  box-shadow: ${(props) =>
-    props.borderColor ? `0 0 25px ${props.borderColor} inset` : `${props.borderColor}`};
+  box-shadow: ${(props) => (props.borderColor ? `0 0 25px ${props.borderColor} inset` : `${props.borderColor}`)};
   cursor: pointer;
 `;
 
@@ -59,15 +60,15 @@ export const LogoContainer = styled.div<PropsStyled>`
   box-sizing: border-box;
   border-radius: 4px;
 
-  @media (max-width: ${breakPointsCardModal.large}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 125px;
     width: 125px;
   }
-  @media (max-width: ${breakPointsCardModal.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 150px;
     width: 150px;
   }
-  @media (max-width: ${breakPointsCardModal.small}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 125px;
     width: 125px;
   }
@@ -82,15 +83,15 @@ export const ContentImage = styled.div`
   z-index: 2;
   cursor: pointer;
 
-  @media (max-width: ${breakPointsCardModal.large}px) {
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 230px;
     width: 200px;
   }
-  @media (max-width: ${breakPointsCardModal.medium}px) {
+  @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 280px;
     width: 250px;
   }
-  @media (max-width: ${breakPointsCardModal.small}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 230px;
     width: 200px;
   }

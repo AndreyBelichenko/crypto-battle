@@ -3,7 +3,7 @@ import { Modal, Dropdown, Icon, Container, Button } from 'semantic-ui-react';
 
 import { color } from '../../constants/colorMatrix';
 import fonts from '../../constants/fonts';
-import { breakPointsCardModal } from '../../constants/styledConstants';
+import { breakPointsActiveCard } from '../../constants/styledConstants';
 
 export const Btn = styled(Button)`
   background: ${color.pomegranate};
@@ -29,7 +29,7 @@ export const StyledHeaderHp = styled(Modal.Header)`
   font-size: 22px;
   margin-bottom: 5px;
 
-  @media (max-width: ${breakPointsCardModal.small}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 18px;
   }
 `;
@@ -69,7 +69,7 @@ export const UnderNameBlock = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: ${breakPointsCardModal.small}px) {
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     justify-content: center;
   }
 `;
