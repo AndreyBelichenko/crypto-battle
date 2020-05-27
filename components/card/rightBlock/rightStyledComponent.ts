@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import fonts from '../../../constants/fonts';
 import { breakPointsCard } from '../../../constants/styledConstants';
 
