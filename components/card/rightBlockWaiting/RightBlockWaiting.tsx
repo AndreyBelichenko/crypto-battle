@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { ButtonBlock } from './rightBlockWaitStyledComponent';
 import ModalWindow from '../../modalWindow/modalWindow';
+
+import { ButtonBlock } from './rightBlockWaitStyledComponent';
 
 const RightBlockWait = () => {
   return (
