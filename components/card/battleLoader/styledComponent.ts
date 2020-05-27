@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { breakPointsCard } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
