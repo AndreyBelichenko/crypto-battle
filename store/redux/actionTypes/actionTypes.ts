@@ -30,7 +30,6 @@ export interface SetWarriorsSidebar {
   type: typeof SET_WARRIORS_SIDEBAR;
 }
 
-export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | LogOutStore | SetWarriorsSidebar;
 export const BATTLE_DATA = 'BATTLE_DATA';
 export interface SetBattleData {
   type: typeof BATTLE_DATA;
@@ -42,4 +41,5 @@ export type actionType =
     | SetAuthStoreUserData
     | LogOut
     | LogOutStore
-    | SetBattleData;
+    | SetBattleData
+    | SetWarriorsSidebar;

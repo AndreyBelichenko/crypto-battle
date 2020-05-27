@@ -9,7 +9,6 @@ import {GamerBlock,
   ImageCardLogo,
   ImageCardPerson,
   UserBlock,
-  AwardsText,
   AwardsBlock } from './rightStyledComponent';
 import {
   CryptoCardPerson,
@@ -47,11 +46,6 @@ const RightBlock: React.FC = () => {
           <UserName>{item.warriorName}</UserName>
         </UserBlock>
         <AwardsBlock key={item.idWarrior}>
-          <AwardsText>
-            place
-            <br/> for
-            <br/> awards
-          </AwardsText>
           <AvardsImage src={item.flag} />
         </AwardsBlock>
       </GamerBlock>

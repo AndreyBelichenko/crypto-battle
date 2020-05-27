@@ -30,7 +30,6 @@ const ModalWindow = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const title = props.role === 'create' ? 'Create request' : 'Connect request';
   const buttonName = props.role === 'create' ? 'Create Request' : 'Connect';
-  const buttonName = props.role === 'create' ? 'Create' : 'Connect';
   const dispatch = useDispatch();
 
   const toggleModal = () => {

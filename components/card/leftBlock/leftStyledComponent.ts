@@ -98,7 +98,7 @@ export const AwardsBlock = styled.div`
   top: -13px;
   @media(max-width: ${breakPointsCard.big}px){
   top: -11px;
-  left: -19px;
+  left: -15px;
   }
   @media(max-width: ${breakPointsCard.xsmall}px){
   left: -13px;
