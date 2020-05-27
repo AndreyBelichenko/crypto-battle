@@ -19,6 +19,15 @@ export function logOutStore(): action.LogOutStore {
   };
 }
 
+// sidebar reducer
+
+export function setSidebarWarriors(payload: object): action.SetWarriorsSidebar {
+  return {
+    payload,
+    type: action.SET_WARRIORS_SIDEBAR,
+  };
+}
+
 export function SetBattleData(payload: object): action.SetBattleData {
   return {
     payload,

@@ -25,3 +25,15 @@
 .ui.dimmer{
     background-color: rgba(255,255,255,.7);
 }
+
+@media screen and (max-width: 991px) {
+    .warriorsModal{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .warriorsModal{
+        display: block;
+    }
+}
