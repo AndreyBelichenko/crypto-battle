@@ -28,11 +28,6 @@ const LeftBlock: React.FC = () => {
     {warrior.map((item: any) => (
     <GamerBlock key={item.idWarrior}>
         <AwardsBlock key={item.idWarrior}>
-          <AwardsText>
-            place
-            <br/> for
-            <br/> awards
-          </AwardsText>
           <AvardsImage src={item.flag} />
         </AwardsBlock>
         <UserBlock key={item.idWarrior}>
