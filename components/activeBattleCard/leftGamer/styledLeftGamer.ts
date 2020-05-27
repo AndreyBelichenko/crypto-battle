@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPointsActiveCard } from '../../../constants/styledConstants';
 
 export const CryptoCardPerson = styled.div`
   position: absolute;
@@ -12,10 +13,35 @@ export const CryptoCardName = styled.div`
   bottom: 5px;
   font-weight: bold;
   font-size: 20px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    font-size: 15px;
+    right: 2px;
+    bottom: 0;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    font-size: 14px;
+    right: 2px;
+    bottom: 0;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    font-size: 17px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 12px;
+    right: 2px;
+    bottom: 0;
+  }
 `;
 
-export const ChartTrigger = styled.p`
+export const ChartTrigger = styled.div`
   position: absolute;
   right: 10px;
   bottom: 10px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    right: 0;
+    bottom: 25px;
+    width: 20px;
+  }
 `;
