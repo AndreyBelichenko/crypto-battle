@@ -15,7 +15,6 @@ const initialState: InitialStateType = {
 export default function battleReducer(state: InitialStateType = initialState, action: any) {
   switch (action.type) {
     case actionTypes.BATTLE_DATA:
-      (console.log(initialState));
       return { battleData: action.payload };
     default:
       return state;
