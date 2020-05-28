@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from 'next/link';
-// import axios from 'axios';
 import { connect } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 
@@ -8,9 +7,9 @@ import Header from '../header/Header';
 import Banner from '../banner/Banner';
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
+import MessageExampleNegative from '../authErrorMessage/authErrorMessage';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
-// import { topCrypto } from '../../mockData/topSidebars';
 import { sidebarItems } from '../../constants/itemConstants';
 import * as actions from '../../store/redux/actionCreators/actionCreators';
 import { AppState } from '../../store/rootReducer';
@@ -34,6 +33,7 @@ const WrapMarkUp: React.FC<any> = ({
   topWarriors,
   topCrypto,
   setSidebarCrypto,
+  userDataSuccess,
 }) => {
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
@@ -107,17 +107,30 @@ const WrapMarkUp: React.FC<any> = ({
           ))}
         </Sidebar>
         <AppContainer>
+          {userDataSuccess && <MessageExampleNegative />}
           <Sidebar.Pusher>
-            <Banner/>
+            <Banner />
             <Grid stackable columns="equal">
               <Grid.Column tablet={6} computer={4} only="tablet computer" className="customColumnSidebars">
-                <SidebarSelf role="warriors" data={topWarriors.users} height={false} />
+                <SidebarSelf
+                  role="warriors"
+                  data={topWarriors.users}
+                  height={false}
+                  hasMore={topWarriors.hasMore}
+                  load={topWarriors.load}
+                />
               </Grid.Column>
               <Grid.Column>
                 <MainContent>{children}</MainContent>
               </Grid.Column>
               <Grid.Column width={4} only="computer">
-                <SidebarSelf role="crypto" data={topCrypto.crypto} height={false} />
+                <SidebarSelf
+                  role="crypto"
+                  data={topCrypto.crypto}
+                  height={false}
+                  hasMore={topCrypto.hasMore}
+                  load={topCrypto.load}
+                />
               </Grid.Column>
             </Grid>
           </Sidebar.Pusher>
@@ -129,6 +142,7 @@ const WrapMarkUp: React.FC<any> = ({
 
 const mapStateToProps = (state: AppState) => ({
   userData: state.user.userData,
+  userDataSuccess: state.user.success,
   topWarriors: state.sideBar.warriors,
   topCrypto: state.sideBar.crypto,
 });

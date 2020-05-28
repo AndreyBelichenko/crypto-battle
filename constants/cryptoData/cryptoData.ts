@@ -58,7 +58,7 @@ export default [
     mainColor: cryptoColors.ltc_cobalt,
   },
   {
-    name: 'MTL',
+    name: 'METAL',
     logo: '/static/cryptoList/mtl/logo-mtl.svg',
     person: '/static/cryptoList/mtl/person-mtl.svg',
     flag: '/static/cryptoList/bch/flag-mtl.svg',

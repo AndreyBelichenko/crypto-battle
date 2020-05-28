@@ -12,6 +12,7 @@ export type UserDataType = {
 
 export type InitialStateType = {
   userData: UserDataType;
+  success: boolean;
 };
 
 const initialState: InitialStateType = {
@@ -22,16 +23,19 @@ const initialState: InitialStateType = {
     numberOfVictories: 0,
     access_token: 0,
   },
+  success: true,
 };
 
 export default function userReducer(state: InitialStateType = initialState, action: any): InitialStateType {
   switch (action.type) {
     case actionTypes.AUTH_STORE_USER_COOKIES:
-      return { userData: action.payload };
+      return { ...state, userData: action.payload };
     case actionTypes.AUTH_STORE_USER_DATA.SUCCESS:
-      return { userData: writeCorrectUserData(action.payload) };
+      return { ...state, userData: writeCorrectUserData(action.payload) };
     case actionTypes.AUTH_STORE_USER_DATA.ERROR:
-      return initialState;
+      return { ...state, success: false };
+    case actionTypes.UNABLE_ERROR_MESSAGE:
+      return { ...state, success: false };
     case actionTypes.LOG_OUT_STORE:
       return initialState;
     default:

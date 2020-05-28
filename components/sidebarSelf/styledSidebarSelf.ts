@@ -10,6 +10,7 @@ type SideBarWrapperProps = {
 export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   min-width: 240px;
   height: ${(props: any) => (props.needHeight ? '100%' : 'auto')};
+  min-height: 50%;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
@@ -55,7 +56,6 @@ export const ImageCountBlock = styled.p`
   text-align: center;
   color: white;
   font-weight: bold;
-  // margin-left: 5px;
   position: absolute;
   right: 0;
 `;
@@ -74,6 +74,25 @@ export const ShowMore = styled.div`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+export const ShowLess = styled.div`
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const ShowLessDivider = styled(Divider)`
+  margin-bottom: -10px !important;
 `;
 
 export const ListHeader = styled.div`

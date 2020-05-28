@@ -3,10 +3,43 @@
     width: 300px !important;
 }
 
-@media only screen and (max-width: 767px){
-    .ui.stackable.grid > .column:not(.row) {
-        padding: 0!important;
-    }
+.customColumnSidebars{
+    padding-bottom: 0!important;
+}
+
+.ui.loader:after {
+    border-color: #767676 transparent transparent!important;
+}
+
+.errorMessage{
+    position: absolute!important;
+    z-index: 2;
+    right: 10px;
+    left: 10px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
+}
+
+.errorMessageHeader{
+    font-size: 20px!important;
+    text-align: center!important;
+    margin-bottom: 10px!important;
+}
+
+.errorMessageText{
+    font-size: 16px!important;
+    text-align: center!important;
+}
+
+.closeMessageError{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
 
 .coinImage{
@@ -20,11 +53,17 @@
 }
 
 @media only screen and (max-width: 767px){
+    .ui.stackable.grid > .column:not(.row) {
+        padding: 0!important;
+    }
+
     .ui.modal > .header {
         padding: 1.25rem 1.5rem!important;
     }
-}
 
-.customColumnSidebars{
-    padding-bottom: 0!important;
+    .errorMessage{
+        right: 0;
+        left: 0;
+        height: 170px;
+    }
 }

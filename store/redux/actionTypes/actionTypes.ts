@@ -27,13 +27,12 @@ export interface LogOutStore {
   type: typeof LOG_OUT_STORE;
 }
 
-// sidebarReducer
+export const UNABLE_ERROR_MESSAGE = 'UNABLE_ERROR_MESSAGE';
+export interface UnableErrorMessage {
+  type: typeof UNABLE_ERROR_MESSAGE;
+}
 
-// export const SET_WARRIORS_SIDEBAR = 'SET_WARRIORS_SIDEBAR';
-// export interface SetWarriorsSidebar {
-//   payload: object;
-//   type: typeof SET_WARRIORS_SIDEBAR;
-// }
+// sidebarReducer
 
 export const SET_WARRIORS_SIDEBAR = createAsyncActionType('SET_WARRIORS_SIDEBAR');
 

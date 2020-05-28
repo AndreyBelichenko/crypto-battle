@@ -7,7 +7,7 @@ export type UserSidebarType = {
 
 export const requestLogin = (type: string, token: string) =>
   new Promise((resolve, reject) => {
-    fetch(`http://localhost:3001/api/auth/${type}`, {
+    fetch(`http://crypto-battle.pp.ua/api/auth/${type}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -28,7 +28,7 @@ export const requestLogin = (type: string, token: string) =>
 
 export const requestSidebars = (type: string, skip: number | undefined = 0) =>
   new Promise((resolve, reject) => {
-    fetch(`http://localhost:3001/api/${type}?skip=${skip}`, {
+    fetch(`http://crypto-battle.pp.ua/api/${type}?skip=${skip}`, {
       method: 'GET',
     })
       .then((res) => res.json())

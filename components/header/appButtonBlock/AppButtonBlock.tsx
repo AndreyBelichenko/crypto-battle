@@ -6,7 +6,7 @@ import { Button } from 'semantic-ui-react';
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
 import ModalWindow from '../../modalWindow/modalWindow';
 
-import { AppButtonBlockWrapper } from './styledComponents';
+import { AppButtonBlockWrapper, HideButtons } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,15 +18,13 @@ const AppButtonBlock: React.FC = () => {
 
   return (
     <AppButtonBlockWrapper>
-      <ModalWindow role="create" />
+      <HideButtons>
+        <ModalWindow role="create" />
+      </HideButtons>
       <Button circular icon="user outline" color="black" className="btnSize" />
-      <Button
-        circular
-        icon="sign-in alternate"
-        color="black"
-        onClick={logOut}
-        className="btnSize"
-      />
+      <HideButtons>
+        <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
+      </HideButtons>
     </AppButtonBlockWrapper>
   );
 };

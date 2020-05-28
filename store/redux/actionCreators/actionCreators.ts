@@ -17,6 +17,12 @@ export const setAuthUserDataFromCookies = (payload: object) => {
   };
 };
 
+export const unableErrorMessage = (): action.UnableErrorMessage => {
+  return {
+    type: action.UNABLE_ERROR_MESSAGE,
+  };
+};
+
 export function logOut(): action.LogOut {
   return {
     type: action.LOG_OUT,
@@ -31,13 +37,6 @@ export function logOutStore(): action.LogOutStore {
 
 // sidebar reducer
 
-// export function setSidebarWarriors(payload: object): action.SetWarriorsSidebar {
-//   return {
-//     payload,
-//     type: action.SET_WARRIORS_SIDEBAR,
-//   };
-// }
-
 export const setSidebarWarriors = (type: string) => (dispatch: any) => {
   return dispatch({
     type: action.SET_WARRIORS_SIDEBAR.ACTION,
@@ -47,7 +46,7 @@ export const setSidebarWarriors = (type: string) => (dispatch: any) => {
   });
 };
 
-export const setSidebarCrypto = (type: string, skip: number | undefined) => (dispatch: any) => {
+export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any) => {
   return dispatch({
     type: action.SET_CRYPTO_SIDEBAR.ACTION,
     payload: {
