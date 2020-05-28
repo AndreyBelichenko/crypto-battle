@@ -3,6 +3,9 @@ import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 
 import { setAuthStoreUserData } from '../../store/redux/actionCreators/actionCreators';
+import BattleCard from '../card/Card';
+
+import { LayoutWrapper } from './styledComponents';
 
 const Layout: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,7 +17,7 @@ const Layout: React.FC = () => {
     }
   }, []);
 
-  return <div>I am Layout</div>;
+  return <LayoutWrapper><BattleCard/></LayoutWrapper>;
 };
 
 export default Layout;

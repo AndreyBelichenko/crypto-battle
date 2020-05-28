@@ -33,7 +33,7 @@ export default [
     name: 'BTC',
     logo: '/static/cryptoList/btc/logo-btc.svg',
     person: '/static/cryptoList/btc/person-btc.svg',
-    flag: '/static/cryptoList/bch/flag-btc.svg',
+    flag: '/static/cryptoList/btc/flag-btc.svg',
     mainColor: cryptoColors.btc_tree_poppy,
   },
   {

@@ -18,3 +18,10 @@ export function logOutStore(): action.LogOutStore {
     type: action.LOG_OUT_STORE,
   };
 }
+
+export function SetBattleData(payload: object): action.SetBattleData {
+  return {
+    payload,
+    type: action.BATTLE_DATA,
+  };
+}
