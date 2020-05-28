@@ -5,5 +5,5 @@ export const LayoutWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-flow: column wrap;
-  padding: 15px;  
+  padding: 15px;
   `;
