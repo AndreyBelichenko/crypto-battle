@@ -107,7 +107,7 @@ const WrapMarkUp: React.FC<any> = ({
           ))}
         </Sidebar>
         <AppContainer>
-          {userDataSuccess && <MessageExampleNegative />}
+          {!userDataSuccess && <MessageExampleNegative />}
           <Sidebar.Pusher>
             <Banner />
             <Grid stackable columns="equal">

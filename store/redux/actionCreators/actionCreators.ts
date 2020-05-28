@@ -35,6 +35,13 @@ export function logOutStore(): action.LogOutStore {
   };
 }
 
+export function SetBattleData(payload: object): action.SetBattleData {
+  return {
+    payload,
+    type: action.BATTLE_DATA,
+  };
+}
+
 // sidebar reducer
 
 export const setSidebarWarriors = (type: string) => (dispatch: any) => {

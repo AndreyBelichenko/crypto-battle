@@ -32,10 +32,21 @@ export interface UnableErrorMessage {
   type: typeof UNABLE_ERROR_MESSAGE;
 }
 
+export const BATTLE_DATA = 'BATTLE_DATA';
+export interface SetBattleData {
+  type: typeof BATTLE_DATA;
+  payload: object;
+}
+
 // sidebarReducer
 
 export const SET_WARRIORS_SIDEBAR = createAsyncActionType('SET_WARRIORS_SIDEBAR');
 
 export const SET_CRYPTO_SIDEBAR = createAsyncActionType('SET_CRYPTO_SIDEBAR');
 
-export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | LogOutStore;
+export type actionType =
+  | SetAuthUserData
+  | SetAuthStoreUserData
+  | LogOut
+  | LogOutStore
+  | SetBattleData;
