@@ -36,11 +36,12 @@ const getImageOfCrypto = (name: string) => cryptoData.filter((item) => item.name
 const SidebarSelf = (props: SidebarProps) => {
   const dispatch = useDispatch();
   const userData = useSelector((state: AppState) => state.user.userData);
+  const isUser = !props.data.some((item: any) => item._id === userData.id);
   const isCrypto = props.role === 'crypto';
+  const showUser = !isCrypto && userData && userData.name && isUser;
   const imageInTitle = isCrypto ? '/static/coins.svg' : '/static/sword.svg';
   const sidebarTitle = isCrypto ? 'TOP Crypto' : 'TOP Warriors';
   const imageInClass = isCrypto ? 'coinImage' : 'swordImage';
-  const isUser = !props.data.some((item: any) => item._id === userData.id);
 
   const handleShowMore = () => {
     dispatch(showMoreCrypto('crypto-currencies', props.data.length));
@@ -49,17 +50,17 @@ const SidebarSelf = (props: SidebarProps) => {
   const dataToShow = props.data.map((item: any) =>
     isCrypto
       ? {
-          id: item._id,
-          alias: item.cryptoName,
-          numberOfVictories: item.numberOfVictories,
-          avatar: getImageOfCrypto(item.cryptoName),
-        }
+        id: item._id,
+        alias: item.cryptoName,
+        numberOfVictories: item.numberOfVictories,
+        avatar: getImageOfCrypto(item.cryptoName),
+      }
       : {
-          id: item._id,
-          alias: item.alias,
-          numberOfVictories: item.numberOfVictories,
-          avatar: item.avatar,
-        }
+        id: item._id,
+        alias: item.alias,
+        numberOfVictories: item.numberOfVictories,
+        avatar: item.avatar,
+      },
   );
 
   return (
@@ -87,15 +88,22 @@ const SidebarSelf = (props: SidebarProps) => {
               </ItemList>
             ))}
           </ListCustomize>
-          <DividerCustomize />
           <Container align="center" style={{ cursor: 'pointer' }}>
-            {isCrypto ? (
-              props.hasMore && <ShowMore onClick={handleShowMore}>show more</ShowMore>
-            ) : (
-              <Icon disabled name="ellipsis horizontal" size="big" />
-            )}
+            {isCrypto
+              ? props.hasMore && (
+                  <>
+                    <DividerCustomize />
+                    <ShowMore onClick={handleShowMore}>show more</ShowMore>
+                  </>
+                )
+              : showUser && (
+                  <>
+                    <DividerCustomize />
+                    <Icon disabled name="ellipsis horizontal" size="big" />
+                  </>
+                )}
           </Container>
-          {!isCrypto && userData && userData.name && isUser && (
+          {showUser && (
             <>
               <Divider />
               <List>

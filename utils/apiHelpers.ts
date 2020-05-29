@@ -22,7 +22,7 @@ export const requestLogin = (type: string, token: string) =>
         res.json().then((data) => ({
           data,
           token: res.headers.get('access-token'),
-        }))
+        })),
       )
       .then((data) => resolve(data))
       .catch(() =>
@@ -33,7 +33,7 @@ export const requestLogin = (type: string, token: string) =>
           description: 'Sorry for the inconvenience, we will fix it soon',
           animation: 'bounce',
           time: 5000,
-        })
+        }),
       );
   });
 
@@ -53,7 +53,7 @@ export const requestSidebars = (type: string, skip: number | undefined = 0) => {
           description: 'Sorry for the inconvenience, we will fix it soon',
           animation: 'bounce',
           time: 5000,
-        })
+        }),
       );
   });
 };
