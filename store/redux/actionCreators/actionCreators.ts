@@ -1,6 +1,7 @@
+import { toast } from 'react-semantic-toasts';
+
 import * as action from '../actionTypes/actionTypes';
 import { requestLogin, requestSidebars } from '../../../utils/apiHelpers';
-import { toast } from 'react-semantic-toasts';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
