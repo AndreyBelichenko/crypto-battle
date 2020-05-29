@@ -3,7 +3,6 @@ import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoaderSemantic from '../loader/Loader';
-
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import { AppState } from '../../store/rootReducer';
 import { showMoreCrypto } from '../../store/redux/actionCreators/actionCreators';

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
 import ModalWindow from '../../modalWindow/modalWindow';
-
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
 import { AppState } from '../../../store/rootReducer';
 

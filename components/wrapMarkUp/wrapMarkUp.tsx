@@ -70,7 +70,7 @@ const WrapMarkUp: React.FC<any> = ({
       case 'logout':
         return (
           userData &&
-          userData.id && (
+          Boolean(userData.id) && (
             <MenuItem>
               <ItemMenuWrapper>
                 <ItemMenuImage>
@@ -89,7 +89,7 @@ const WrapMarkUp: React.FC<any> = ({
 
   return (
     <AppWrapper>
-      {userData.loaded && (
+      {userData.isLoading && (
         <LoaderAuthWrapper>
           <LoaderSemantic marginNeed={true} />
         </LoaderAuthWrapper>
