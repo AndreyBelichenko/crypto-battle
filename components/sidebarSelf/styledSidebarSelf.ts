@@ -11,6 +11,7 @@ export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   min-width: 240px;
   height: ${(props: any) => (props.needHeight ? '100%' : 'auto')};
   min-height: 50%;
+  max-height: ${(props: any) => (props.needHeight ? 'auto' : 'calc(100vh - 125px)')};
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;

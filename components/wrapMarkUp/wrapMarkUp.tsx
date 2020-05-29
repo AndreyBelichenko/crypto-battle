@@ -2,12 +2,12 @@ import * as React from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
+import { SemanticToastContainer } from 'react-semantic-toasts';
 
 import Header from '../header/Header';
 import Banner from '../banner/Banner';
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
-import MessageExampleNegative from '../authErrorMessage/authErrorMessage';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
 import { sidebarItems } from '../../constants/itemConstants';
@@ -33,7 +33,6 @@ const WrapMarkUp: React.FC<any> = ({
   topWarriors,
   topCrypto,
   setSidebarCrypto,
-  userDataSuccess,
 }) => {
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
@@ -66,19 +65,22 @@ const WrapMarkUp: React.FC<any> = ({
       case 'modal':
         return <ModalWindowSidebars setVisible={(a: boolean) => setVisible(a)} content={item} role={item.idItem} />;
       case 'logout':
-        return userData && userData.id ? (
-          <MenuItem>
-            <ItemMenuWrapper>
-              <ItemMenuImage>
-                <Image src={item.image} />
-              </ItemMenuImage>
-              <ItemMenuImageHover>
-                <Image src={item.imageHover} />
-              </ItemMenuImageHover>
-              <ItemMenuName>{item.name}</ItemMenuName>
-            </ItemMenuWrapper>
-          </MenuItem>
-        ) : null;
+        return (
+          userData &&
+          userData.id && (
+            <MenuItem>
+              <ItemMenuWrapper>
+                <ItemMenuImage>
+                  <Image src={item.image} />
+                </ItemMenuImage>
+                <ItemMenuImageHover>
+                  <Image src={item.imageHover} />
+                </ItemMenuImageHover>
+                <ItemMenuName>{item.name}</ItemMenuName>
+              </ItemMenuWrapper>
+            </MenuItem>
+          )
+        );
     }
   };
 
@@ -107,7 +109,6 @@ const WrapMarkUp: React.FC<any> = ({
           ))}
         </Sidebar>
         <AppContainer>
-          {!userDataSuccess && <MessageExampleNegative />}
           <Sidebar.Pusher>
             <Banner />
             <Grid stackable columns="equal">
@@ -133,6 +134,9 @@ const WrapMarkUp: React.FC<any> = ({
                 />
               </Grid.Column>
             </Grid>
+            <div style={{ position: 'absolute' }}>
+              <SemanticToastContainer position={'bottom-left'} />;
+            </div>
           </Sidebar.Pusher>
         </AppContainer>
       </Sidebar.Pushable>
@@ -142,7 +146,6 @@ const WrapMarkUp: React.FC<any> = ({
 
 const mapStateToProps = (state: AppState) => ({
   userData: state.user.userData,
-  userDataSuccess: state.user.success,
   topWarriors: state.sideBar.warriors,
   topCrypto: state.sideBar.crypto,
 });

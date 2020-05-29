@@ -17,11 +17,11 @@ export const setAuthUserDataFromCookies = (payload: object) => {
   };
 };
 
-export const unableErrorMessage = (): action.UnableErrorMessage => {
-  return {
-    type: action.UNABLE_ERROR_MESSAGE,
-  };
-};
+// export const unableErrorMessage = (): action.UnableErrorMessage => {
+//   return {
+//     type: action.UNABLE_ERROR_MESSAGE,
+//   };
+// };
 
 export function logOut(): action.LogOut {
   return {
@@ -56,6 +56,15 @@ export const setSidebarWarriors = (type: string) => (dispatch: any) => {
 export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any) => {
   return dispatch({
     type: action.SET_CRYPTO_SIDEBAR.ACTION,
+    payload: {
+      promise: requestSidebars(type, skip),
+    },
+  });
+};
+
+export const showMoreCrypto = (type: string, skip?: number) => (dispatch: any) => {
+  return dispatch({
+    type: action.SHOW_MORE_CRYPTO.ACTION,
     payload: {
       promise: requestSidebars(type, skip),
     },

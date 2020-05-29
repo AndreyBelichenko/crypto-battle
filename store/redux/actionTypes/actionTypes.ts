@@ -27,10 +27,10 @@ export interface LogOutStore {
   type: typeof LOG_OUT_STORE;
 }
 
-export const UNABLE_ERROR_MESSAGE = 'UNABLE_ERROR_MESSAGE';
-export interface UnableErrorMessage {
-  type: typeof UNABLE_ERROR_MESSAGE;
-}
+// export const UNABLE_ERROR_MESSAGE = 'UNABLE_ERROR_MESSAGE';
+// export interface UnableErrorMessage {
+//   type: typeof UNABLE_ERROR_MESSAGE;
+// }
 
 export const BATTLE_DATA = 'BATTLE_DATA';
 export interface SetBattleData {
@@ -44,9 +44,6 @@ export const SET_WARRIORS_SIDEBAR = createAsyncActionType('SET_WARRIORS_SIDEBAR'
 
 export const SET_CRYPTO_SIDEBAR = createAsyncActionType('SET_CRYPTO_SIDEBAR');
 
-export type actionType =
-  | SetAuthUserData
-  | SetAuthStoreUserData
-  | LogOut
-  | LogOutStore
-  | SetBattleData;
+export const SHOW_MORE_CRYPTO = createAsyncActionType('SHOW_MORE_CRYPTO');
+
+export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | LogOutStore | SetBattleData;

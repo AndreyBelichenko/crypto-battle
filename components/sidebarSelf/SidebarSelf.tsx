@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoaderExampleInlineCentered from '../loader/Loader';
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import { AppState } from '../../store/rootReducer';
-import { setSidebarCrypto } from '../../store/redux/actionCreators/actionCreators';
+import { showMoreCrypto } from '../../store/redux/actionCreators/actionCreators';
 
 import {
   SideBarWrapper,
@@ -20,8 +20,8 @@ import {
   HeaderCustomize,
   ListContentCustomize,
   ListHeader,
-  ShowLess,
-  ShowLessDivider,
+  // ShowLess,
+  // ShowLessDivider,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
@@ -36,21 +36,16 @@ interface SidebarProps {
 const getImageOfCrypto = (name: string) => cryptoData.filter((item) => item.name === name)[0].logo;
 
 const SidebarSelf = (props: SidebarProps) => {
-  const userData = useSelector((state: AppState) => state.user.userData);
   const dispatch = useDispatch();
-  const imageInTitle = props.role === 'crypto' ? '/static/coins.svg' : '/static/sword.svg';
-  const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
-  const imageInClass = props.role === 'crypto' ? 'coinImage' : 'swordImage';
+  const userData = useSelector((state: AppState) => state.user.userData);
   const isCrypto = props.role === 'crypto';
-  const isUser = !props.data.map((item: any) => item._id).includes(userData.id);
-  const [skip, setIsSkip] = React.useState(0);
+  const imageInTitle = isCrypto ? '/static/coins.svg' : '/static/sword.svg';
+  const sidebarTitle = isCrypto ? 'TOP Crypto' : 'TOP Warriors';
+  const imageInClass = isCrypto ? 'coinImage' : 'swordImage';
+  const isUser = !props.data.some((item: any) => item._id === userData.id);
 
-  React.useEffect(() => {
-    dispatch(setSidebarCrypto('crypto-currencies', skip));
-  }, [skip]);
-
-  const onHandleSkip = (text: string) => {
-    text === 'ahead' ? setIsSkip(skip + 10) : setIsSkip(skip - 10);
+  const handleShowMore = () => {
+    dispatch(showMoreCrypto('crypto-currencies', props.data.length));
   };
 
   const dataToShow = props.data.map((item: any) =>
@@ -81,14 +76,6 @@ const SidebarSelf = (props: SidebarProps) => {
         <LoaderExampleInlineCentered />
       ) : (
         <>
-          {isCrypto && !props.hasMore ? (
-            <>
-              <Container align="center" style={{ cursor: 'pointer' }}>
-                <ShowLess onClick={onHandleSkip.bind(null, 'back')}>show less</ShowLess>
-              </Container>
-              <ShowLessDivider />
-            </>
-          ) : null}
           <ListCustomize divided relaxed>
             {dataToShow.map((item: any, index: number) => (
               <ItemList key={index}>
@@ -105,7 +92,7 @@ const SidebarSelf = (props: SidebarProps) => {
           <DividerCustomize />
           <Container align="center" style={{ cursor: 'pointer' }}>
             {isCrypto ? (
-              props.hasMore && <ShowMore onClick={onHandleSkip.bind(null, 'ahead')}>show more</ShowMore>
+              props.hasMore && <ShowMore onClick={handleShowMore}>show more</ShowMore>
             ) : (
               <Icon disabled name="ellipsis horizontal" size="big" />
             )}

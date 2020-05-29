@@ -28,8 +28,7 @@ export const MainContent = styled.div`
 `;
 
 export const AppContainer = styled.div`
-  flex-grow: 1;
-  position: relative;
+  // position: relative;
   padding: 20px 20px;
   background-attachment: fixed;
   background-position: top center;
