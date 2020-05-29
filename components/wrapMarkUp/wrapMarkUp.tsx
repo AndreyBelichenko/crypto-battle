@@ -6,6 +6,7 @@ import { SemanticToastContainer } from 'react-semantic-toasts';
 
 import Header from '../header/Header';
 import Banner from '../banner/Banner';
+import LoaderSemantic from '../loader/Loader';
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
@@ -25,6 +26,7 @@ import {
   ItemMenuName,
   ItemMenuImageHover,
   ToastWrapper,
+  LoaderAuthWrapper,
 } from '../../commonStyles/styledApp';
 
 const WrapMarkUp: React.FC<any> = ({
@@ -87,6 +89,11 @@ const WrapMarkUp: React.FC<any> = ({
 
   return (
     <AppWrapper>
+      {userData.loaded && (
+        <LoaderAuthWrapper>
+          <LoaderSemantic marginNeed={true} />
+        </LoaderAuthWrapper>
+      )}
       <Header setVisible={setVisible} visible={visible} />
       <Sidebar.Pushable>
         <Sidebar

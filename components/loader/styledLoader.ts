@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
-export const LoaderWrapper = styled.div`
-  margin-top: 100px;
+interface StyledLoaderProps {
+  marginNeed: boolean;
+}
+
+export const LoaderWrapper = styled.div<StyledLoaderProps>`
+  margin-top: ${(props) => (props.marginNeed ? '0' : '100px')};
 `;

@@ -22,10 +22,7 @@ export interface LogOut {
   type: typeof LOG_OUT;
 }
 
-export const LOG_OUT_STORE = 'LOG_OUT_STORE';
-export interface LogOutStore {
-  type: typeof LOG_OUT_STORE;
-}
+export const LOG_OUT_STORE = createAsyncActionType('LOG_OUT_STORE');
 
 export const BATTLE_DATA = 'BATTLE_DATA';
 export interface SetBattleData {
@@ -41,4 +38,4 @@ export const SET_CRYPTO_SIDEBAR = createAsyncActionType('SET_CRYPTO_SIDEBAR');
 
 export const SHOW_MORE_CRYPTO = createAsyncActionType('SHOW_MORE_CRYPTO');
 
-export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | LogOutStore | SetBattleData;
+export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData;

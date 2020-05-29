@@ -2,7 +2,8 @@ import * as React from 'react';
 import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import LoaderExampleInlineCentered from '../loader/Loader';
+import LoaderSemantic from '../loader/Loader';
+
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import { AppState } from '../../store/rootReducer';
 import { showMoreCrypto } from '../../store/redux/actionCreators/actionCreators';
@@ -72,7 +73,7 @@ const SidebarSelf = (props: SidebarProps) => {
         </TitleImage>
       </HeaderWrapper>
       {props.load ? (
-        <LoaderExampleInlineCentered />
+        <LoaderSemantic marginNeed={false} />
       ) : (
         <>
           <ListCustomize divided relaxed>

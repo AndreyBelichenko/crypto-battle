@@ -1,7 +1,7 @@
 import { toast } from 'react-semantic-toasts';
 
 import * as action from '../actionTypes/actionTypes';
-import { requestLogin, requestSidebars } from '../../../utils/apiHelpers';
+import { requestLogin, requestSidebars, requestLogout } from '../../../utils/apiHelpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
@@ -34,11 +34,23 @@ export function logOut(): action.LogOut {
   };
 }
 
-export function logOutStore(): action.LogOutStore {
-  return {
-    type: action.LOG_OUT_STORE,
-  };
-}
+export const logOutStore = (token: number, id: number) => (dispatch: any) => {
+  return dispatch({
+    type: action.LOG_OUT_STORE.ACTION,
+    payload: {
+      promise: requestLogout(token, id).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: 'Error with logout',
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
+    },
+  });
+};
 
 export function SetBattleData(payload: object): action.SetBattleData {
   return {

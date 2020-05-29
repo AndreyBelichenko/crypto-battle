@@ -14,6 +14,7 @@ export const writeCorrectUserData = (info: any) => {
     avatar: info.data.user.avatar,
     numberOfVictories: info.data.user.numberOfVictories,
     access_token: info.token,
+    loaded: false,
   };
   Cookies.set('userData', correctData);
 

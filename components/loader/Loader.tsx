@@ -3,10 +3,14 @@ import { Loader } from 'semantic-ui-react';
 
 import { LoaderWrapper } from './styledLoader';
 
-const LoaderExampleInlineCentered = () => (
-  <LoaderWrapper>
+interface PropsLoader {
+  marginNeed: boolean;
+}
+
+const LoaderSemantic = (props: PropsLoader) => (
+  <LoaderWrapper marginNeed={props.marginNeed}>
     <Loader active inline="centered" size={'large'} />
   </LoaderWrapper>
 );
 
-export default LoaderExampleInlineCentered;
+export default LoaderSemantic;

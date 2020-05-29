@@ -116,3 +116,14 @@ export const StyleModalContent = styled.div`
 export const ToastWrapper = styled.div`
   position: absolute;
 `;
+
+export const LoaderAuthWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
