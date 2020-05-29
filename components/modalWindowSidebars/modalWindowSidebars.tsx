@@ -36,10 +36,11 @@ const ModalWindowSidebars = (props: ModalProps) => {
     props.setVisible(false);
     setIsOpen(!isOpen);
   }, [isOpen]);
-  const modalData = props.role === 'crypto' ? props.topCrypto.crypto : props.topWarriors.users;
-  const hasMore = props.role === 'crypto' ? props.topCrypto.hasMore : props.topWarriors.hasMore;
-  const load = props.role === 'crypto' ? props.topCrypto.load : props.topWarriors.load;
-  const modalClassName = props.role === 'crypto' ? 'cryptoModal' : 'warriorsModal';
+  const isCrypto = props.role === 'crypto';
+  const modalData = isCrypto ? props.topCrypto.crypto : props.topWarriors.users;
+  const hasMore = isCrypto ? props.topCrypto.hasMore : props.topWarriors.hasMore;
+  const load = isCrypto ? props.topCrypto.load : props.topWarriors.load;
+  const modalClassName = isCrypto ? 'cryptoModal' : 'warriorsModal';
 
   return (
     <div className={modalClassName}>

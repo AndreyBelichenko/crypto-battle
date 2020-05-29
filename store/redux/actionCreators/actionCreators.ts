@@ -1,11 +1,21 @@
 import * as action from '../actionTypes/actionTypes';
 import { requestLogin, requestSidebars } from '../../../utils/apiHelpers';
+import { toast } from 'react-semantic-toasts';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
     type: action.AUTH_STORE_USER_DATA.ACTION,
     payload: {
-      promise: requestLogin(type, token),
+      promise: requestLogin(type, token).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: 'Error with authorization',
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
     },
   });
 };
@@ -39,19 +49,39 @@ export function SetBattleData(payload: object): action.SetBattleData {
 // sidebar reducer
 
 export const setSidebarWarriors = (type: string) => (dispatch: any) => {
+  const messageError = type === 'top-crypto' ? 'TOP crypto' : 'TOP warriors';
   return dispatch({
     type: action.SET_WARRIORS_SIDEBAR.ACTION,
     payload: {
-      promise: requestSidebars(type),
+      promise: requestSidebars(type).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: `Error with getting ${messageError}`,
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
     },
   });
 };
 
 export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any) => {
+  const messageError = type === 'top-crypto' ? 'TOP crypto' : 'TOP warriors';
   return dispatch({
     type: action.SET_CRYPTO_SIDEBAR.ACTION,
     payload: {
-      promise: requestSidebars(type, skip),
+      promise: requestSidebars(type, skip).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: `Error with getting ${messageError}`,
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
     },
   });
 };

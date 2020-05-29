@@ -16,5 +16,6 @@ export const writeCorrectUserData = (info: any) => {
     access_token: info.token,
   };
   Cookies.set('userData', correctData);
+
   return correctData;
 };
