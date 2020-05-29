@@ -17,12 +17,6 @@ export const setAuthUserDataFromCookies = (payload: object) => {
   };
 };
 
-// export const unableErrorMessage = (): action.UnableErrorMessage => {
-//   return {
-//     type: action.UNABLE_ERROR_MESSAGE,
-//   };
-// };
-
 export function logOut(): action.LogOut {
   return {
     type: action.LOG_OUT,

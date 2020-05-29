@@ -7,37 +7,6 @@ export type UserSidebarType = {
   numberOfVictories: number;
 };
 
-// export const requestLogin = (type: string, token: string) =>
-//   new Promise((resolve, reject) => {
-//     fetch(`http://crypto-battle.pp.ua/api/auth/${type}`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json;charset=utf-8',
-//       },
-//       body: JSON.stringify({
-//         access_token: token,
-//       }),
-//     })
-//       .then((res) =>
-//         res.json().then((data) => ({
-//           data,
-//           token: res.headers.get('access-token'),
-//         })),
-//       )
-//       .then((data) => resolve(data))
-//       .catch((error) => reject(error));
-//   });
-//
-// export const requestSidebars = (type: string, skip: number | undefined = 0) =>
-//   new Promise((resolve, reject) => {
-//     fetch(`http://crypto-battle.pp.ua/api/${type}?skip=${skip}`, {
-//       method: 'GET',
-//     })
-//       .then((res) => res.json())
-//       .then((data) => resolve(data))
-//       .catch((error) => reject(error));
-//   });
-
 export const requestLogin = (type: string, token: string) =>
   new Promise((resolve) => {
     fetch(`http://crypto-battle.pp.ua/api/auth/${type}`, {
@@ -53,7 +22,7 @@ export const requestLogin = (type: string, token: string) =>
         res.json().then((data) => ({
           data,
           token: res.headers.get('access-token'),
-        })),
+        }))
       )
       .then((data) => resolve(data))
       .catch(() =>
@@ -64,7 +33,7 @@ export const requestLogin = (type: string, token: string) =>
           description: 'Sorry for the inconvenience, we will fix it soon',
           animation: 'bounce',
           time: 5000,
-        }),
+        })
       );
   });
 
@@ -84,7 +53,7 @@ export const requestSidebars = (type: string, skip: number | undefined = 0) => {
           description: 'Sorry for the inconvenience, we will fix it soon',
           animation: 'bounce',
           time: 5000,
-        }),
+        })
       );
   });
 };

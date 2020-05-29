@@ -24,6 +24,7 @@ import {
   ItemMenuImage,
   ItemMenuName,
   ItemMenuImageHover,
+  ToastWrapper,
 } from '../../commonStyles/styledApp';
 
 const WrapMarkUp: React.FC<any> = ({
@@ -134,9 +135,9 @@ const WrapMarkUp: React.FC<any> = ({
                 />
               </Grid.Column>
             </Grid>
-            <div style={{ position: 'absolute' }}>
+            <ToastWrapper>
               <SemanticToastContainer position={'bottom-left'} />;
-            </div>
+            </ToastWrapper>
           </Sidebar.Pusher>
         </AppContainer>
       </Sidebar.Pushable>

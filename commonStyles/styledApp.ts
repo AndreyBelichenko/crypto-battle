@@ -28,7 +28,6 @@ export const MainContent = styled.div`
 `;
 
 export const AppContainer = styled.div`
-  // position: relative;
   padding: 20px 20px;
   background-attachment: fixed;
   background-position: top center;
@@ -112,4 +111,8 @@ export const StyleModalContent = styled.div`
   padding: 0;
   position: relative;
   background: transparent;
+`;
+
+export const ToastWrapper = styled.div`
+  position: absolute;
 `;

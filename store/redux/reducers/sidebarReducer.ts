@@ -1,12 +1,5 @@
 import * as actionTypes from '../actionTypes/actionTypes';
 
-// export type UserSidebarType = {
-//   id: string;
-//   alias: string;
-//   avatar: string;
-//   numberOfVictories: number;
-// };
-
 export type SidebarReducerUsers = {
   hasMore: boolean;
   users: any;
@@ -39,15 +32,6 @@ const initialState: SidebarReducerType = {
 
 export default function sidebarReducer(state: SidebarReducerType = initialState, action: any): SidebarReducerType {
   switch (action.type) {
-    case actionTypes.SHOW_MORE_CRYPTO.SUCCESS:
-      return {
-        ...state,
-        crypto: {
-          hasMore: action.payload.hasMore,
-          crypto: [...state.crypto.crypto, ...action.payload.crypto],
-          load: false,
-        },
-      };
     case actionTypes.SET_WARRIORS_SIDEBAR.START:
       return { ...state, warriors: { ...state.warriors, load: true } };
     case actionTypes.SET_WARRIORS_SIDEBAR.SUCCESS:
@@ -76,15 +60,15 @@ export default function sidebarReducer(state: SidebarReducerType = initialState,
       return initialState;
     case actionTypes.SHOW_MORE_CRYPTO.START:
       return { ...state, crypto: { ...state.crypto, load: true } };
-    // case actionTypes.SHOW_MORE_CRYPTO.SUCCESS:
-    //   return {
-    //     ...state,
-    //     crypto: {
-    //       hasMore: action.payload.hasMore,
-    //       crypto: { ...state.crypto, ...action.payload.crypto },
-    //       load: false,
-    //     },
-    //   };
+    case actionTypes.SHOW_MORE_CRYPTO.SUCCESS:
+      return {
+        ...state,
+        crypto: {
+          hasMore: action.payload.hasMore,
+          crypto: [...state.crypto.crypto, ...action.payload.crypto],
+          load: false,
+        },
+      };
     case actionTypes.SHOW_MORE_CRYPTO.ERROR:
       return initialState;
     default:

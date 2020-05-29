@@ -27,11 +27,6 @@ export interface LogOutStore {
   type: typeof LOG_OUT_STORE;
 }
 
-// export const UNABLE_ERROR_MESSAGE = 'UNABLE_ERROR_MESSAGE';
-// export interface UnableErrorMessage {
-//   type: typeof UNABLE_ERROR_MESSAGE;
-// }
-
 export const BATTLE_DATA = 'BATTLE_DATA';
 export interface SetBattleData {
   type: typeof BATTLE_DATA;

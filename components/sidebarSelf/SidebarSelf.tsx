@@ -20,8 +20,6 @@ import {
   HeaderCustomize,
   ListContentCustomize,
   ListHeader,
-  // ShowLess,
-  // ShowLessDivider,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
@@ -51,17 +49,17 @@ const SidebarSelf = (props: SidebarProps) => {
   const dataToShow = props.data.map((item: any) =>
     isCrypto
       ? {
-        id: item._id,
-        alias: item.cryptoName,
-        numberOfVictories: item.numberOfVictories,
-        avatar: getImageOfCrypto(item.cryptoName),
-      }
+          id: item._id,
+          alias: item.cryptoName,
+          numberOfVictories: item.numberOfVictories,
+          avatar: getImageOfCrypto(item.cryptoName),
+        }
       : {
-        id: item._id,
-        alias: item.alias,
-        numberOfVictories: item.numberOfVictories,
-        avatar: item.avatar,
-      },
+          id: item._id,
+          alias: item.alias,
+          numberOfVictories: item.numberOfVictories,
+          avatar: item.avatar,
+        }
   );
 
   return (
