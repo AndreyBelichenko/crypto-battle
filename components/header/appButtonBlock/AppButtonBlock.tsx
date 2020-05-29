@@ -1,32 +1,31 @@
 import * as React from 'react';
 import * as Cookies from 'js-cookie';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
-import * as actions from '../../../store/redux/actionCreators/actionCreators';
 import ModalWindow from '../../modalWindow/modalWindow';
+import * as actions from '../../../store/redux/actionCreators/actionCreators';
+import { AppState } from '../../../store/rootReducer';
 
-import { AppButtonBlockWrapper } from './styledComponents';
+import { AppButtonBlockWrapper, HideButtons } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
-
+  const userData = useSelector((state: AppState) => state.user.userData);
   const logOut = () => {
     Cookies.remove('userData');
-    dispatch(actions.logOutStore());
+    dispatch(actions.logOutStore(userData.access_token, userData.id));
   };
 
   return (
     <AppButtonBlockWrapper>
-      <ModalWindow role="create" />
+      <HideButtons>
+        <ModalWindow role="create" />
+      </HideButtons>
       <Button circular icon="user outline" color="black" className="btnSize" />
-      <Button
-        circular
-        icon="sign-in alternate"
-        color="black"
-        onClick={logOut}
-        className="btnSize"
-      />
+      <HideButtons>
+        <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
+      </HideButtons>
     </AppButtonBlockWrapper>
   );
 };

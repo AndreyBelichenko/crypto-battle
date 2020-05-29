@@ -2,7 +2,6 @@ import * as React from 'react';
 import GoogleLogin from 'react-google-login';
 // @ts-ignore
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import * as Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
@@ -13,33 +12,21 @@ import { AuthWrapper } from './styledComponents';
 const AuthBlock: React.FC = () => {
   const dispatch = useDispatch();
 
-  const responseFacebook = (response: any) => {
-    if (response.accessToken) {
-      const dataToSend = {
-        name: response.name,
-        avatar: response.picture.data.url,
-      };
-      Cookies.set('userData', dataToSend);
-      dispatch(setAuthStoreUserData(dataToSend));
+  const responseFacebook = (responseFacebook: any) => {
+    if (responseFacebook.accessToken) {
+      dispatch(setAuthStoreUserData('facebook', responseFacebook.accessToken));
     }
   };
 
-  const responseGoogle = (response: any) => {
-    if (response.accessToken) {
-      const dataToSend = {
-        name: response.profileObj.name,
-        avatar: response.profileObj.imageUrl,
-      };
-      Cookies.set('userData', dataToSend);
-      dispatch(setAuthStoreUserData(dataToSend));
-    }
+  const responseGoogle = (responseGoogle: any) => {
+    dispatch(setAuthStoreUserData('google', responseGoogle.wc.access_token));
   };
 
   return (
     <AuthWrapper>
       <FacebookLogin
-        appId="263020944839635"
         autoLoad={false}
+        appId="2848509168579400"
         fields="name,email,picture"
         onClick={responseFacebook}
         callback={responseFacebook}
