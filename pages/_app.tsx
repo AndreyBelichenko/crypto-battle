@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 
 import 'semantic-ui-css/semantic.min.css';
+import 'react-semantic-toasts/styles/react-semantic-alert.css';
 
 import WrapMarkUp from '../components/wrapMarkUp/wrapMarkUp';
 
