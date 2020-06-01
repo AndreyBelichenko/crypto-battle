@@ -20,13 +20,12 @@ import {
 import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
 
 const RightGamer: React.FC<any> = (props: any) => {
+  const info = props.cardData.secondPlayer;
   const actualHealth = props.cardData.steps[props.cardData.steps.length - 1]
-    ? props.cardData.steps[props.cardData.steps.length - 1][props.cardData.secondPlayer.cryptoName]
+    ? props.cardData.steps[props.cardData.steps.length - 1][info.cryptoName]
     : props.cardData.healthPoints;
   const handleOpenChart = () => {
-    props.chart === props.cardData.secondPlayer.cryptoName
-      ? props.setIsChart(false)
-      : props.setIsChart(props.cardData.secondPlayer.cryptoName);
+    props.chart === info.cryptoName ? props.setIsChart(false) : props.setIsChart(info.cryptoName);
   };
   return (
     <GamerBlock>
@@ -34,29 +33,29 @@ const RightGamer: React.FC<any> = (props: any) => {
         <CryptoCard>
           <CryptoCardMain>
             <CryptoCardLogo>
-              <Image src={returnCorrectCryptoData(props.cardData.secondPlayer.cryptoName, 'logo')} />
+              <Image src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <Image src={returnCorrectCryptoData(props.cardData.secondPlayer.cryptoName, 'person')} />
+              <Image src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
-            <CryptoCardName>{props.cardData.secondPlayer.cryptoName}</CryptoCardName>
+            <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
           <CryptoCardHp>
             <ProgressText>{actualHealth}hp</ProgressText>
             <Progress
               percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)}
-              color={returnCorrectCryptoData(props.cardData.secondPlayer.cryptoName, 'progressColor')}
+              color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
             />
           </CryptoCardHp>
         </CryptoCard>
         <AwardsBlock>
-          <ImageAwards src={returnCorrectCryptoData(props.cardData.secondPlayer.cryptoName, 'flag')} />
+          <ImageAwards src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
         </AwardsBlock>
       </GamerBlockOne>
       <GamerBlockTwo>
         <UserBlock>
-          <ImageUser src={props.cardData.secondPlayer.userInfo.avatar} />
-          <UserName>{props.cardData.secondPlayer.userInfo.alias}</UserName>
+          <ImageUser src={info.userInfo.avatar} />
+          <UserName>{info.userInfo.alias}</UserName>
         </UserBlock>
         <ChartTrigger>
           <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />

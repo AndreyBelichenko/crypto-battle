@@ -21,43 +21,42 @@ import {
 } from '../styledActiveBattle';
 
 const LeftGamer: React.FC<any> = (props: any) => {
+  const info = props.cardData.firstPlayer;
   const actualHealth = props.cardData.steps[props.cardData.steps.length - 1]
-    ? props.cardData.steps[props.cardData.steps.length - 1][props.cardData.firstPlayer.cryptoName]
+    ? props.cardData.steps[props.cardData.steps.length - 1][info.cryptoName]
     : props.cardData.healthPoints;
-  const handleOpenChart = () => {
-    props.chart === props.cardData.firstPlayer.cryptoName
-      ? props.setIsChart(false)
-      : props.setIsChart(props.cardData.firstPlayer.cryptoName);
-  };
+  const handleOpenChart = () =>
+    props.chart === info.cryptoName ? props.setIsChart(false) : props.setIsChart(info.cryptoName);
+
   return (
     <GamerBlock>
       <GamerBlockOne>
         <AwardsBlock>
-          <ImageAwards src={returnCorrectCryptoData(props.cardData.firstPlayer.cryptoName, 'flag')} />
+          <ImageAwards src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
         </AwardsBlock>
         <CryptoCard>
           <CryptoCardMain>
             <CryptoCardLogo>
-              <Image src={returnCorrectCryptoData(props.cardData.firstPlayer.cryptoName, 'logo')} />
+              <Image src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <Image src={returnCorrectCryptoData(props.cardData.firstPlayer.cryptoName, 'person')} />
+              <Image src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
-            <CryptoCardName>{props.cardData.firstPlayer.cryptoName}</CryptoCardName>
+            <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
           <CryptoCardHp>
             <ProgressText>{actualHealth}hp</ProgressText>
             <Progress
               percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)}
-              color={returnCorrectCryptoData(props.cardData.firstPlayer.cryptoName, 'progressColor')}
+              color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
             />
           </CryptoCardHp>
         </CryptoCard>
       </GamerBlockOne>
       <GamerBlockTwo>
         <UserBlock>
-          <ImageUser src={props.cardData.firstPlayer.userInfo.avatar} />
-          <UserName>{props.cardData.firstPlayer.userInfo.alias}</UserName>
+          <ImageUser src={info.userInfo.avatar} />
+          <UserName>{info.userInfo.alias}</UserName>
         </UserBlock>
         <ChartTrigger>
           <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />

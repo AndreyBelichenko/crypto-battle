@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Modal, Grid, Container } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 
-import { SocketConnection } from '../../socketConnection/socketConnection';
-import { AppState } from '../../store/rootReducer';
-
 import ImgCrypto from '../ImgCrypto/ImgCrypto';
 
+import { SocketConnection } from '../../socketConnection/socketConnection';
+import { AppState } from '../../store/rootReducer';
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import { hpDropdown } from '../../constants/itemConstants';
+
 import {
   Btn,
   StyledHeaderHp,

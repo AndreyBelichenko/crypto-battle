@@ -10,7 +10,7 @@ const BattleBlock: React.FC<any> = (props: any) => {
         <KnifeTwo src="/static/knife.svg" />
       </KnifesBlock>
       <BattleDescriptionBlock>
-        {props.cardData.steps.map((item, index) => (
+        {props.cardData.steps.map((item: any, index: number) => (
           <p key={index}>{item.message}</p>
         ))}
       </BattleDescriptionBlock>
