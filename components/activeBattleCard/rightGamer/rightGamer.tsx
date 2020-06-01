@@ -20,9 +20,10 @@ import {
 import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
 
 const RightGamer: React.FC<any> = (props: any) => {
+  const lastElementArray = props.cardData.steps.length - 1;
   const info = props.cardData.secondPlayer;
-  const actualHealth = props.cardData.steps[props.cardData.steps.length - 1]
-    ? props.cardData.steps[props.cardData.steps.length - 1][info.cryptoName]
+  const actualHealth = props.cardData.steps[lastElementArray]
+    ? props.cardData.steps[lastElementArray][info.cryptoName]
     : props.cardData.healthPoints;
 
   const handleOpenChart = () => {

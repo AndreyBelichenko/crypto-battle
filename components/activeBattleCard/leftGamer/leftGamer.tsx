@@ -21,9 +21,10 @@ import {
 } from '../styledActiveBattle';
 
 const LeftGamer: React.FC<any> = (props: any) => {
+  const lastElementArray = props.cardData.steps.length - 1;
   const info = props.cardData.firstPlayer;
-  const actualHealth = props.cardData.steps[props.cardData.steps.length - 1]
-    ? props.cardData.steps[props.cardData.steps.length - 1][info.cryptoName]
+  const actualHealth = props.cardData.steps[lastElementArray]
+    ? props.cardData.steps[lastElementArray][info.cryptoName]
     : props.cardData.healthPoints;
   const handleOpenChart = () => {
     if (props.chart.side === 'left' && props.chart.index === props.index) {

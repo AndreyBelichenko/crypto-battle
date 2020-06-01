@@ -10,6 +10,7 @@ import { returnCorrectCryptoData } from '../../utils/helpers';
 import { ParentDiv, MainDiv, ChartWrapper, ActiveCardWrapper } from './styledActiveBattle';
 
 const ActiveBattleCard: React.FC<any> = (props: any) => {
+  const currentSide = (side: string) => props.chart && props.chart.index === props.index && props.chart.side === side;
   return (
     <ActiveCardWrapper>
       <ParentDiv>
@@ -19,12 +20,12 @@ const ActiveBattleCard: React.FC<any> = (props: any) => {
           <RightGamer cardData={props.card} setIsChart={props.setIsChart} chart={props.chart} index={props.index} />
         </MainDiv>
       </ParentDiv>
-      {props.chart && props.chart.index === props.index && props.chart.side === 'left' && (
+      {currentSide('left') && (
         <ChartWrapper>
           <Chart crypto={returnCorrectCryptoData(props.chart.cryptoName.toString(), 'cryptoCode')} />
         </ChartWrapper>
       )}
-      {props.chart && props.chart.index === props.index && props.chart.side === 'right' && (
+      {currentSide('right') && (
         <ChartWrapper>
           <Chart crypto={returnCorrectCryptoData(props.chart.cryptoName.toString(), 'cryptoCode')} />
         </ChartWrapper>

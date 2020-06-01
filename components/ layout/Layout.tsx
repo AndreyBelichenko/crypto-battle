@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import BattleCard from '../card/Card';
 
 import { AppState } from '../../store/rootReducer';
-import * as actions from '../../store/redux/actionCreators/actionCreators';
+import { setAuthUserDataFromCookies } from '../../store/redux/actionCreators/actionCreators';
 
 import { LayoutWrapper } from './styledComponents';
 
@@ -30,7 +30,7 @@ export default connect(
   (state: AppState) => ({
     allBattle: state.allBattle.allBattleData,
   }),
-  (dispatch: any) => ({
-    setAuthUserDataFromCookies: (payload: any) => dispatch(actions.setAuthUserDataFromCookies(payload)),
-  }),
+  {
+    setAuthUserDataFromCookies,
+  },
 )(Layout);
