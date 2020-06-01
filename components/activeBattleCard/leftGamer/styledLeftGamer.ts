@@ -28,7 +28,7 @@ export const CryptoCardName = styled.div`
     font-size: 17px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    font-size: 12px;
+    font-size: 11px;
     right: 2px;
     bottom: 0;
   }
@@ -36,8 +36,9 @@ export const CryptoCardName = styled.div`
 
 export const ChartTrigger = styled.div`
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 5px;
+  bottom: 30px;
+  cursor: pointer;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     right: 0;

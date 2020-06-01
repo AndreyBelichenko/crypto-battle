@@ -4,10 +4,14 @@ import ModalWindow from '../../modalWindow/modalWindow';
 
 import { ButtonBlock } from './rightBlockWaitStyledComponent';
 
-const RightBlockWait = () => {
+interface RightBlockWaitProps {
+  data: any;
+}
+
+const RightBlockWait = (props: RightBlockWaitProps) => {
   return (
     <ButtonBlock>
-      <ModalWindow role="connect" />
+      <ModalWindow role="connect" battleId={props.data._id} playerCrypto={props.data.firstPlayer.cryptoName} />
     </ButtonBlock>
   );
 };

@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { Progress } from 'semantic-ui-react';
 
-import { warrior } from '../mockData';
+import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
+// import { warrior } from '../mockData';
 
-import { GamerBlock,
+import {
+  GamerBlock,
   CryptoCard,
   CryptoCardName,
   ImageCardPerson,
   ImageCardLogo,
   AwardsBlock,
-  AwardsText,
-  UserBlock } from './leftStyledComponent';
+  UserBlock,
+} from './leftStyledComponent';
 import {
   CryptoCardPerson,
   CryptoCardLogo,
@@ -22,37 +24,103 @@ import {
   AvardsImage,
 } from '../styledComponent';
 
-const LeftBlock: React.FC = () => {
+const LeftBlock: React.FC<any> = (props: any) => {
+  const actualHealth = props.data.steps[props.data.steps.length - 1]
+    ? props.data.steps[props.data.steps.length - 1][props.data.firstPlayer.cryptoName]
+    : props.data.healthPoints;
   return (
-    <>
-    {warrior.map((item: any) => (
-    <GamerBlock key={item.idWarrior}>
-        <AwardsBlock key={item.idWarrior}>
-          <AvardsImage src={item.flag} />
-        </AwardsBlock>
-        <UserBlock key={item.idWarrior}>
-        <UserPhoto src="/static/user.svg" />
-        <UserName>{item.warriorName}</UserName>
-        </UserBlock>
-        <CryptoCard key={item.idWarrior}>
+    <GamerBlock>
+      <AwardsBlock>
+        <AvardsImage src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'flag')} />
+      </AwardsBlock>
+      <UserBlock>
+        <UserPhoto src={props.data.firstPlayer.userInfo.avatar} />
+        <UserName>{props.data.firstPlayer.userInfo.alias}</UserName>
+      </UserBlock>
+      <CryptoCard>
         <CryptoCardMain>
-        <CryptoCardLogo>
-        <ImageCardLogo src={item.logo} />
-        </CryptoCardLogo>
-        <CryptoCardPerson>
-        <ImageCardPerson src={item.person} />
-        </CryptoCardPerson>
-        <CryptoCardName>{item.name}</CryptoCardName>
+          <CryptoCardLogo>
+            <ImageCardLogo src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'logo')} />
+          </CryptoCardLogo>
+          <CryptoCardPerson>
+            <ImageCardPerson src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'person')} />
+          </CryptoCardPerson>
+          <CryptoCardName>{props.data.firstPlayer.cryptoName}</CryptoCardName>
         </CryptoCardMain>
         <CryptoCardHp>
-        <ProgressText>220hp</ProgressText>
-        <Progress percent={220} color="orange" />
+          <ProgressText>{actualHealth}hp</ProgressText>
+          <Progress
+            percent={giveProgressPercent(props.data.healthPoints, actualHealth)}
+            color={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'progressColor')}
+          />
         </CryptoCardHp>
-        </CryptoCard>
+      </CryptoCard>
     </GamerBlock>
-      ))}
-      </>
   );
 };
 
 export default LeftBlock;
+
+// import * as React from 'react';
+// import { Progress } from 'semantic-ui-react';
+//
+// // import { warrior } from '../mockData';
+// import { returnCorrectCryptoData } from '../../../utils/helpers';
+//
+// import {
+//   GamerBlock,
+//   CryptoCard,
+//   CryptoCardName,
+//   ImageCardPerson,
+//   ImageCardLogo,
+//   AwardsBlock,
+//   UserBlock,
+// } from './leftStyledComponent';
+// import {
+//   CryptoCardPerson,
+//   CryptoCardLogo,
+//   CryptoCardHp,
+//   CryptoCardMain,
+//   UserName,
+//   UserPhoto,
+//   ProgressText,
+//   AvardsImage,
+// } from '../styledComponent';
+//
+// interface LeftBlockProps {
+//   data: any;
+// }
+//
+// const LeftBlock: React.FC<LeftBlockProps> = (props: LeftBlockProps) => {
+//   return (
+//     <GamerBlock>
+//       <AwardsBlock>
+//         <AvardsImage src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'flag')} />
+//       </AwardsBlock>
+//       <UserBlock>
+//         <UserPhoto src={props.data.firstPlayer.userInfo.avatar} />
+//         <UserName>{props.data.firstPlayer.userInfo.alias}</UserName>
+//       </UserBlock>
+//       <CryptoCard>
+//         <CryptoCardMain>
+//           <CryptoCardLogo>
+//             <ImageCardLogo src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'logo')} />
+//           </CryptoCardLogo>
+//           <CryptoCardPerson>
+//             <ImageCardPerson src={returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'person')} />
+//           </CryptoCardPerson>
+//           <CryptoCardName>{props.data.firstPlayer.cryptoName}</CryptoCardName>
+//         </CryptoCardMain>
+//         <CryptoCardHp>
+//           <ProgressText>{props.data.healthPoints}hp</ProgressText>
+//           <Progress
+//             percent={100}
+//             color={`${returnCorrectCryptoData(props.data.firstPlayer.cryptoName, 'progressColor')}`}
+//           />
+//         </CryptoCardHp>
+//       </CryptoCard>
+//     </GamerBlock>
+//   );
+// };
+//
+// export default LeftBlock;

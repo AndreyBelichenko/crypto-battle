@@ -11,6 +11,7 @@ import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
 import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
+import { SocketConnection } from '../../socketConnection/socketConnection';
 import { sidebarItems } from '../../constants/itemConstants';
 import * as actions from '../../store/redux/actionCreators/actionCreators';
 import { AppState } from '../../store/rootReducer';
@@ -36,6 +37,10 @@ const WrapMarkUp: React.FC<any> = ({
   topWarriors,
   topCrypto,
   setSidebarCrypto,
+  setRequestBattles,
+  setAllBattlesConnect,
+  setAllBattlesCreate,
+  setAllBattlesUpdate,
 }) => {
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
@@ -43,8 +48,53 @@ const WrapMarkUp: React.FC<any> = ({
   }, []);
 
   React.useEffect(() => {
+    const paramsOfGetBattlesWait = {
+      skip: 0,
+      limit: 5,
+      sort: 'desc',
+      state: 'waiting',
+    };
+
+    const paramsOfGetBattlesStart = {
+      skip: 0,
+      limit: 5,
+      sort: 'desc',
+      state: 'start',
+    };
+
+    const paramsOfGetBattlesEnd = {
+      skip: 0,
+      limit: 5,
+      sort: 'desc',
+      state: 'end',
+    };
     setSidebarWarriors('top-warriors');
     setSidebarCrypto('crypto-currencies');
+    setRequestBattles(paramsOfGetBattlesWait);
+    setRequestBattles(paramsOfGetBattlesStart);
+    setRequestBattles(paramsOfGetBattlesEnd);
+
+    new SocketConnection('ws://crypto-battle.pp.ua/socket');
+    SocketConnection.getSocket().onopen = () => {
+      // tslint:disable-next-line
+      console.log('socket open');
+    };
+    SocketConnection.getSocket().onmessage = (response: any) => {
+      const readyResponse = JSON.parse(response.data);
+      switch (readyResponse.message) {
+        case 'start_battle':
+          return setAllBattlesConnect(readyResponse.battle);
+        case 'create_battle':
+          return setAllBattlesCreate(readyResponse.battle);
+        case 'update_battle':
+          return setAllBattlesUpdate(readyResponse.battles[0]);
+      }
+    };
+    SocketConnection.getSocket().onclose = () => {
+      // tslint:disable-next-line
+      console.log('bye');
+    };
+    setInterval(() => SocketConnection.getSocket().send(JSON.stringify({ method: 'ping' })), 60000);
   }, []);
 
   const showItems = (item: any) => {
@@ -156,11 +206,16 @@ const mapStateToProps = (state: AppState) => ({
   userData: state.user.userData,
   topWarriors: state.sideBar.warriors,
   topCrypto: state.sideBar.crypto,
+  allBattles: state.allBattle.allBattleData,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
   setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
+  setRequestBattles: (payload: any) => dispatch(actions.SetRequestBattles(payload)),
+  setAllBattlesConnect: (payload: any) => dispatch(actions.SetAllBattlesConnect(payload)),
+  setAllBattlesCreate: (payload: any) => dispatch(actions.SetAllBattlesCreate(payload)),
+  setAllBattlesUpdate: (payload: any) => dispatch(actions.SetAllBattlesUpdate(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrapMarkUp);

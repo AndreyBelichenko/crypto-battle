@@ -23,6 +23,26 @@ export const ParentDiv = styled.div`
   }
 `;
 
+export const ChartWrapper = styled.div`
+  width: 100%;
+  height: 300px;
+  padding-top: 10px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    height: 220px;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    height: 180px;
+  }
+
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    height: 230px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    height: 180px;
+  }
+`;
+
 export const MainDiv = styled.div`
   width: 100%;
   height: 100%;
@@ -197,8 +217,8 @@ export const UserName = styled.p`
 `;
 
 export const ImageUser = styled(Image)`
-  width: 100% !important;
-  height: 100% !important;
+  height: 80% !important;
+  border-radius: 50%;
 `;
 
 export const ImageAwards = styled(Image)`

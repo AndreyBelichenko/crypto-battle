@@ -6,4 +6,5 @@ export const ChartWrapper = styled.div`
   background: ${color.black};
   opacity: 0.85;
   width: 100%;
+  height: 100%;
 `;
