@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
 import ActiveBattleCard from '../activeBattleCard/activeBattleCard';
 import { AppState } from '../../store/rootReducer';
-import { connect } from 'react-redux';
 import { setFirstPlace } from '../../utils/helpers';
 
 const Battle: React.FC<any> = ({ allBattle, userData }) => {

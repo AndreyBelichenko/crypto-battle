@@ -25,8 +25,9 @@ import {
 
 const LeftBlock: React.FC<any> = (props: any) => {
   const info = props.data.firstPlayer;
-  const actualHealth = props.data.steps[props.data.steps.length - 1]
-    ? props.data.steps[props.data.steps.length - 1][info.cryptoName]
+  const lastElementArray = props.data.steps.length - 1;
+  const actualHealth = props.data.steps[lastElementArray]
+    ? props.data.steps[lastElementArray][info.cryptoName]
     : props.data.healthPoints;
   return (
     <GamerBlock>

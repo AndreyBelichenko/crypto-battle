@@ -24,9 +24,10 @@ import {
 } from '../styledComponent';
 
 const RightBlock: React.FC<any> = (props: any) => {
+  const lastElementArray = props.data.steps.length - 1;
   const info = props.data.secondPlayer;
-  const actualHealth = props.data.steps[props.data.steps.length - 1]
-    ? props.data.steps[props.data.steps.length - 1][info.cryptoName]
+  const actualHealth = props.data.steps[lastElementArray]
+    ? props.data.steps[lastElementArray][info.cryptoName]
     : props.data.healthPoints;
   return (
     <GamerBlock>

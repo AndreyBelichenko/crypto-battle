@@ -26,15 +26,14 @@ const RightGamer: React.FC<any> = (props: any) => {
     : props.cardData.healthPoints;
 
   const handleOpenChart = () => {
-    const setChart = {
-      index: props.index,
-      cryptoName: info.cryptoName,
-      side: 'right',
-    };
     if (props.chart.side === 'right' && props.chart.index === props.index) {
       props.setIsChart(false);
     } else {
-      props.setIsChart(setChart);
+      props.setIsChart({
+        index: props.index,
+        cryptoName: info.cryptoName,
+        side: 'right',
+      });
     }
   };
   return (

@@ -17,8 +17,15 @@ const BattleCard: React.FC<BattleCardProps> = (props: BattleCardProps) => {
   return (
     <MainDiv>
       <LeftBlock data={props.item} />
-      {waiting ? <BattleLoader /> : <BattleBlock />}
-      {waiting ? <RightBlockWait data={props.item} /> : <RightBlock data={props.item} />}
+      {waiting ? (
+        <>
+          <BattleLoader /> <RightBlockWait data={props.item} />
+        </>
+      ) : (
+        <>
+          <BattleBlock /> <RightBlock data={props.item} />
+        </>
+      )}
     </MainDiv>
   );
 };

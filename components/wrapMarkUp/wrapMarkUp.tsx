@@ -75,10 +75,6 @@ const WrapMarkUp: React.FC<any> = ({
     setRequestBattles(paramsOfGetBattlesEnd);
 
     new SocketConnection('ws://crypto-battle.pp.ua/socket');
-    SocketConnection.getSocket().onopen = () => {
-      // tslint:disable-next-line
-      console.log('socket open');
-    };
     SocketConnection.getSocket().onmessage = (response: any) => {
       const readyResponse = JSON.parse(response.data);
       switch (readyResponse.message) {
@@ -89,10 +85,6 @@ const WrapMarkUp: React.FC<any> = ({
         case 'update_battle':
           return setAllBattlesUpdate(readyResponse.battles[0]);
       }
-    };
-    SocketConnection.getSocket().onclose = () => {
-      // tslint:disable-next-line
-      console.log('bye');
     };
     setInterval(() => SocketConnection.getSocket().send(JSON.stringify({ method: 'ping' })), 60000);
   }, []);
@@ -202,20 +194,18 @@ const WrapMarkUp: React.FC<any> = ({
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  userData: state.user.userData,
-  topWarriors: state.sideBar.warriors,
-  topCrypto: state.sideBar.crypto,
-  allBattles: state.allBattle.allBattleData,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-  setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
-  setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
-  setRequestBattles: (payload: any) => dispatch(actions.SetRequestBattles(payload)),
-  setAllBattlesConnect: (payload: any) => dispatch(actions.SetAllBattlesConnect(payload)),
-  setAllBattlesCreate: (payload: any) => dispatch(actions.SetAllBattlesCreate(payload)),
-  setAllBattlesUpdate: (payload: any) => dispatch(actions.SetAllBattlesUpdate(payload)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(WrapMarkUp);
+export default connect(
+  (state: AppState) => ({
+    userData: state.user.userData,
+    topWarriors: state.sideBar.warriors,
+    topCrypto: state.sideBar.crypto,
+  }),
+  (dispatch: any) => ({
+    setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
+    setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
+    setRequestBattles: (payload: any) => dispatch(actions.SetRequestBattles(payload)),
+    setAllBattlesConnect: (payload: any) => dispatch(actions.SetAllBattlesConnect(payload)),
+    setAllBattlesCreate: (payload: any) => dispatch(actions.SetAllBattlesCreate(payload)),
+    setAllBattlesUpdate: (payload: any) => dispatch(actions.SetAllBattlesUpdate(payload)),
+  }),
+)(WrapMarkUp);

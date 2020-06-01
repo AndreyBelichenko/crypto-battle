@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 import LoaderSemantic from '../../loader/Loader';
 import ModalWindow from '../../modalWindow/modalWindow';
+import { AppState } from '../../../store/rootReducer';
 
 import { ButtonBlock, LoaderBlock } from './rightBlockWaitStyledComponent';
-import { AppState } from '../../../store/rootReducer';
 
 interface RightBlockWaitProps {
   data: any;
@@ -13,10 +13,11 @@ interface RightBlockWaitProps {
 
 const RightBlockWait = (props: RightBlockWaitProps) => {
   const userData = useSelector((state: AppState) => state.user.userData);
+  const playerInfo = props.data.firstPlayer;
   return (
     <ButtonBlock>
-      {userData.id !== props.data.firstPlayer.userInfo._id ? (
-        <ModalWindow role="connect" battleId={props.data._id} playerCrypto={props.data.firstPlayer.cryptoName} />
+      {userData.id !== playerInfo.userInfo._id ? (
+        <ModalWindow role="connect" battleId={props.data._id} playerCrypto={playerInfo.cryptoName} />
       ) : (
         <LoaderBlock>
           <LoaderSemantic marginNeed={true} />
