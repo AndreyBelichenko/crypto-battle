@@ -6,8 +6,8 @@ import ImgCrypto from '../ImgCrypto/ImgCrypto';
 
 import { SocketConnection } from '../../socketConnection/socketConnection';
 import { AppState } from '../../store/rootReducer';
-import cryptoData from '../../constants/cryptoData/cryptoData';
-import { hpDropdown } from '../../constants/itemConstants';
+// import cryptoData from '../../constants/cryptoData/cryptoData';
+import { modalDataCrypto, hpDropdown } from '../../constants/itemConstants';
 
 import {
   Btn,
@@ -46,7 +46,7 @@ const ModalWindow = (props: ModalProps) => {
       JSON.stringify({
         method: 'connect_battle',
         params: {
-          cryptoName: cryptoData[selected].name,
+          cryptoName: modalDataCrypto[selected].name,
           playerID: userData.id,
           battleID: props.battleId,
         },
@@ -59,7 +59,7 @@ const ModalWindow = (props: ModalProps) => {
     SocketConnection.getSocket().send(
       JSON.stringify({
         method: 'create_battle',
-        params: { cryptoName: cryptoData[selected].name, playerID: userData.id, healthPoints: dropDownValue },
+        params: { cryptoName: modalDataCrypto[selected].name, playerID: userData.id, healthPoints: dropDownValue },
       }),
     );
     toggleModal();
@@ -80,7 +80,7 @@ const ModalWindow = (props: ModalProps) => {
         </StyleHeaderTitle>
         <Modal.Content scrolling={true} className="customBackgroundTransparent">
           <Grid stackable columns="2">
-            {cryptoData.map(
+            {modalDataCrypto.map(
               (item, index) =>
                 props.playerCrypto !== item.name && (
                   <Grid.Column key={index}>
