@@ -1,7 +1,7 @@
 import { toast } from 'react-semantic-toasts';
 
 import * as action from '../actionTypes/actionTypes';
-import { requestLogin, requestSidebars, requestLogout } from '../../../utils/apiHelpers';
+import { requestLogin, requestSidebars, requestLogout, requestGetBattles } from '../../../utils/apiHelpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
@@ -59,6 +59,52 @@ export function SetBattleData(payload: object): action.SetBattleData {
   };
 }
 
+export const SetAllBattlesConnect = (payload: any) => {
+  return {
+    payload,
+    type: action.CONNECT_ITEM_ALL_BATTLES,
+  };
+};
+
+export const SetAllBattlesCreate = (payload: any) => {
+  return {
+    payload,
+    type: action.CREATE_ITEM_ALL_BATTLES,
+  };
+};
+
+export const SetAllBattlesUpdate = (payload: any) => {
+  return {
+    payload,
+    type: action.UPDATE_ITEM_ALL_BATTLES,
+  };
+};
+
+interface ParamsOfGetBattlesWaiting {
+  skip: number;
+  limit: number;
+  sort: string;
+  state: string;
+}
+
+export const SetRequestBattles = (payload: ParamsOfGetBattlesWaiting) => (dispatch: any) => {
+  return dispatch({
+    type: action.ALL_BATTLES_DATA.ACTION,
+    payload: {
+      promise: requestGetBattles(payload.skip, payload.limit, payload.sort, payload.state).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: 'Error with logout',
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
+    },
+  });
+};
+
 // sidebar reducer
 
 export const setSidebarWarriors = (type: string) => (dispatch: any) => {
@@ -100,6 +146,15 @@ export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any)
 };
 
 export const showMoreCrypto = (type: string, skip?: number) => (dispatch: any) => {
+  return dispatch({
+    type: action.SHOW_MORE_CRYPTO.ACTION,
+    payload: {
+      promise: requestSidebars(type, skip),
+    },
+  });
+};
+
+export const connectBattle = (type: string, skip?: number) => (dispatch: any) => {
   return dispatch({
     type: action.SHOW_MORE_CRYPTO.ACTION,
     payload: {

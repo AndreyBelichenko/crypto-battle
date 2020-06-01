@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import userReducer from './redux/reducers/userReducer';
 import sidebarReducer from './redux/reducers/sidebarReducer';
-import battleReducer from './redux/reducers/battleReducer';
+import allBattleReducer from './redux/reducers/allBattlesReducer';
 
 const rootReducer = combineReducers({
   user: userReducer,
   sideBar: sidebarReducer,
-  battle: battleReducer,
+  allBattle: allBattleReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

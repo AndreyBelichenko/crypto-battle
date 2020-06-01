@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Progress } from 'semantic-ui-react';
 
-import { warrior } from '../mockData';
+import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
 import {
   GamerBlock,
@@ -23,36 +23,40 @@ import {
   AvardsImage,
 } from '../styledComponent';
 
-const LeftBlock: React.FC = () => {
+const LeftBlock: React.FC<any> = (props: any) => {
+  const info = props.data.firstPlayer;
+  const lastElementArray = props.data.steps.length - 1;
+  const actualHealth = props.data.steps[lastElementArray]
+    ? props.data.steps[lastElementArray][info.cryptoName]
+    : props.data.healthPoints;
   return (
-    <>
-      {warrior.map((item: any) => (
-        <GamerBlock key={item.idWarrior}>
-          <AwardsBlock key={item.idWarrior}>
-            <AvardsImage src={item.flag} />
-          </AwardsBlock>
-          <UserBlock key={item.idWarrior}>
-            <UserPhoto src="/static/user.svg" />
-            <UserName>{item.warriorName}</UserName>
-          </UserBlock>
-          <CryptoCard key={item.idWarrior}>
-            <CryptoCardMain>
-              <CryptoCardLogo>
-                <ImageCardLogo src={item.logo} />
-              </CryptoCardLogo>
-              <CryptoCardPerson>
-                <ImageCardPerson src={item.person} />
-              </CryptoCardPerson>
-              <CryptoCardName>{item.name}</CryptoCardName>
-            </CryptoCardMain>
-            <CryptoCardHp>
-              <ProgressText>220hp</ProgressText>
-              <Progress percent={220} color="orange" />
-            </CryptoCardHp>
-          </CryptoCard>
-        </GamerBlock>
-      ))}
-    </>
+    <GamerBlock>
+      <AwardsBlock>
+        <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+      </AwardsBlock>
+      <UserBlock>
+        <UserPhoto src={info.userInfo.avatar} />
+        <UserName>{info.userInfo.alias}</UserName>
+      </UserBlock>
+      <CryptoCard>
+        <CryptoCardMain>
+          <CryptoCardLogo>
+            <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+          </CryptoCardLogo>
+          <CryptoCardPerson>
+            <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
+          </CryptoCardPerson>
+          <CryptoCardName>{info.cryptoName}</CryptoCardName>
+        </CryptoCardMain>
+        <CryptoCardHp>
+          <ProgressText>{actualHealth}hp</ProgressText>
+          <Progress
+            percent={giveProgressPercent(props.data.healthPoints, actualHealth)}
+            color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
+          />
+        </CryptoCardHp>
+      </CryptoCard>
+    </GamerBlock>
   );
 };
 
