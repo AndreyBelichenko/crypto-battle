@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Progress } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
-// import { warrior } from '../mockData';
 
 import {
   GamerBlock,
