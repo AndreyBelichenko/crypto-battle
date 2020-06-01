@@ -49,6 +49,7 @@ export const BattleDescriptionBlock = styled.div`
   border: 1px solid ${activeBattleColor.battleBorderColor};
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
   min-width: 100px;
+  overflow: scroll;
 
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 83%;
