@@ -44,3 +44,22 @@ export const returnCorrectCryptoData = (name: string, type: string) => {
 
 export const giveProgressPercent = (healthPoints: string, health: string) =>
   (Number(health) * 100) / Number(healthPoints);
+
+export const arrayMove = (arr: any[], oldIndex: number, newIndex: number) => {
+  if (newIndex >= arr.length) {
+    let k = newIndex - arr.length + 1;
+    while ((k -= 1)) {
+      arr.push(undefined);
+    }
+  }
+  arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
+  return arr;
+};
+
+export const setFirstPlace = (arr: any[], userId: string) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].firstPlayer.userInfo._id === userId || arr[i].secondPlayer.userInfo._id === userId) {
+      return arrayMove(arr, i, 0);
+    }
+  }
+};

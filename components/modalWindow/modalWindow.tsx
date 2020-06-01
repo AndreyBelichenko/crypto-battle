@@ -45,7 +45,11 @@ const ModalWindow = (props: ModalProps) => {
     SocketConnection.getSocket().send(
       JSON.stringify({
         method: 'connect_battle',
-        params: { cryptoName: cryptoData[selected].name, playerID: userData.id, battleID: props.battleId },
+        params: {
+          cryptoName: cryptoData[selected].name,
+          playerID: userData.id,
+          battleID: props.battleId,
+        },
       }),
     );
     toggleModal();
@@ -61,6 +65,7 @@ const ModalWindow = (props: ModalProps) => {
     toggleModal();
   };
 
+  // @ts-ignore
   const handleChangeDropValue = (event: any, { value }: any) => setDropDownValue(value);
 
   return (

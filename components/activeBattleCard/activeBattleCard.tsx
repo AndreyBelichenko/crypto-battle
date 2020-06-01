@@ -6,25 +6,30 @@ import LeftGamer from './leftGamer/leftGamer';
 import RightGamer from './rightGamer/rightGamer';
 
 import { returnCorrectCryptoData } from '../../utils/helpers';
-import { ParentDiv, MainDiv, ChartWrapper } from './styledActiveBattle';
+
+import { ParentDiv, MainDiv, ChartWrapper, ActiveCardWrapper } from './styledActiveBattle';
 
 const ActiveBattleCard: React.FC<any> = (props: any) => {
-  const [chart, setIsChart] = React.useState(false);
   return (
-    <>
+    <ActiveCardWrapper>
       <ParentDiv>
         <MainDiv>
-          <LeftGamer cardData={props.card} setIsChart={setIsChart} chart={chart} />
+          <LeftGamer cardData={props.card} setIsChart={props.setIsChart} chart={props.chart} index={props.index} />
           <BattleBlock cardData={props.card} />
-          <RightGamer cardData={props.card} setIsChart={setIsChart} chart={chart} />
+          <RightGamer cardData={props.card} setIsChart={props.setIsChart} chart={props.chart} index={props.index} />
         </MainDiv>
       </ParentDiv>
-      {chart && (
+      {props.chart && props.chart.index === props.index && props.chart.side === 'left' && (
         <ChartWrapper>
-          <Chart crypto={returnCorrectCryptoData(chart.toString(), 'cryptoCode')} />
+          <Chart crypto={returnCorrectCryptoData(props.chart.cryptoName.toString(), 'cryptoCode')} />
         </ChartWrapper>
       )}
-    </>
+      {props.chart && props.chart.index === props.index && props.chart.side === 'right' && (
+        <ChartWrapper>
+          <Chart crypto={returnCorrectCryptoData(props.chart.cryptoName.toString(), 'cryptoCode')} />
+        </ChartWrapper>
+      )}
+    </ActiveCardWrapper>
   );
 };
 

@@ -25,8 +25,18 @@ const LeftGamer: React.FC<any> = (props: any) => {
   const actualHealth = props.cardData.steps[props.cardData.steps.length - 1]
     ? props.cardData.steps[props.cardData.steps.length - 1][info.cryptoName]
     : props.cardData.healthPoints;
-  const handleOpenChart = () =>
-    props.chart === info.cryptoName ? props.setIsChart(false) : props.setIsChart(info.cryptoName);
+  const handleOpenChart = () => {
+    const setChart = {
+      index: props.index,
+      cryptoName: info.cryptoName,
+      side: 'left',
+    };
+    if (props.chart.side === 'left' && props.chart.index === props.index) {
+      props.setIsChart(false);
+    } else {
+      props.setIsChart(setChart);
+    }
+  };
 
   return (
     <GamerBlock>

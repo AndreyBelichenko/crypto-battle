@@ -27,20 +27,6 @@ export const ChartWrapper = styled.div`
   width: 100%;
   height: 300px;
   padding-top: 10px;
-
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 220px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 180px;
-  }
-
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 230px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 180px;
-  }
 `;
 
 export const MainDiv = styled.div`
@@ -233,4 +219,8 @@ export const AwardsBlock = styled.div`
   min-height: 50px;
   margin-top: 2px;
   position: relative;
+`;
+
+export const ActiveCardWrapper = styled.div`
+  height: 100%;
 `;
