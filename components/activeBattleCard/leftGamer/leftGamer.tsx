@@ -11,13 +11,18 @@ import {
   UserName,
   AwardsBlock,
   ProgressText,
-  ImageUser,
   ImageAwards,
   UserNameWrapper,
+  UserPhoto,
 } from '../styledActiveBattle';
 import { ChartTrigger } from './styledLeftGamer';
-import { ImageCardLogo, CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
-import { ImageCardPerson, CryptoCardPerson, CryptoCardName } from '../../card/leftBlock/leftStyledComponent';
+import { CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
+import {
+  ImageCardPerson,
+  CryptoCardPerson,
+  CryptoCardName,
+  ImageCardLogoLeft,
+} from '../../card/leftBlock/leftStyledComponent';
 
 const LeftGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
@@ -47,12 +52,14 @@ const LeftGamer: React.FC<any> = (props: any) => {
         <CryptoCard>
           <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
             <CryptoCardLogo>
-              <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+              <ImageCardLogoLeft src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
               <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
-            <CryptoCardName>{info.cryptoName}</CryptoCardName>
+            <CryptoCardName colorBorder={returnCorrectCryptoData(info.cryptoName, 'borderText')}>
+              {info.cryptoName}
+            </CryptoCardName>
           </CryptoCardMain>
           <CryptoCardHp>
             <ProgressText>{actualHealth}hp</ProgressText>
@@ -65,7 +72,7 @@ const LeftGamer: React.FC<any> = (props: any) => {
       </GamerBlockOne>
       <GamerBlockTwo>
         <UserBlock>
-          <ImageUser src={info.userInfo.avatar} />
+          <UserPhoto src={info.userInfo.avatar} />
           <UserNameWrapper>
             <UserName>{info.userInfo.alias}</UserName>
           </UserNameWrapper>

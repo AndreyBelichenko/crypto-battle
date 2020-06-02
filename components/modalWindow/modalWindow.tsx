@@ -31,10 +31,21 @@ interface ModalProps {
 const ModalWindow = (props: ModalProps) => {
   const [selected, setSelected] = useState(-1);
   const [isOpen, setIsOpen] = useState(false);
+  const [disableCreateBtn, setDisableCreate] = useState(true);
+  const [disableConnectBtn, setDisableConnect] = useState(true);
   const [dropDownValue, setDropDownValue] = useState(null);
   const userData = useSelector((state: AppState) => state.user.userData);
-  const title = props.role === 'create' ? 'Create request' : 'Connect request';
-  const buttonName = props.role === 'create' ? 'Create Request' : 'Connect';
+  const isCreate = props.role === 'create';
+  const title = isCreate ? 'Create request' : 'Connect request';
+  const buttonName = isCreate ? 'Create Request' : 'Connect';
+
+  React.useEffect(() => {
+    if (isCreate) {
+      selected === -1 || !dropDownValue ? setDisableCreate(true) : setDisableCreate(false);
+    } else {
+      selected === -1 ? setDisableConnect(true) : setDisableConnect(false);
+    }
+  });
 
   const toggleModal = () => {
     setSelected(-1);
@@ -112,7 +123,7 @@ const ModalWindow = (props: ModalProps) => {
                 />
               </DropdownWrapper>
               <CreateWrapper>
-                <Btn className="ui orange button" onClick={createBattle}>
+                <Btn className="ui orange button" onClick={createBattle} disabled={disableCreateBtn}>
                   Create
                 </Btn>
               </CreateWrapper>
@@ -121,7 +132,7 @@ const ModalWindow = (props: ModalProps) => {
         ) : (
           <StyledFooterModal>
             <StyledConnectWrapper align="right">
-              <Btn className="ui orange button" onClick={connectHandle}>
+              <Btn className="ui orange button" onClick={connectHandle} disabled={disableConnectBtn}>
                 Connect
               </Btn>
             </StyledConnectWrapper>

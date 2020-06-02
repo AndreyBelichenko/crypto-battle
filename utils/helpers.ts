@@ -30,6 +30,8 @@ export const returnCorrectCryptoData = (name: string, type: string) => {
       return data.progressColor;
     case 'cryptoCode':
       return data.cryptoCode;
+    case 'borderText':
+      return data.borderText;
     default:
       return;
   }
