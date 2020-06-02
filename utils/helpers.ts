@@ -18,7 +18,6 @@ export const writeCorrectUserData = (info: any) => {
     isLoading: false,
   };
   Cookies.set('userData', correctData);
-
   return correctData;
 };
 
@@ -37,6 +36,8 @@ export const returnCorrectCryptoData = (name: string, type: string) => {
       return data.progressColor;
     case 'cryptoCode':
       return data.cryptoCode;
+    case 'borderText':
+      return data.borderText;
     default:
       return;
   }

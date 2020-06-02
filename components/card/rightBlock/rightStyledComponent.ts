@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 import fonts from '../../../constants/fonts';
-import { breakPointsActiveCard } from '../../../constants/styledConstants';
+import { breakPointsActiveCard, cryptoColors } from '../../../constants/styledConstants';
+
+interface CryptoCardNameProps {
+  colorBorder: string;
+}
 
 export const CryptoCardPerson = styled.div`
   height: 85%;
@@ -15,17 +19,20 @@ export const ImageCardPerson = styled.img`
   transform: scale(-1, 1);
 `;
 
-export const CryptoCardName = styled.div`
+export const CryptoCardName = styled.div<CryptoCardNameProps>`
   position: absolute;
   left: 2px;
-  bottom: 5px;
-  font-weight: normal;
-  font-size: 20px;
+  bottom: 0;
+  font-weight: bolder;
+  font-size: 18px;
   font-family: ${fonts.header};
+  text-shadow: -0.5px -0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
+    0.5px -0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
+    -0.5px 0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
+    0.5px 0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 14px;
-    bottom: 0;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     font-size: 20px;
@@ -35,7 +42,6 @@ export const CryptoCardName = styled.div`
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 9px;
-    top: 23px;
   }
 `;
 
@@ -53,5 +59,30 @@ export const AwardsBlock = styled.div`
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     right: 0;
     top: -10px;
+  }
+`;
+
+export const ImageCardLogoRight = styled.img`
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 0;
+  top: -4px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    height: 35px;
+    width: 35px;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    height: 40px;
+    width: 40px;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    height: 35px;
+    width: 35px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    height: 23px;
+    width: 23px;
   }
 `;

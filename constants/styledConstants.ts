@@ -17,6 +17,7 @@ export const cryptoColors = {
   waves_cerulean: color.cerulean,
   eos_black: color.black,
   ltc_cobalt: color.cobalt,
+  borderTextBlack: color.grey,
 };
 
 export const activeBattleColor = {

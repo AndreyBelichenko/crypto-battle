@@ -192,32 +192,6 @@ export const CryptoCard = styled.div`
   width: 30%;
 `;
 
-export const ImageCardLogo = styled.img`
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  left: 50%;
-  margin-left: -25%;
-  top: -4px;
-
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 35px;
-    width: 35px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 40px;
-    width: 40px;
-  }
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 35px;
-    width: 35px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 23px;
-    width: 23px;
-  }
-`;
-
 export const UserBlock = styled.div`
   height: 100%;
   display: flex;
