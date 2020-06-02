@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
 
-import{ BattleDataType } from '../../store/redux/reducers/battleReducer';
 import LeftBlock from './leftBlock/LeftBlock';
 import RightBlock from './rightBlock/RightBlock';
 import BattleBlock from './battleBlock/BattleBlock';
@@ -10,20 +8,25 @@ import RightBlockWait from './rightBlockWaiting/RightBlockWaiting';
 
 import { MainDiv } from './styledComponent';
 
-interface RootState {
-  battle: {
-    battleData: BattleDataType;
-  };
+interface BattleCardProps {
+  item: any;
 }
 
-const BattleCard: React.FC = () => {
-  const isBattle = useSelector((state: RootState) => state.battle.battleData);
+const BattleCard: React.FC<BattleCardProps> = (props: BattleCardProps) => {
+  const waiting = props.item.gameStatus === 'WAITING';
   return (
-      <MainDiv>
-        <LeftBlock/>
-        {isBattle ? <BattleBlock/> : <BattleLoader/>}
-        {isBattle ? <RightBlock/> : <RightBlockWait/>}
-      </MainDiv>
+    <MainDiv>
+      <LeftBlock data={props.item} />
+      {waiting ? (
+        <>
+          <BattleLoader /> <RightBlockWait data={props.item} />
+        </>
+      ) : (
+        <>
+          <BattleBlock /> <RightBlock data={props.item} />
+        </>
+      )}
+    </MainDiv>
   );
 };
 

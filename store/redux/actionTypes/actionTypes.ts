@@ -43,5 +43,9 @@ export interface SetUpdateStoreUserData {
   type: typeof UPDATE_STORE_USER_DATA;
   payload: object;
 }
+export const ALL_BATTLES_DATA = createAsyncActionType('ALL_BATTLES_DATA');
+export const CONNECT_ITEM_ALL_BATTLES = 'CONNECT_ITEM_ALL_BATTLES';
+export const CREATE_ITEM_ALL_BATTLES = 'CREATE_ITEM_ALL_BATTLES';
+export const UPDATE_ITEM_ALL_BATTLES = 'UPDATE_ITEM_ALL_BATTLES';
 
 export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData | SetUpdateStoreUserData;

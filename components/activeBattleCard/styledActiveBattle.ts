@@ -23,6 +23,12 @@ export const ParentDiv = styled.div`
   }
 `;
 
+export const ChartWrapper = styled.div`
+  width: 100%;
+  height: 300px;
+  padding-top: 10px;
+`;
+
 export const MainDiv = styled.div`
   width: 100%;
   height: 100%;
@@ -197,8 +203,8 @@ export const UserName = styled.p`
 `;
 
 export const ImageUser = styled(Image)`
-  width: 100% !important;
-  height: 100% !important;
+  height: 80% !important;
+  border-radius: 50%;
 `;
 
 export const ImageAwards = styled(Image)`
@@ -213,4 +219,8 @@ export const AwardsBlock = styled.div`
   min-height: 50px;
   margin-top: 2px;
   position: relative;
+`;
+
+export const ActiveCardWrapper = styled.div`
+  height: 100%;
 `;
