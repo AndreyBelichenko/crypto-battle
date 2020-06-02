@@ -76,6 +76,7 @@ const WrapMarkUp: React.FC<any> = ({
       sort: 'desc',
       state: 'end',
     };
+
     setSidebarWarriors('top-warriors');
     setSidebarCrypto('crypto-currencies');
     setRequestBattles(paramsOfGetBattlesWait);

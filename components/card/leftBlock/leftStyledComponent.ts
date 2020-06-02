@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import fonts from '../../../constants/fonts';
 import { breakPointsActiveCard, cryptoColors } from '../../../constants/styledConstants';
 
+const textBorderColor = (props: any) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack);
+
 interface CryptoCardNameProps {
   colorBorder: string;
 }
@@ -26,10 +28,9 @@ export const CryptoCardName = styled.div<CryptoCardNameProps>`
   font-size: 18px;
   color: black;
   font-family: ${fonts.header};
-  text-shadow: -0.5px -0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
-    0.5px -0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
-    -0.5px 0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)},
-    0.5px 0.5px 0 ${(props) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack)};
+  text-shadow: -0.5px -0.5px 0 ${(props: any) => textBorderColor(props)},
+    0.5px -0.5px 0 ${(props: any) => textBorderColor(props)}, -0.5px 0.5px 0 ${(props: any) => textBorderColor(props)},
+    0.5px 0.5px 0 ${(props: any) => textBorderColor(props)};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 14px;
