@@ -30,7 +30,6 @@ import {
   ToastWrapper,
   LoaderAuthWrapper,
 } from '../../commonStyles/styledApp';
-import Cookies from 'js-cookie';
 
 const WrapMarkUp: React.FC<any> = ({
   children,
@@ -78,10 +77,6 @@ const WrapMarkUp: React.FC<any> = ({
       state: 'end',
     };
 
-    const userDataCookie = Cookies.get('userData');
-    if (typeof userDataCookie === 'string') {
-      actions.setAuthUserDataFromCookies(JSON.parse(userDataCookie));
-    }
     setSidebarWarriors('top-warriors');
     setSidebarCrypto('crypto-currencies');
     setRequestBattles(paramsOfGetBattlesWait);
