@@ -3,7 +3,13 @@ import { Progress } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
-import { CryptoCardName, ImageCardPerson, AwardsBlock, CryptoCardPerson } from './leftStyledComponent';
+import {
+  CryptoCardName,
+  ImageCardPerson,
+  AwardsBlock,
+  CryptoCardPerson,
+  ImageCardLogoLeft,
+} from './leftStyledComponent';
 import {
   CryptoCardLogo,
   CryptoCardHp,
@@ -15,7 +21,7 @@ import {
   UserNameWrapper,
   GamerBlock,
   CryptoCard,
-  ImageCardLogo,
+  // ImageCardLogo,
   UserBlock,
 } from '../styledComponent';
 
@@ -38,12 +44,14 @@ const LeftBlock: React.FC<any> = (props: any) => {
       <CryptoCard>
         <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
           <CryptoCardLogo>
-            <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+            <ImageCardLogoLeft src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
           </CryptoCardLogo>
           <CryptoCardPerson>
             <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
           </CryptoCardPerson>
-          <CryptoCardName>{info.cryptoName}</CryptoCardName>
+          <CryptoCardName colorBorder={returnCorrectCryptoData(info.cryptoName, 'borderText')}>
+            {info.cryptoName}
+          </CryptoCardName>
         </CryptoCardMain>
         <CryptoCardHp>
           <ProgressText>{actualHealth}hp</ProgressText>

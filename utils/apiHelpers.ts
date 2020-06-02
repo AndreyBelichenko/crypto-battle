@@ -77,11 +77,13 @@ export const requestUpdateUserToken = (token: string) =>
         'Content-Type': 'application/json;charset=utf-8',
         'access-token': token,
       },
-    }).then((res) =>
-      res.json().then(() => ({
-        token: res.headers.get('access-token'),
-      })),
-    ).then((data) => resolve(data))
+    })
+      .then((res) =>
+        res.json().then(() => ({
+          token: res.headers.get('access-token'),
+        })),
+      )
+      .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
 
@@ -90,18 +92,14 @@ export const requestSendImage = (token: string, blob: any) => {
   formData.append('type', 'avatar');
   formData.append('file', blob);
   return fetch('http://crypto-battle.pp.ua/api/image', {
-  method: 'POST',
+    method: 'POST',
     headers: {
       'access-token': token,
     },
     body: formData,
-})
-.then(res => res.json())
-  .then(data => data)
-  .catch(err => {
-    console.error('err', err);
-    defaultMessage: "Couldn't upload image";
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => data)
 };
 
 interface IDataProps {
@@ -119,11 +117,13 @@ export const requestUpdateUserData = (token: string, data: IDataProps) =>
         'access-token': token,
       },
       body: JSON.stringify(data),
-    }).then((res) =>
-      res.json().then((data) => ({
-        data,
-        token: res.headers.get('access-token'),
-      })),
-    ).then((data) => resolve(data))
+    })
+      .then((res) =>
+        res.json().then((data) => ({
+          data,
+          token: res.headers.get('access-token'),
+        })),
+      )
+      .then((data) => resolve(data))
       .catch((error) => reject(error));
   });

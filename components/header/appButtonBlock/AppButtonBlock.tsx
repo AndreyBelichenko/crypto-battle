@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'semantic-ui-react';
-import Router from 'next/router';
 
 import ModalWindow from '../../modalWindow/modalWindow';
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
@@ -23,11 +22,11 @@ const AppButtonBlock: React.FC = () => {
       <HideButtons>
         <ModalWindow role="create" />
       </HideButtons>
-      <Button circular icon="user outline" color="black" className="btnSize" onClick={() => Router.push('/account')}/>
-      <HideButtons>
-        <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
-      </HideButtons>
-    </AppButtonBlockWrapper>
+      <Button circular icon="user outline" color="black" className="btnSize"/>
+  <HideButtons>
+    <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
+  </HideButtons>
+</AppButtonBlockWrapper>
   );
 };
 
