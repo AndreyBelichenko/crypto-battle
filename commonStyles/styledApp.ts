@@ -17,8 +17,8 @@ export const MainContent = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
   border-radius: 4px;
-  min-height: calc(100vh - 125px);
-  height: 100%;
+  height: calc(100vh - 125px);
+  padding: 20px 0;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
 
