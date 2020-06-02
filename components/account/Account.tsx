@@ -18,11 +18,11 @@ import { ProfileInfo,
 
 const Account: React.FC = () => {
   const [isChange, setIsChange] = useState(false);
-  const [currentUserData, setCurrentUserData] = useState({});
+  const [currentUserData, setCurrentUserData] = useState<any>({});
   const userData = useSelector((state:any) => state.user.userData);
   const dispatch = useDispatch();
 
-  const handleChange = (e, obj) => {
+  const handleChange = (obj: any) => {
     setCurrentUserData({ ...currentUserData, [obj.name]: obj.value });
   };
 
@@ -42,15 +42,15 @@ const Account: React.FC = () => {
           <AddPhotoInput type="file"
                          name="avatar"
                          accept="image/*"
-                         onChange={(e) => handleChange(e, { name: 'avatar', value:e.target.files[0] })}
-                         onClick={e => {
+                         onChange={(e:any) => handleChange({ name: 'avatar', value:e.target.files[0] })}
+                         onClick={(e: any) => {
                            e.target.value = null;
                          }}
           />
         </AddPhotoWrapper> : <Avatar src={userData.avatar}/>}
         <UserData>
           <InputName type="text" name="name" defaultValue={userData.name}
-                     onChange={(e) => handleChange(e, { name: 'name', value:e.target.value })} size="tiny"
+                     onChange={(e:any) => handleChange({ name: 'name', value:e.target.value })} size="tiny"
           />
         </UserData>
         <UserDataButtons>
