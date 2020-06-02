@@ -38,4 +38,10 @@ export const SET_CRYPTO_SIDEBAR = createAsyncActionType('SET_CRYPTO_SIDEBAR');
 
 export const SHOW_MORE_CRYPTO = createAsyncActionType('SHOW_MORE_CRYPTO');
 
-export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData;
+export const UPDATE_STORE_USER_DATA = createAsyncActionType('UPDATE_STORE_USER_DATA');
+export interface SetUpdateStoreUserData {
+  type: typeof UPDATE_STORE_USER_DATA;
+  payload: object;
+}
+
+export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData | SetUpdateStoreUserData;

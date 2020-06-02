@@ -1,7 +1,7 @@
 import { toast } from 'react-semantic-toasts';
 
 import * as action from '../actionTypes/actionTypes';
-import { requestLogin, requestSidebars, requestLogout } from '../../../utils/apiHelpers';
+import { requestLogin, requestSidebars, requestLogout, requestUpdateUserData, requestUpdateUserToken, requestSendImage } from '../../../utils/apiHelpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
@@ -104,6 +104,36 @@ export const showMoreCrypto = (type: string, skip?: number) => (dispatch: any) =
     type: action.SHOW_MORE_CRYPTO.ACTION,
     payload: {
       promise: requestSidebars(type, skip),
+    },
+  });
+};
+
+// update user
+interface Image {
+  image: any;
+}
+
+interface IDataProps {
+  id: string;
+  alias: string;
+  avatar: any;
+}
+
+export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any) => {
+  console.log(token);
+  return dispatch({
+    type: action.UPDATE_STORE_USER_DATA.ACTION,
+    payload: {
+      promise:requestUpdateUserToken(token).then(() => requestSendImage(token, data.avatar)).then((res) => requestUpdateUserData(token, { ...data, avatar:res.image })).catch(() =>
+      toast({
+        type: 'error',
+        icon: 'envelope',
+        title: 'Error with getting data',
+        description: 'Sorry for the inconvenience, we will fix it soon',
+        animation: 'bounce',
+        time: 5000,
+      }),
+      ),
     },
   });
 };

@@ -40,6 +40,11 @@ export default function userReducer(state: InitialStateType = initialState, acti
       return { ...state, userData: { ...state.userData, isLoading: true } };
     case actionTypes.LOG_OUT_STORE.SUCCESS:
       return initialState;
+    case actionTypes.UPDATE_STORE_USER_DATA.SUCCESS: {
+      // const userInfo = action.payload && action.payload.data && action.payload.data.user;
+      console.log(action.payload)
+      return { ...state, userData: writeCorrectUserData(action.payload) };
+    }
     default:
       return state;
   }
