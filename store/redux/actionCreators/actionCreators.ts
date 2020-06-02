@@ -1,22 +1,38 @@
 import { toast } from 'react-semantic-toasts';
+import * as Cookies from 'js-cookie';
 
 import * as action from '../actionTypes/actionTypes';
-import { requestLogin, requestSidebars, requestLogout, requestGetBattles } from '../../../utils/apiHelpers';
+import {
+  requestLogin,
+  requestSidebars,
+  requestLogout,
+  requestGetBattles,
+  requestUpdateUserData,
+  requestUpdateUserToken,
+  requestSendImage } from '../../../utils/apiHelpers';
+import { writeCorrectUserData,
+} from '../../../utils/helpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
     type: action.AUTH_STORE_USER_DATA.ACTION,
     payload: {
-      promise: requestLogin(type, token).catch(() =>
-        toast({
-          type: 'error',
-          icon: 'envelope',
-          title: 'Error with authorization',
-          description: 'Sorry for the inconvenience, we will fix it soon',
-          animation: 'bounce',
-          time: 5000,
-        }),
-      ),
+      promise: requestLogin(type, token)
+        .then((data) => {
+          const UserData = writeCorrectUserData(data);
+          Cookies.set('userData', UserData);
+          return UserData;
+        })
+        .catch(() =>
+          toast({
+            type: 'error',
+            icon: 'envelope',
+            title: 'Error with authorization',
+            description: 'Sorry for the inconvenience, we will fix it soon',
+            animation: 'bounce',
+            time: 5000,
+          }),
+        ),
     },
   });
 };
@@ -166,6 +182,42 @@ export const connectBattle = (type: string, skip?: number) => (dispatch: any) =>
     type: action.SHOW_MORE_CRYPTO.ACTION,
     payload: {
       promise: requestSidebars(type, skip),
+    },
+  });
+};
+
+// update user
+
+interface IDataProps {
+  id: string;
+  alias: string;
+  avatar: any;
+}
+
+export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any) => {
+  return dispatch({
+    type: action.UPDATE_STORE_USER_DATA.ACTION,
+    payload: {
+      promise:requestUpdateUserToken(token)
+        .then(() => {
+          return requestSendImage(token, data.avatar);
+        })
+        .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
+        .then((data) => {
+          const UserData = writeCorrectUserData(data);
+          Cookies.set('userData', UserData);
+          return UserData;
+        })
+        .catch(() =>
+      toast({
+        type: 'error',
+        icon: 'envelope',
+        title: 'Error with getting data',
+        description: 'Sorry for the inconvenience, we will fix it soon',
+        animation: 'bounce',
+        time: 5000,
+      }),
+      ),
     },
   });
 };

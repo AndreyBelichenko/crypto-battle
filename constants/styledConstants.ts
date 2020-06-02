@@ -57,3 +57,8 @@ export const battleColor = {
   processTextColor: color.white,
   processBorderTextColor: color.black,
 };
+
+export const accountColor = {
+  backgroundColor: color.white,
+  borderColor: color.pomegranate,
+};

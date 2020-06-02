@@ -68,3 +68,62 @@ export const requestGetBattles = (skip = 0, limit = 10, sort = 'desc', state = '
       .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
+
+export const requestUpdateUserToken = (token: string) =>
+  new Promise((resolve, reject) => {
+    fetch('http://crypto-battle.pp.ua/api/validate-auth-token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'access-token': token,
+      },
+    }).then((res) =>
+      res.json().then(() => ({
+        token: res.headers.get('access-token'),
+      })),
+    ).then((data) => resolve(data))
+      .catch((error) => reject(error));
+  });
+
+export const requestSendImage = (token: string, blob: any) => {
+  const formData = new FormData();
+  formData.append('type', 'avatar');
+  formData.append('file', blob);
+  return fetch('http://crypto-battle.pp.ua/api/image', {
+  method: 'POST',
+    headers: {
+      'access-token': token,
+    },
+    body: formData,
+})
+.then(res => res.json())
+  .then(data => data)
+  .catch(err => {
+    console.error('err', err);
+    defaultMessage: "Couldn't upload image";
+  });
+};
+
+interface IDataProps {
+  id: string;
+  alias: string;
+  avatar: string;
+}
+
+export const requestUpdateUserData = (token: string, data: IDataProps) =>
+  new Promise((resolve, reject) => {
+    fetch('http://crypto-battle.pp.ua/api/update-user-info', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'access-token': token,
+      },
+      body: JSON.stringify(data),
+    }).then((res) =>
+      res.json().then((data) => ({
+        data,
+        token: res.headers.get('access-token'),
+      })),
+    ).then((data) => resolve(data))
+      .catch((error) => reject(error));
+  });
