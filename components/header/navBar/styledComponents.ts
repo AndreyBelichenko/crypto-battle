@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { color } from '../../../constants/colorMatrix';
-import { breakPoints } from '../../../constants/styledConstants';
+import { breakPointsHeader } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
 
 export const NavBarMenu = styled.div`
@@ -9,8 +9,7 @@ export const NavBarMenu = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 0 auto;
-
-  @media (max-width: ${breakPoints.medium}px) {
+  @media (max-width: ${breakPointsHeader.medium}px) {
     display: none;
     justify-content: center;
     align-items: center;
@@ -39,7 +38,7 @@ export const LinkItem = styled.a`
     margin: 0 0 0 45px;
   }
 
-  @media (max-width: ${breakPoints.large}px) {
+  @media (max-width: {breakPointsHeader.big}px) {
     font-size: 23px;
     margin: 0 20px;
 
