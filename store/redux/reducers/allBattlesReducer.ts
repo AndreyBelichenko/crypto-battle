@@ -37,12 +37,10 @@ export default function allBattleReducer(state: InitialStateType = initialState,
         ),
       };
     case actionTypes.START_FINISH_BATTLE:
-      return {
-        ...state,
-        allBattleData: state.allBattleData.map((item) =>
-          item._id === action.payload._id ? { ...item, gameStatus: action.payload.gameStatus } : item,
-        ),
-      };
+      const allBattleData = state.allBattleData.map((item) =>
+        item._id === action.payload._id ? { ...item, gameStatus: action.payload.gameStatus } : item,
+      );
+      return { ...state, allBattleData };
     case actionTypes.CREATE_ITEM_ALL_BATTLES:
       return {
         ...state,

@@ -45,25 +45,16 @@ export const returnCorrectCryptoData = (name: string, type: string) => {
 export const giveProgressPercent = (healthPoints: string, health: string) =>
   (Number(health) * 100) / Number(healthPoints);
 
-export const arrayMove = (arr: any[], oldIndex: number, newIndex: number) => {
-  if (newIndex >= arr.length) {
-    let k = newIndex - arr.length + 1;
-    while ((k -= 1)) {
-      arr.push(undefined);
-    }
-  }
-  arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
-  return arr;
+export const sortArray = (array: any, id: string) => {
+  const finalArray: any = [];
+  array.map((item: any) => helpSortArray(finalArray, item, id));
+  return finalArray;
 };
 
-export const setFirstPlace = (arr: any[], userId: string) => {
-  if (arr.length > 1) {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].firstPlayer.userInfo._id === userId || arr[i].secondPlayer.userInfo._id === userId) {
-        return arrayMove(arr, i, 0);
-      }
-    }
+export const helpSortArray = (finalArray: any, item: any, id: string) => {
+  if (item.firstPlayer.userInfo._id === id || item.secondPlayer.userInfo._id === id) {
+    finalArray.unshift(item);
   } else {
-    return arr;
+    finalArray.push(item);
   }
 };
