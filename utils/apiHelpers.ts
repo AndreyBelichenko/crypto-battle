@@ -100,9 +100,6 @@ export const requestSendImage = (token: string, blob: any) => {
   })
     .then((res) => res.json())
     .then((data) => data)
-    .catch((err) => {
-      defaultMessage: "Couldn't upload image";
-    });
 };
 
 interface IDataProps {
