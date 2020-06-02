@@ -34,7 +34,7 @@ export const AuthContainer = styled.div`
 
 export const SidebarImage = styled.div`
   display: none;
-  width: 35px;
+  width: 30px;
   margin-left: 10px;
   @media (max-width: ${breakPoints.medium}px) {
     display: flex;

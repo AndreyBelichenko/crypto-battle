@@ -22,6 +22,8 @@ export const cryptoColors = {
 export const activeBattleColor = {
   battleBorderColor: color.pomegranate,
   underlineTitle: color.pomegranate,
+  processTextColor: color.white,
+  processBorderTextColor: color.black,
 };
 
 export const colorSidebar = {
@@ -41,4 +43,17 @@ export const breakPointsHeader = {
   medium: 991,
   small: 768,
   xsmall: 400,
+};
+
+export const breakPointsActiveCard = {
+  big: 1200,
+  medium: 998,
+  small: 768,
+  xsmall: 420,
+};
+
+export const battleColor = {
+  battleBorderColor: color.pomegranate,
+  processTextColor: color.white,
+  processBorderTextColor: color.black,
 };

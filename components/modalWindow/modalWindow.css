@@ -1,5 +1,5 @@
 .customBackground{
-    background: rgba(255, 255, 255, 0.7)!important;
+    background: #FFFFFF!important;
 }
 
 .customBackgroundTransparent{
@@ -12,4 +12,18 @@
     right: 30px;
     width: 100px!important;
     height: 35px;
+}
+
+@media all and (max-width: 500px){
+    .adaptive{
+        width: 80px!important;
+        height: 28px!important;
+    }
+}
+
+@media all and (max-width: 400px){
+    .adaptive{
+        width: 70px!important;
+        height: 28px!important;
+    }
 }

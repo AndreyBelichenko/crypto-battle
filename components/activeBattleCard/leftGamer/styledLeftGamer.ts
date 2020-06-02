@@ -1,21 +1,16 @@
 import styled from 'styled-components';
 
-export const CryptoCardPerson = styled.div`
-  position: absolute;
-  width: 65%;
-  left: 0;
-  bottom: 0;
-`;
-export const CryptoCardName = styled.div`
+import { breakPointsActiveCard } from '../../../constants/styledConstants';
+
+export const ChartTrigger = styled.div`
   position: absolute;
   right: 5px;
-  bottom: 5px;
-  font-weight: bold;
-  font-size: 20px;
-`;
+  bottom: 30px;
+  cursor: pointer;
 
-export const ChartTrigger = styled.p`
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    right: 0;
+    bottom: 25px;
+    width: 20px;
+  }
 `;

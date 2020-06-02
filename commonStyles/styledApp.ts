@@ -17,19 +17,24 @@ export const MainContent = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
   border-radius: 4px;
-  min-height: calc(100vh - 125px);
-  height: 100%;
+  height: calc(100vh - 125px);
+  padding: 20px 0;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
-  margin: auto 5px;
+
+  @media (max-width: 767px) {
+    min-height: calc(100vh - 85px);
+  }
 `;
 
 export const AppContainer = styled.div`
-  flex-grow: 1;
   padding: 20px 20px;
   background-attachment: fixed;
   background-position: top center;
   background-image: url('/static/background.png');
+  @media (max-width: 767px) {
+    padding: 14px 0;
+  }
 `;
 
 export const MenuItem = styled(Menu.Item)`
@@ -106,4 +111,19 @@ export const StyleModalContent = styled.div`
   padding: 0;
   position: relative;
   background: transparent;
+`;
+
+export const ToastWrapper = styled.div`
+  position: absolute;
+`;
+
+export const LoaderAuthWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

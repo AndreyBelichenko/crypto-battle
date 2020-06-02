@@ -1,9 +1,12 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import { Modal, Image } from 'semantic-ui-react';
 
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
+import { AppState } from '../../store/rootReducer';
+import * as actions from '../../store/redux/actionCreators/actionCreators';
 
-import { topCrypto, topWarriors } from '../../mockData/topSidebars';
 import {
   ItemMenuImage,
   ItemMenuImageHover,
@@ -18,18 +21,29 @@ interface ModalProps {
   content: any;
   role: string;
   setVisible: (a: any) => void;
+  topCrypto: any;
+  topWarriors: any;
 }
 
 const ModalWindowSidebars = (props: ModalProps) => {
+  React.useEffect(() => {
+    actions.setSidebarWarriors('top-warriors');
+    actions.setSidebarCrypto('crypto-currencies');
+  }, []);
+
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleModal = React.useCallback(() => {
     props.setVisible(false);
     setIsOpen(!isOpen);
   }, [isOpen]);
-  const modalData = props.role === 'crypto' ? topCrypto : topWarriors;
+  const isCrypto = props.role === 'crypto';
+  const modalData = isCrypto ? props.topCrypto.crypto : props.topWarriors.users;
+  const hasMore = isCrypto ? props.topCrypto.hasMore : props.topWarriors.hasMore;
+  const load = isCrypto ? props.topCrypto.load : props.topWarriors.load;
+  const modalClassName = isCrypto ? 'cryptoModal' : 'warriorsModal';
 
   return (
-    <div>
+    <div className={modalClassName}>
       <MenuItem onClick={toggleModal}>
         <ItemMenuWrapper>
           <ItemMenuImage>
@@ -43,7 +57,7 @@ const ModalWindowSidebars = (props: ModalProps) => {
       </MenuItem>
       <Modal open={isOpen} onClose={toggleModal} className="customBackgroundSidebars">
         <StyleModalContent>
-          <SidebarSelf role={props.role} data={modalData} height={true} />
+          <SidebarSelf role={props.role} data={modalData} height={true} hasMore={hasMore} load={load} />
           <StyledCloseButton src="/static/closeMini.svg" onClick={toggleModal} />
         </StyleModalContent>
       </Modal>
@@ -51,4 +65,15 @@ const ModalWindowSidebars = (props: ModalProps) => {
   );
 };
 
-export default ModalWindowSidebars;
+const mapStateToProps = (state: AppState) => ({
+  userData: state.user.userData,
+  topWarriors: state.sideBar.warriors,
+  topCrypto: state.sideBar.crypto,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
+  setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalWindowSidebars);

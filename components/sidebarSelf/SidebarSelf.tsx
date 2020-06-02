@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { Header, List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import LoaderSemantic from '../loader/Loader';
+import cryptoData from '../../constants/cryptoData/cryptoData';
+import { AppState } from '../../store/rootReducer';
+import { showMoreCrypto } from '../../store/redux/actionCreators/actionCreators';
 
 import {
   SideBarWrapper,
@@ -11,59 +17,108 @@ import {
   ShowMore,
   DividerCustomize,
   ListCustomize,
+  HeaderCustomize,
+  ListContentCustomize,
+  ListHeader,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
   role: string;
   data: any;
   height: boolean;
+  hasMore: boolean;
+  load: boolean;
+  callback?: any;
 }
 
+const getImageOfCrypto = (name: string) => cryptoData.filter((item) => item.name === name)[0].logo;
+
 const SidebarSelf = (props: SidebarProps) => {
-  const sidebarTitle = props.role === 'crypto' ? 'TOP Crypto' : 'TOP Warriors';
-  const imageInTitle = props.role === 'crypto' ? '/static/coins.svg' : '/static/sword.svg';
+  const dispatch = useDispatch();
+  const userData = useSelector((state: AppState) => state.user.userData);
+  const isUser = !props.data.some((item: any) => item._id === userData.id);
   const isCrypto = props.role === 'crypto';
+  const showUser = !isCrypto && userData && userData.name && isUser;
+  const imageInTitle = isCrypto ? '/static/coins.svg' : '/static/sword.svg';
+  const sidebarTitle = isCrypto ? 'TOP Crypto' : 'TOP Warriors';
+  const imageInClass = isCrypto ? 'coinImage' : 'swordImage';
+
+  const handleShowMore = () => {
+    dispatch(showMoreCrypto('crypto-currencies', props.data.length));
+  };
+
+  const dataToShow = props.data.map((item: any) =>
+    isCrypto
+      ? {
+        id: item._id,
+        alias: item.cryptoName,
+        numberOfVictories: item.numberOfVictories,
+        avatar: getImageOfCrypto(item.cryptoName),
+      }
+      : {
+        id: item._id,
+        alias: item.alias,
+        numberOfVictories: item.numberOfVictories,
+        avatar: item.avatar,
+      },
+  );
+
   return (
     <SideBarWrapper needHeight={props.height}>
       <HeaderWrapper>
-        <Header as="h2" textAlign="center">
-          {sidebarTitle}
-        </Header>
-        <TitleImage>
+        <HeaderCustomize textAlign="center">{sidebarTitle}</HeaderCustomize>
+        <TitleImage className={imageInClass}>
           <Image src={imageInTitle} />
         </TitleImage>
       </HeaderWrapper>
-      <ListCustomize divided relaxed>
-        {props.data.map((item: any, index: number) => (
-          <ItemList key={index}>
-            <ImageBlock>
-              <Image src={item.logo} verticalAlign="middle" />
-            </ImageBlock>
-            <List.Content>
-              <List.Header as="h3">{item.name}</List.Header>
-            </List.Content>
-            <ImageCountBlock>112</ImageCountBlock>
-          </ItemList>
-        ))}
-      </ListCustomize>
-      <DividerCustomize />
-      <Container align="center" style={{ cursor: 'pointer' }}>
-        {isCrypto ? <ShowMore>show more</ShowMore> : <Icon disabled name="ellipsis horizontal" size="big" />}
-      </Container>
-      {!isCrypto && (
+      {props.load ? (
+        <LoaderSemantic marginNeed={false} />
+      ) : (
         <>
-          <Divider />
-          <List>
-            <ItemList>
-              <ImageBlock>
-                <Image src="/static/user.svg" verticalAlign="middle" />
-              </ImageBlock>
-              <List.Content>
-                <List.Header as="h3">Andrey Belichenko</List.Header>
-              </List.Content>
-              <ImageCountBlock>18</ImageCountBlock>
-            </ItemList>
-          </List>
+          <ListCustomize divided relaxed>
+            {dataToShow.map((item: any, index: number) => (
+              <ItemList key={index}>
+                <ImageBlock>
+                  <Image src={item.avatar} verticalAlign="middle" />
+                </ImageBlock>
+                <ListContentCustomize>
+                  <ListHeader>{item.alias}</ListHeader>
+                  <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>
+                </ListContentCustomize>
+              </ItemList>
+            ))}
+          </ListCustomize>
+          <Container align="center" style={{ cursor: 'pointer' }}>
+            {isCrypto
+              ? props.hasMore && (
+                  <>
+                    <DividerCustomize />
+                    <ShowMore onClick={handleShowMore}>show more</ShowMore>
+                  </>
+                )
+              : showUser && (
+                  <>
+                    <DividerCustomize />
+                    <Icon disabled name="ellipsis horizontal" size="big" />
+                  </>
+                )}
+          </Container>
+          {showUser && (
+            <>
+              <Divider />
+              <List>
+                <ItemList>
+                  <ImageBlock>
+                    <Image src={userData.avatar} verticalAlign="middle" />
+                  </ImageBlock>
+                  <ListContentCustomize>
+                    <ListHeader>{userData.name}</ListHeader>
+                    <ImageCountBlock>{userData.numberOfVictories}</ImageCountBlock>
+                  </ListContentCustomize>
+                </ItemList>
+              </List>
+            </>
+          )}
         </>
       )}
     </SideBarWrapper>

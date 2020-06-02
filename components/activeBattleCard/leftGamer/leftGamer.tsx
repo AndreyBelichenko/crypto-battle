@@ -1,57 +1,77 @@
 import * as React from 'react';
 import { Progress, Image } from 'semantic-ui-react';
 
-import { CryptoCardPerson, CryptoCardName, ChartTrigger } from './styledLeftGamer';
+import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
+
 import {
   GamerBlock,
-  CryptoCard,
   GamerBlockOne,
   GamerBlockTwo,
-  CryptoCardLogo,
-  CryptoCardHp,
-  CryptoCardMain,
   UserBlock,
   UserName,
   AwardsBlock,
-  AwardsText,
   ProgressText,
+  ImageUser,
+  ImageAwards,
+  UserNameWrapper,
 } from '../styledActiveBattle';
+import { ChartTrigger } from './styledLeftGamer';
+import { ImageCardLogo, CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
+import { ImageCardPerson, CryptoCardPerson, CryptoCardName } from '../../card/leftBlock/leftStyledComponent';
 
-const LeftGamer: React.FC = () => {
+const LeftGamer: React.FC<any> = (props: any) => {
+  const lastElementArray = props.cardData.steps.length - 1;
+  const info = props.cardData.firstPlayer;
+  const actualHealth =
+    props.cardData.steps.length > 1
+      ? props.cardData.steps[lastElementArray][info.cryptoName]
+      : props.cardData.healthPoints;
+  const handleOpenChart = () => {
+    if (props.chart.side === 'left' && props.chart.index === props.index) {
+      props.setIsChart(false);
+    } else {
+      props.setIsChart({
+        index: props.index,
+        cryptoName: info.cryptoName,
+        side: 'left',
+      });
+    }
+  };
+
   return (
     <GamerBlock>
       <GamerBlockOne>
         <AwardsBlock>
-          <AwardsText>
-            место
-            <br /> для
-            <br /> наград
-          </AwardsText>
-          <Image src="/static/cryptoList/icx/flag-icx.svg" size="small" />
+          <ImageAwards src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
         </AwardsBlock>
         <CryptoCard>
-          <CryptoCardMain>
+          <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
             <CryptoCardLogo>
-              <Image src="/static/cryptoList/bat/logo-bat.svg" />
+              <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <Image src="/static/cryptoList/bat/person-bat.svg" />
+              <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
-            <CryptoCardName>BTC</CryptoCardName>
+            <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
           <CryptoCardHp>
-            <ProgressText>50hp</ProgressText>
-            <Progress percent={50} color="red" />
+            <ProgressText>{actualHealth}hp</ProgressText>
+            <Progress
+              percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)}
+              color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
+            />
           </CryptoCardHp>
         </CryptoCard>
       </GamerBlockOne>
       <GamerBlockTwo>
         <UserBlock>
-          <Image src="/static/user.svg" />
-          <UserName>alexeygrigurko</UserName>
+          <ImageUser src={info.userInfo.avatar} />
+          <UserNameWrapper>
+            <UserName>{info.userInfo.alias}</UserName>
+          </UserNameWrapper>
         </UserBlock>
         <ChartTrigger>
-          <Image src="/static/triggerChart.svg" />
+          <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />
         </ChartTrigger>
       </GamerBlockTwo>
     </GamerBlock>

@@ -1,20 +1,22 @@
 import * as React from 'react';
-import Cookies from 'js-cookie';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { setAuthStoreUserData } from '../../store/redux/actionCreators/actionCreators';
+import BattleCard from '../card/Card';
+import { AppState } from '../../store/rootReducer';
 
-const Layout: React.FC = () => {
-  const dispatch = useDispatch();
+import { LayoutWrapper } from './styledComponents';
 
-  React.useEffect(() => {
-    const userDataCookie = Cookies.get('userData');
-    if (typeof userDataCookie === 'string') {
-      dispatch(setAuthStoreUserData(JSON.parse(userDataCookie)));
-    }
-  }, []);
-
-  return <div>I am Layout</div>;
+const Layout: React.FC<any> = ({ allBattle }) => {
+  const filterBattles = allBattle.filter((item: any) => item.gameStatus !== 'END');
+  return (
+    <LayoutWrapper>
+      {filterBattles.map((item: any) => (
+        <BattleCard item={item} key={item._id} />
+      ))}
+    </LayoutWrapper>
+  );
 };
 
-export default Layout;
+export default connect((state: AppState) => ({
+  allBattle: state.allBattle.allBattleData,
+}))(Layout);
