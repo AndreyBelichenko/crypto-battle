@@ -36,6 +36,13 @@ export default function allBattleReducer(state: InitialStateType = initialState,
           item._id === action.payload._id ? { ...item, steps: action.payload.steps } : item,
         ),
       };
+    case actionTypes.START_FINISH_BATTLE:
+      return {
+        ...state,
+        allBattleData: state.allBattleData.map((item) =>
+          item._id === action.payload._id ? { ...item, gameStatus: action.payload.gameStatus } : item,
+        ),
+      };
     case actionTypes.CREATE_ITEM_ALL_BATTLES:
       return {
         ...state,

@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import { breakPointsActiveCard } from '../../../constants/styledConstants';
+
+import { breakPointsActiveCard, activeBattleColor } from '../../../constants/styledConstants';
 
 export const CryptoCardPerson = styled.div`
   position: absolute;
-  width: 65%;
+  height: 80%;
   left: 0;
   bottom: 0;
+  z-index: 1;
 `;
 export const CryptoCardName = styled.div`
   position: absolute;
@@ -13,6 +15,8 @@ export const CryptoCardName = styled.div`
   bottom: 5px;
   font-weight: bold;
   font-size: 20px;
+  z-index: 2;
+  -webkit-text-stroke: 0.3px ${activeBattleColor.processTextColor};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 15px;

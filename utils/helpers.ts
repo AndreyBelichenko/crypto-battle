@@ -57,9 +57,13 @@ export const arrayMove = (arr: any[], oldIndex: number, newIndex: number) => {
 };
 
 export const setFirstPlace = (arr: any[], userId: string) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].firstPlayer.userInfo._id === userId || arr[i].secondPlayer.userInfo._id === userId) {
-      return arrayMove(arr, i, 0);
+  if (arr.length > 1) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].firstPlayer.userInfo._id === userId || arr[i].secondPlayer.userInfo._id === userId) {
+        return arrayMove(arr, i, 0);
+      }
     }
+  } else {
+    return arr;
   }
 };

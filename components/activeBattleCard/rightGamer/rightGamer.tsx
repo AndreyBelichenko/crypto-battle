@@ -16,15 +16,18 @@ import {
   ProgressText,
   ImageUser,
   ImageAwards,
+  ImageImg,
+  UserNameWrapper,
 } from '../styledActiveBattle';
 import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
 
 const RightGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
   const info = props.cardData.secondPlayer;
-  const actualHealth = props.cardData.steps[lastElementArray]
-    ? props.cardData.steps[lastElementArray][info.cryptoName]
-    : props.cardData.healthPoints;
+  const actualHealth =
+    props.cardData.steps.length > 1
+      ? props.cardData.steps[lastElementArray][info.cryptoName]
+      : props.cardData.healthPoints;
 
   const handleOpenChart = () => {
     if (props.chart.side === 'right' && props.chart.index === props.index) {
@@ -41,12 +44,12 @@ const RightGamer: React.FC<any> = (props: any) => {
     <GamerBlock>
       <GamerBlockOne>
         <CryptoCard>
-          <CryptoCardMain>
+          <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
             <CryptoCardLogo>
               <Image src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <Image src={returnCorrectCryptoData(info.cryptoName, 'person')} />
+              <ImageImg src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
             <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
@@ -65,7 +68,9 @@ const RightGamer: React.FC<any> = (props: any) => {
       <GamerBlockTwo>
         <UserBlock>
           <ImageUser src={info.userInfo.avatar} />
-          <UserName>{info.userInfo.alias}</UserName>
+          <UserNameWrapper>
+            <UserName>{info.userInfo.alias}</UserName>
+          </UserNameWrapper>
         </UserBlock>
         <ChartTrigger>
           <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />

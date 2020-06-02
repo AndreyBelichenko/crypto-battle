@@ -3,16 +3,15 @@ import { connect } from 'react-redux';
 
 import ActiveBattleCard from '../activeBattleCard/activeBattleCard';
 import { AppState } from '../../store/rootReducer';
-import { setFirstPlace } from '../../utils/helpers';
 
-const Battle: React.FC<any> = ({ allBattle, userData }) => {
+const Battle: React.FC<any> = ({ allBattle }) => {
   const [chart, setIsChart] = React.useState(false);
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'START');
-  const sortBattles = setFirstPlace(showBattles, userData.id);
+
   return (
     <div>
-      {sortBattles &&
-        sortBattles.map((item: any, index: number) => (
+      {showBattles &&
+        showBattles.map((item: any, index: number) => (
           <ActiveBattleCard card={item} key={item._id} setIsChart={setIsChart} chart={chart} index={index} />
         ))}
     </div>

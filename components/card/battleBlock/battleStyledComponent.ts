@@ -7,7 +7,7 @@ export const BattleWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: 15%;
   height: auto;
 `;
 
@@ -16,15 +16,15 @@ export const KnifesBlock = styled.div`
   height: 50px;
   margin-top: -38px;
   position: relative;
-  @media(max-width: ${breakPointsActiveCard.big}px){
-  width: 35px;
-  height: 35px;
-  margin-top: -43px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    width: 35px;
+    height: 35px;
+    margin-top: -43px;
   }
-  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
-  width: 25px;
-  height: 25px;
-  margin-top: -40px;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 25px;
+    height: 25px;
+    margin-top: -40px;
   }
 `;
 
@@ -47,19 +47,11 @@ export const KnifeTwo = styled.img`
 
 export const BattleImg = styled.img`
   width: 80px;
-  height: 80px;
-  @media(max-width: ${breakPointsActiveCard.big}px){
-  width: 45px;
-  height: 45px;
-  margin-top: 7px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    width: 45px;
+    margin-top: 7px;
   }
-  @media(max-width: ${breakPointsActiveCard.medium}px){
-  width: 45px;
-  height: 45px;
-  margin-top: 7px;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 30px;
   }
-  @media(max-width: ${breakPointsActiveCard.xsmall}px) {
-  width: 30px;
-  height: 30px;
-  }
-  `;
+`;
