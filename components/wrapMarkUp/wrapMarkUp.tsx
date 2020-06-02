@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 import { SemanticToastContainer } from 'react-semantic-toasts';
@@ -42,6 +43,9 @@ const WrapMarkUp: React.FC<any> = ({
   setAllBattlesConnect,
   setAllBattlesCreate,
   setAllBattlesUpdate,
+  startFinishBattle,
+  setAuthUserDataFromCookies,
+  logOutStore,
 }) => {
   const [visible, setVisible] = React.useState(false);
   const setVisibleSideBar = React.useCallback(() => {
@@ -49,6 +53,10 @@ const WrapMarkUp: React.FC<any> = ({
   }, []);
 
   React.useEffect(() => {
+    const userDataCookie = Cookies.get('userData');
+    if (typeof userDataCookie === 'string') {
+      setAuthUserDataFromCookies(JSON.parse(userDataCookie));
+    }
     const paramsOfGetBattlesWait = {
       skip: 0,
       limit: 5,
@@ -89,11 +97,21 @@ const WrapMarkUp: React.FC<any> = ({
         case 'create_battle':
           return setAllBattlesCreate(readyResponse.battle);
         case 'update_battle':
-          return setAllBattlesUpdate(readyResponse.battles[0]);
+          readyResponse.battles.map((item: any) => {
+            const steps = item.steps;
+            const isEnd = Object.values(steps[steps.length - 1]).length;
+            isEnd > 1 ? setAllBattlesUpdate(item) : startFinishBattle(item);
+          });
       }
     };
     setInterval(() => SocketConnection.getSocket().send(JSON.stringify({ method: 'ping' })), 60000);
   }, []);
+
+  const logOut = () => {
+    Cookies.remove('userData');
+    setVisibleSideBar();
+    logOutStore(userData.access_token, userData.id);
+  };
 
   const showItems = (item: any) => {
     switch (item.type) {
@@ -119,7 +137,7 @@ const WrapMarkUp: React.FC<any> = ({
         return (
           userData &&
           Boolean(userData.id) && (
-            <MenuItem>
+            <MenuItem onClick={logOut}>
               <ItemMenuWrapper>
                 <ItemMenuImage>
                   <Image src={item.image} />
@@ -213,5 +231,8 @@ export default connect(
     setAllBattlesConnect: (payload: any) => dispatch(actions.SetAllBattlesConnect(payload)),
     setAllBattlesCreate: (payload: any) => dispatch(actions.SetAllBattlesCreate(payload)),
     setAllBattlesUpdate: (payload: any) => dispatch(actions.SetAllBattlesUpdate(payload)),
+    startFinishBattle: (payload: any) => dispatch(actions.StartFinishBattle(payload)),
+    setAuthUserDataFromCookies: (payload: any) => dispatch(actions.setAuthUserDataFromCookies(payload)),
+    logOutStore: (token: number, id: number) => dispatch(actions.logOutStore(token, id)),
   }),
 )(WrapMarkUp);

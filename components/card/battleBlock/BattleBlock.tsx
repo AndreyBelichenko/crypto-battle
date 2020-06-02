@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { BattleWrapper, KnifesBlock,  KnifeOne, KnifeTwo, BattleImg } from './battleStyledComponent';
+import { BattleWrapper, KnifesBlock, KnifeOne, KnifeTwo, BattleImg } from './battleStyledComponent';
 
 const BattleBlock: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const BattleBlock: React.FC = () => {
         <KnifeOne src="/static/knife.svg" />
         <KnifeTwo src="/static/knife.svg" />
       </KnifesBlock>
-      < BattleImg src="/static/vs.png"/>
+      <BattleImg src="/static/vs.png" />
     </BattleWrapper>
   );
 };

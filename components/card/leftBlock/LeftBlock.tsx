@@ -3,17 +3,8 @@ import { Progress } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
+import { CryptoCardName, ImageCardPerson, AwardsBlock, CryptoCardPerson } from './leftStyledComponent';
 import {
-  GamerBlock,
-  CryptoCard,
-  CryptoCardName,
-  ImageCardPerson,
-  ImageCardLogo,
-  AwardsBlock,
-  UserBlock,
-} from './leftStyledComponent';
-import {
-  CryptoCardPerson,
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,
@@ -21,14 +12,18 @@ import {
   UserPhoto,
   ProgressText,
   AvardsImage,
+  UserNameWrapper,
+  GamerBlock,
+  CryptoCard,
+  ImageCardLogo,
+  UserBlock,
 } from '../styledComponent';
 
 const LeftBlock: React.FC<any> = (props: any) => {
   const info = props.data.firstPlayer;
   const lastElementArray = props.data.steps.length - 1;
-  const actualHealth = props.data.steps[lastElementArray]
-    ? props.data.steps[lastElementArray][info.cryptoName]
-    : props.data.healthPoints;
+  const actualHealth =
+    props.data.steps.length > 1 ? props.data.steps[lastElementArray][info.cryptoName] : props.data.healthPoints;
   return (
     <GamerBlock>
       <AwardsBlock>
@@ -36,10 +31,12 @@ const LeftBlock: React.FC<any> = (props: any) => {
       </AwardsBlock>
       <UserBlock>
         <UserPhoto src={info.userInfo.avatar} />
-        <UserName>{info.userInfo.alias}</UserName>
+        <UserNameWrapper>
+          <UserName>{info.userInfo.alias}</UserName>
+        </UserNameWrapper>
       </UserBlock>
       <CryptoCard>
-        <CryptoCardMain>
+        <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
           <CryptoCardLogo>
             <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
           </CryptoCardLogo>

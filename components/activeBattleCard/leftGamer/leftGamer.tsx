@@ -3,29 +3,29 @@ import { Progress, Image } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
-import { CryptoCardPerson, CryptoCardName, ChartTrigger } from './styledLeftGamer';
 import {
   GamerBlock,
-  CryptoCard,
   GamerBlockOne,
   GamerBlockTwo,
-  CryptoCardLogo,
-  CryptoCardHp,
-  CryptoCardMain,
   UserBlock,
   UserName,
   AwardsBlock,
   ProgressText,
   ImageUser,
   ImageAwards,
+  UserNameWrapper,
 } from '../styledActiveBattle';
+import { ChartTrigger } from './styledLeftGamer';
+import { ImageCardLogo, CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
+import { ImageCardPerson, CryptoCardPerson, CryptoCardName } from '../../card/leftBlock/leftStyledComponent';
 
 const LeftGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
   const info = props.cardData.firstPlayer;
-  const actualHealth = props.cardData.steps[lastElementArray]
-    ? props.cardData.steps[lastElementArray][info.cryptoName]
-    : props.cardData.healthPoints;
+  const actualHealth =
+    props.cardData.steps.length > 1
+      ? props.cardData.steps[lastElementArray][info.cryptoName]
+      : props.cardData.healthPoints;
   const handleOpenChart = () => {
     if (props.chart.side === 'left' && props.chart.index === props.index) {
       props.setIsChart(false);
@@ -45,12 +45,12 @@ const LeftGamer: React.FC<any> = (props: any) => {
           <ImageAwards src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
         </AwardsBlock>
         <CryptoCard>
-          <CryptoCardMain>
+          <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
             <CryptoCardLogo>
-              <Image src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+              <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <Image src={returnCorrectCryptoData(info.cryptoName, 'person')} />
+              <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
             <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
@@ -66,7 +66,9 @@ const LeftGamer: React.FC<any> = (props: any) => {
       <GamerBlockTwo>
         <UserBlock>
           <ImageUser src={info.userInfo.avatar} />
-          <UserName>{info.userInfo.alias}</UserName>
+          <UserNameWrapper>
+            <UserName>{info.userInfo.alias}</UserName>
+          </UserNameWrapper>
         </UserBlock>
         <ChartTrigger>
           <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />

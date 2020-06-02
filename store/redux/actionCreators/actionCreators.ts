@@ -81,6 +81,13 @@ export const SetAllBattlesUpdate = (payload: any) => {
   };
 };
 
+export const StartFinishBattle = (payload: any) => {
+  return {
+    payload,
+    type: action.START_FINISH_BATTLE,
+  };
+};
+
 interface ParamsOfGetBattlesWaiting {
   skip: number;
   limit: number;
