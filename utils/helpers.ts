@@ -1,4 +1,3 @@
-import * as Cookies from 'js-cookie';
 import cryptoData from '../constants/cryptoData/cryptoData';
 
 export const createAsyncActionType = (type: string) => ({
@@ -9,7 +8,7 @@ export const createAsyncActionType = (type: string) => ({
 });
 
 export const writeCorrectUserData = (info: any) => {
-  const correctData = {
+  return {
     id: info.data.user._id,
     name: info.data.user.alias,
     avatar: info.data.user.avatar,
@@ -17,9 +16,6 @@ export const writeCorrectUserData = (info: any) => {
     access_token: info.token,
     isLoading: false,
   };
-  Cookies.set('userData', correctData);
-
-  return correctData;
 };
 
 export const returnCorrectCryptoData = (name: string, type: string) => {

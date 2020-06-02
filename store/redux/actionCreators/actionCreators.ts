@@ -3,21 +3,27 @@ import * as Cookies from 'js-cookie';
 
 import * as action from '../actionTypes/actionTypes';
 import { requestLogin, requestSidebars, requestLogout, requestGetBattles, requestUpdateUserData, requestUpdateUserToken, requestSendImage } from '../../../utils/apiHelpers';
+import { writeCorrectUserData } from '../../../utils/helpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
     type: action.AUTH_STORE_USER_DATA.ACTION,
     payload: {
-      promise: requestLogin(type, token).catch(() =>
-        toast({
-          type: 'error',
-          icon: 'envelope',
-          title: 'Error with authorization',
-          description: 'Sorry for the inconvenience, we will fix it soon',
-          animation: 'bounce',
-          time: 5000,
-        }),
-      ),
+      promise: requestLogin(type, token)
+        .then((data) => {
+          Cookies.set('userData', writeCorrectUserData(data));
+          return writeCorrectUserData(data);
+        })
+        .catch(() =>
+          toast({
+            type: 'error',
+            icon: 'envelope',
+            title: 'Error with authorization',
+            description: 'Sorry for the inconvenience, we will fix it soon',
+            animation: 'bounce',
+            time: 5000,
+          })
+        ),
     },
   });
 };
@@ -185,10 +191,13 @@ export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (disp
     payload: {
       promise:requestUpdateUserToken(token)
         .then(() => {
-          Cookies.set('userData.access_token', token);
           return requestSendImage(token, data.avatar);
         })
         .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
+        .then((data) => {
+          Cookies.set('userData', writeCorrectUserData(data));
+          return writeCorrectUserData(data);
+        })
         .catch(() =>
       toast({
         type: 'error',

@@ -1,5 +1,3 @@
-import { writeCorrectUserData } from '../../../utils/helpers';
-
 import * as actionTypes from '../actionTypes/actionTypes';
 
 export type UserDataType = {
@@ -33,7 +31,7 @@ export default function userReducer(state: InitialStateType = initialState, acti
     case actionTypes.AUTH_STORE_USER_DATA.START:
       return { ...state, userData: { ...state.userData, isLoading: true } };
     case actionTypes.AUTH_STORE_USER_DATA.SUCCESS:
-      return { ...state, userData: writeCorrectUserData(action.payload) };
+      return { ...state, userData: action.payload };
     case actionTypes.AUTH_STORE_USER_DATA.ERROR:
       return initialState;
     case actionTypes.LOG_OUT_STORE.START:
@@ -41,7 +39,7 @@ export default function userReducer(state: InitialStateType = initialState, acti
     case actionTypes.LOG_OUT_STORE.SUCCESS:
       return initialState;
     case actionTypes.UPDATE_STORE_USER_DATA.SUCCESS: {
-      return { ...state, userData: writeCorrectUserData(action.payload) };
+      return { ...state, userData: action.payload };
     }
     default:
       return state;
