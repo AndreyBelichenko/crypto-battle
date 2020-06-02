@@ -42,5 +42,6 @@ export const ALL_BATTLES_DATA = createAsyncActionType('ALL_BATTLES_DATA');
 export const CONNECT_ITEM_ALL_BATTLES = 'CONNECT_ITEM_ALL_BATTLES';
 export const CREATE_ITEM_ALL_BATTLES = 'CREATE_ITEM_ALL_BATTLES';
 export const UPDATE_ITEM_ALL_BATTLES = 'UPDATE_ITEM_ALL_BATTLES';
+export const START_FINISH_BATTLE = 'START_FINISH_BATTLE';
 
 export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData;

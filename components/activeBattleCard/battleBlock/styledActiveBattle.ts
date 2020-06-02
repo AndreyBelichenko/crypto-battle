@@ -50,6 +50,7 @@ export const BattleDescriptionBlock = styled.div`
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
   min-width: 100px;
   overflow: scroll;
+  border-radius: 4px;
 
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 83%;

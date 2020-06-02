@@ -3,6 +3,10 @@ import { Image } from 'semantic-ui-react';
 
 import { activeBattleColor, breakPointsActiveCard } from '../../constants/styledConstants';
 
+interface CryptoCardMainProps {
+  mainColor: string;
+}
+
 export const ParentDiv = styled.div`
   width: 100%;
   height: 300px;
@@ -88,20 +92,21 @@ export const CryptoCard = styled.div`
   }
 `;
 
-export const CryptoCardMain = styled.div`
+export const CryptoCardMain = styled.div<CryptoCardMainProps>`
   height: 65%;
   min-width: 40px;
   display: flex;
   justify-content: center;
   position: relative;
   background: white;
-  border: 1px solid red;
+  border: 1px solid ${(props) => (props.mainColor ? props.mainColor : 'red')};
   padding: 5px;
+  border-radius: 4px;
 `;
 
 export const CryptoCardLogo = styled.div`
-  width: 40%;
-  min-width: 25px;
+  width: 50%;
+  min-width: 30px;
 `;
 
 export const CryptoCardHp = styled.div`
@@ -158,38 +163,46 @@ export const GamerBlockTwo = styled.div`
 `;
 
 export const UserBlock = styled.div`
-  height: 80%;
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 50px;
+    height: 75px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 40px;
+    height: 65px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 70px;
+    height: 90px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 50px;
+    height: 60px;
   }
 `;
 
 export const UserName = styled.p`
+  text-align: center;
+  position: absolute;
   font-weight: bold;
   font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 13px;
-    right: 2px;
     bottom: 0;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     font-size: 12px;
-    right: 2px;
     bottom: 0;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
@@ -197,14 +210,27 @@ export const UserName = styled.p`
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     font-size: 12px;
-    right: 2px;
     bottom: 0;
   }
 `;
 
 export const ImageUser = styled(Image)`
-  height: 80% !important;
+  height: 65% !important;
   border-radius: 50%;
+  margin-bottom: 20px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    margin-bottom: 20px;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    margin-bottom: 15px;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    margin-bottom: 20px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const ImageAwards = styled(Image)`
@@ -223,4 +249,12 @@ export const AwardsBlock = styled.div`
 
 export const ActiveCardWrapper = styled.div`
   height: 100%;
+`;
+
+export const ImageImg = styled.img`
+  height: 100%;
+`;
+export const UserNameWrapper = styled.div`
+  position: relative;
+  width: 100%;
 `;

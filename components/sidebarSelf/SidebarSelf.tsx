@@ -112,7 +112,7 @@ const SidebarSelf = (props: SidebarProps) => {
                     <Image src={userData.avatar} verticalAlign="middle" />
                   </ImageBlock>
                   <ListContentCustomize>
-                    <ListHeader as="h3">{userData.name}</ListHeader>
+                    <ListHeader>{userData.name}</ListHeader>
                     <ImageCountBlock>{userData.numberOfVictories}</ImageCountBlock>
                   </ListContentCustomize>
                 </ItemList>
