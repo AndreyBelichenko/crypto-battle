@@ -164,9 +164,6 @@ export const connectBattle = (type: string, skip?: number) => (dispatch: any) =>
 };
 
 // update user
-interface Image {
-  image: any;
-}
 
 interface IDataProps {
   id: string;
@@ -175,11 +172,14 @@ interface IDataProps {
 }
 
 export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any) => {
-  console.log(token);
   return dispatch({
     type: action.UPDATE_STORE_USER_DATA.ACTION,
     payload: {
-      promise:requestUpdateUserToken(token).then(() => requestSendImage(token, data.avatar)).then((res) => requestUpdateUserData(token, { ...data, avatar:res.image })).catch(() =>
+      promise:requestUpdateUserToken(token)
+        .then(() => requestSendImage(token, data.avatar))
+        .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
+        
+        .catch(() =>
       toast({
         type: 'error',
         icon: 'envelope',

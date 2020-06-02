@@ -5,7 +5,16 @@ import { useState } from 'react';
 
 import { SetUpdateStoreUserData } from '../../store/redux/actionCreators/actionCreators';
 
-import { ProfileInfo, AddPhoto, AddPhotoSpan, AddPhotoWrapper, AddPhotoInput, ChageInfoWrapper, UserData, UserDataButtons, Avatar, InputName } from './styledComponent';
+import { ProfileInfo,
+  AddPhoto,
+  AddPhotoSpan,
+  AddPhotoWrapper,
+  AddPhotoInput,
+  ChageInfoWrapper,
+  UserData,
+  UserDataButtons,
+  Avatar,
+  InputName } from './styledComponent';
 
 const Account: React.FC = () => {
   const [isChange, setIsChange] = useState(false);
@@ -19,7 +28,9 @@ const Account: React.FC = () => {
 
   const handleSubmit = () => {
     setIsChange(!isChange);
-    dispatch(SetUpdateStoreUserData(userData.access_token, { id: userData.id, alias: currentUserData.name, avatar: currentUserData.avatar }));
+    dispatch(SetUpdateStoreUserData(userData.access_token,
+      { id: userData.id, alias: currentUserData.name, avatar: currentUserData.avatar }
+      ));
   };
 
   return (
