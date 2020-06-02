@@ -1,4 +1,5 @@
 import { toast } from 'react-semantic-toasts';
+import * as Cookies from 'js-cookie';
 
 import * as action from '../actionTypes/actionTypes';
 import { requestLogin, requestSidebars, requestLogout, requestGetBattles, requestUpdateUserData, requestUpdateUserToken, requestSendImage } from '../../../utils/apiHelpers';
@@ -176,9 +177,11 @@ export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (disp
     type: action.UPDATE_STORE_USER_DATA.ACTION,
     payload: {
       promise:requestUpdateUserToken(token)
-        .then(() => requestSendImage(token, data.avatar))
+        .then(() => {
+          Cookies.set('userData.access_token', token);
+          return requestSendImage(token, data.avatar);
+        })
         .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
-        
         .catch(() =>
       toast({
         type: 'error',
