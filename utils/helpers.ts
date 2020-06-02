@@ -7,16 +7,13 @@ export const createAsyncActionType = (type: string) => ({
   ERROR: `${type}_ERROR`,
 });
 
-export const writeCorrectUserData = (info: any) => {
-  return {
-    id: info.data.user._id,
-    name: info.data.user.alias,
-    avatar: info.data.user.avatar,
-    numberOfVictories: info.data.user.numberOfVictories,
-    access_token: info.token,
-    isLoading: false,
-  };
-};
+export const writeCorrectUserData = (info: any) => ({ id: info.data.user._id,
+  name: info.data.user.alias,
+  avatar: info.data.user.avatar,
+  numberOfVictories: info.data.user.numberOfVictories,
+  access_token: info.token,
+  isLoading: false,
+});
 
 export const returnCorrectCryptoData = (name: string, type: string) => {
   const data: any = cryptoData.find((item: any) => item.name === name);

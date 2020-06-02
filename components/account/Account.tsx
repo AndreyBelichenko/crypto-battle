@@ -29,7 +29,7 @@ const Account: React.FC = () => {
   const handleSubmit = () => {
     setIsChange(!isChange);
     dispatch(SetUpdateStoreUserData(userData.access_token,
-      { id: userData.id, alias: currentUserData.name, avatar: currentUserData.avatar}
+      { id: userData.id, alias: currentUserData.name, avatar: currentUserData.avatar },
       ));
   };
 
@@ -49,7 +49,9 @@ const Account: React.FC = () => {
           />
         </AddPhotoWrapper> : <Avatar src={userData.avatar}/>}
         <UserData>
-          <InputName type="text" name="name" defaultValue={userData.name} onChange={(e) => handleChange(e, { name: 'name', value:e.target.value })} size="tiny" />
+          <InputName type="text" name="name" defaultValue={userData.name}
+                     onChange={(e) => handleChange(e, { name: 'name', value:e.target.value })} size="tiny"
+          />
         </UserData>
         <UserDataButtons>
           {isChange ? <Button onClick={handleSubmit} className="ui orange button">Save</Button> :

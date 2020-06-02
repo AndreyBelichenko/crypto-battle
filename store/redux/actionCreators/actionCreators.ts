@@ -2,8 +2,16 @@ import { toast } from 'react-semantic-toasts';
 import * as Cookies from 'js-cookie';
 
 import * as action from '../actionTypes/actionTypes';
-import { requestLogin, requestSidebars, requestLogout, requestGetBattles, requestUpdateUserData, requestUpdateUserToken, requestSendImage } from '../../../utils/apiHelpers';
-import { writeCorrectUserData } from '../../../utils/helpers';
+import {
+  requestLogin,
+  requestSidebars,
+  requestLogout,
+  requestGetBattles,
+  requestUpdateUserData,
+  requestUpdateUserToken,
+  requestSendImage } from '../../../utils/apiHelpers';
+import { writeCorrectUserData,
+} from '../../../utils/helpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
@@ -11,8 +19,9 @@ export const setAuthStoreUserData = (type: string, token: string) => (dispatch: 
     payload: {
       promise: requestLogin(type, token)
         .then((data) => {
-          Cookies.set('userData', writeCorrectUserData(data));
-          return writeCorrectUserData(data);
+          const UserData = writeCorrectUserData(data);
+          Cookies.set('userData', UserData);
+          return UserData;
         })
         .catch(() =>
           toast({
@@ -22,7 +31,7 @@ export const setAuthStoreUserData = (type: string, token: string) => (dispatch: 
             description: 'Sorry for the inconvenience, we will fix it soon',
             animation: 'bounce',
             time: 5000,
-          })
+          }),
         ),
     },
   });
@@ -195,8 +204,9 @@ export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (disp
         })
         .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
         .then((data) => {
-          Cookies.set('userData', writeCorrectUserData(data));
-          return writeCorrectUserData(data);
+          const UserData = writeCorrectUserData(data);
+          Cookies.set('userData', UserData);
+          return UserData;
         })
         .catch(() =>
       toast({
