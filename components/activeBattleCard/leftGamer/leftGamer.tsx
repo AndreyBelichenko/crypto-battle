@@ -3,24 +3,21 @@ import { Progress, Image } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
-import { CryptoCardPerson, CryptoCardName, ChartTrigger } from './styledLeftGamer';
 import {
   GamerBlock,
-  CryptoCard,
   GamerBlockOne,
   GamerBlockTwo,
-  CryptoCardLogo,
-  CryptoCardHp,
-  CryptoCardMain,
   UserBlock,
   UserName,
   AwardsBlock,
   ProgressText,
   ImageUser,
   ImageAwards,
-  ImageImg,
   UserNameWrapper,
 } from '../styledActiveBattle';
+import { ChartTrigger } from './styledLeftGamer';
+import { ImageCardLogo, CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
+import { ImageCardPerson, CryptoCardPerson, CryptoCardName } from '../../card/leftBlock/leftStyledComponent';
 
 const LeftGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
@@ -50,10 +47,10 @@ const LeftGamer: React.FC<any> = (props: any) => {
         <CryptoCard>
           <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
             <CryptoCardLogo>
-              <Image src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+              <ImageCardLogo src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
             </CryptoCardLogo>
             <CryptoCardPerson>
-              <ImageImg src={returnCorrectCryptoData(info.cryptoName, 'person')} />
+              <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
             </CryptoCardPerson>
             <CryptoCardName>{info.cryptoName}</CryptoCardName>
           </CryptoCardMain>
