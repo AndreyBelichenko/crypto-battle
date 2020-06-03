@@ -9,8 +9,10 @@ import {
   requestGetBattles,
   requestUpdateUserData,
   requestUpdateUserToken,
-  requestSendImage } from '../../../utils/apiHelpers';
-import { writeCorrectUserData,
+  requestSendImage,
+} from '../../../utils/apiHelpers';
+import {
+  writeCorrectUserData,
 } from '../../../utils/helpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
@@ -18,8 +20,9 @@ export const setAuthStoreUserData = (type: string, token: string) => (dispatch: 
     type: action.AUTH_STORE_USER_DATA.ACTION,
     payload: {
       promise: requestLogin(type, token)
-        .then((data) => {
+        .then((data: any) => {
           const UserData = writeCorrectUserData(data);
+          Cookies.set('auth_token', data.token);
           Cookies.set('userData', UserData);
           return UserData;
         })
@@ -194,30 +197,36 @@ interface IDataProps {
   avatar: any;
 }
 
-export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any) => {
+export const SetUpdateStoreUserData = (data: IDataProps) => (dispatch: any, getState: any) => {
+  const state = getState();
+  const authToken = Cookies.get('auth_token');
   return dispatch({
     type: action.UPDATE_STORE_USER_DATA.ACTION,
     payload: {
-      promise:requestUpdateUserToken(token)
+      promise: requestUpdateUserToken(authToken)
         .then(() => {
-          return requestSendImage(token, data.avatar);
+          if (data.avatar) {
+            return requestSendImage(authToken, data.avatar);
+          }
         })
-        .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
+        .then((res) => {
+          return requestUpdateUserData({ ...data, avatar: data.avatar ? res.image : state.user.userData.avatar });
+        })
         .then((data) => {
           const UserData = writeCorrectUserData(data);
           Cookies.set('userData', UserData);
           return UserData;
         })
         .catch(() =>
-      toast({
-        type: 'error',
-        icon: 'envelope',
-        title: 'Error with getting data',
-        description: 'Sorry for the inconvenience, we will fix it soon',
-        animation: 'bounce',
-        time: 5000,
-      }),
-      ),
+          toast({
+            type: 'error',
+            icon: 'envelope',
+            title: 'Error with getting data',
+            description: 'Sorry for the inconvenience, we will fix it soon',
+            animation: 'bounce',
+            time: 5000,
+          }),
+        ),
     },
   });
 };
