@@ -20,6 +20,7 @@ export const setAuthStoreUserData = (type: string, token: string) => (dispatch: 
       promise: requestLogin(type, token)
         .then((data) => {
           const UserData = writeCorrectUserData(data);
+          Cookies.set('auth_token', data.token);
           Cookies.set('userData', UserData);
           return UserData;
         })
@@ -194,17 +195,20 @@ interface IDataProps {
   avatar: any;
 }
 
-export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any) => {
+export const SetUpdateStoreUserData = (token: string, data: IDataProps) => (dispatch: any, getState: any) => {
+  const state = getState();
+  const authToken = Cookies.get('auth_token');
   return dispatch({
     type: action.UPDATE_STORE_USER_DATA.ACTION,
     payload: {
-      promise:requestUpdateUserToken(token)
-        .then(() => {
-          return requestSendImage(token, data.avatar);
+      promise:requestUpdateUserToken(authToken)
+        .then((res:any) => {
+          return requestSendImage(res.token, data.avatar);
         })
         .then((res) => requestUpdateUserData(token, { ...data, avatar:res.image }))
-        .then((data) => {
+        .then((data:any) => {
           const UserData = writeCorrectUserData(data);
+          Cookies.set('auth_token', data.token);
           Cookies.set('userData', UserData);
           return UserData;
         })

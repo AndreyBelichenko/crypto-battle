@@ -28,9 +28,11 @@ const Account: React.FC = () => {
 
   const handleSubmit = () => {
     setIsChange(!isChange);
-    dispatch(SetUpdateStoreUserData(userData.access_token,
-      { id: userData.id, alias: currentUserData.name, avatar: currentUserData.avatar },
-      ));
+    const reqObj: any = { id: userData.id, alias: currentUserData.name || userData.name };
+    if (currentUserData.avatar) {
+      reqObj.avatar = currentUserData.avatar;
+    }
+    dispatch(SetUpdateStoreUserData( reqObj));
   };
 
   return (

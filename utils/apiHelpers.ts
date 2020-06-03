@@ -69,7 +69,7 @@ export const requestGetBattles = (skip = 0, limit = 10, sort = 'desc', state = '
       .catch((error) => reject(error));
   });
 
-export const requestUpdateUserToken = (token: string) =>
+export const requestUpdateUserToken = (token: any) =>
   new Promise((resolve, reject) => {
     fetch('http://crypto-battle.pp.ua/api/validate-auth-token', {
       method: 'POST',
@@ -85,17 +85,16 @@ export const requestUpdateUserToken = (token: string) =>
       .catch((error) => reject(error));
   });
 
-export const requestSendImage = (token: string, blob: any) => {
+export const requestSendImage = (token: any, blob: any) => {
   const formData = new FormData();
-  formData.append('type', 'avatar');
   formData.append('file', blob);
   return fetch('http://crypto-battle.pp.ua/api/image', {
-  method: 'POST',
+    method: 'POST',
     headers: {
       'access-token': token,
     },
     body: formData,
-})
+  })
 .then(res => res.json())
   .then(data => data)
   .catch(err => {
