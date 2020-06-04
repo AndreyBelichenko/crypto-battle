@@ -18,12 +18,16 @@ const AppButtonBlock: React.FC = () => {
     dispatch(actions.logOutStore(userData.access_token, userData.id));
   };
 
+  const handleRoute = () => {
+    Router.push('/account');
+  };
+
   return (
     <AppButtonBlockWrapper>
       <HideButtons>
         <ModalWindow role="create" />
       </HideButtons>
-      <Button circular icon="user outline" color="black" className="btnSize" onClick={() => Router.push('/account')}/>
+      <Button circular icon="user outline" color="black" className="btnSize" onClick={handleRoute}/>
   <HideButtons>
     <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
   </HideButtons>
