@@ -202,3 +202,11 @@ export const modalDataCrypto = [
     cryptoCode: 'BITFINEX:XRPUSD',
   },
 ];
+
+export const LogInModalWindow = [
+  {
+    idItem: 'logIn',
+    resourcesKey: 'logIn',
+    name: 'Log In',
+  },
+];
