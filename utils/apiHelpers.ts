@@ -1,4 +1,5 @@
 import { SocketConnection } from '../socketConnection/socketConnection';
+import * as Cookies from 'js-cookie';
 
 export type UserSidebarType = {
   _id: string;
@@ -95,12 +96,13 @@ export const requestSendImage = (token: any, blob: any) => {
     },
     body: formData,
   })
-.then(res => res.json())
-  .then(data => data)
-  .catch(err => {
-    console.error('err', err);
-    defaultMessage: "Couldn't upload image";
-  });
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => {
+      // tslint:disable-next-line:no-console
+      console.error('err', err);
+      defaultMessage: "Couldn't upload image";
+    });
 };
 
 interface IDataProps {
@@ -109,13 +111,14 @@ interface IDataProps {
   avatar: string;
 }
 
-export const requestUpdateUserData = (token: string, data: IDataProps) =>
-  new Promise((resolve, reject) => {
+export const requestUpdateUserData = (data: IDataProps) => {
+  const authToken = Cookies.get('auth_token');
+  return new Promise((resolve, reject) => {
     fetch('http://crypto-battle.pp.ua/api/update-user-info', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        'access-token': token,
+        'access-token': String(authToken),
       },
       body: JSON.stringify(data),
     }).then((res) =>
@@ -126,3 +129,4 @@ export const requestUpdateUserData = (token: string, data: IDataProps) =>
     ).then((data) => resolve(data))
       .catch((error) => reject(error));
   });
+};

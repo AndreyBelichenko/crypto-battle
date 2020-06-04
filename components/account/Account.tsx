@@ -1,7 +1,6 @@
-import * as React  from 'react';
+import React, { useState } from 'react';
 import {  Button } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
 
 import { SetUpdateStoreUserData } from '../../store/redux/actionCreators/actionCreators';
 
@@ -28,11 +27,9 @@ const Account: React.FC = () => {
 
   const handleSubmit = () => {
     setIsChange(!isChange);
-    const reqObj: any = { id: userData.id, alias: currentUserData.name || userData.name };
-    if (currentUserData.avatar) {
-      reqObj.avatar = currentUserData.avatar;
-    }
-    dispatch(SetUpdateStoreUserData( reqObj));
+    dispatch(SetUpdateStoreUserData({ id: userData.id, alias: currentUserData.name || userData.name, avatar: currentUserData.avatar },
+    ));
+    setCurrentUserData({});
   };
 
   return (

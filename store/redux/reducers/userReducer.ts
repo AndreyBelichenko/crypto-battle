@@ -38,6 +38,8 @@ export default function userReducer(state: InitialStateType = initialState, acti
       return { ...state, userData: { ...state.userData, isLoading: true } };
     case actionTypes.LOG_OUT_STORE.SUCCESS:
       return initialState;
+    case actionTypes.UPDATE_STORE_USER_DATA.START:
+      return { ...state, userData: { ...state.userData, isLoading: true } };
     case actionTypes.UPDATE_STORE_USER_DATA.SUCCESS: {
       return { ...state, userData: action.payload };
     }
