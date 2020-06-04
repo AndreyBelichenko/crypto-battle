@@ -63,3 +63,8 @@ export const accountColor = {
   backgroundColor: color.white,
   borderColor: color.pomegranate,
 };
+
+export const storyColor = {
+  winnerColor: color.green,
+  loserColor: color.red,
+};
