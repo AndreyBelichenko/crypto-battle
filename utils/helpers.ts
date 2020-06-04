@@ -7,7 +7,8 @@ export const createAsyncActionType = (type: string) => ({
   ERROR: `${type}_ERROR`,
 });
 
-export const writeCorrectUserData = (info: any) => ({ id: info.data.user._id,
+export const writeCorrectUserData = (info: any) => ({
+  id: info.data.user._id,
   name: info.data.user.alias,
   avatar: info.data.user.avatar,
   numberOfVictories: info.data.user.numberOfVictories,
@@ -30,6 +31,8 @@ export const returnCorrectCryptoData = (name: string, type: string) => {
       return data.progressColor;
     case 'cryptoCode':
       return data.cryptoCode;
+    case 'borderText':
+      return data.borderText;
     default:
       return;
   }
@@ -40,14 +43,10 @@ export const giveProgressPercent = (healthPoints: string, health: string) =>
 
 export const sortArray = (array: any, id: string) => {
   const finalArray: any = [];
-  array.map((item: any) => helpSortArray(finalArray, item, id));
+  array.map((item: any) =>
+    item.firstPlayer.userInfo._id === id || item.secondPlayer.userInfo._id === id
+      ? finalArray.unshift(item)
+      : finalArray.push(item),
+  );
   return finalArray;
-};
-
-export const helpSortArray = (finalArray: any, item: any, id: string) => {
-  if (item.firstPlayer.userInfo._id === id || item.secondPlayer.userInfo._id === id) {
-    finalArray.unshift(item);
-  } else {
-    finalArray.push(item);
-  }
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Image, Menu } from 'semantic-ui-react';
 
-import { colorSidebar } from '../constants/styledConstants';
+import { projectColors } from '../constants/styledConstants';
 import fonts from '../constants/fonts';
 
 export const AppWrapper = styled.div`
@@ -38,11 +38,11 @@ export const AppContainer = styled.div`
 `;
 
 export const MenuItem = styled(Menu.Item)`
-  color: ${colorSidebar.menuItem} !important;
+  color: ${projectColors.menuItem} !important;
 `;
 
 export const ItemCreateBattle = styled.div`
-  border-bottom: 1px solid ${colorSidebar.underlineTitle};
+  border-bottom: 1px solid ${projectColors.underlineTitle};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,7 @@ export const ItemMenuWrapper = styled.div`
   transition: 0.2s;
 
   &:hover {
-    background: ${colorSidebar.underlineTitle};
+    background: ${projectColors.underlineTitle};
   }
 
   &:hover ${ItemMenuImage} {
@@ -93,7 +93,7 @@ export const ItemMenuWrapper = styled.div`
   }
 
   &:hover ${ItemMenuName} {
-    color: ${colorSidebar.menuItemHoverText};
+    color: ${projectColors.menuItemHoverText};
   }
 `;
 

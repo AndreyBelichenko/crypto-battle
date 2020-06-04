@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Progress } from 'semantic-ui-react';
 
-import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
+import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
 
 import {
   CryptoCardName,
@@ -9,7 +9,9 @@ import {
   AwardsBlock,
   CryptoCardPerson,
   ImageCardLogoLeft,
-} from './leftStyledComponent';
+  ImageSword,
+  GamerBlockLeft,
+} from './styledLeftBlock';
 import {
   CryptoCardLogo,
   CryptoCardHp,
@@ -19,19 +21,19 @@ import {
   ProgressText,
   AvardsImage,
   UserNameWrapper,
-  GamerBlock,
   CryptoCard,
-  // ImageCardLogo,
   UserBlock,
-} from '../styledComponent';
+} from '../styledStoryCard';
 
 const LeftBlock: React.FC<any> = (props: any) => {
   const info = props.data.firstPlayer;
-  const lastElementArray = props.data.steps.length - 1;
+  const penultElementArray = props.data.steps.length - 2;
   const actualHealth =
-    props.data.steps.length > 1 ? props.data.steps[lastElementArray][info.cryptoName] : props.data.healthPoints;
+    props.data.steps.length > 1 ? props.data.steps[penultElementArray][info.cryptoName] : props.data.healthPoints;
+  const statusPlayer = info.playerID === props.data.winner.playerID;
+  const swordShow = statusPlayer ? '/static/greenSword.svg' : '/static/redSword.svg';
   return (
-    <GamerBlock>
+    <GamerBlockLeft statusPlayer={statusPlayer}>
       <AwardsBlock>
         <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
       </AwardsBlock>
@@ -40,6 +42,7 @@ const LeftBlock: React.FC<any> = (props: any) => {
         <UserNameWrapper>
           <UserName>{info.userInfo.alias}</UserName>
         </UserNameWrapper>
+        <ImageSword src={swordShow} />
       </UserBlock>
       <CryptoCard>
         <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
@@ -61,8 +64,7 @@ const LeftBlock: React.FC<any> = (props: any) => {
           />
         </CryptoCardHp>
       </CryptoCard>
-    </GamerBlock>
+    </GamerBlockLeft>
   );
 };
-
 export default LeftBlock;

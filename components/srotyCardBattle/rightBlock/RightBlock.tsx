@@ -9,28 +9,31 @@ import {
   AwardsBlock,
   CryptoCardPerson,
   ImageCardLogoRight,
-} from './rightStyledComponent';
+  ImageSword,
+  GamerBlockRight,
+} from './styledRightBlock';
 import {
   CryptoCardLogo,
   CryptoCardHp,
   CryptoCardMain,
   UserName,
-  ProgressText,
   UserPhoto,
+  ProgressText,
   AvardsImage,
   UserNameWrapper,
-  GamerBlock,
   CryptoCard,
   UserBlock,
-} from '../styledComponent';
+} from '../styledStoryCard';
 
 const RightBlock: React.FC<any> = (props: any) => {
-  const lastElementArray = props.data.steps.length - 1;
   const info = props.data.secondPlayer;
+  const penultElementArray = props.data.steps.length - 2;
   const actualHealth =
-    props.data.steps.length > 1 ? props.data.steps[lastElementArray][info.cryptoName] : props.data.healthPoints;
+    props.data.steps.length > 1 ? props.data.steps[penultElementArray][info.cryptoName] : props.data.healthPoints;
+  const statusPlayer = info.playerID === props.data.winner.playerID;
+  const swordShow = statusPlayer ? '/static/greenSword.svg' : '/static/redSword.svg';
   return (
-    <GamerBlock>
+    <GamerBlockRight statusPlayer={statusPlayer}>
       <CryptoCard>
         <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
           <CryptoCardLogo>
@@ -56,11 +59,12 @@ const RightBlock: React.FC<any> = (props: any) => {
         <UserNameWrapper>
           <UserName>{info.userInfo.alias}</UserName>
         </UserNameWrapper>
+        <ImageSword src={swordShow} />
       </UserBlock>
       <AwardsBlock>
         <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
       </AwardsBlock>
-    </GamerBlock>
+    </GamerBlockRight>
   );
 };
 

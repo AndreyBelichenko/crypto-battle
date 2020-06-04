@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
-import { breakPointsActiveCard, activeBattleColor } from '../../../constants/styledConstants';
+import { breakPointsActiveCard, projectColors } from '../../../constants/styledConstants';
 
 export const BattleWrapper = styled.div`
   display: flex;
@@ -46,12 +46,12 @@ export const BattleDescriptionBlock = styled.div`
   width: 95%;
   height: 80%;
   margin-bottom: 20px;
-  border: 1px solid ${activeBattleColor.battleBorderColor};
+  border: 1px solid ${projectColors.battleBorderColor};
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
   min-width: 100px;
   overflow: scroll;
   border-radius: 4px;
-
+  padding: 5px;
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 83%;
     margin-bottom: 10px;

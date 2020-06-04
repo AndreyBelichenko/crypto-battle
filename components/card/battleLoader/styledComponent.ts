@@ -7,19 +7,19 @@ export const BattleWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 10%;
+  width: 15%;
   height: auto;
 `;
 
 export const BattleImg = styled.img`
   width: 60px;
   height: 60px;
-  @media(max-width: ${breakPointsActiveCard.big}px){
-  width: 40px;
-  height: 40px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    width: 40px;
+    height: 40px;
   }
-  @media(max-width: ${breakPointsActiveCard.xsmall}px){
-  width: 30px;
-  height: 30px;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 30px;
+    height: 30px;
   }
-  `;
+`;

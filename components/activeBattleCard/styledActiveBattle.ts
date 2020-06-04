@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
-import { activeBattleColor, breakPointsActiveCard } from '../../constants/styledConstants';
+import { projectColors, breakPointsActiveCard } from '../../constants/styledConstants';
 
 interface CryptoCardMainProps {
   mainColor: string;
@@ -40,7 +40,7 @@ export const MainDiv = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  border: 1px solid ${activeBattleColor.battleBorderColor};
+  border: 1px solid ${projectColors.battleBorderColor};
   box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
 `;
 
@@ -136,8 +136,8 @@ export const ProgressText = styled.div`
   z-index: 2;
   text-align: center;
   font-weight: bold;
-  -webkit-text-stroke: 0.5px ${activeBattleColor.processBorderTextColor};
-  color: ${activeBattleColor.processTextColor};
+  -webkit-text-stroke: 0.5px ${projectColors.processBorderTextColor};
+  color: ${projectColors.processTextColor};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 10px;
@@ -215,20 +215,32 @@ export const UserName = styled.p`
 `;
 
 export const ImageUser = styled(Image)`
+  width: 100% !important;
+  height: 100% !important;
+`;
+
+export const UserImageWrapper = styled.div`
+  border: 1px solid black;
   height: 65% !important;
+  width: 85px;
   border-radius: 50%;
+  overflow: hidden;
   margin-bottom: 20px;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
+    width: 50px;
     margin-bottom: 20px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
+    width: 42px;
     margin-bottom: 15px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
+    width: 60px;
     margin-bottom: 20px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 42px;
     margin-bottom: 20px;
   }
 `;
@@ -257,4 +269,23 @@ export const ImageImg = styled.img`
 export const UserNameWrapper = styled.div`
   position: relative;
   width: 100%;
+`;
+
+export const UserPhoto = styled.img`
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    width: 45px;
+    height: 45px;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 35px;
+    height: 35px;
+  }
 `;

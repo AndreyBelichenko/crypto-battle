@@ -17,19 +17,26 @@ export const cryptoColors = {
   waves_cerulean: color.cerulean,
   eos_black: color.black,
   ltc_cobalt: color.cobalt,
+  borderTextBlack: color.grey,
 };
 
-export const activeBattleColor = {
+export const projectColors = {
   battleBorderColor: color.pomegranate,
   underlineTitle: color.pomegranate,
   processTextColor: color.white,
   processBorderTextColor: color.black,
-};
-
-export const colorSidebar = {
-  underlineTitle: color.pomegranate,
   menuItem: color.black,
   menuItemHoverText: color.white,
+  backgroundColor: color.white,
+  borderColor: color.pomegranate,
+  winnerColor: color.green,
+  loserColor: color.red,
+  chartWrapperColor: color.black,
+  headerItemsMainColor: color.pomegranate,
+  headerItemsColor: color.white,
+  headerLogoTitle: color.white,
+  modalCreateConnectMainColor: color.pomegranate,
+  modalSidebarsMainColor: color.pomegranate,
 };
 
 export const breakPoints = {
@@ -38,20 +45,16 @@ export const breakPoints = {
   small: 460,
 };
 
+export const breakPointsHeader = {
+  big: 1200,
+  medium: 991,
+  small: 768,
+  xsmall: 400,
+};
+
 export const breakPointsActiveCard = {
   big: 1200,
   medium: 998,
   small: 768,
   xsmall: 420,
-};
-
-export const battleColor = {
-  battleBorderColor: color.pomegranate,
-  processTextColor: color.white,
-  processBorderTextColor: color.black,
-};
-
-export const accountColor = {
-  backgroundColor: color.white,
-  borderColor: color.pomegranate,
 };

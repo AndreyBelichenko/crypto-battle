@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { SetUpdateStoreUserData } from '../../store/redux/actionCreators/actionCreators';
 
-import { ProfileInfo,
+import {
+  ProfileInfo,
   AddPhoto,
   AddPhotoSpan,
   AddPhotoWrapper,
@@ -13,7 +14,8 @@ import { ProfileInfo,
   UserData,
   UserDataButtons,
   Avatar,
-  InputName } from './styledComponent';
+  InputName,
+} from './styledComponent';
 
 const Account: React.FC = () => {
   const [isChange, setIsChange] = useState(false);
@@ -50,6 +52,7 @@ const Account: React.FC = () => {
         <UserData>
           <InputName type="text" name="name" defaultValue={userData.name}
                      onChange={(e:any) => handleChange({ name: 'name', value:e.target.value })} size="tiny"
+                     disabled={!isChange}
           />
         </UserData>
         <UserDataButtons>
