@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
-import { activeBattleColor, breakPointsActiveCard } from '../../constants/styledConstants';
+import { projectColors, breakPointsActiveCard } from '../../constants/styledConstants';
 
 interface CryptoCardMainProps {
   mainColor: string;
@@ -40,7 +40,7 @@ export const MainDiv = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  border: 1px solid ${activeBattleColor.battleBorderColor};
+  border: 1px solid ${projectColors.battleBorderColor};
   box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
 `;
 
@@ -136,8 +136,8 @@ export const ProgressText = styled.div`
   z-index: 2;
   text-align: center;
   font-weight: bold;
-  -webkit-text-stroke: 0.5px ${activeBattleColor.processBorderTextColor};
-  color: ${activeBattleColor.processTextColor};
+  -webkit-text-stroke: 0.5px ${projectColors.processBorderTextColor};
+  color: ${projectColors.processTextColor};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 10px;

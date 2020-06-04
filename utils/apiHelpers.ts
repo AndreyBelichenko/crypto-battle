@@ -1,4 +1,5 @@
 import { SocketConnection } from '../socketConnection/socketConnection';
+import * as Cookies from 'js-cookie';
 
 export type UserSidebarType = {
   _id: string;
@@ -69,7 +70,7 @@ export const requestGetBattles = (skip = 0, limit = 10, sort = 'desc', state = '
       .catch((error) => reject(error));
   });
 
-export const requestUpdateUserToken = (token: string) =>
+export const requestUpdateUserToken = (token: any) =>
   new Promise((resolve, reject) => {
     fetch('http://crypto-battle.pp.ua/api/validate-auth-token', {
       method: 'POST',
@@ -77,19 +78,16 @@ export const requestUpdateUserToken = (token: string) =>
         'Content-Type': 'application/json;charset=utf-8',
         'access-token': token,
       },
-    })
-      .then((res) =>
-        res.json().then(() => ({
-          token: res.headers.get('access-token'),
-        })),
-      )
-      .then((data) => resolve(data))
+    }).then((res) =>
+      res.json().then(() => ({
+        token: res.headers.get('access-token'),
+      })),
+    ).then((data) => resolve(data))
       .catch((error) => reject(error));
   });
 
-export const requestSendImage = (token: string, blob: any) => {
+export const requestSendImage = (token: any, blob: any) => {
   const formData = new FormData();
-  formData.append('type', 'avatar');
   formData.append('file', blob);
   return fetch('http://crypto-battle.pp.ua/api/image', {
     method: 'POST',
@@ -98,8 +96,13 @@ export const requestSendImage = (token: string, blob: any) => {
     },
     body: formData,
   })
-    .then((res) => res.json())
-    .then((data) => data)
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => {
+      // tslint:disable-next-line:no-console
+      console.error('err', err);
+      defaultMessage: "Couldn't upload image";
+    });
 };
 
 interface IDataProps {
@@ -108,22 +111,22 @@ interface IDataProps {
   avatar: string;
 }
 
-export const requestUpdateUserData = (token: string, data: IDataProps) =>
-  new Promise((resolve, reject) => {
+export const requestUpdateUserData = (data: IDataProps) => {
+  const authToken = Cookies.get('auth_token');
+  return new Promise((resolve, reject) => {
     fetch('http://crypto-battle.pp.ua/api/update-user-info', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        'access-token': token,
+        'access-token': String(authToken),
       },
       body: JSON.stringify(data),
-    })
-      .then((res) =>
-        res.json().then((data) => ({
-          data,
-          token: res.headers.get('access-token'),
-        })),
-      )
-      .then((data) => resolve(data))
+    }).then((res) =>
+      res.json().then((data) => ({
+        data,
+        token: res.headers.get('access-token'),
+      })),
+    ).then((data) => resolve(data))
       .catch((error) => reject(error));
   });
+};

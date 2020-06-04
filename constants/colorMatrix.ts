@@ -16,4 +16,6 @@ export const color = {
   cerulean: '#0096DC',
   cobalt: '#034DA5',
   grey: '#808080',
+  green: '#00FF00',
+  red: '#ff0000',
 };

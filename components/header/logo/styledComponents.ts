@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { color } from '../../../constants/colorMatrix';
 import fonts from '../../../constants/fonts';
-import { breakPointsHeader } from '../../../constants/styledConstants';
+import { breakPointsHeader, projectColors } from '../../../constants/styledConstants';
 
 export const LogoWrapper = styled.div`
   height: 100%;
@@ -22,7 +21,7 @@ export const Label = styled.span`
   font-weight: bold;
   font-size: 36px;
   align-items: center;
-  color: ${color.white};
+  color: ${projectColors.headerLogoTitle};
   @media (max-width: ${breakPointsHeader.big}px) {
     display: none;
   }
