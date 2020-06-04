@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { color } from '../../../constants/colorMatrix';
 import fonts from '../../../constants/fonts';
+import { projectColors } from '../../../constants/styledConstants';
 
 export const Item = styled.a`
   display: flex;
@@ -12,12 +12,12 @@ export const Item = styled.a`
   font-size: 32px;
   line-height: 48px;
   text-align: center;
-  color: ${color.white};
+  color: ${projectColors.headerItemsColor};
   &:hover {
-  color: ${color.pomegranate};
+  color: ${projectColors.headerItemsMainColor};
   &:active {
-  color: ${color.pomegranate};
-  border-bottom: 3px solid ${color.pomegranate};
+  color: ${projectColors.headerItemsMainColor};
+  border-bottom: 3px solid ${projectColors.headerItemsMainColor};
   cursor: pointer;
   }
 `;

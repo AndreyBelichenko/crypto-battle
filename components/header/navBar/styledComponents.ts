@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import { color } from '../../../constants/colorMatrix';
-import { breakPointsHeader } from '../../../constants/styledConstants';
+import { breakPointsHeader, projectColors } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
 
 export const NavBarMenu = styled.div`
@@ -24,9 +23,9 @@ export const LinkItem = styled.a`
   line-height: 60px;
   text-align: center;
   margin: 0 45px;
-  color: ${(props) => (props.theme.active ? color.pomegranate : color.white)};
+  color: ${(props) => (props.theme.active ? projectColors.headerItemsMainColor : projectColors.headerItemsColor)};
   height: 60px;
-  border-bottom: 3px solid ${(props) => (props.theme.active ? color.pomegranate : 'transparent')};
+  border-bottom: 3px solid ${(props) => (props.theme.active ? projectColors.headerItemsMainColor : 'transparent')};
   transition: 0.2s;
   cursor: pointer;
 
@@ -38,7 +37,7 @@ export const LinkItem = styled.a`
     margin: 0 0 0 45px;
   }
 
-  @media (max-width: {breakPointsHeader.big}px) {
+  @media (max-width: ${breakPointsHeader.big}px) {
     font-size: 23px;
     margin: 0 20px;
 
@@ -52,7 +51,7 @@ export const LinkItem = styled.a`
   }
 
   &:hover {
-    color: ${color.pomegranate};
-    border-bottom: 3px solid ${color.pomegranate};
+    color: ${projectColors.headerItemsMainColor};
+    border-bottom: 3px solid ${projectColors.headerItemsMainColor};
   }
 `;

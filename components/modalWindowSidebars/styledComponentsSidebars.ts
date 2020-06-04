@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { Button } from 'semantic-ui-react';
 
-import { color } from '../../constants/colorMatrix';
 import fonts from '../../constants/fonts';
+import { projectColors } from '../../constants/styledConstants';
 
 export const Btn = styled(Button)`
-  background: ${color.pomegranate};
-  color: ${color.pomegranate};
+  background: ${projectColors.modalSidebarsMainColor};
+  color: ${projectColors.modalSidebarsMainColor};
   font-family: ${fonts.header};
   border: none;
   font-size: 18px !important;

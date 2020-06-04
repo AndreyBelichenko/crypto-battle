@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Modal, Dropdown, Icon, Container, Button } from 'semantic-ui-react';
 
-import { color } from '../../constants/colorMatrix';
 import fonts from '../../constants/fonts';
-import { breakPointsActiveCard } from '../../constants/styledConstants';
+import { breakPointsActiveCard, projectColors } from '../../constants/styledConstants';
 
 export const Btn = styled(Button)`
-  background: ${color.pomegranate};
-  color: ${color.pomegranate};
+  background: ${projectColors.modalCreateConnectMainColor};
+  color: ${projectColors.modalCreateConnectMainColor};
   font-family: ${fonts.header};
   border: none;
   font-size: 16px !important;
@@ -21,7 +20,7 @@ export const Btn = styled(Button)`
 export const StyleHeaderTitle = styled(Modal.Header)`
   font-size: 24px !important;
   font-weight: bold !important;
-  border-bottom: 2px solid ${color.pomegranate}!important;
+  border-bottom: 2px solid ${projectColors.modalCreateConnectMainColor}!important;
   margin: 0 10% !important;
 `;
 
@@ -35,18 +34,18 @@ export const StyledHeaderHp = styled(Modal.Header)`
 `;
 
 export const StyledFooterModal = styled(Modal.Content)({
-  border: `1px solid ${color.pomegranate}!important`,
+  border: `1px solid ${projectColors.modalCreateConnectMainColor}!important`,
 });
 
 export const StyledDropDown = styled(Dropdown)`
-  border: 1px solid ${color.pomegranate}!important;
+  border: 1px solid ${projectColors.modalCreateConnectMainColor}!important;
 
   & > div div {
-    border-bottom: 1px solid ${color.pomegranate}!important;
+    border-bottom: 1px solid ${projectColors.modalCreateConnectMainColor}!important;
   }
 
   & .menu {
-    border: 1px solid ${color.pomegranate}!important;
+    border: 1px solid ${projectColors.modalCreateConnectMainColor}!important;
   }
 `;
 

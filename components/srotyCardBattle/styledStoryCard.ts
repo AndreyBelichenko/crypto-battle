@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { projectColors, breakPointsActiveCard } from '../../constants/styledConstants';
+import { breakPointsActiveCard, projectColors } from '../../constants/styledConstants';
 
 interface CryptoCardMainProps {
   mainColor: string;
@@ -17,14 +17,12 @@ export const ParentDiv = styled.div`
 `;
 
 export const MainDiv = styled.div`
+  position: relative;
   width: 100%;
   height: 148px;
   background: white;
   display: flex;
   border-radius: 5px;
-  border: 1px solid ${projectColors.battleBorderColor};
-  -webkit-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
   box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
   margin-bottom: 30px;
   padding: 15px 5px;
@@ -88,24 +86,29 @@ export const CryptoCardHp = styled.div`
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     width: 65px;
+    margin-top: 5px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    margin-top: 5px;
     width: 40px;
   }
 `;
 
 export const UserPhoto = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   margin-bottom: 5px;
+  margin-top: 15px;
   @media (max-width: ${breakPointsActiveCard.big}px) {
     width: 45px;
     height: 45px;
+    margin-top: 10px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     width: 50px;
     height: 50px;
+    margin-top: 5px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     width: 35px;
@@ -114,13 +117,8 @@ export const UserPhoto = styled.img`
 `;
 
 export const AvardsImage = styled.img`
-  width: 85px;
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    width: 50px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    width: 40px;
-  }
+  width: 100%;
+  max-width: 85px;
 `;
 
 export const ProgressText = styled.div`
@@ -190,6 +188,37 @@ export const CryptoCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 30%;
+`;
+
+export const BattleFinished = styled.div`
+  min-width: 100px;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 2;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  text-shadow: -0.3px -0.3px 0 black, 0.3px -0.3px 0 black, -0.3px 0.3px 0 black, 0.3px 0.3px 0 black;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    font-size: 15px;
+    text-shadow: none;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    font-size: 18px;
+    text-shadow: -0.3px -0.3px 0 black, 0.3px -0.3px 0 black, -0.3px 0.3px 0 black, 0.3px 0.3px 0 black;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    font-size: 12px;
+    text-shadow: none;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    width: 35px;
+    right: -13px;
+  }
 `;
 
 export const UserBlock = styled.div`

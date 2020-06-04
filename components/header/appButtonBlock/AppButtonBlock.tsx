@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Cookies from 'js-cookie';
+import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
@@ -17,12 +18,16 @@ const AppButtonBlock: React.FC = () => {
     dispatch(actions.logOutStore(userData.access_token, userData.id));
   };
 
+  const handleRoute = () => {
+    Router.push('/account');
+  };
+
   return (
     <AppButtonBlockWrapper>
       <HideButtons>
         <ModalWindow role="create" />
       </HideButtons>
-      <Button circular icon="user outline" color="black" className="btnSize"/>
+      <Button circular icon="user outline" color="black" className="btnSize" onClick={handleRoute}/>
   <HideButtons>
     <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
   </HideButtons>
