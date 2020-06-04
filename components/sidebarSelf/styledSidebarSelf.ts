@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { List, Divider, Header } from 'semantic-ui-react';
 
-import { colorSidebar, breakPointsActiveCard } from '../../constants/styledConstants';
+import { breakPointsActiveCard, projectColors } from '../../constants/styledConstants';
 
 type SideBarWrapperProps = {
   needHeight: boolean;
@@ -28,7 +28,7 @@ export const SideBarWrapper = styled.div<SideBarWrapperProps>`
 export const HeaderWrapper = styled.div`
   width: 100%;
   position: relative;
-  border-bottom: 3px solid ${colorSidebar.underlineTitle};
+  border-bottom: 3px solid ${projectColors.underlineTitle};
 `;
 
 export const ImageBlock = styled.div`
@@ -53,7 +53,7 @@ export const ImageCountBlock = styled.p`
   height: 26px;
   border-radius: 4px;
   font-size: 16px;
-  background: ${colorSidebar.underlineTitle};
+  background: ${projectColors.underlineTitle};
   text-align: center;
   color: white;
   font-weight: bold;

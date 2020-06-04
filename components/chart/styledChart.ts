@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { color } from '../../constants/colorMatrix';
+import { projectColors } from '../../constants/styledConstants';
 
 export const ChartWrapper = styled.div`
-  background: ${color.black};
+  background: ${projectColors.chartWrapperColor};
   opacity: 0.85;
   width: 100%;
   height: 100%;

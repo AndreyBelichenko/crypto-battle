@@ -1,5 +1,7 @@
 import * as React from 'react';
 
-const Story: React.FC = () => <div>story</div>;
+import StoryPage from '../components/storyPage/StoryPage';
+
+const Story: React.FC = () => <StoryPage />;
 
 export default Story;

@@ -99,7 +99,7 @@ export const requestSendImage = (token: string, blob: any) => {
     body: formData,
   })
     .then((res) => res.json())
-    .then((data) => data)
+    .then((data) => data);
 };
 
 interface IDataProps {
