@@ -203,7 +203,7 @@ export const modalDataCrypto = [
   },
 ];
 
-export const LogInModalWindow = [
+export const LoginModalWindow = [
   {
     idItem: 'logIn',
     resourcesKey: 'logIn',
