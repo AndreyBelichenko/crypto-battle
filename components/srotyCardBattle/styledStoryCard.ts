@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { battleColor, breakPointsActiveCard } from '../../constants/styledConstants';
+import { breakPointsActiveCard, projectColors } from '../../constants/styledConstants';
 
 interface CryptoCardMainProps {
   mainColor: string;
@@ -129,8 +129,8 @@ export const ProgressText = styled.div`
   z-index: 2;
   text-align: center;
   font-weight: bold;
-  -webkit-text-stroke: 0.5px ${battleColor.processBorderTextColor};
-  color: ${battleColor.processTextColor};
+  -webkit-text-stroke: 0.5px ${projectColors.processBorderTextColor};
+  color: ${projectColors.processTextColor};
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 10px;

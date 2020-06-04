@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import fonts from '../../../constants/fonts';
-import { breakPointsActiveCard, cryptoColors } from '../../../constants/styledConstants';
+import { breakPointsActiveCard, cryptoColors, projectColors } from '../../../constants/styledConstants';
 
 const textBorderColor = (props: any) => (props.colorBorder ? props.colorBorder : cryptoColors.borderTextBlack);
 
@@ -123,7 +123,7 @@ export const ImageSword = styled.img`
 export const GamerBlockRight = styled.div<GamerBlockLeftProps>`
   position: absolute;
   border-style: solid;
-  border-color: ${(props) => (props.statusPlayer ? 'green' : 'red')};
+  border-color: ${(props) => (props.statusPlayer ? projectColors.winnerColor : projectColors.loserColor)};
   border-width: 2px 2px 2px 0;
   border-radius: 0 5px 5px 0;
   display: flex;

@@ -27,9 +27,9 @@ import {
 
 const LeftBlock: React.FC<any> = (props: any) => {
   const info = props.data.firstPlayer;
-  const lastElementArray = props.data.steps.length - 2;
+  const penultElementArray = props.data.steps.length - 2;
   const actualHealth =
-    props.data.steps.length > 1 ? props.data.steps[lastElementArray][info.cryptoName] : props.data.healthPoints;
+    props.data.steps.length > 1 ? props.data.steps[penultElementArray][info.cryptoName] : props.data.healthPoints;
   const statusPlayer = info.playerID === props.data.winner.playerID;
   const swordShow = statusPlayer ? '/static/greenSword.svg' : '/static/redSword.svg';
   return (
