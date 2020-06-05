@@ -6,46 +6,39 @@ import { breakPointsActiveCard, projectColors } from '../../../constants/styledC
 export const BattleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 40%;
+  position: relative;
 `;
 
 export const KnifesBlock = styled.div`
-  width: 50px;
-  height: 50px;
-  margin-top: -25px;
-  position: relative;
+  width: 25px;
+  height: 25px;
+  top: 65px;
+  position: absolute;
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 30px;
-    width: 30px;
-    margin-top: -15px;
+    top: 30px;
   }
 
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
+    top: 30px;
   }
 
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 40px;
-    width: 40px;
-    margin-top: -20px;
+    top: 30px;
   }
 
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 30px;
-    width: 30px;
-    margin-top: -15px;
+    top: 25px;
   }
 `;
 
 export const BattleDescriptionBlock = styled.div`
   width: 95%;
-  height: 80%;
-  margin-bottom: 20px;
+  height: 75%;
+  margin-bottom: 5px;
   border: 1px solid ${projectColors.battleBorderColor};
   box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
   min-width: 100px;
@@ -69,4 +62,74 @@ export const KnifeTwo = styled(Image)`
   top: 0;
   left: 0;
   transform: scale(-1, 1);
+`;
+
+export const BattleInfo = styled.div`
+  height: 15%;
+  width: 95%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border: 1px solid ${projectColors.battleBorderColor};
+  box-shadow: 0 1px 5px 0 rgba(240, 80, 22, 0.75);
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+export const BattleInfoText = styled.div`
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: 5px;
+  right: 55%;
+
+  @media (min-width: ${breakPointsActiveCard.big}px) {
+    font-size: 16px;
+    right: 50%;
+  }
+`;
+
+export const BattleInfoBet = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  min-width: 47px;
+  margin: auto 20% auto auto;
+  @media (min-width: ${breakPointsActiveCard.big}px) {
+    width: 70px;
+  }
+`;
+
+export const BetMount = styled.div`
+  font-weight: bold;
+  font-size: 13px;
+  margin-right: 3px;
+  @media (min-width: ${breakPointsActiveCard.big}px) {
+    font-size: 18px;
+  }
+`;
+
+export const BetCrypto = styled.div`
+  font-size: 10px;
+  margin-right: 3px;
+  @media (min-width: ${breakPointsActiveCard.big}px) {
+    font-size: 15px;
+  }
+`;
+
+export const BetCryptoLogo = styled.div`
+  height: 50%;
+  @media (min-width: ${breakPointsActiveCard.big}px) {
+    height: 80%;
+  }
+`;
+
+export const BattleInfoShare = styled.div`
+  position: absolute;
+  height: 50%;
+  right: 5px;
 `;

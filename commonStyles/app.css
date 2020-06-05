@@ -46,6 +46,10 @@
     right: -10px!important;
 }
 
+.ui.progress:last-child {
+    margin: 0!important;
+}
+
 @media screen and (max-width: 500px) {
     .sidebar{
         width: 70% !important;

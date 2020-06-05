@@ -1,28 +1,31 @@
 import * as React from 'react';
-import { Progress, Image } from 'semantic-ui-react';
+import { Image, Progress } from 'semantic-ui-react';
 
-import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
-
+import {
+  PlayerHp,
+  AvatarBlock,
+  AwardsBlock,
+  UserName,
+  CryptoCardMain,
+  CryptoCardPerson,
+  ImageCardLogoLeft,
+  ImageCardPerson,
+  CryptoCardName,
+  ChartBlock,
+} from './styledRightGamer';
 import {
   GamerBlock,
-  GamerBlockOne,
-  GamerBlockTwo,
+  PlayerBlock,
+  PlayerInfo,
   UserBlock,
-  UserName,
-  AwardsBlock,
-  ProgressText,
-  ImageAwards,
+  CryptoBlock,
   UserNameWrapper,
-  UserPhoto,
+  CryptoCardLogo,
+  CryptoCardHp,
+  ProgressText,
 } from '../styledActiveBattle';
-import { ChartTrigger } from './styledRightGamer';
-import { CryptoCard, CryptoCardMain, CryptoCardLogo, CryptoCardHp } from '../../card/styledComponent';
-import {
-  ImageCardPerson,
-  CryptoCardPerson,
-  CryptoCardName,
-  ImageCardLogoRight,
-} from '../../card/rightBlock/rightStyledComponent';
+import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
+import Chart from '../../chart/chart';
 
 const RightGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
@@ -31,56 +34,45 @@ const RightGamer: React.FC<any> = (props: any) => {
     props.cardData.steps.length > 1
       ? props.cardData.steps[lastElementArray][info.cryptoName]
       : props.cardData.healthPoints;
-
-  const handleOpenChart = () => {
-    if (props.chart.side === 'right' && props.chart.index === props.index) {
-      props.setIsChart(false);
-    } else {
-      props.setIsChart({
-        index: props.index,
-        cryptoName: info.cryptoName,
-        side: 'right',
-      });
-    }
-  };
   return (
     <GamerBlock>
-      <GamerBlockOne>
-        <CryptoCard>
-          <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
-            <CryptoCardLogo>
-              <ImageCardLogoRight src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
-            </CryptoCardLogo>
-            <CryptoCardPerson>
-              <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
-            </CryptoCardPerson>
-            <CryptoCardName colorBorder={returnCorrectCryptoData(info.cryptoName, 'borderText')}>
-              {info.cryptoName}
-            </CryptoCardName>
-          </CryptoCardMain>
+      <PlayerBlock>
+        <PlayerInfo>
+          <CryptoBlock>
+            <CryptoCardMain mainColor={returnCorrectCryptoData(info.cryptoName, 'mainColor')}>
+              <CryptoCardLogo>
+                <ImageCardLogoLeft src={returnCorrectCryptoData(info.cryptoName, 'logo')} />
+              </CryptoCardLogo>
+              <CryptoCardPerson>
+                <ImageCardPerson src={returnCorrectCryptoData(info.cryptoName, 'person')} />
+              </CryptoCardPerson>
+              <CryptoCardName colorBorder={returnCorrectCryptoData(info.cryptoName, 'borderText')}>
+                {info.cryptoName}
+              </CryptoCardName>
+            </CryptoCardMain>
+          </CryptoBlock>
+          <UserBlock>
+            <AwardsBlock>
+              <Image src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+            </AwardsBlock>
+            <AvatarBlock>
+              <Image src={info.userInfo.avatar} />
+            </AvatarBlock>
+            <UserNameWrapper>
+              <UserName>{info.userInfo.alias}</UserName>
+            </UserNameWrapper>
+          </UserBlock>
+        </PlayerInfo>
+        <PlayerHp>
           <CryptoCardHp>
-            <ProgressText>{actualHealth}hp</ProgressText>
-            <Progress
-              percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)}
-              color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
-            />
+            <ProgressText>{actualHealth} HP</ProgressText>
+            <Progress percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)} color={'red'} />
           </CryptoCardHp>
-        </CryptoCard>
-        <AwardsBlock>
-          <ImageAwards src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
-        </AwardsBlock>
-      </GamerBlockOne>
-      <GamerBlockTwo>
-        <UserBlock>
-          <UserPhoto src={info.userInfo.avatar} />
-          <UserNameWrapper>
-            <UserName>{info.userInfo.alias}</UserName>
-          </UserNameWrapper>
-        </UserBlock>
-        <ChartTrigger>
-          <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />
-        </ChartTrigger>
-      </GamerBlockTwo>
+        </PlayerHp>
+      </PlayerBlock>
+      <ChartBlock>
+        <Chart crypto={returnCorrectCryptoData(info.cryptoName, 'cryptoCode')} />
+      </ChartBlock>
     </GamerBlock>
   );
 };

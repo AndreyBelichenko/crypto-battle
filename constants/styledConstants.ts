@@ -37,6 +37,8 @@ export const projectColors = {
   headerLogoTitle: color.white,
   modalCreateConnectMainColor: color.pomegranate,
   modalSidebarsMainColor: color.pomegranate,
+  btnNameBorder: color.grey,
+  defaultBorderColor: color.red,
 };
 
 export const breakPoints = {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { sortArray } from '../../utils/helpers';
 import ActiveBattleCard from '../activeBattleCard/activeBattleCard';
 import { AppState } from '../../store/rootReducer';
+import Chart from '../chart/chart';
 
 const Battle: React.FC<any> = ({ allBattle, userData }) => {
   const [chart, setIsChart] = React.useState(false);
@@ -15,6 +16,9 @@ const Battle: React.FC<any> = ({ allBattle, userData }) => {
         filterArray.map((item: any, index: number) => (
           <ActiveBattleCard card={item} key={item._id} setIsChart={setIsChart} chart={chart} index={index} />
         ))}
+      {/*<div style={{ height: '400px' }}>*/}
+      {/*  <Chart crypto={'BITFINEX:BTCUSD'} />*/}
+      {/*</div>*/}
     </div>
   );
 };
