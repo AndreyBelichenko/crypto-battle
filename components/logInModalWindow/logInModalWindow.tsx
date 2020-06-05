@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import GoogleLogin from 'react-google-login';
-import { Modal, Container, Button } from 'semantic-ui-react';
+import { Modal, Button } from 'semantic-ui-react';
 // @ts-ignore
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { useDispatch } from 'react-redux';
 
-// import { LoginModalWindow } from '../../constants/itemConstants';
+import { logInLinkItems } from '../../constants/itemConstants';
 import { setAuthStoreUserData } from '../../store/redux/actionCreators/actionCreators';
 
-import { Btn, StyleHeaderTitle, StyledCloseButton } from './styledComponent';
+import { Btn, StyleHeaderTitle, StyledCloseButton, ButtonBlock, LinkBlock, LinkItem, ButtonSpan, TitleBlock } from './styledComponent';
 
 interface ModalProps {
   role: string;
@@ -17,7 +17,7 @@ interface ModalProps {
 const LogInModalWindow = (props: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const isLogIn = props.role === 'logIn';
-  const buttonName = isLogIn ? 'Авторизироваться' : null;
+  const buttonName = isLogIn ? 'Авторизоваться' : null;
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -38,11 +38,12 @@ const LogInModalWindow = (props: ModalProps) => {
   return(
     <div>
     <Btn className="ui orange button" onClick={toggleModal}>Log In</Btn>
-    <Modal open={isOpen} onClose={toggleModal}>
+    <Modal open={isOpen} onClose={toggleModal} className="customModalWindow border">
       <StyleHeaderTitle>
-        <Container>{buttonName}</Container>
-        <StyledCloseButton name="close" align="right" onClick={toggleModal} />
+        <TitleBlock>{buttonName}</TitleBlock>
+        <StyledCloseButton name="close" align="right" onClick={toggleModal} size="small" />
       </StyleHeaderTitle>
+      <ButtonBlock>
       <FacebookLogin
         autoLoad={false}
         appId="2848509168579400"
@@ -53,14 +54,15 @@ const LogInModalWindow = (props: ModalProps) => {
           onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
         }) => (
           <Button
+            className="ui facebook button size"
             onClick={renderProps.onClick}
-            color="facebook"
-            icon="facebook"
-            size="large"
-            className="btnSize"
-          />
+            color="facebook">
+            <i className="facebook icon"></i>
+            Facebook
+          </Button>
         )}
       />
+      <ButtonSpan>or</ButtonSpan>
       <GoogleLogin
         clientId="411912187634-09e2pudtp337atlucsnlfaeb13ie4ntj.apps.googleusercontent.com"
         buttonText=""
@@ -73,13 +75,20 @@ const LogInModalWindow = (props: ModalProps) => {
           <Button
             onClick={renderProps.onClick}
             color="google plus"
-            icon="google"
-            size="large"
-            className="btnSize"
-          />
+            className="ui google plus button size" >
+            <i className="google plus icon"></i>
+            Google
+          </Button>
         )}
         onAutoLoadFinished={() => {}}
       />
+      </ButtonBlock>
+      <LinkBlock>
+        <span>Используя этот Сервис, вы соглашаетесь c</span>
+        {logInLinkItems.map((item) => (
+          <LinkItem key={item.idItem}>{item.name}</LinkItem>
+        ))}
+      </LinkBlock>
     </Modal>
     </div>
   );

@@ -210,3 +210,21 @@ export const LoginModalWindow = [
     name: 'Log In',
   },
 ];
+
+export const logInLinkItems = [
+  {
+    idItem: 'userAgreement',
+    resourcesKey: 'userAgreement',
+    name: 'Пользовательским соглашением,',
+  },
+  {
+    idItem: 'privacyPolicy',
+    resourcesKey: 'privacyPolicy',
+    name: 'Политикой конфиденциальности,',
+  },
+  {
+    idItem: 'cookiePolicy',
+    resourcesKey: 'cookiePolicy',
+    name: 'Политикой использования файлов cookie',
+  },
+];
