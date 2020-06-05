@@ -11,6 +11,7 @@ import '../components/modalWindowSidebars/modalWindowSidebars.css';
 import '../components/header/appButtonBlock/appButtonBlock.css';
 import '../components/header/authBlock/authBlock.css';
 import '../commonStyles/app.css';
+import '../components/logInModalWindow/LogInModalWindow.css';
 
 import storeConfiguration from '../store/storeConfiguration';
 
