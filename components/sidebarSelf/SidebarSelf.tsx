@@ -20,6 +20,7 @@ import {
   HeaderCustomize,
   ListContentCustomize,
   ListHeader,
+  ImageAvatar,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
@@ -50,17 +51,17 @@ const SidebarSelf = (props: SidebarProps) => {
   const dataToShow = props.data.map((item: any) =>
     isCrypto
       ? {
-        id: item._id,
-        alias: item.cryptoName,
-        numberOfVictories: item.numberOfVictories,
-        avatar: getImageOfCrypto(item.cryptoName),
-      }
+          id: item._id,
+          alias: item.cryptoName,
+          numberOfVictories: item.numberOfVictories,
+          avatar: getImageOfCrypto(item.cryptoName),
+        }
       : {
-        id: item._id,
-        alias: item.alias,
-        numberOfVictories: item.numberOfVictories,
-        avatar: item.avatar,
-      },
+          id: item._id,
+          alias: item.alias,
+          numberOfVictories: item.numberOfVictories,
+          avatar: item.avatar,
+        }
   );
 
   return (
@@ -78,9 +79,9 @@ const SidebarSelf = (props: SidebarProps) => {
           <ListCustomize divided relaxed>
             {dataToShow.map((item: any, index: number) => (
               <ItemList key={index}>
-                <ImageBlock>
-                  <Image src={item.avatar} verticalAlign="middle" />
-                </ImageBlock>
+                {/*<ImageBlock>*/}
+                <ImageAvatar src={item.avatar} />
+                {/*</ImageBlock>*/}
                 <ListContentCustomize>
                   <ListHeader>{item.alias}</ListHeader>
                   <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>
@@ -109,7 +110,7 @@ const SidebarSelf = (props: SidebarProps) => {
               <List>
                 <ItemList>
                   <ImageBlock>
-                    <Image src={userData.avatar} verticalAlign="middle" />
+                    <ImageAvatar src={userData.avatar} />
                   </ImageBlock>
                   <ListContentCustomize>
                     <ListHeader>{userData.name}</ListHeader>

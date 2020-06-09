@@ -10,6 +10,10 @@ export const BattleWrapper = styled.div`
   align-items: center;
   width: 40%;
   position: relative;
+
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    width: 100%;
+  }
 `;
 
 export const KnifesBlock = styled.div`
@@ -45,8 +49,12 @@ export const BattleDescriptionBlock = styled.div`
   overflow: scroll;
   border-radius: 4px;
   padding: 5px;
+
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    width: 98%;
+  }
+
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 83%;
     margin-bottom: 10px;
   }
 `;
@@ -75,10 +83,13 @@ export const BattleInfo = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    width: 98%;
+  }
 `;
 
 export const BattleInfoText = styled.div`
-  font-size: 12px;
+  font-size: 16px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -86,9 +97,8 @@ export const BattleInfoText = styled.div`
   left: 5px;
   right: 55%;
 
-  @media (min-width: ${breakPointsActiveCard.big}px) {
-    font-size: 16px;
-    right: 50%;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 13px;
   }
 `;
 
@@ -99,6 +109,9 @@ export const BattleInfoBet = styled.div`
   width: 30%;
   min-width: 47px;
   margin: auto 20% auto auto;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    justify-content: center;
+  }
   @media (min-width: ${breakPointsActiveCard.big}px) {
     width: 70px;
   }
@@ -106,18 +119,18 @@ export const BattleInfoBet = styled.div`
 
 export const BetMount = styled.div`
   font-weight: bold;
-  font-size: 13px;
+  font-size: 18px;
   margin-right: 3px;
-  @media (min-width: ${breakPointsActiveCard.big}px) {
-    font-size: 18px;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 15px;
   }
 `;
 
 export const BetCrypto = styled.div`
-  font-size: 10px;
+  font-size: 15px;
   margin-right: 3px;
-  @media (min-width: ${breakPointsActiveCard.big}px) {
-    font-size: 15px;
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 12px;
   }
 `;
 

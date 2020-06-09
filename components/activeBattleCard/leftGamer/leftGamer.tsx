@@ -17,6 +17,7 @@ import {
   ImageCardPerson,
   CryptoCardName,
   ChartBlock,
+  ImageAvatar,
 } from './styledLeftGamer';
 import {
   GamerBlock,
@@ -26,6 +27,7 @@ import {
   CryptoCardLogo,
   CryptoCardHp,
   ProgressText,
+  UserBlockAdapt,
 } from '../styledActiveBattle';
 
 const LeftGamer: React.FC<any> = (props: any) => {
@@ -44,7 +46,7 @@ const LeftGamer: React.FC<any> = (props: any) => {
               <Image src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
             </AwardsBlock>
             <AvatarBlock>
-              <Image src={info.userInfo.avatar} style={{ maxWidth: '100%', height: 'auto' }} />
+              <ImageAvatar src={info.userInfo.avatar} />
             </AvatarBlock>
             <UserNameWrapper>
               <UserName>{info.userInfo.alias}</UserName>
@@ -71,6 +73,14 @@ const LeftGamer: React.FC<any> = (props: any) => {
           </CryptoCardHp>
         </PlayerHp>
       </PlayerBlock>
+      <UserBlockAdapt>
+        <AvatarBlock>
+          <ImageAvatar src={info.userInfo.avatar} />
+        </AvatarBlock>
+        <UserNameWrapper>
+          <UserName>{info.userInfo.alias}</UserName>
+        </UserNameWrapper>
+      </UserBlockAdapt>
       <ChartBlock>
         <Chart crypto={returnCorrectCryptoData(info.cryptoName, 'cryptoCode')} />
       </ChartBlock>

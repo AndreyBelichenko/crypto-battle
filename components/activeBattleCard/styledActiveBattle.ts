@@ -7,14 +7,26 @@ export const ParentDiv = styled.div`
   height: 350px;
   padding: 35px 0 0 10px;
 
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 450px;
+  }
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 220px;
+    //height: 220px;
+    // height: 370px;
+    height: 350px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 230px;
+    //height: 230px;
+    //height: 390px;
+    height: 370px;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    //height: 180px;
+    height: 400px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 180px;
+    //height: 180px;
+    height: 310px;
   }
 `;
 
@@ -23,10 +35,23 @@ export const MainDiv = styled.div`
   height: 100%;
   background: white;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   border-radius: 5px;
   border: 1px solid ${projectColors.battleBorderColor};
   box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
+`;
+
+export const MainDivContent = styled.div`
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 50%;
+  }
 `;
 
 export const BattleBlock = styled.div`
@@ -44,11 +69,19 @@ export const GamerBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    width: auto;
+    padding: 0 10px;
+  }
 `;
 
 export const PlayerBlock = styled.div`
   width: 100%;
   height: 35%;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 50%;
+  }
 `;
 
 export const PlayerInfo = styled.div`
@@ -66,6 +99,10 @@ export const UserBlock = styled.div`
   justify-content: center;
   position: relative;
 
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    display: none;
+  }
+
   @media (max-width: ${breakPointsActiveCard.big}px) {
     max-width: 110px;
   }
@@ -74,6 +111,22 @@ export const UserBlock = styled.div`
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     max-width: 70px;
+  }
+`;
+
+export const UserBlockAdapt = styled.div`
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 60%;
+  padding: 5px 5px 5px 10px;
+
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    display: flex;
+    padding: 5px 5px 0 10px;
   }
 `;
 
@@ -126,4 +179,22 @@ export const ProgressText = styled.div`
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     margin-top: -2px;
   }
+`;
+
+export const DownChartsBlock = styled.div`
+  padding: 5px;
+  display: none;
+  height: 50%;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const ChartDownBlock = styled.div`
+  height: 100%;
+  width: 50%;
+  margin-left: 2px;
+  border: 1px solid #727272;
+  box-sizing: border-box;
 `;

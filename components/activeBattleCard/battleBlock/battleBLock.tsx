@@ -14,7 +14,7 @@ import {
   BetCrypto,
   BetCryptoLogo,
   BattleInfoShare,
-  CryptoLogoImage,
+  // CryptoLogoImage,
 } from './styledActiveBattle';
 
 const BattleBlock: React.FC<any> = (props: any) => {

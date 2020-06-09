@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Image, Progress } from 'semantic-ui-react';
 
+import Chart from '../../chart/chart';
+import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
+
 import {
   PlayerHp,
   AvatarBlock,
@@ -12,6 +15,7 @@ import {
   ImageCardPerson,
   CryptoCardName,
   ChartBlock,
+  ImageAvatar,
 } from './styledRightGamer';
 import {
   GamerBlock,
@@ -23,9 +27,8 @@ import {
   CryptoCardLogo,
   CryptoCardHp,
   ProgressText,
+  UserBlockAdapt,
 } from '../styledActiveBattle';
-import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
-import Chart from '../../chart/chart';
 
 const RightGamer: React.FC<any> = (props: any) => {
   const lastElementArray = props.cardData.steps.length - 1;
@@ -56,7 +59,7 @@ const RightGamer: React.FC<any> = (props: any) => {
               <Image src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
             </AwardsBlock>
             <AvatarBlock>
-              <Image src={info.userInfo.avatar} />
+              <ImageAvatar src={info.userInfo.avatar} />
             </AvatarBlock>
             <UserNameWrapper>
               <UserName>{info.userInfo.alias}</UserName>
@@ -70,6 +73,14 @@ const RightGamer: React.FC<any> = (props: any) => {
           </CryptoCardHp>
         </PlayerHp>
       </PlayerBlock>
+      <UserBlockAdapt>
+        <AvatarBlock>
+          <ImageAvatar src={info.userInfo.avatar} />
+        </AvatarBlock>
+        <UserNameWrapper>
+          <UserName>{info.userInfo.alias}</UserName>
+        </UserNameWrapper>
+      </UserBlockAdapt>
       <ChartBlock>
         <Chart crypto={returnCorrectCryptoData(info.cryptoName, 'cryptoCode')} />
       </ChartBlock>
