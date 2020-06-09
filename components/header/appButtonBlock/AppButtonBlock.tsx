@@ -8,7 +8,7 @@ import ModalWindow from '../../modalWindow/modalWindow';
 import * as actions from '../../../store/redux/actionCreators/actionCreators';
 import { AppState } from '../../../store/rootReducer';
 
-import { AppButtonBlockWrapper, HideButtons } from './styledComponents';
+import { AppButtonBlockWrapper, HideButtons, Avatar } from './styledComponents';
 
 const AppButtonBlock: React.FC = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,9 @@ const AppButtonBlock: React.FC = () => {
       <HideButtons>
         <ModalWindow role="create" />
       </HideButtons>
-      <Button circular icon="user outline" color="black" className="btnSize" onClick={handleRoute}/>
+      <div className="btnSize"  >
+        <Avatar src={userData.avatar}  onClick={handleRoute}/>
+      </div>
   <HideButtons>
     <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
   </HideButtons>
