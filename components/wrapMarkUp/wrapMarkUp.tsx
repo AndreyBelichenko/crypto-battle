@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { Grid, Sidebar, Menu, Image } from 'semantic-ui-react';
 import { SemanticToastContainer } from 'react-semantic-toasts';
+import { useRouter } from 'next/router';
 
 import Header from '../header/Header';
 import Banner from '../banner/Banner';
@@ -47,6 +48,7 @@ const WrapMarkUp: React.FC<any> = ({
   logOutStore,
 }) => {
   const [visible, setVisible] = React.useState(false);
+  const router = useRouter();
   const setVisibleSideBar = React.useCallback(() => {
     setVisible(false);
   }, []);
@@ -147,7 +149,6 @@ const WrapMarkUp: React.FC<any> = ({
         );
     }
   };
-
   return (
     <AppWrapper>
       {userData.isLoading && (
@@ -181,27 +182,31 @@ const WrapMarkUp: React.FC<any> = ({
           <Sidebar.Pusher>
             <Banner />
             <Grid stackable columns="equal">
-              <Grid.Column tablet={6} computer={4} only="tablet computer" className="customColumnSidebars">
-                <SidebarSelf
-                  role="warriors"
-                  data={topWarriors.users}
-                  height={false}
-                  hasMore={topWarriors.hasMore}
-                  load={topWarriors.load}
-                />
-              </Grid.Column>
+              {router.pathname !== '/active-battle' && (
+                <Grid.Column tablet={6} computer={4} only="tablet computer" className="customColumnSidebars">
+                  <SidebarSelf
+                    role="warriors"
+                    data={topWarriors.users}
+                    height={false}
+                    hasMore={topWarriors.hasMore}
+                    load={topWarriors.load}
+                  />
+                </Grid.Column>
+              )}
               <Grid.Column>
                 <MainContent>{children}</MainContent>
               </Grid.Column>
-              <Grid.Column width={4} only="computer">
-                <SidebarSelf
-                  role="crypto"
-                  data={topCrypto.crypto}
-                  height={false}
-                  hasMore={topCrypto.hasMore}
-                  load={topCrypto.load}
-                />
-              </Grid.Column>
+              {router.pathname !== '/active-battle' && (
+                <Grid.Column width={4} only="computer">
+                  <SidebarSelf
+                    role="crypto"
+                    data={topCrypto.crypto}
+                    height={false}
+                    hasMore={topCrypto.hasMore}
+                    load={topCrypto.load}
+                  />
+                </Grid.Column>
+              )}
             </Grid>
             <ToastWrapper>
               <SemanticToastContainer position={'bottom-left'} />;

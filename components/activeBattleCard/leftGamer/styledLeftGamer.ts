@@ -22,38 +22,15 @@ export const PlayerHp = styled.div`
   }
 `;
 
-export const CryptoBlock = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-`;
-
 export const AvatarBlock = styled.div`
   height: 60px;
   width: 60px;
-  margin: 5px 0 0 20%;
+  margin-top: 5px;
   border-radius: 50%;
   overflow: hidden;
-
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
-    margin: 5px 0 0 0;
-    height: 50px;
-    width: 50px;
-  }
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 45px;
-    width: 45px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    margin: 5px 0 0 0;
-    height: 50px;
-    width: 50px;
-  }
-
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    margin: 5px 0 0 0;
-    height: 55px;
-    width: 55px;
+    height: 40px;
+    width: 40px;
   }
 `;
 
@@ -63,22 +40,16 @@ export const ImageAvatar = styled.img`
 `;
 
 export const AwardsBlock = styled.div`
-  width: 30%;
-  min-width: 30px;
-  max-width: 40px;
+  width: 15%;
+  min-width: 80px;
   position: absolute;
   top: 2px;
   left: 2px;
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    min-width: 15px;
+    min-width: 50px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    min-width: 20px;
-    max-width: 28px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    top: 6px;
-    min-width: 20px;
+    display: none;
   }
 `;
 
@@ -92,23 +63,9 @@ export const UserName = styled.p`
   right: 0;
   font-weight: bold;
   font-size: 16px;
-  margin-left: 15%;
 
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
-    margin-left: 0;
-  }
-
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    font-weight: bold;
-    font-size: 12px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    font-weight: bold;
-    font-size: 12px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    font-weight: bold;
-    font-size: 8px;
+    font-size: 11px;
   }
 `;
 
@@ -116,110 +73,111 @@ export const UserNameWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 20px;
+`;
 
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    display: none;
+export const CryptoBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 70%;
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    height: 65%;
+  }
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 50%;
   }
 `;
 
 export const CryptoCardMain = styled.div<CryptoCardMainProps>`
-  height: 105%;
-  width: 80%;
-  min-width: 85px;
+  height: 100%;
+  width: 50%;
+  min-width: 220px;
   position: relative;
   background: white;
   border: 1px solid ${(props: any) => (props.mainColor ? props.mainColor : projectColors.defaultBorderColor)};
   padding: 5px;
   border-radius: 4px;
-  margin-top: -10px;
-
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    min-width: 55px;
-    max-width: 70px;
-  }
+  margin-bottom: 10px;
 
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    min-width: 60px;
-    max-width: 70px;
+    min-width: 200px;
+    height: 80%;
   }
 
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    min-width: 60px;
-    max-width: 70px;
+    width: 90%;
+    height: 70%;
+    min-width: 110px;
+    max-width: 150px;
+    margin-top: 5px;
   }
 
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    min-width: 45px;
-    max-width: 70px;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 65%;
+    width: 50%;
+    min-width: 50px;
   }
 `;
 
 export const CryptoCardPerson = styled.div`
   height: 85%;
+  max-width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
-
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    max-height: 55px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    max-height: 35px;
-  }
 `;
 
 export const ImageCardPerson = styled.img`
   height: 100%;
+  text-align: left;
+  max-width: 100%;
+
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    width: 70%;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    height: 100%;
+    width: 70%;
+  }
 `;
 
 export const ImageCardLogoLeft = styled.img`
-  height: 40px;
-  width: 40px;
+  height: 90px;
+  width: 90px;
   position: absolute;
   right: 0;
-  top: -4px;
+  top: 0;
 
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    height: 35px;
-    width: 35px;
-  }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
-    height: 40px;
-    width: 40px;
+    height: 80px;
+    width: 80px;
   }
   @media (max-width: ${breakPointsActiveCard.small}px) {
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
   }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    height: 23px;
-    width: 23px;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    height: 20px;
+    width: 20px;
   }
 `;
 
 export const CryptoCardName = styled.div<CryptoCardNameProps>`
   position: absolute;
-  right: 2px;
-  bottom: -2px;
+  right: 10px;
+  bottom: 10px;
   color: black;
   font-family: ${fonts.header};
   font-weight: bold;
-  font-size: 18px;
+  font-size: 24px;
   text-shadow: -0.5px -0.5px 0 ${(props) => borderColor(props)}, 0.5px -0.5px 0 ${(props) => borderColor(props)},
     -0.5px 0.5px 0 ${(props) => borderColor(props)}, 0.5px 0.5px 0 ${(props) => borderColor(props)};
 
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    font-size: 14px;
-  }
-  @media (max-width: ${breakPointsActiveCard.medium}px) {
-    font-size: 16px;
-  }
-  @media (max-width: ${breakPointsActiveCard.small}px) {
-    font-size: 14px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    font-size: 9px;
-    bottom: -4px;
+  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
+    font-size: 12px;
+    right: 2px;
+    bottom: 0;
   }
 `;
 
@@ -227,7 +185,18 @@ export const ChartBlock = styled.div`
   width: 100%;
   height: 60%;
   padding: 5px 5px 5px 10px;
-  @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
-    display: none;
+`;
+
+export const AwardText = styled.p`
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  font-weight: bold;
+  font-size: 18px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    font-size: 16px;
+    top: 45%;
+    left: 15px;
   }
 `;

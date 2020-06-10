@@ -55,7 +55,7 @@ export const breakPointsHeader = {
 };
 
 export const breakPointsActiveCard = {
-  hiddenChart: 1750,
+  hiddenChart: 520,
   big: 1200,
   medium: 998,
   small: 768,

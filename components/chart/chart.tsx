@@ -6,9 +6,10 @@ import { ChartWrapper } from './styledChart';
 
 type ChartProps = {
   crypto: string;
+  description: boolean;
 };
 
-const Chart: React.FC<ChartProps> = ({ crypto }) => (
+const Chart: React.FC<ChartProps> = ({ crypto, description }) => (
   <ChartWrapper>
     <RealTimeChartWidget
       symbol={crypto}
@@ -21,7 +22,7 @@ const Chart: React.FC<ChartProps> = ({ crypto }) => (
       withdateranges={false}
       allow_symbol_change={false}
       autosize={true}
-      hide_legend={true}
+      hide_legend={description}
     />
   </ChartWrapper>
 );

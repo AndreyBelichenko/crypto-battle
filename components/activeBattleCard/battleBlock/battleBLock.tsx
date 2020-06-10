@@ -5,8 +5,6 @@ import {
   BattleWrapper,
   KnifesBlock,
   BattleDescriptionBlock,
-  KnifeOne,
-  KnifeTwo,
   BattleInfo,
   BattleInfoText,
   BattleInfoBet,
@@ -14,7 +12,7 @@ import {
   BetCrypto,
   BetCryptoLogo,
   BattleInfoShare,
-  // CryptoLogoImage,
+  ImageFool,
 } from './styledActiveBattle';
 
 const BattleBlock: React.FC<any> = (props: any) => {
@@ -40,16 +38,15 @@ const BattleBlock: React.FC<any> = (props: any) => {
           <BetMount>2</BetMount>
           <BetCrypto>HIVE</BetCrypto>
           <BetCryptoLogo>
-            <Image src="/static/hive.svg" />
+            <ImageFool src="/static/hive.svg" />
           </BetCryptoLogo>
         </BattleInfoBet>
         <BattleInfoShare>
-          <Image src={'/static/share.svg'} style={{ height: '100%', width: '100%' }} />
+          <ImageFool src={'/static/share.svg'} />
         </BattleInfoShare>
       </BattleInfo>
       <KnifesBlock>
-        <KnifeOne src="/static/knife.svg" />
-        <KnifeTwo src="/static/knife.svg" />
+        <Image src={'/static/gifSwords.gif'} />
       </KnifesBlock>
       <BattleDescriptionBlock ref={scroll}>
         {props.cardData.steps.map((item: any, index: number) => (
