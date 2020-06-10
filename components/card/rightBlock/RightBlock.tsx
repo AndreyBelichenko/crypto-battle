@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Progress } from 'semantic-ui-react';
 
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
-import ShareModalWindow from '../../shareModalWindow/shareModalWindow';
-
 
 import {
   CryptoCardName,
@@ -62,7 +60,6 @@ const RightBlock: React.FC<any> = (props: any) => {
       <AwardsBlock>
         <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
       </AwardsBlock>
-      <ShareModalWindow role="share"/>
     </GamerBlock>
   );
 };

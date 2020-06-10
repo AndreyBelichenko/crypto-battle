@@ -15,3 +15,11 @@ export const LoaderBlock = styled.div`
   width: 40%;
   height: auto;
 `;
+
+export const ShareBlock = styled.div`
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -32px;
+`;

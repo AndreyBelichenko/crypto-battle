@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Progress, Image } from 'semantic-ui-react';
 
 import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
-import ShareAccordionComponent from '../../shareAccordionComponent/shareAccordionComponent';
 
 import {
   GamerBlock,
@@ -82,7 +81,6 @@ const RightGamer: React.FC<any> = (props: any) => {
           <Image src="/static/triggerChart.svg" onClick={handleOpenChart} />
         </ChartTrigger>
       </GamerBlockTwo>
-      <ShareAccordionComponent/>
     </GamerBlock>
   );
 };

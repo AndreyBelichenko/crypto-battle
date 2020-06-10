@@ -6,7 +6,6 @@ import 'react-semantic-toasts/styles/react-semantic-alert.css';
 
 import WrapMarkUp from '../components/wrapMarkUp/wrapMarkUp';
 
-import '../components/shareModalWindow/sharemodalWindow.css';
 import '../components/modalWindow/modalWindow.css';
 import '../components/modalWindowSidebars/modalWindowSidebars.css';
 import '../components/header/appButtonBlock/appButtonBlock.css';
