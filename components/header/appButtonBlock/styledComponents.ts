@@ -14,3 +14,9 @@ export const HideButtons = styled.div`
     display: none;
   }
 `;
+
+export const Avatar = styled.img`
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+`;
