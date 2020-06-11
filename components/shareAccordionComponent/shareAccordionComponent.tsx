@@ -1,10 +1,8 @@
 import React from 'react';
-
 import { FacebookShareButton, TwitterShareButton, FacebookIcon, TwitterIcon } from 'react-share';
 import { Accordion } from 'semantic-ui-react';
-import { ShareButton } from './styledComponent';
 
-const titlePage = 'Share';
+import { ShareButton } from './styledComponent';
 
 interface ShareProps {
   battleId?: number;
@@ -14,7 +12,7 @@ interface ShareProps {
 const ShareAccordionComponent = (props: ShareProps) => {
   const battleId = props.battleId;
   const page = props.page;
-
+  const titlePage = 'Share';
   const panel = [
     {
       key: 'share',
