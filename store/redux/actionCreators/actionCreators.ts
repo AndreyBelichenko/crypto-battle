@@ -152,7 +152,6 @@ export const setSidebarWarriors = (type: string) => (dispatch: any) => {
   });
 };
 
-
 export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any) => {
   const messageError = type === 'top-crypto' ? 'TOP crypto' : 'TOP warriors';
   return dispatch({

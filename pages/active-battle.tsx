@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 
 import ActiveBattleCard from '../components/activeBattleCard/activeBattleCard';
+import LoaderSemantic from '../components/loader/Loader';
 
 const ActiveBattle: React.FC = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const ActiveBattle: React.FC = () => {
     (item: any) => item._id === router.query.battleId,
   );
 
-  return <ActiveBattleCard card={activeBattle} key={activeBattle._id} />;
+  return activeBattle ? <ActiveBattleCard card={activeBattle} /> : <LoaderSemantic marginNeed={false} />;
 };
 
 export default ActiveBattle;
