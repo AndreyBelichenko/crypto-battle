@@ -20,6 +20,7 @@ import {
   HeaderCustomize,
   ListContentCustomize,
   ListHeader,
+  ImageAvatar,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
@@ -78,9 +79,7 @@ const SidebarSelf = (props: SidebarProps) => {
           <ListCustomize divided relaxed>
             {dataToShow.map((item: any, index: number) => (
               <ItemList key={index}>
-                <ImageBlock>
-                  <Image src={item.avatar} verticalAlign="middle" />
-                </ImageBlock>
+                <ImageAvatar src={item.avatar} />
                 <ListContentCustomize>
                   <ListHeader>{item.alias}</ListHeader>
                   <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>
@@ -109,7 +108,7 @@ const SidebarSelf = (props: SidebarProps) => {
               <List>
                 <ItemList>
                   <ImageBlock>
-                    <Image src={userData.avatar} verticalAlign="middle" />
+                    <ImageAvatar src={userData.avatar} />
                   </ImageBlock>
                   <ListContentCustomize>
                     <ListHeader>{userData.name}</ListHeader>

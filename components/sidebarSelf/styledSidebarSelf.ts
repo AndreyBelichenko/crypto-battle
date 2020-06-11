@@ -32,9 +32,16 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const ImageBlock = styled.div`
-  width: 12%;
-  min-width: 35px;
-  max-width: 45px;
+  margin-right: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+`;
+
+export const ImageAvatar = styled.img`
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
   margin-right: 15px;
   border-radius: 50%;
   overflow: hidden;
@@ -65,6 +72,7 @@ export const ItemList = styled(List.Item)`
   display: flex !important;
   align-items: center;
   position: relative;
+  height: 50px;
 `;
 
 export const ShowMore = styled.div`

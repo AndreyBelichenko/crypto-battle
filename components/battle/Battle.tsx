@@ -1,21 +1,35 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { useRouter } from 'next/router';
 
+import BattleCard from '../card/Card';
 import { sortArray } from '../../utils/helpers';
-import ActiveBattleCard from '../activeBattleCard/activeBattleCard';
 import { AppState } from '../../store/rootReducer';
+import { LayoutWrapper } from '../ layout/styledComponents';
 
 const Battle: React.FC<any> = ({ allBattle, userData }) => {
-  const [chart, setIsChart] = React.useState(false);
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'START');
-  const filterArray = sortArray(showBattles, userData.id);
+  const filterBattles = sortArray(showBattles, userData.id);
+  const router = useRouter();
+
+  const handleRoute = (item: any) =>
+    router.push({
+      pathname: '/active-battle',
+      query: {
+        firstPlayer: item.firstPlayer.userInfo.alias,
+        secondPlayer: item.secondPlayer.userInfo.alias,
+        battleId: item._id,
+      },
+    });
+
   return (
-    <div>
-      {filterArray &&
-        filterArray.map((item: any, index: number) => (
-          <ActiveBattleCard card={item} key={item._id} setIsChart={setIsChart} chart={chart} index={index} />
-        ))}
-    </div>
+    <LayoutWrapper>
+      {filterBattles.map((item: any) => (
+        <div onClick={handleRoute.bind(null, item)} key={item._id}>
+          <BattleCard item={item} />
+        </div>
+      ))}
+    </LayoutWrapper>
   );
 };
 
