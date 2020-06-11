@@ -27,7 +27,7 @@
     "react-redux": "^7.2.0",
     "react-semantic-toasts": "^0.6.5",
     "react-share": "^4.2.0",
-    "react-tradingview-embed": "^1.0.2",
+    "react-tradingview-widgets": "^1.0.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.1.3",

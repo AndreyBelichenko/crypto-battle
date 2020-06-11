@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import LoaderSemantic from '../../loader/Loader';
 import ModalWindow from '../../modalWindow/modalWindow';
+import LogInModalWindow from '../../logInModalWindow/logInModalWindow';
 import { AppState } from '../../../store/rootReducer';
 import ShareAccordionComponent from '../../shareAccordionComponent/shareAccordionComponent';
 
@@ -18,7 +19,11 @@ const RightBlockWait = (props: RightBlockWaitProps) => {
   return (
     <ButtonBlock>
       {userData.id !== playerInfo.userInfo._id ? (
-        <ModalWindow role="connect" battleId={props.data._id} playerCrypto={playerInfo.cryptoName} />
+        <>
+          {userData.id ? <ModalWindow role="connect" battleId={props.data._id} playerCrypto={playerInfo.cryptoName}/> :
+            <LogInModalWindow role="logIn"/>
+          }
+        </>
       ) : (
         <>
         <LoaderBlock>

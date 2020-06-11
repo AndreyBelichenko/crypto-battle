@@ -1,23 +1,28 @@
 import * as React from 'react';
 // @ts-ignore
-import { TradingViewEmbed, widgetType } from 'react-tradingview-embed';
+import { RealTimeChartWidget } from 'react-tradingview-widgets';
 
 import { ChartWrapper } from './styledChart';
 
 type ChartProps = {
   crypto: string;
+  description: boolean;
 };
 
-const Chart: React.FC<ChartProps> = ({ crypto }) => (
+const Chart: React.FC<ChartProps> = ({ crypto, description }) => (
   <ChartWrapper>
-    <TradingViewEmbed
-      widgetType={widgetType.ADVANCED_CHART}
-      widgetConfig={{
-        colorTheme: 'light',
-        symbol: crypto,
-        width: '100%',
-        height: '100%',
-      }}
+    <RealTimeChartWidget
+      symbol={crypto}
+      locale="en"
+      interval={'1'}
+      style={'2'}
+      hide_top_toolbar={true}
+      save_image={false}
+      show_popup_button={false}
+      withdateranges={false}
+      allow_symbol_change={false}
+      autosize={true}
+      hide_legend={description}
     />
   </ChartWrapper>
 );
