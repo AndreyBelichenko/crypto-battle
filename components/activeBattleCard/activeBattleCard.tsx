@@ -3,6 +3,8 @@ import * as React from 'react';
 import BattleBlock from './battleBlock/battleBLock';
 import LeftGamer from './leftGamer/leftGamer';
 import RightGamer from './rightGamer/rightGamer';
+import Chart from '../chart/chart';
+import { returnCorrectCryptoData } from '../../utils/helpers';
 
 import {
   ParentDiv,
@@ -12,18 +14,18 @@ import {
   ChartDownBlock,
   MainDivContent,
 } from './styledActiveBattle';
-import Chart from '../chart/chart';
-import { returnCorrectCryptoData } from '../../utils/helpers';
 
 const ActiveBattleCard: React.FC<any> = (props: any) => {
   const [width, setWidth] = React.useState(1200);
+  const showDescription = width > 520;
+
   React.useEffect(() => {
     setWidth(window.screen.width);
   }, []);
+
   window.addEventListener('resize', (e: any) => {
     setWidth(e.currentTarget.innerWidth);
   });
-  const showDescription = width > 520;
   return (
     <ActiveCardWrapper>
       <ParentDiv>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { projectColors, breakPointsActiveCard } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
+import { projectColors, breakPointsActiveCard } from '../../../constants/styledConstants';
 
 const borderColor = (props: any) => (props.colorBorder ? props.colorBorder : projectColors.btnNameBorder);
 

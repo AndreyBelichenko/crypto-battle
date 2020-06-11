@@ -9,6 +9,7 @@ const ActiveBattle: React.FC = () => {
   const activeBattle = useSelector((state: any) => state.allBattle.allBattleData).find(
     (item: any) => item._id === router.query.battleId,
   );
+
   return <ActiveBattleCard card={activeBattle} key={activeBattle._id} />;
 };
 

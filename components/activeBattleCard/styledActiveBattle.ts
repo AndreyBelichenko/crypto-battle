@@ -30,9 +30,11 @@ export const MainDivContent = styled.div`
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 50%;
   }
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 35%;
   }
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     height: 35%;
   }
@@ -57,6 +59,7 @@ export const GamerBlock = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 5px;
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     padding: 2px;
   }
@@ -135,11 +138,13 @@ export const CryptoCardHp = styled.div`
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     min-width: 200px;
   }
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     width: 90%;
     min-width: 110px;
     max-width: 150px;
   }
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     width: 50%;
     min-width: 60px;
@@ -156,6 +161,7 @@ export const ProgressText = styled.div`
   text-align: center;
   font-weight: bold;
   margin-top: 2px;
+
   @media (max-width: 520px) {
     margin-top: -2px;
     font-size: 10px;
@@ -166,6 +172,7 @@ export const DownChartsBlock = styled.div`
   display: flex;
   padding: 5px;
   height: 50%;
+
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     height: 50%;
   }
@@ -186,6 +193,7 @@ export const ChartDownBlock = styled.div`
   margin-left: 2px;
   border: 1px solid #727272;
   box-sizing: border-box;
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     height: 50%;
     width: 100%;

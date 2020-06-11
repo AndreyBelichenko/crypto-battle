@@ -26,6 +26,7 @@ const LeftGamer: React.FC<any> = (props: any) => {
     props.cardData.steps.length > 1
       ? props.cardData.steps[lastElementArray][info.cryptoName]
       : props.cardData.healthPoints;
+
   return (
     <GamerBlock>
       <PlayerBlock>

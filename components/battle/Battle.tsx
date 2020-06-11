@@ -11,7 +11,8 @@ const Battle: React.FC<any> = ({ allBattle, userData }) => {
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'START');
   const filterBattles = sortArray(showBattles, userData.id);
   const router = useRouter();
-  const handleRoute = (item) =>
+
+  const handleRoute = (item: any) =>
     router.push({
       pathname: '/active-battle',
       query: {
@@ -20,11 +21,12 @@ const Battle: React.FC<any> = ({ allBattle, userData }) => {
         battleId: item._id,
       },
     });
+
   return (
     <LayoutWrapper>
       {filterBattles.map((item: any) => (
-        <div onClick={handleRoute.bind(null, item)}>
-          <BattleCard item={item} key={item._id} />
+        <div onClick={handleRoute.bind(null, item)} key={item._id}>
+          <BattleCard item={item} />
         </div>
       ))}
     </LayoutWrapper>

@@ -79,9 +79,7 @@ const SidebarSelf = (props: SidebarProps) => {
           <ListCustomize divided relaxed>
             {dataToShow.map((item: any, index: number) => (
               <ItemList key={index}>
-                {/*<ImageBlock>*/}
                 <ImageAvatar src={item.avatar} />
-                {/*</ImageBlock>*/}
                 <ListContentCustomize>
                   <ListHeader>{item.alias}</ListHeader>
                   <ImageCountBlock>{item.numberOfVictories}</ImageCountBlock>

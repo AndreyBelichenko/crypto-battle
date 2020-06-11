@@ -11,8 +11,8 @@ import Banner from '../banner/Banner';
 import LoaderSemantic from '../loader/Loader';
 import SidebarSelf from '../sidebarSelf/SidebarSelf';
 import ModalWindow from '../modalWindow/modalWindow';
-import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 
+import ModalWindowSidebars from '../modalWindowSidebars/modalWindowSidebars';
 import { SocketConnection } from '../../socketConnection/socketConnection';
 import { sidebarItems } from '../../constants/itemConstants';
 import * as actions from '../../store/redux/actionCreators/actionCreators';
@@ -49,15 +49,18 @@ const WrapMarkUp: React.FC<any> = ({
 }) => {
   const [visible, setVisible] = React.useState(false);
   const router = useRouter();
+
   const setVisibleSideBar = React.useCallback(() => {
     setVisible(false);
   }, []);
 
   React.useEffect(() => {
     const userDataCookie = Cookies.get('userData');
+
     if (typeof userDataCookie === 'string') {
       setAuthUserDataFromCookies(JSON.parse(userDataCookie));
     }
+
     const paramsOfGetBattlesWait = {
       skip: 0,
       limit: 5,

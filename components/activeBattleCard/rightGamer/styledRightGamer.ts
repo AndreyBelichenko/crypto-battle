@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { projectColors, breakPointsActiveCard } from '../../../constants/styledConstants';
 import fonts from '../../../constants/fonts';
+import { projectColors, breakPointsActiveCard } from '../../../constants/styledConstants';
 
 const borderColor = (props: any) => (props.colorBorder ? props.colorBorder : projectColors.btnNameBorder);
 
@@ -28,6 +28,7 @@ export const AvatarBlock = styled.div`
   margin-top: 5px;
   border-radius: 50%;
   overflow: hidden;
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     height: 40px;
     width: 40px;
@@ -45,9 +46,11 @@ export const AwardsBlock = styled.div`
   position: absolute;
   top: 2px;
   right: 2px;
+
   @media (max-width: ${breakPointsActiveCard.big}px) {
     min-width: 50px;
   }
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     display: none;
   }
@@ -81,6 +84,7 @@ export const CryptoBlock = styled.div`
   justify-content: flex-end;
   flex-direction: column;
   height: 70%;
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 65%;
   }
@@ -133,6 +137,7 @@ export const ImageCardPerson = styled.img`
   height: 100%;
   max-width: 100%;
   transform: scale(-1, 1);
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     width: 70%;
   }
@@ -153,10 +158,12 @@ export const ImageCardLogoLeft = styled.img`
     height: 80px;
     width: 80px;
   }
+
   @media (max-width: ${breakPointsActiveCard.small}px) {
     height: 50px;
     width: 50px;
   }
+
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     height: 20px;
     width: 20px;

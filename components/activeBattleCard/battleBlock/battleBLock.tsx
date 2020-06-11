@@ -17,9 +17,11 @@ import {
 
 const BattleBlock: React.FC<any> = (props: any) => {
   const scroll: any = React.useRef();
+
   React.useEffect(() => {
     scroll.current.scrollTop = scroll.current.scrollHeight;
   });
+
   const arrowLayout = (status: string): React.ReactElement => {
     switch (status) {
       case 'UP':
@@ -30,6 +32,7 @@ const BattleBlock: React.FC<any> = (props: any) => {
         return <React.Fragment />;
     }
   };
+
   return (
     <BattleWrapper>
       <BattleInfo>
