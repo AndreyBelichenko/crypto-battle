@@ -5,8 +5,9 @@ import LoaderSemantic from '../../loader/Loader';
 import ModalWindow from '../../modalWindow/modalWindow';
 import LogInModalWindow from '../../logInModalWindow/logInModalWindow';
 import { AppState } from '../../../store/rootReducer';
+import ShareAccordionComponent from '../../shareAccordionComponent/shareAccordionComponent';
 
-import { ButtonBlock, LoaderBlock } from './rightBlockWaitStyledComponent';
+import { ButtonBlock, LoaderBlock, ShareBlock } from './rightBlockWaitStyledComponent';
 
 interface RightBlockWaitProps {
   data: any;
@@ -24,9 +25,14 @@ const RightBlockWait = (props: RightBlockWaitProps) => {
           }
         </>
       ) : (
+        <>
         <LoaderBlock>
           <LoaderSemantic marginNeed={true} />
         </LoaderBlock>
+        <ShareBlock>
+        <ShareAccordionComponent battleId={props.data._id} page={''}/>
+        </ShareBlock>
+        </>
       )}
     </ButtonBlock>
   );

@@ -37,6 +37,8 @@ export const projectColors = {
   headerLogoTitle: color.white,
   modalCreateConnectMainColor: color.pomegranate,
   modalSidebarsMainColor: color.pomegranate,
+  btnNameBorder: color.grey,
+  defaultBorderColor: color.red,
 };
 
 export const breakPoints = {
@@ -53,6 +55,7 @@ export const breakPointsHeader = {
 };
 
 export const breakPointsActiveCard = {
+  hiddenChart: 520,
   big: 1200,
   medium: 998,
   small: 768,
