@@ -1,16 +1,20 @@
 import * as React from 'react';
-import { List, Image, Icon, Container, Divider } from 'semantic-ui-react';
+import { List, Image, Container } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LoaderSemantic from '../loader/Loader';
 import cryptoData from '../../constants/cryptoData/cryptoData';
 import { AppState } from '../../store/rootReducer';
-import { showMoreCrypto } from '../../store/redux/actionCreators/actionCreators';
+import {
+  showMoreCrypto,
+  showMoreWarriors,
+  setSidebarWarriors,
+  setSidebarCrypto,
+} from '../../store/redux/actionCreators/actionCreators';
 
 import {
   SideBarWrapper,
   HeaderWrapper,
-  ImageBlock,
   ItemList,
   ImageCountBlock,
   TitleImage,
@@ -21,6 +25,7 @@ import {
   ListContentCustomize,
   ListHeader,
   ImageAvatar,
+  HeaderBorder,
 } from './styledSidebarSelf';
 
 interface SidebarProps {
@@ -44,9 +49,13 @@ const SidebarSelf = (props: SidebarProps) => {
   const sidebarTitle = isCrypto ? 'TOP Crypto' : 'TOP Warriors';
   const imageInClass = isCrypto ? 'coinImage' : 'swordImage';
 
-  const handleShowMore = () => {
-    dispatch(showMoreCrypto('crypto-currencies', props.data.length));
-  };
+  const handleShowMore = (isCrypto: boolean) =>
+    isCrypto
+      ? dispatch(showMoreCrypto('crypto-currencies', props.data.length))
+      : dispatch(showMoreWarriors('top-warriors', props.data.length));
+
+  const handleShowLess = (isCrypto: boolean) =>
+    isCrypto ? dispatch(setSidebarCrypto('crypto-currencies')) : dispatch(setSidebarWarriors('top-warriors'));
 
   const dataToShow = props.data.map((item: any) =>
     isCrypto
@@ -67,10 +76,12 @@ const SidebarSelf = (props: SidebarProps) => {
   return (
     <SideBarWrapper needHeight={props.height}>
       <HeaderWrapper>
-        <HeaderCustomize textAlign="center">{sidebarTitle}</HeaderCustomize>
-        <TitleImage className={imageInClass}>
-          <Image src={imageInTitle} />
-        </TitleImage>
+        <HeaderBorder>
+          <HeaderCustomize textAlign="center">{sidebarTitle}</HeaderCustomize>
+          <TitleImage className={imageInClass}>
+            <Image src={imageInTitle} />
+          </TitleImage>
+        </HeaderBorder>
       </HeaderWrapper>
       {props.load ? (
         <LoaderSemantic marginNeed={false} />
@@ -88,28 +99,25 @@ const SidebarSelf = (props: SidebarProps) => {
             ))}
           </ListCustomize>
           <Container align="center" style={{ cursor: 'pointer' }}>
-            {isCrypto
-              ? props.hasMore && (
-                  <>
-                    <DividerCustomize />
-                    <ShowMore onClick={handleShowMore}>show more</ShowMore>
-                  </>
-                )
-              : showUser && (
-                  <>
-                    <DividerCustomize />
-                    <Icon disabled name="ellipsis horizontal" size="big" />
-                  </>
-                )}
+            {dataToShow.length > 10 && (
+              <>
+                <DividerCustomize />
+                <ShowMore onClick={handleShowLess.bind(null, isCrypto)}>show less</ShowMore>
+              </>
+            )}
+            {props.hasMore && (
+              <>
+                <DividerCustomize />
+                <ShowMore onClick={handleShowMore.bind(null, isCrypto)}>show more</ShowMore>
+              </>
+            )}
           </Container>
           {showUser && (
             <>
-              <Divider />
-              <List>
+              <DividerCustomize />
+              <List className={'userBlock'}>
                 <ItemList>
-                  <ImageBlock>
-                    <ImageAvatar src={userData.avatar} />
-                  </ImageBlock>
+                  <ImageAvatar src={userData.avatar} />
                   <ListContentCustomize>
                     <ListHeader>{userData.name}</ListHeader>
                     <ImageCountBlock>{userData.numberOfVictories}</ImageCountBlock>

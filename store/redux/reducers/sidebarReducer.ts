@@ -71,6 +71,19 @@ export default function sidebarReducer(state: SidebarReducerType = initialState,
       };
     case actionTypes.SHOW_MORE_CRYPTO.ERROR:
       return initialState;
+    case actionTypes.SHOW_MORE_WARRIORS.START:
+      return { ...state, warriors: { ...state.warriors, load: true } };
+    case actionTypes.SHOW_MORE_WARRIORS.SUCCESS:
+      return {
+        ...state,
+        warriors: {
+          hasMore: action.payload.hasMore,
+          users: [...state.warriors.users, ...action.payload.warriors],
+          load: false,
+        },
+      };
+    case actionTypes.SHOW_MORE_WARRIORS.ERROR:
+      return initialState;
     default:
       return state;
   }

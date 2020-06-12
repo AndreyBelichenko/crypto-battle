@@ -43,11 +43,19 @@
 }
 
 .coinImage{
-    right: -10px!important;
+    right: 30px!important;
+}
+
+.swordImage{
+    right: 20px!important;
 }
 
 .ui.progress:last-child {
     margin: 0!important;
+}
+
+.userBlock{
+margin: 0 40px 5px 0!important;
 }
 
 @media screen and (max-width: 500px) {
@@ -69,5 +77,18 @@
         right: 0;
         left: 0;
         height: 170px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .userBlock{
+        margin: 0 25px 5px 0!important;
+    }
+    .coinImage{
+        right: 15px!important;
+    }
+
+    .swordImage{
+        right: 10px!important;
     }
 }

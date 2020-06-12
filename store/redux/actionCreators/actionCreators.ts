@@ -11,9 +11,7 @@ import {
   requestUpdateUserToken,
   requestSendImage,
 } from '../../../utils/apiHelpers';
-import {
-  writeCorrectUserData,
-} from '../../../utils/helpers';
+import { writeCorrectUserData } from '../../../utils/helpers';
 
 export const setAuthStoreUserData = (type: string, token: string) => (dispatch: any) => {
   return dispatch({
@@ -174,6 +172,15 @@ export const setSidebarCrypto = (type: string, skip?: number) => (dispatch: any)
 export const showMoreCrypto = (type: string, skip?: number) => (dispatch: any) => {
   return dispatch({
     type: action.SHOW_MORE_CRYPTO.ACTION,
+    payload: {
+      promise: requestSidebars(type, skip),
+    },
+  });
+};
+
+export const showMoreWarriors = (type: string, skip?: number) => (dispatch: any) => {
+  return dispatch({
+    type: action.SHOW_MORE_WARRIORS.ACTION,
     payload: {
       promise: requestSidebars(type, skip),
     },
