@@ -100,6 +100,7 @@ const WrapMarkUp: React.FC<any> = ({
             userData.id === readyResponse.battle.secondPlayer.userInfo._id
           ) {
             setAllBattlesConnect(readyResponse.battle);
+
             return router.push({
               pathname: '/active-battle',
               query: {

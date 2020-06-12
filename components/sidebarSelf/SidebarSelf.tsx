@@ -49,10 +49,12 @@ const SidebarSelf = (props: SidebarProps) => {
   const sidebarTitle = isCrypto ? 'TOP Crypto' : 'TOP Warriors';
   const imageInClass = isCrypto ? 'coinImage' : 'swordImage';
 
-  const handleShowMore = (isCrypto: boolean) =>
-    isCrypto
-      ? dispatch(showMoreCrypto('crypto-currencies', props.data.length))
-      : dispatch(showMoreWarriors('top-warriors', props.data.length));
+  const handleShowMore = (isCrypto: boolean) => {
+    const length = props.data.length;
+    return isCrypto
+      ? dispatch(showMoreCrypto('crypto-currencies', length))
+      : dispatch(showMoreWarriors('top-warriors', length));
+  };
 
   const handleShowLess = (isCrypto: boolean) =>
     isCrypto ? dispatch(setSidebarCrypto('crypto-currencies')) : dispatch(setSidebarWarriors('top-warriors'));
