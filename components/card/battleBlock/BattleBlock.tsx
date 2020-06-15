@@ -1,13 +1,13 @@
 import * as React from 'react';
+import { Image } from 'semantic-ui-react';
 
-import { BattleWrapper, KnifesBlock, KnifeOne, KnifeTwo, BattleImg } from './battleStyledComponent';
+import { BattleWrapper, KnifesBlock, BattleImg } from './battleStyledComponent';
 
 const BattleBlock: React.FC = () => {
   return (
     <BattleWrapper>
       <KnifesBlock>
-        <KnifeOne src="/static/knife.svg" />
-        <KnifeTwo src="/static/knife.svg" />
+        <Image src={'/static/gifSwords.gif'} />
       </KnifesBlock>
       <BattleImg src="/static/vs.png" />
     </BattleWrapper>

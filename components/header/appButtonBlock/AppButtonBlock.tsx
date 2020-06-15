@@ -18,22 +18,20 @@ const AppButtonBlock: React.FC = () => {
     dispatch(actions.logOutStore(userData.access_token, userData.id));
   };
 
-  const handleRoute = () => {
-    Router.push('/account');
-  };
+  const handleRoute = () => Router.push('/account');
 
   return (
     <AppButtonBlockWrapper>
       <HideButtons>
         <ModalWindow role="create" />
       </HideButtons>
-      <div className="btnSize"  >
-        <Avatar src={userData.avatar}  onClick={handleRoute}/>
+      <div className="btnSize">
+        <Avatar src={userData.avatar} onClick={handleRoute} />
       </div>
-  <HideButtons>
-    <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
-  </HideButtons>
-</AppButtonBlockWrapper>
+      <HideButtons>
+        <Button circular icon="sign-in alternate" color="black" onClick={logOut} className="btnSize" />
+      </HideButtons>
+    </AppButtonBlockWrapper>
   );
 };
 

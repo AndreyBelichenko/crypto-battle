@@ -7,7 +7,8 @@ import { AppState } from '../../store/rootReducer';
 import { LayoutWrapper } from './styledComponents';
 
 const Layout: React.FC<any> = ({ allBattle }) => {
-  const filterBattles = allBattle.filter((item: any) => item.gameStatus !== 'END');
+  const filterBattles = allBattle.filter((item: any) => item.gameStatus === 'WAITING');
+
   return (
     <LayoutWrapper>
       {filterBattles.map((item: any) => (

@@ -37,6 +37,8 @@ export const SET_WARRIORS_SIDEBAR = createAsyncActionType('SET_WARRIORS_SIDEBAR'
 export const SET_CRYPTO_SIDEBAR = createAsyncActionType('SET_CRYPTO_SIDEBAR');
 
 export const SHOW_MORE_CRYPTO = createAsyncActionType('SHOW_MORE_CRYPTO');
+export const SHOW_MORE_WARRIORS = createAsyncActionType('SHOW_MORE_WARRIORS');
+export const SHOW_LESS_WARRIORS = createAsyncActionType('SHOW_LESS_WARRIORS');
 
 export const UPDATE_STORE_USER_DATA = createAsyncActionType('UPDATE_STORE_USER_DATA');
 export interface SetUpdateStoreUserData {
@@ -48,5 +50,6 @@ export const CONNECT_ITEM_ALL_BATTLES = 'CONNECT_ITEM_ALL_BATTLES';
 export const CREATE_ITEM_ALL_BATTLES = 'CREATE_ITEM_ALL_BATTLES';
 export const UPDATE_ITEM_ALL_BATTLES = 'UPDATE_ITEM_ALL_BATTLES';
 export const START_FINISH_BATTLE = 'START_FINISH_BATTLE';
+export const SHOW_LESS_CRYPTO = 'SHOW_LESS_CRYPTO';
 
 export type actionType = SetAuthUserData | SetAuthStoreUserData | LogOut | SetBattleData | SetUpdateStoreUserData;
