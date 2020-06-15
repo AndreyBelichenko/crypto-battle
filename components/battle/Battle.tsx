@@ -2,13 +2,15 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
 
+import LoaderSemantic from '../loader/Loader';
 import BattleCard from '../card/Card';
 import { sortArray } from '../../utils/helpers';
 import { AppState } from '../../store/rootReducer';
-import { LayoutWrapper } from '../ layout/styledComponents';
 import { SetRequestBattles } from '../../store/redux/actionCreators/actionCreators';
 
-const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles }) => {
+import { LayoutWrapper } from '../ layout/styledComponents';
+
+const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLoad }) => {
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'START');
   const filterBattles = sortArray(showBattles, userData.id);
   const [countBattles, setCountBattles] = React.useState(5);
@@ -17,7 +19,7 @@ const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles }) => {
   const handleScroll = (event: any) => {
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
 
-    if (scrollHeight - (scrollTop + 150) <= clientHeight) {
+    if (scrollHeight - scrollTop === clientHeight) {
       setCountBattles(countBattles + 5);
     }
   };
@@ -48,6 +50,7 @@ const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles }) => {
           <BattleCard item={item} />
         </div>
       ))}
+      {isLoad && <LoaderSemantic marginNeed={true} />}
     </LayoutWrapper>
   );
 };
@@ -55,6 +58,7 @@ const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles }) => {
 const mapStateToProps = (state: AppState) => ({
   allBattle: state.allBattle.allBattleData,
   userData: state.user.userData,
+  isLoad: state.allBattle.isLoad,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
