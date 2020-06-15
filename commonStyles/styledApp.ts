@@ -14,8 +14,6 @@ export const AppWrapper = styled.div`
 
 export const MainContent = styled.div`
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
   border-radius: 4px;
   height: calc(100vh - 125px);
   padding: 20px 0;
