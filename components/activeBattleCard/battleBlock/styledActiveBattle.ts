@@ -135,3 +135,11 @@ export const ImageFool = styled(Image)`
   width: 100% !important;
   height: 100% !important;
 `;
+
+export const ShareBlock = styled.div`
+  width: 60%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+`;

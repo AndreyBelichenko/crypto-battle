@@ -10,7 +10,6 @@ interface ShareProps {
 }
 
 const ShareAccordionComponent = (props: ShareProps) => {
-  const battleId = props.battleId;
   const page = props.page;
   const titlePage = 'Share';
   const panel = [
@@ -18,22 +17,15 @@ const ShareAccordionComponent = (props: ShareProps) => {
       key: 'share',
       title: {
         content: '',
-        icon: (
-          <ShareButton src="./static/share.svg"/>
-        ),
+        icon: <ShareButton src="./static/share.svg" />,
       },
       content: {
         content: (
           <div>
-            <FacebookShareButton
-              url={`http://crypto-battle.pp.ua${page}/#${battleId}`}
-              quote={titlePage}
-            >
-              <FacebookIcon size={37} round/>
+            <FacebookShareButton url={`http://crypto-battle.pp.ua${page}`} quote={titlePage}>
+              <FacebookIcon size={37} round />
             </FacebookShareButton>
-            <TwitterShareButton
-              url={`http://crypto-battle.pp.ua${page}/#${battleId}`}
-              title={titlePage}>
+            <TwitterShareButton url={`http://crypto-battle.pp.ua${page}`} title={titlePage}>
               <TwitterIcon size={37} round />
             </TwitterShareButton>
           </div>
@@ -42,8 +34,7 @@ const ShareAccordionComponent = (props: ShareProps) => {
     },
   ];
 
-  return (<Accordion panels={panel}/>
-  );
+  return <Accordion panels={panel} />;
 };
 
 export default ShareAccordionComponent;

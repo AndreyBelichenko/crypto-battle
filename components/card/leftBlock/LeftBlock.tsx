@@ -21,8 +21,9 @@ import {
   UserNameWrapper,
   GamerBlock,
   CryptoCard,
-  // ImageCardLogo,
   UserBlock,
+  AwardText,
+  AwardsBlockWrapper,
 } from '../styledComponent';
 
 const LeftBlock: React.FC<any> = (props: any) => {
@@ -33,7 +34,10 @@ const LeftBlock: React.FC<any> = (props: any) => {
   return (
     <GamerBlock>
       <AwardsBlock>
-        <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+        <AwardsBlockWrapper>
+          <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+          <AwardText>{info.userInfo.numberOfVictories}</AwardText>
+        </AwardsBlockWrapper>
       </AwardsBlock>
       <UserBlock>
         <UserPhoto src={info.userInfo.avatar} />

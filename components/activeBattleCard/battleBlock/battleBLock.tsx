@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Image } from 'semantic-ui-react';
 
+import ShareAccordionComponent from '../../shareAccordionComponent/shareAccordionComponent';
+
 import {
   BattleWrapper,
   KnifesBlock,
@@ -13,6 +15,7 @@ import {
   BetCryptoLogo,
   BattleInfoShare,
   ImageFool,
+  ShareBlock,
 } from './styledActiveBattle';
 
 const BattleBlock: React.FC<any> = (props: any) => {
@@ -45,7 +48,15 @@ const BattleBlock: React.FC<any> = (props: any) => {
           </BetCryptoLogo>
         </BattleInfoBet>
         <BattleInfoShare>
-          <ImageFool src={'/static/share.svg'} />
+          <ShareBlock>
+            <ShareAccordionComponent
+              page={`/active-battle?firstPlayer=${encodeURIComponent(
+                props.cardData.firstPlayer.userInfo.alias,
+              )}&secondPlayer=${encodeURIComponent(
+                props.cardData.secondPlayer.userInfo.alias,
+              )}&battleId=${encodeURIComponent(props.cardData._id)}`}
+            />
+          </ShareBlock>
         </BattleInfoShare>
       </BattleInfo>
       <KnifesBlock>

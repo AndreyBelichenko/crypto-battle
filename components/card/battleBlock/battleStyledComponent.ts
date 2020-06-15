@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'semantic-ui-react';
 
 import { breakPointsActiveCard } from '../../../constants/styledConstants';
 
@@ -53,5 +54,34 @@ export const BattleImg = styled.img`
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     width: 30px;
+  }
+`;
+
+export const WatchBattle = styled(Button)`
+  height: 15%;
+  padding: 0 5px !important;
+  vertical-align: middle;
+  font-size: 12px !important;
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    font-size: 11px !important;
+  }
+  @media (max-width: ${breakPointsActiveCard.medium}px) {
+    height: 13%;
+    font-size: 10px !important;
+    bottom: 2px;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    height: 15%;
+    font-size: 12px !important;
+    bottom: 5px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    height: auto;
+    font-size: 10px !important;
+    padding: 2px 5px !important;
   }
 `;
