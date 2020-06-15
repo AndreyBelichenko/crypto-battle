@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import BattleCard from '../card/Card';
 import LoaderSemantic from '../loader/Loader';
 import { AppState } from '../../store/rootReducer';
-import { SetRequestBattles } from '../../store/redux/actionCreators/actionCreators';
+import { clearBattles, SetRequestBattles } from '../../store/redux/actionCreators/actionCreators';
 
 import { LayoutWrapper } from './styledComponents';
 
-const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad }): any => {
+const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad, clearBattles }): any => {
   const filterBattles = allBattle.filter((item: any) => item.gameStatus !== 'END');
   const [countBattles, setCountBattles] = React.useState(5);
 
@@ -16,16 +16,20 @@ const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad }): any =>
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
 
     if (scrollHeight - scrollTop === clientHeight) {
-      setCountBattles(countBattles + 5);
+      setCountBattles(countBattles + 1);
     }
   };
 
   React.useEffect(() => {
+    clearBattles();
+  }, []);
+
+  React.useEffect(() => {
     setRequestBattles({
-      skip: 0,
-      limit: countBattles,
+      skip: allBattle.length,
+      limit: 10,
       sort: 'desc',
-      state: 'waiting',
+      state: 'start',
     });
   }, [countBattles]);
 
@@ -48,5 +52,6 @@ export default connect(
   }),
   (dispatch: any) => ({
     setRequestBattles: (payload: any) => dispatch(SetRequestBattles(payload)),
+    clearBattles: () => dispatch(clearBattles()),
   }),
 )(Layout);

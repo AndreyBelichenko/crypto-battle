@@ -30,6 +30,11 @@ export interface SetBattleData {
   payload: object;
 }
 
+export const CLEAR_BATTLES = 'CLEAR_BATTLES';
+export interface ClearBattles {
+  type: typeof CLEAR_BATTLES;
+}
+
 // sidebarReducer
 
 export const SET_WARRIORS_SIDEBAR = createAsyncActionType('SET_WARRIORS_SIDEBAR');

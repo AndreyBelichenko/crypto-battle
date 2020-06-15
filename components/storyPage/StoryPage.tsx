@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 import StoryCardBattle from '../srotyCardBattle/StoryCardBattle';
 import LoaderSemantic from '../loader/Loader';
-import { SetRequestBattles } from '../../store/redux/actionCreators/actionCreators';
+import { SetRequestBattles, clearBattles } from '../../store/redux/actionCreators/actionCreators';
 import { sortArray } from '../../utils/helpers';
 import { AppState } from '../../store/rootReducer';
 
 import { StoryWrapper } from './styledStoryPage';
 
-const StoryPage: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLoad }) => {
+const StoryPage: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLoad, clearBattles }) => {
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'END');
   const [countBattles, setCountBattles] = React.useState(10);
   const filterArray = sortArray(showBattles, userData.id);
@@ -18,14 +18,18 @@ const StoryPage: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLo
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
 
     if (scrollHeight - scrollTop === clientHeight) {
-      setCountBattles(countBattles + 5);
+      setCountBattles(countBattles + 1);
     }
   };
 
   React.useEffect(() => {
+    clearBattles();
+  }, []);
+
+  React.useEffect(() => {
     setRequestBattles({
-      skip: 0,
-      limit: countBattles,
+      skip: allBattle.length,
+      limit: 10,
       sort: 'desc',
       state: 'end',
     });
@@ -47,6 +51,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   setRequestBattles: (payload: any) => dispatch(SetRequestBattles(payload)),
+  clearBattles: () => dispatch(clearBattles()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoryPage);

@@ -51,6 +51,12 @@ export function logOut(): action.LogOut {
   };
 }
 
+export function clearBattles(): action.ClearBattles {
+  return {
+    type: action.CLEAR_BATTLES,
+  };
+}
+
 export const logOutStore = (token: number, id: number) => (dispatch: any) => {
   return dispatch({
     type: action.LOG_OUT_STORE.ACTION,

@@ -19,7 +19,7 @@ export default function allBattleReducer(state: InitialStateType = initialState,
     case actionTypes.ALL_BATTLES_DATA.SUCCESS:
       return {
         ...state,
-        allBattleData: action.payload.battles,
+        allBattleData: [...state.allBattleData, ...action.payload.battles],
         hasMore: action.payload.hasMore,
         isLoad: false,
       };
@@ -48,6 +48,11 @@ export default function allBattleReducer(state: InitialStateType = initialState,
       return {
         ...state,
         allBattleData: [{ ...action.payload }, ...state.allBattleData],
+      };
+    case actionTypes.CLEAR_BATTLES:
+      return {
+        ...state,
+        allBattleData: [],
       };
     default:
       return state;
