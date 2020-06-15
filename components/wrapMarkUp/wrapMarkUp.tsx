@@ -62,13 +62,30 @@ const WrapMarkUp: React.FC<any> = ({
 
     setSidebarWarriors('top-warriors');
     setSidebarCrypto('crypto-currencies');
+  }, []);
 
+  React.useEffect(() => {
     new SocketConnection('ws://crypto-battle.pp.ua/socket');
     SocketConnection.getSocket().onmessage = (response: any) => {
       const readyResponse = JSON.parse(response.data);
       switch (readyResponse.message) {
         case 'start_battle':
-          return setAllBattlesConnect(readyResponse.battle);
+          if (
+            userData.id === readyResponse.battle.firstPlayer.userInfo._id ||
+            userData.id === readyResponse.battle.secondPlayer.userInfo._id
+          ) {
+            setAllBattlesConnect(readyResponse.battle);
+
+            return router.push({
+              pathname: '/active-battle',
+              query: {
+                firstPlayer: readyResponse.battle.firstPlayer.userInfo.alias,
+                secondPlayer: readyResponse.battle.secondPlayer.userInfo.alias,
+                battleId: readyResponse.battle._id,
+              },
+            });
+          }
+          break;
         case 'create_battle':
           return setAllBattlesCreate(readyResponse.battle);
         case 'update_battle':
@@ -80,7 +97,7 @@ const WrapMarkUp: React.FC<any> = ({
       }
     };
     setInterval(() => SocketConnection.getSocket().send(JSON.stringify({ method: 'ping' })), 60000);
-  }, []);
+  }, [userData]);
 
   const logOut = () => {
     Cookies.remove('userData');
