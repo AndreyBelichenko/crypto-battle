@@ -55,6 +55,7 @@ const BattleBlock: React.FC<any> = (props: any) => {
               )}&secondPlayer=${encodeURIComponent(
                 props.cardData.secondPlayer.userInfo.alias,
               )}&battleId=${encodeURIComponent(props.cardData._id)}`}
+              position={true}
             />
           </ShareBlock>
         </BattleInfoShare>

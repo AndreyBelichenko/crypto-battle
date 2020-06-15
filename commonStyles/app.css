@@ -48,6 +48,50 @@
 
 .ui.progress:last-child {
     margin: 0!important;
+
+}
+
+.ui.accordion{
+    text-align: right;
+}
+
+.ui.accordion .title:not(.ui){
+    padding-bottom: 0;
+}
+
+.ui.accordion:not(.styled) .title~.content:not(.ui):last-child {
+    padding-top: 0;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.6);
+    background: white;
+}
+
+.listAbsolute{
+    position: absolute;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.6);
+    background: white;
+    z-index: 2;
+    right: 0;
+    margin-top: 5px!important;
+}
+
+.listRelative{
+    position: relative;
+}
+
+.listItemHover{
+    padding: 5px!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listItemHover:hover{
+    background: rgba(100, 100, 100, 0.1);
+    cursor: pointer;
+}
+
+.listItemHover:hover .ghFoA-D{
+    color: rgba(0,0,0,.87);
 }
 
 @media screen and (max-width: 500px) {

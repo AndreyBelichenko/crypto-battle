@@ -125,10 +125,9 @@ export const BetCryptoLogo = styled.div`
 `;
 
 export const BattleInfoShare = styled.div`
-  width: 20px;
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    width: 15px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ImageFool = styled(Image)`
@@ -137,9 +136,8 @@ export const ImageFool = styled(Image)`
 `;
 
 export const ShareBlock = styled.div`
-  width: 60%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 5px;
 `;
