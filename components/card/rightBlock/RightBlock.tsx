@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Progress } from 'semantic-ui-react';
 
+import ProgressSelf from '../../progress/Progress';
 import { returnCorrectCryptoData, giveProgressPercent } from '../../../utils/helpers';
 
 import {
@@ -22,6 +22,8 @@ import {
   GamerBlock,
   CryptoCard,
   UserBlock,
+  AwardText,
+  AwardsBlockWrapper,
 } from '../styledComponent';
 
 const RightBlock: React.FC<any> = (props: any) => {
@@ -45,10 +47,7 @@ const RightBlock: React.FC<any> = (props: any) => {
         </CryptoCardMain>
         <CryptoCardHp>
           <ProgressText>{actualHealth}hp</ProgressText>
-          <Progress
-            percent={giveProgressPercent(props.data.healthPoints, actualHealth)}
-            color={returnCorrectCryptoData(info.cryptoName, 'progressColor')}
-          />
+          <ProgressSelf hp={giveProgressPercent(props.data.healthPoints, actualHealth)} />
         </CryptoCardHp>
       </CryptoCard>
       <UserBlock>
@@ -58,7 +57,10 @@ const RightBlock: React.FC<any> = (props: any) => {
         </UserNameWrapper>
       </UserBlock>
       <AwardsBlock>
-        <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+        <AwardsBlockWrapper>
+          <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+          <AwardText>{info.userInfo.numberOfVictories}</AwardText>
+        </AwardsBlockWrapper>
       </AwardsBlock>
     </GamerBlock>
   );

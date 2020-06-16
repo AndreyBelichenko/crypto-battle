@@ -20,18 +20,20 @@ const RightBlockWait = (props: RightBlockWaitProps) => {
     <ButtonBlock>
       {userData.id !== playerInfo.userInfo._id ? (
         <>
-          {userData.id ? <ModalWindow role="connect" battleId={props.data._id} playerCrypto={playerInfo.cryptoName}/> :
-            <LogInModalWindow role="logIn"/>
-          }
+          {userData.id ? (
+            <ModalWindow role="connect" battleId={props.data._id} playerCrypto={playerInfo.cryptoName} />
+          ) : (
+            <LogInModalWindow role="logIn" />
+          )}
         </>
       ) : (
         <>
-        <LoaderBlock>
-          <LoaderSemantic marginNeed={true} />
-        </LoaderBlock>
-        <ShareBlock>
-        <ShareAccordionComponent battleId={props.data._id} page={''}/>
-        </ShareBlock>
+          <LoaderBlock>
+            <LoaderSemantic marginNeed={true} />
+          </LoaderBlock>
+          <ShareBlock>
+            <ShareAccordionComponent battleId={props.data._id} page={'/'} position={false} />
+          </ShareBlock>
         </>
       )}
     </ButtonBlock>

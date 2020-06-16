@@ -23,7 +23,7 @@ const BattleCard: React.FC<BattleCardProps> = (props: BattleCardProps) => {
         </>
       ) : (
         <>
-          <BattleBlock /> <RightBlock data={props.item} />
+          <BattleBlock data={props.item} /> <RightBlock data={props.item} />
         </>
       )}
     </MainDiv>

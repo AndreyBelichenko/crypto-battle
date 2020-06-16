@@ -12,22 +12,28 @@ export const SideBarWrapper = styled.div<SideBarWrapperProps>`
   height: ${(props: any) => (props.needHeight ? '100%' : 'auto')};
   min-height: 50%;
   max-height: ${(props: any) => (props.needHeight ? 'auto' : 'calc(100vh - 125px)')};
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 0 5px 40px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.75);
 
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    padding: 20px 25px;
+    padding: 20px 0 5px 20px;
   }
 `;
 
 export const HeaderWrapper = styled.div`
   width: 100%;
   position: relative;
+  padding-right: 40px;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    padding-right: 20px;
+  }
+`;
+export const HeaderBorder = styled.div`
+  width: 100%;
   border-bottom: 3px solid ${projectColors.underlineTitle};
 `;
 
@@ -50,7 +56,6 @@ export const ImageAvatar = styled.img`
 export const TitleImage = styled.div`
   width: 40px;
   position: absolute;
-  right: -25px;
   top: 5px;
 `;
 
@@ -79,6 +84,11 @@ export const ShowMore = styled.div`
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-right: 35px;
 
   &:hover {
     text-decoration: underline;
@@ -89,12 +99,6 @@ export const ShowLess = styled.div`
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: -10px;
-
   &:hover {
     text-decoration: underline;
   }
@@ -130,17 +134,28 @@ export const ListContentCustomize = styled(List.Content)`
 `;
 
 export const ListCustomize = styled(List)`
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
   margin-bottom: 6px !important;
+  max-height: 60vh;
+  padding-right: 30px !important;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    padding-right: 15px !important;
+  }
 `;
 
 export const DividerCustomize = styled(Divider)`
-  margin-top: 0 !important;
+  margin: 0 !important;
+  margin-right: 40px !important;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    margin-right: 25px !important;
+  }
 `;
 
 export const HeaderCustomize = styled(Header)`
   font-size: 22px !important;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${breakPointsActiveCard.big}px) {
     font-size: 20px !important;
   }
 `;

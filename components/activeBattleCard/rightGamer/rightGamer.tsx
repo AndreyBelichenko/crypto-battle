@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Image, Progress } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
+import ProgressSelf from '../../progress/Progress';
 import { giveProgressPercent, returnCorrectCryptoData } from '../../../utils/helpers';
 
 import {
@@ -57,7 +58,7 @@ const RightGamer: React.FC<any> = (props: any) => {
         </CryptoCardMain>
         <CryptoCardHp>
           <ProgressText>{actualHealth} HP</ProgressText>
-          <Progress percent={giveProgressPercent(props.cardData.healthPoints, actualHealth)} color={'red'} />
+          <ProgressSelf hp={giveProgressPercent(props.cardData.healthPoints, actualHealth)} />
         </CryptoCardHp>
       </CryptoBlock>
     </GamerBlock>

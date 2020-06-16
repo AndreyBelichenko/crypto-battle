@@ -6,7 +6,7 @@ import { MainDiv, BattleFinished } from './styledStoryCard';
 
 const StoryCardBattle: React.FC<any> = (props: any) => {
   return (
-    <MainDiv>
+    <MainDiv key={props.card._id}>
       <LeftBlock data={props.card} />
       <BattleFinished>Finished</BattleFinished>
       <RightBlock data={props.card} />

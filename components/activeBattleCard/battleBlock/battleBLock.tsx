@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Image } from 'semantic-ui-react';
 
+import ShareAccordionComponent from '../../shareAccordionComponent/shareAccordionComponent';
+
 import {
   BattleWrapper,
   KnifesBlock,
@@ -13,10 +15,16 @@ import {
   BetCryptoLogo,
   BattleInfoShare,
   ImageFool,
+  ShareBlock,
 } from './styledActiveBattle';
 
 const BattleBlock: React.FC<any> = (props: any) => {
   const scroll: any = React.useRef();
+  const link = `/active-battle?firstPlayer=${encodeURIComponent(
+    props.cardData.firstPlayer.userInfo.alias,
+  )}&secondPlayer=${encodeURIComponent(props.cardData.secondPlayer.userInfo.alias)}&battleId=${encodeURIComponent(
+    props.cardData._id,
+  )}`;
 
   React.useEffect(() => {
     scroll.current.scrollTop = scroll.current.scrollHeight;
@@ -45,7 +53,9 @@ const BattleBlock: React.FC<any> = (props: any) => {
           </BetCryptoLogo>
         </BattleInfoBet>
         <BattleInfoShare>
-          <ImageFool src={'/static/share.svg'} />
+          <ShareBlock>
+            <ShareAccordionComponent page={link} position={true} />
+          </ShareBlock>
         </BattleInfoShare>
       </BattleInfo>
       <KnifesBlock>
