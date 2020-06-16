@@ -161,6 +161,8 @@ export const ProgressText = styled.div`
   text-align: center;
   font-weight: bold;
   margin-top: 2px;
+  -webkit-text-stroke: 0.5px ${projectColors.processBorderTextColor};
+  color: ${projectColors.processTextColor};
 
   @media (max-width: 520px) {
     margin-top: -2px;

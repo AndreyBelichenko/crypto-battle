@@ -78,11 +78,13 @@ export const requestUpdateUserToken = (token: any) =>
         'Content-Type': 'application/json;charset=utf-8',
         'access-token': token,
       },
-    }).then((res) =>
-      res.json().then(() => ({
-        token: res.headers.get('access-token'),
-      })),
-    ).then((data) => resolve(data))
+    })
+      .then((res) =>
+        res.json().then(() => ({
+          token: res.headers.get('access-token'),
+        })),
+      )
+      .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
 
@@ -96,9 +98,9 @@ export const requestSendImage = (token: any, blob: any) => {
     },
     body: formData,
   })
-    .then(res => res.json())
-    .then(data => data)
-    .catch(err => {
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => {
       // tslint:disable-next-line:no-console
       console.error('err', err);
       defaultMessage: "Couldn't upload image";
@@ -121,12 +123,24 @@ export const requestUpdateUserData = (data: IDataProps) => {
         'access-token': String(authToken),
       },
       body: JSON.stringify(data),
-    }).then((res) =>
-      res.json().then((data) => ({
-        data,
-        token: res.headers.get('access-token'),
-      })),
-    ).then((data) => resolve(data))
+    })
+      .then((res) =>
+        res.json().then((data) => ({
+          data,
+          token: res.headers.get('access-token'),
+        })),
+      )
+      .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
 };
+
+export const getActiveCard = (battleId: string | string[] | undefined) =>
+  new Promise((resolve, reject) => {
+    fetch(`http://crypto-battle.pp.ua/api/get-battles?battleID=${battleId}`, {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((data) => resolve(data))
+      .catch((error) => reject(error));
+  });

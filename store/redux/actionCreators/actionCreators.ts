@@ -10,6 +10,7 @@ import {
   requestUpdateUserData,
   requestUpdateUserToken,
   requestSendImage,
+  getActiveCard,
 } from '../../../utils/apiHelpers';
 import { writeCorrectUserData } from '../../../utils/helpers';
 
@@ -122,6 +123,24 @@ export const SetRequestBattles = (payload: ParamsOfGetBattlesWaiting) => (dispat
     type: action.ALL_BATTLES_DATA.ACTION,
     payload: {
       promise: requestGetBattles(payload.skip, payload.limit, payload.sort, payload.state).catch(() =>
+        toast({
+          type: 'error',
+          icon: 'envelope',
+          title: 'Error with logout',
+          description: 'Sorry for the inconvenience, we will fix it soon',
+          animation: 'bounce',
+          time: 5000,
+        }),
+      ),
+    },
+  });
+};
+
+export const getActiveCardData = (payload: any) => (dispatch: any) => {
+  return dispatch({
+    type: action.ALL_BATTLES_DATA.ACTION,
+    payload: {
+      promise: getActiveCard(payload).catch(() =>
         toast({
           type: 'error',
           icon: 'envelope',
