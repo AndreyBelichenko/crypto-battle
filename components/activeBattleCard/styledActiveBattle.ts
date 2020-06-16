@@ -129,9 +129,9 @@ export const CryptoCardLogo = styled.div`
 
 export const CryptoCardHp = styled.div`
   border-radius: 5px;
-  overflow: hidden;
   position: relative;
   width: 45%;
+  height: 20px;
   margin-bottom: 10px;
   min-width: 220px;
 
@@ -147,7 +147,7 @@ export const CryptoCardHp = styled.div`
 
   @media (max-width: ${breakPointsActiveCard.hiddenChart}px) {
     width: 50%;
-    min-width: 60px;
+    min-width: 50px;
     height: 15px;
     margin-bottom: 0;
   }
