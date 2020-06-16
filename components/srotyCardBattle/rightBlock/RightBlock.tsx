@@ -23,6 +23,8 @@ import {
   UserNameWrapper,
   CryptoCard,
   UserBlock,
+  AwardsBlockWrapper,
+  AwardText,
 } from '../styledStoryCard';
 
 const RightBlock: React.FC<any> = (props: any) => {
@@ -59,7 +61,10 @@ const RightBlock: React.FC<any> = (props: any) => {
         <ImageSword src={swordShow} />
       </UserBlock>
       <AwardsBlock>
-        <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+        <AwardsBlockWrapper>
+          <AvardsImage src={returnCorrectCryptoData(info.cryptoName, 'flag')} />
+          <AwardText>{info.userInfo.numberOfVictories}</AwardText>
+        </AwardsBlockWrapper>
       </AwardsBlock>
     </GamerBlockRight>
   );

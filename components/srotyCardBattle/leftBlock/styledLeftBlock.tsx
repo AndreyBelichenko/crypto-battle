@@ -57,6 +57,9 @@ export const AwardsBlock = styled.div`
   left: 0;
   top: -10px;
   text-align: right;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   @media (max-width: ${breakPointsActiveCard.big}px) {
     right: 0;
     top: -10px;

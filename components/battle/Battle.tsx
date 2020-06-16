@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router';
 
 import LoaderSemantic from '../loader/Loader';
 import BattleCard from '../card/Card';
@@ -12,9 +11,8 @@ import { LayoutWrapper } from '../ layout/styledComponents';
 
 const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLoad, clearBattles }) => {
   const showBattles = allBattle.filter((item: any) => item.gameStatus === 'START');
+  const [countBattles, setCountBattles] = React.useState(10);
   const filterBattles = sortArray(showBattles, userData.id);
-  const [countBattles, setCountBattles] = React.useState(5);
-  const router = useRouter();
 
   const handleScroll = (event: any) => {
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
@@ -26,34 +24,28 @@ const Battle: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLoad,
 
   React.useEffect(() => {
     clearBattles();
+    setCountBattles((prevState) => prevState + 1);
   }, []);
 
   React.useEffect(() => {
-    setRequestBattles({
-      skip: allBattle.length,
-      limit: 10,
-      sort: 'desc',
-      state: 'start',
-    });
+    if (countBattles > 10) {
+      setRequestBattles({
+        skip: allBattle.length,
+        limit: 10,
+        sort: 'desc',
+        state: 'start',
+      });
+    }
   }, [countBattles]);
-
-  const handleRoute = (item: any) =>
-    router.push({
-      pathname: '/active-battle',
-      query: {
-        firstPlayer: item.firstPlayer.userInfo.alias,
-        secondPlayer: item.secondPlayer.userInfo.alias,
-        battleId: item._id,
-      },
-    });
 
   return (
     <LayoutWrapper onScroll={handleScroll}>
-      {filterBattles.map((item: any) => (
-        <div onClick={handleRoute.bind(null, item)} key={item._id}>
-          <BattleCard item={item} />
-        </div>
-      ))}
+      {filterBattles &&
+        filterBattles.map((item: any) => (
+          <div key={item._id}>
+            <BattleCard item={item} />
+          </div>
+        ))}
       {isLoad && <LoaderSemantic marginNeed={true} />}
     </LayoutWrapper>
   );

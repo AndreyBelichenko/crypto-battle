@@ -22,6 +22,7 @@ export const MainDiv = styled.div`
   background: white;
   display: flex;
   border-radius: 5px;
+  position: relative;
   border: 1px solid ${projectColors.battleBorderColor};
   -webkit-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 10px 11px -7px rgba(0, 0, 0, 0.75);
@@ -95,17 +96,20 @@ export const CryptoCardHp = styled.div`
 `;
 
 export const UserPhoto = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   margin-bottom: 5px;
+  margin-top: 15px;
   @media (max-width: ${breakPointsActiveCard.big}px) {
     width: 45px;
     height: 45px;
+    margin-top: 10px;
   }
   @media (max-width: ${breakPointsActiveCard.medium}px) {
     width: 50px;
     height: 50px;
+    margin-top: 5px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     width: 35px;
@@ -114,13 +118,8 @@ export const UserPhoto = styled.img`
 `;
 
 export const AvardsImage = styled.img`
-  width: 85px;
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    width: 50px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    width: 40px;
-  }
+  width: 100%;
+  max-width: 85px;
 `;
 
 export const ProgressText = styled.div`
@@ -200,4 +199,36 @@ export const UserBlock = styled.div`
   width: 40%;
   position: relative;
   justify-content: space-between;
+`;
+
+export const AwardsBlockWrapper = styled.div`
+  position: relative;
+  width: 90%;
+  height: auto;
+`;
+
+export const AwardText = styled.div`
+  font-weight: bold;
+  font-size: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 30%;
+  justify-content: center;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    padding-top: 20%;
+    font-size: 13px;
+  }
+  @media (max-width: ${breakPointsActiveCard.small}px) {
+    padding-top: 20%;
+    font-size: 13px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    font-size: 11px;
+  }
 `;

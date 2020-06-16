@@ -46,23 +46,6 @@ export const CryptoCardName = styled.div<CryptoCardNameProps>`
   }
 `;
 
-export const AwardsBlock = styled.div`
-  height: 100%;
-  width: 25%;
-  position: relative;
-  right: 0;
-  top: -10px;
-  text-align: right;
-  @media (max-width: ${breakPointsActiveCard.big}px) {
-    right: 0;
-    top: -10px;
-  }
-  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    right: 0;
-    top: -10px;
-  }
-`;
-
 export const ImageCardLogoRight = styled.img`
   height: 40px;
   width: 40px;
@@ -85,5 +68,26 @@ export const ImageCardLogoRight = styled.img`
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
     height: 23px;
     width: 23px;
+  }
+`;
+
+export const AwardsBlock = styled.div`
+  height: 100%;
+  min-width: 55px;
+  width: 25%;
+  position: relative;
+  right: 0;
+  top: -10px;
+  text-align: right;
+  @media (max-width: ${breakPointsActiveCard.big}px) {
+    right: 0;
+    top: -10px;
+    max-width: 60px;
+    min-width: 40px;
+  }
+  @media (max-width: ${breakPointsActiveCard.xsmall}px) {
+    right: 0;
+    top: -10px;
+    min-width: 40px;
   }
 `;

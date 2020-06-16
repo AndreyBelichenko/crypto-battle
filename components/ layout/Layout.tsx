@@ -9,8 +9,8 @@ import { clearBattles, SetRequestBattles } from '../../store/redux/actionCreator
 import { LayoutWrapper } from './styledComponents';
 
 const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad, clearBattles }): any => {
-  const filterBattles = allBattle.filter((item: any) => item.gameStatus !== 'END');
-  const [countBattles, setCountBattles] = React.useState(5);
+  const filterBattles = allBattle.filter((item: any) => item.gameStatus === 'WAITING');
+  const [countBattles, setCountBattles] = React.useState(10);
 
   const handleScroll = (event: any) => {
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
@@ -22,15 +22,18 @@ const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad, clearBatt
 
   React.useEffect(() => {
     clearBattles();
+    setCountBattles((prevState) => prevState + 1);
   }, []);
 
   React.useEffect(() => {
-    setRequestBattles({
-      skip: allBattle.length,
-      limit: 10,
-      sort: 'desc',
-      state: 'start',
-    });
+    if (countBattles > 10) {
+      setRequestBattles({
+        skip: allBattle.length,
+        limit: 10,
+        sort: 'desc',
+        state: 'waiting',
+      });
+    }
   }, [countBattles]);
 
   return (
