@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import StoryCardBattle from '../srotyCardBattle/StoryCardBattle';
 import LoaderSemantic from '../loader/Loader';
-import { SetRequestBattles, clearBattles } from '../../store/redux/actionCreators/actionCreators';
+import { clearBattles, SetRequestBattles } from '../../store/redux/actionCreators/actionCreators';
 import { sortArray } from '../../utils/helpers';
 import { AppState } from '../../store/rootReducer';
 
@@ -24,15 +24,18 @@ const StoryPage: React.FC<any> = ({ allBattle, userData, setRequestBattles, isLo
 
   React.useEffect(() => {
     clearBattles();
+    setCountBattles((prevState) => prevState + 1);
   }, []);
 
   React.useEffect(() => {
-    setRequestBattles({
-      skip: allBattle.length,
-      limit: 10,
-      sort: 'desc',
-      state: 'end',
-    });
+    if (countBattles > 10) {
+      setRequestBattles({
+        skip: allBattle.length,
+        limit: 10,
+        sort: 'desc',
+        state: 'end',
+      });
+    }
   }, [countBattles]);
 
   return (

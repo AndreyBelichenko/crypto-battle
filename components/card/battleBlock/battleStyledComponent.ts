@@ -18,14 +18,12 @@ export const KnifesBlock = styled.div`
   margin-top: -60px;
   position: relative;
   @media (max-width: ${breakPointsActiveCard.big}px) {
-    width: 35px;
-    height: 35px;
-    margin-top: -43px;
+    width: 70px;
+    height: 50px;
   }
   @media (max-width: ${breakPointsActiveCard.xsmall}px) {
-    width: 25px;
-    height: 25px;
-    margin-top: -40px;
+    width: 50px;
+    height: 30px;
   }
 `;
 

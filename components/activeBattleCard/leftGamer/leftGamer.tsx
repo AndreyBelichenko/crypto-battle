@@ -58,7 +58,7 @@ const LeftGamer: React.FC<any> = (props: any) => {
         </CryptoCardMain>
         <CryptoCardHp>
           <ProgressText>{actualHealth} HP</ProgressText>
-          <ProgressSelf hp={giveProgressPercent(props.data.healthPoints, actualHealth)} />
+          <ProgressSelf hp={giveProgressPercent(props.cardData.healthPoints, actualHealth)} />
         </CryptoCardHp>
       </CryptoBlock>
     </GamerBlock>
