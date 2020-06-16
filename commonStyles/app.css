@@ -52,7 +52,6 @@
 
 .ui.progress:last-child {
     margin: 0!important;
-
 }
 
 .ui.accordion{
@@ -66,13 +65,13 @@
 .ui.accordion:not(.styled) .title~.content:not(.ui):last-child {
     padding-top: 0;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.6);
-    background: white;
+    background: #ffffff;
 }
 
 .listAbsolute{
     position: absolute;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.6);
-    background: white;
+    background: #ffffff;
     z-index: 2;
     right: 0;
     margin-top: 5px!important;
@@ -83,10 +82,10 @@
 }
 
 .listItemHover{
+    text-align: left;
     padding: 5px!important;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .listItemHover:hover{
@@ -125,9 +124,10 @@ margin: 0 40px 5px 0!important;
 }
 
 @media screen and (max-width: 1200px) {
-    .userBlock{
-        margin: 0 25px 5px 0!important;
+    .userBlock {
+        margin: 0 25px 5px 0 !important;
     }
+
     .coinImage{
         right: 15px!important;
     }

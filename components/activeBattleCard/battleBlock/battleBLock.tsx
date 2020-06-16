@@ -20,6 +20,11 @@ import {
 
 const BattleBlock: React.FC<any> = (props: any) => {
   const scroll: any = React.useRef();
+  const link = `/active-battle?firstPlayer=${encodeURIComponent(
+    props.cardData.firstPlayer.userInfo.alias,
+  )}&secondPlayer=${encodeURIComponent(props.cardData.secondPlayer.userInfo.alias)}&battleId=${encodeURIComponent(
+    props.cardData._id,
+  )}`;
 
   React.useEffect(() => {
     scroll.current.scrollTop = scroll.current.scrollHeight;
@@ -49,14 +54,7 @@ const BattleBlock: React.FC<any> = (props: any) => {
         </BattleInfoBet>
         <BattleInfoShare>
           <ShareBlock>
-            <ShareAccordionComponent
-              page={`/active-battle?firstPlayer=${encodeURIComponent(
-                props.cardData.firstPlayer.userInfo.alias,
-              )}&secondPlayer=${encodeURIComponent(
-                props.cardData.secondPlayer.userInfo.alias,
-              )}&battleId=${encodeURIComponent(props.cardData._id)}`}
-              position={true}
-            />
+            <ShareAccordionComponent page={link} position={true} />
           </ShareBlock>
         </BattleInfoShare>
       </BattleInfo>

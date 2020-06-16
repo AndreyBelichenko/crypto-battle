@@ -33,20 +33,20 @@ const ShareAccordionComponent = (props: ShareProps) => {
           <Transition visible={isVisible} animation="scale" duration={200}>
             <List divided relaxed className={positionName}>
               <List.Item className={'listItemHover'}>
-                <BtnSocShare>
-                  <FacebookShareButton url={`http://crypto-battle.pp.ua${page}`} quote={titlePage}>
+                <FacebookShareButton url={`http://crypto-battle.pp.ua${page}`} quote={titlePage}>
+                  <BtnSocShare>
                     <FacebookIcon size={20} round />
-                  </FacebookShareButton>
-                  <BtnSocShareText>Facebook</BtnSocShareText>
-                </BtnSocShare>
+                    <BtnSocShareText>Facebook</BtnSocShareText>
+                  </BtnSocShare>
+                </FacebookShareButton>
               </List.Item>
               <List.Item className={'listItemHover'}>
-                <BtnSocShare>
-                  <TwitterShareButton url={`http://crypto-battle.pp.ua${page}`} title={titlePage}>
+                <TwitterShareButton url={`http://crypto-battle.pp.ua${page}`} title={titlePage}>
+                  <BtnSocShare>
                     <TwitterIcon size={20} round />
-                  </TwitterShareButton>
-                  <BtnSocShareText>Twitter</BtnSocShareText>
-                </BtnSocShare>
+                    <BtnSocShareText>Twitter</BtnSocShareText>
+                  </BtnSocShare>
+                </TwitterShareButton>
               </List.Item>
             </List>
           </Transition>

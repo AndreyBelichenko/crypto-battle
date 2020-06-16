@@ -31,7 +31,7 @@ const Layout: React.FC<any> = ({ allBattle, setRequestBattles, isLoad, clearBatt
         skip: allBattle.length,
         limit: 10,
         sort: 'desc',
-        state: 'start',
+        state: 'waiting',
       });
     }
   }, [countBattles]);
