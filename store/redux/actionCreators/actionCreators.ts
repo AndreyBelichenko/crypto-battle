@@ -144,7 +144,7 @@ export const getActiveCardData = (payload: any) => (dispatch: any) => {
         toast({
           type: 'error',
           icon: 'envelope',
-          title: 'Error with logout',
+          title: 'Error with getting active battle',
           description: 'Sorry for the inconvenience, we will fix it soon',
           animation: 'bounce',
           time: 5000,
