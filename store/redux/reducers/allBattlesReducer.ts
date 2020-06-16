@@ -3,11 +3,13 @@ import * as actionTypes from '../actionTypes/actionTypes';
 export type InitialStateType = {
   allBattleData: any[];
   isLoad: boolean;
+  hasMore: boolean;
 };
 
 const initialState: InitialStateType = {
   allBattleData: [],
   isLoad: false,
+  hasMore: true,
 };
 
 export default function allBattleReducer(state: InitialStateType = initialState, action: any) {
@@ -18,6 +20,7 @@ export default function allBattleReducer(state: InitialStateType = initialState,
       return {
         ...state,
         allBattleData: [...state.allBattleData, ...action.payload.battles],
+        hasMore: action.payload.hasMore,
         isLoad: false,
       };
     case actionTypes.ALL_BATTLES_DATA.ERROR:
@@ -45,6 +48,11 @@ export default function allBattleReducer(state: InitialStateType = initialState,
       return {
         ...state,
         allBattleData: [{ ...action.payload }, ...state.allBattleData],
+      };
+    case actionTypes.CLEAR_BATTLES:
+      return {
+        ...state,
+        allBattleData: [],
       };
     default:
       return state;

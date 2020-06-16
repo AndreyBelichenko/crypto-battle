@@ -39,7 +39,6 @@ const WrapMarkUp: React.FC<any> = ({
   topWarriors,
   topCrypto,
   setSidebarCrypto,
-  setRequestBattles,
   setAllBattlesConnect,
   setAllBattlesCreate,
   setAllBattlesUpdate,
@@ -61,39 +60,32 @@ const WrapMarkUp: React.FC<any> = ({
       setAuthUserDataFromCookies(JSON.parse(userDataCookie));
     }
 
-    const paramsOfGetBattlesWait = {
-      skip: 0,
-      limit: 5,
-      sort: 'desc',
-      state: 'waiting',
-    };
-
-    const paramsOfGetBattlesStart = {
-      skip: 0,
-      limit: 5,
-      sort: 'desc',
-      state: 'start',
-    };
-
-    const paramsOfGetBattlesEnd = {
-      skip: 0,
-      limit: 5,
-      sort: 'desc',
-      state: 'end',
-    };
-
     setSidebarWarriors('top-warriors');
     setSidebarCrypto('crypto-currencies');
-    setRequestBattles(paramsOfGetBattlesWait);
-    setRequestBattles(paramsOfGetBattlesStart);
-    setRequestBattles(paramsOfGetBattlesEnd);
+  }, []);
 
+  React.useEffect(() => {
     new SocketConnection('ws://crypto-battle.pp.ua/socket');
     SocketConnection.getSocket().onmessage = (response: any) => {
       const readyResponse = JSON.parse(response.data);
       switch (readyResponse.message) {
         case 'start_battle':
-          return setAllBattlesConnect(readyResponse.battle);
+          if (
+            userData.id === readyResponse.battle.firstPlayer.userInfo._id ||
+            userData.id === readyResponse.battle.secondPlayer.userInfo._id
+          ) {
+            setAllBattlesConnect(readyResponse.battle);
+
+            return router.push({
+              pathname: '/active-battle',
+              query: {
+                firstPlayer: readyResponse.battle.firstPlayer.userInfo.alias,
+                secondPlayer: readyResponse.battle.secondPlayer.userInfo.alias,
+                battleId: readyResponse.battle._id,
+              },
+            });
+          }
+          break;
         case 'create_battle':
           return setAllBattlesCreate(readyResponse.battle);
         case 'update_battle':
@@ -105,7 +97,7 @@ const WrapMarkUp: React.FC<any> = ({
       }
     };
     setInterval(() => SocketConnection.getSocket().send(JSON.stringify({ method: 'ping' })), 60000);
-  }, []);
+  }, [userData]);
 
   const logOut = () => {
     Cookies.remove('userData');
@@ -230,7 +222,6 @@ export default connect(
   (dispatch: any) => ({
     setSidebarWarriors: (type: string) => dispatch(actions.setSidebarWarriors(type)),
     setSidebarCrypto: (type: string, skip: number | undefined) => dispatch(actions.setSidebarCrypto(type, skip)),
-    setRequestBattles: (payload: any) => dispatch(actions.SetRequestBattles(payload)),
     setAllBattlesConnect: (payload: any) => dispatch(actions.SetAllBattlesConnect(payload)),
     setAllBattlesCreate: (payload: any) => dispatch(actions.SetAllBattlesCreate(payload)),
     setAllBattlesUpdate: (payload: any) => dispatch(actions.SetAllBattlesUpdate(payload)),

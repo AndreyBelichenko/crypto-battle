@@ -13,9 +13,9 @@ export const BattleWrapper = styled.div`
 `;
 
 export const KnifesBlock = styled.div`
-  width: 50px;
-  height: 50px;
-  margin-top: -38px;
+  width: 100px;
+  height: 70px;
+  margin-top: -60px;
   position: relative;
   @media (max-width: ${breakPointsActiveCard.big}px) {
     width: 35px;

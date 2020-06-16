@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { Image } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 
-import { BattleWrapper, KnifesBlock, KnifeOne, KnifeTwo, BattleImg, WatchBattle } from './battleStyledComponent';
+import { BattleWrapper, KnifesBlock, BattleImg, WatchBattle } from './battleStyledComponent';
 
 const BattleBlock: React.FC<any> = (props: any) => {
   const info = props.data;
@@ -19,8 +20,7 @@ const BattleBlock: React.FC<any> = (props: any) => {
   return (
     <BattleWrapper>
       <KnifesBlock>
-        <KnifeOne src="/static/knife.svg" />
-        <KnifeTwo src="/static/knife.svg" />
+        <Image src={'/static/gifSwords.gif'} />
       </KnifesBlock>
       <BattleImg src="/static/vs.png" />
       <WatchBattle color="orange" onClick={handleRoute}>
