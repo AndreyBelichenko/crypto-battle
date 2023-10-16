@@ -1,6 +1,7 @@
 import * as React from 'react';
 // @ts-ignore
-import { RealTimeChartWidget } from 'react-tradingview-widgets';
+import { AdvancedRealTimeChart } from 'react-ts-tradingview-widgets';
+
 
 import { ChartWrapper } from './styledChart';
 
@@ -11,7 +12,8 @@ type ChartProps = {
 
 const Chart: React.FC<ChartProps> = ({ crypto, description }) => (
   <ChartWrapper>
-    <RealTimeChartWidget
+    {/* @ts-ignore*/}
+    <AdvancedRealTimeChart
       symbol={crypto}
       locale="en"
       interval={'1'}
